@@ -1,4 +1,7 @@
 ---
+import "@fontsource/rubik";
+import "@fontsource/staatliches";
+
 interface Props {
 	title?: string;
 }
@@ -16,7 +19,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Salve {title ? `😺 ${title}` : 'um Gatinho 😻'}</title>
 	</head>
-	<body>
+	<body class="font-body">
 		<slot />
 	</body>
 </html>
