@@ -9,6 +9,12 @@ export default {
 			body: ["Rubik", ...defaultTheme.fontFamily.sans],
 			display: ["Staatliches", ...defaultTheme.fontFamily.sans],
 		},
+		extend: {
+			spacing: {
+				header: "100px",
+				footer: "400px",
+			},
+		},
 	},
 	plugins: [
 		plugin(({ addBase, theme }) => {
