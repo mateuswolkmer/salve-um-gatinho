@@ -25,6 +25,8 @@ export default {
 				h4: { fontFamily: theme("fontFamily.display") },
 				h5: { fontFamily: theme("fontFamily.display") },
 				h6: { fontFamily: theme("fontFamily.display") },
+				button: { fontFamily: theme("fontFamily.display") },
+				a: { fontFamily: theme("fontFamily.display") },
 			});
 		}),
 	],
