@@ -3,7 +3,7 @@ import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-	"transition-all hover:scale-105 hover:-rotate-1 border-4 border-b-8 border-black rounded-xl",
+	"transition-all hover:scale-105 hover:-rotate-1 border-4 border-b-8 border-black rounded-xl flex gap-2",
 	{
 		variants: {
 			variant: {
@@ -20,6 +20,7 @@ export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
 export const Button: Component<ButtonProps> = ({
 	variant,
 	class: classes,
+	children,
 	...rest
 }) => {
 	return (
@@ -27,7 +28,12 @@ export const Button: Component<ButtonProps> = ({
 			type="button"
 			class={twMerge(buttonVariants({ variant }), classes)}
 			{...rest}
-		/>
+		>
+			{children}
+			{/* TODO replace > with icon */}
+			{/* TODO add animation */}
+			{variant === "nav" && <span class="text-3xl">{">"}</span>}
+		</button>
 	);
 };
 
@@ -38,6 +44,7 @@ export const ButtonLink: Component<ButtonLink> = ({
 	href,
 	variant,
 	class: classes,
+	children,
 	...rest
 }) => {
 	return (
@@ -45,6 +52,11 @@ export const ButtonLink: Component<ButtonLink> = ({
 			href={href}
 			class={twMerge(buttonVariants({ variant }), classes)}
 			{...rest}
-		/>
+		>
+			{children}
+			{/* TODO replace > with icon */}
+			{/* TODO add animation */}
+			{variant === "nav" && <span class="text-3xl">{">"}</span>}
+		</a>
 	);
 };
