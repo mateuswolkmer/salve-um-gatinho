@@ -27,6 +27,8 @@ export default {
 				h6: { fontFamily: theme("fontFamily.display") },
 				button: { fontFamily: theme("fontFamily.display") },
 				a: { fontFamily: theme("fontFamily.display") },
+				p: { fontSize: theme("fontSize.2xl") },
+				span: { fontSize: theme("fontSize.2xl") },
 			});
 		}),
 	],
