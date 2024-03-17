@@ -1,0 +1,41 @@
+---
+type Props = {};
+
+const {} = Astro.props;
+
+// TODO pull from database
+const data = {
+	helped: 890,
+	adopted: 540,
+	prepared: 56,
+	available: 34,
+};
+---
+<section class="px-20 py-10">
+    <!-- TODO add forms in background -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start justify-between text-center w-full">
+        <div class="flex flex-col gap-4">
+            <!-- TODO add shadow to text -->
+            <h6 class="text-6xl">{data.helped}</h6>
+            <div class="flex flex-col">
+                <span>gatos beneficiados</span>
+                <span class="text-lg">*resgatados ou apoiados</span>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <!-- TODO add shadow to text -->
+            <h6 class="text-6xl">{data.adopted}</h6>
+            <span>gatos adotados</span>
+        </div>
+        <div class="flex flex-col gap-4">
+            <!-- TODO add shadow to text -->
+            <h6 class="text-6xl">{data.prepared}</h6>
+            <span>gatos em tratamento ou socialização</span>
+        </div>
+        <div class="flex flex-col gap-4">
+            <!-- TODO add shadow to text -->
+            <h6 class="text-6xl">{data.available}</h6>
+            <span>gatos disponíveis para adoção</span>
+        </div>
+    </div>
+</section>
