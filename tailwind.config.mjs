@@ -6,7 +6,7 @@ export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
 	theme: {
 		fontFamily: {
-			body: ["Rubik", ...defaultTheme.fontFamily.sans],
+			body: ["Outfit Variable", ...defaultTheme.fontFamily.sans],
 			display: ["Staatliches", ...defaultTheme.fontFamily.sans],
 		},
 		extend: {
