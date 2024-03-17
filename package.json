@@ -11,10 +11,14 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.5.6",
+		"@astrojs/solid-js": "^4.0.1",
 		"@astrojs/tailwind": "^5.1.0",
 		"@fontsource/rubik": "^5.0.19",
 		"@fontsource/staatliches": "^5.0.19",
 		"astro": "^4.4.15",
+		"class-variance-authority": "^0.7.0",
+		"solid-js": "^1.8.15",
+		"tailwind-merge": "^2.2.2",
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5.4.2"
 	},

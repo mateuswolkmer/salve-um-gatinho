@@ -1,12 +1,11 @@
 ---
+import Actions from "../components/pages/Home/Actions.astro";
+import Hero from "../components/pages/Home/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<section class="px-20 py-10">
-		<div class="flex flex-col gap-8 items-start">
-			<h1 class="text-9xl max-w-4xl">Eles merecem uma chance de te fazer feliz</h1>
-			<button class="text-6xl bg-pink-400 hover:bg-pink-300 transition-all hover:-rotate-1 py-5 px-20 border-4 border-b-8 border-black rounded-xl">Adote</button>
-		</div>
-	</section>
+	<Hero />
+	<Actions />
+	<h2 class="text-5xl w-100 text-center my-20">O Salve um Gatinho atua em Santa Cruz do Sul, RS</h2>
 </Layout>

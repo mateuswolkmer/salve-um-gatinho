@@ -1,0 +1,40 @@
+---
+import { Button } from "../../Button";
+import { ButtonLink } from "../../Button";
+
+type Props = {};
+
+const {} = Astro.props;
+
+const actions = [
+	{
+		image: "",
+		label: "Adote",
+		href: "/adote",
+	},
+	{
+		image: "",
+		label: "Apadrinhe",
+		href: "/apadrinhe",
+	},
+	{
+		image: "",
+		label: "Ajude",
+		href: "/ajude",
+	},
+];
+---
+<section class="px-20 py-10">
+    <div class="flex gap-8 items-stretch justify-between">
+        {actions.map(action => (
+            <a href={action.href} class="flex flex-col gap-4 w-full items-center group">
+                <div id="card" class="h-96 w-full bg-yellow-200 border-4 border-black rounded-xl">
+                </div>
+                <Button variant="nav" class="group-hover:scale-105">
+                    <span>{action.label}</span>
+                    <span>></span>
+                </Button>
+            </a>)
+        )}
+    </div>
+</section>

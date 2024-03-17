@@ -1,0 +1,9 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "never",
+        "source.organizeImports.biome": "always",
+        // "source.fixAll": "always",
+        "quickfix.biome": "always"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+}
