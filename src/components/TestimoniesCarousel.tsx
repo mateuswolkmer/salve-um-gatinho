@@ -31,7 +31,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
 				<p>{selectedTestimony().comment}</p>
 			</div>
 			<div class="flex flex-col gap-1 items-center -mt-12">
-				<div class="flex gap-4 items-center h-24 mb-28">
+				<div class="flex gap-4 items-center h-24 mb-20">
 					<For each={testimonies}>
 						{(testimony, i) => {
 							const isSelected = createMemo(() => selected() === i());
