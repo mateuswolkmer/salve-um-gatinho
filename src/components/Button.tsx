@@ -3,7 +3,7 @@ import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-	"transition-all hover:scale-105 hover:-rotate-1 border-4 border-b-8 border-black rounded-xl flex gap-2",
+	"transition-all hover:scale-105 hover:-rotate-1 border-4 border-b-8 border-black rounded-xl flex gap-2 group",
 	{
 		variants: {
 			variant: {
@@ -31,8 +31,11 @@ export const Button: Component<ButtonProps> = ({
 		>
 			{children}
 			{/* TODO replace > with icon */}
-			{/* TODO add animation */}
-			{variant === "nav" && <span class="text-3xl">{">"}</span>}
+			{variant === "nav" && (
+				<span class="text-3xl transition-transform group-hover:scale-125">
+					{">"}
+				</span>
+			)}
 		</button>
 	);
 };
@@ -55,8 +58,11 @@ export const ButtonLink: Component<ButtonLink> = ({
 		>
 			{children}
 			{/* TODO replace > with icon */}
-			{/* TODO add animation */}
-			{variant === "nav" && <span class="text-3xl">{">"}</span>}
+			{variant === "nav" && (
+				<span class="text-3xl transition-transform group-hover:scale-125">
+					{">"}
+				</span>
+			)}
 		</a>
 	);
 };
