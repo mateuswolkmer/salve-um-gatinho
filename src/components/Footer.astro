@@ -1,10 +1,10 @@
 ---
-
+import Link from './Link.astro';
 ---
-<div class="p-8 bg-green-200 m-4 flex items-start justify-between rounded-xl h-footer border-black border-4" transition:name="footer">
+<div class="p-8 bg-blue m-4 flex items-start justify-between rounded-xl h-footer border-black border-4" transition:name="footer">
     <div></div>
-    <div class="flex gap-4">
-        <a href="/sobre" class="text-4xl">Sobre</a>
-        <a href="/adote" class="text-4xl">Adote</a>
+    <div class="flex gap-8">
+        <Link href='/sobre'>Sobre</Link>
+        <Link href='/adote'>Adote</Link>
     </div>
 </div>

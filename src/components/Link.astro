@@ -1,0 +1,10 @@
+---
+type Props = { href?: string };
+
+const { href } = Astro.props;
+
+const isActive = Astro.url.pathname === href;
+---
+<a href={href} class:list={["text-4xl relative after:transition-all after:h-1 after:bg-black after:absolute after:-bottom-1 after:left-0 after:max-w-0 hover:after:max-w-20 after:w-full", isActive && 'after:max-w-20']}>
+    <slot/>
+</a>
