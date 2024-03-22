@@ -3,9 +3,9 @@ import {
   type Component,
   For,
   Show,
+  createEffect,
   createMemo,
   createSignal,
-  createEffect,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
@@ -101,7 +101,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                     type="button"
                     class={twMerge(
                       "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-4 border-b-8 border-black transition-all transform size-16",
-                      isSelected() ? "size-24" : "hover:scale-110"
+                      isSelected() ? "size-24 border-b-4" : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-4"
                     )}
                     disabled={isSelected()}
                     title={`${isSelected() ? "" : "Selecionar "}${

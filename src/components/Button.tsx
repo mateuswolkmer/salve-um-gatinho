@@ -3,12 +3,12 @@ import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "transition-all hover:scale-105 hover:-rotate-1 border-4 border-b-8 border-black rounded-xl flex gap-2 group",
+  "transition-all hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-none hover:-rotate-1 border-4 border-b-8 active:border-b-4 active:mb-[4px] border-black rounded-xl flex gap-2 group",
   {
     variants: {
       variant: {
-        cta: "text-6xl bg-pink hover:bg-pink-300 py-5 px-20",
-        nav: "text-3xl bg-blue hover:bg-blue-300 py-2 px-5",
+        cta: "text-6xl bg-pink hover:bg-pink-300 active:bg-pink-600 py-5 px-20",
+        nav: "text-3xl bg-blue hover:bg-blue-300 active:bg-blue-600 py-2 px-5",
       },
     },
   }
