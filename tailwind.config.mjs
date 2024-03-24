@@ -13,6 +13,7 @@ export default {
       spacing: {
         header: "100px",
         footer: "400px",
+        section: "theme(spacing.24) theme(spacing.10)",
       },
       colors: {
         pink: {
