@@ -1,0 +1,59 @@
+import { cva, type VariantProps } from "class-variance-authority";
+import type { Component, JSX } from "solid-js";
+import { twMerge } from "tailwind-merge";
+
+const catCardVariants = cva(
+  "transition-all hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-none border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden",
+  {
+    variants: {
+      variant: {
+        small: "p-3 gap-3 flex-row items-end h-40 w-80",
+        vertical: "p-4 gap-4 flex-col h-[32rem] w-80",
+        big: "p-4 gap-4 flex-col h-[32rem] w-96",
+      },
+    },
+  }
+);
+
+const catCardTitleVariants = cva("flex", {
+  variants: {
+    variant: {
+      small: "flex-col-reverse gap-2 w-1/2",
+      vertical: "flex-row items-center justify-between flex-1",
+      big: "flex-row items-center justify-between flex-1",
+    },
+  },
+});
+
+export type CatCardProps = JSX.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof catCardVariants> & {
+    cat?: any;
+  };
+
+export const CatCard: Component<CatCardProps> = ({
+  cat = {},
+  variant = "big",
+  class: classes,
+  ...rest
+}) => {
+  return (
+    <div class={twMerge(catCardVariants({ variant }), classes)}>
+      <div
+        class={twMerge(
+          "bg-gray-200 rounded-xl w-full h-full",
+          variant === "small" && "w-1/2 h-full"
+        )}
+      />
+      <div class={catCardTitleVariants({ variant })}>
+        <span class="text-3xl font-bold text-ellipsis text-nowrap overflow-hidden">
+          {cat.name}
+        </span>
+        <div class="flex gap-2">
+          <span class="border-2 border-black rounded-full px-2 text-base bg-gray-200 relative after:-top-2 after:-right-2 after:absolute after:text-black after:text-3xl after:content-['*'] after:font-bold after:text-shadow-yellow">
+            Novo
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};

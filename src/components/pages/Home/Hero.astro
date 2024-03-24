@@ -1,13 +1,21 @@
 ---
 import { ButtonLink } from "../../Button";
+import { CatCard } from "../../CatCard";
 
 type Props = {};
 
 const {} = Astro.props;
 ---
-<section class="p-section">
-    <div class="flex flex-col gap-8 items-start">
-        <h1 class="text-9xl max-w-4xl text-shadow-pink">Eles merecem uma chance de te fazer feliz</h1>
-        <ButtonLink href="/adote" variant={"cta"}>Adote</ButtonLink>
+<section class="p-section max-w-[100rem] m-auto">
+    <div class="flex content-between gap-4 w-full">
+        <div class="flex flex-col gap-8 items-start w-full">
+            <h1 class="text-9xl max-w-4xl text-shadow-pink">Eles merecem uma chance de te fazer feliz</h1>
+            <ButtonLink href="/adote" variant="cta">Adote</ButtonLink>
+        </div>
+        <div class="flex flex-col items-center gap-6">
+            <CatCard variant="small" cat={{ name: 'Pingo' }}/>
+            <CatCard variant="small" cat={{ name: 'Preta' }}/>
+            <ButtonLink href="/adote" variant="nav">Ver mais</ButtonLink>
+        </div>
     </div>
 </section>
