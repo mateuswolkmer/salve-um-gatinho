@@ -21,6 +21,7 @@ export default {
           200: "#eed9e9",
           300: "#e5c5df",
           400: "#ddb2d4",
+          500: "#d49fc9",
           DEFAULT: "#d49fc9",
           600: "#aa7fa1",
           700: "#7f5f79",
@@ -32,6 +33,7 @@ export default {
           200: "#dff2f2",
           300: "#ceebeb",
           400: "#bee5e5",
+          500: "#aedede",
           DEFAULT: "#aedede",
           600: "#8bb2b2",
           700: "#688585",
@@ -43,6 +45,7 @@ export default {
           200: "#fcf3c8",
           300: "#fbecad",
           400: "#f9e691",
+          500: "#f8e076",
           DEFAULT: "#f8e076",
           600: "#c6b35e",
           700: "#958647",
@@ -53,7 +56,7 @@ export default {
     },
   },
   plugins: [
-    plugin(({ addBase, theme }) => {
+    plugin(({ addBase, addUtilities, theme }) => {
       addBase({
         h1: { fontFamily: theme("fontFamily.display") },
         h2: { fontFamily: theme("fontFamily.display") },
@@ -65,6 +68,20 @@ export default {
         a: { fontFamily: theme("fontFamily.display") },
         p: { fontSize: theme("fontSize.2xl") },
         span: { fontSize: theme("fontSize.2xl") },
+      });
+      addUtilities({
+        ".text-shadow-pink": {
+          "-webkit-text-stroke": "1px white",
+          "text-shadow": `4px 4px 0 ${theme("colors.pink.DEFAULT")}`,
+        },
+        ".text-shadow-blue": {
+          "-webkit-text-stroke": "1px white",
+          "text-shadow": `4px 4px 0 ${theme("colors.blue.DEFAULT")}`,
+        },
+        ".text-shadow-yellow": {
+          "-webkit-text-stroke": "1px white",
+          "text-shadow": `4px 4px 0 ${theme("colors.yellow.DEFAULT")}`,
+        },
       });
     }),
   ],
