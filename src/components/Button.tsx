@@ -57,7 +57,6 @@ export const ButtonLink: Component<ButtonLink> = ({
       {...rest}
     >
       {children}
-      {/* TODO replace > with icon */}
       {variant === "nav" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {">"}
