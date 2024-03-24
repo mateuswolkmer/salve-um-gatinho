@@ -50,7 +50,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
         <span class="absolute -top-20 -left-20 text-blue text-[400px] font-display leading-none">
           “
         </span>
-        <span class="absolute top-28 -right-20 text-blue text-[400px] font-display leading-none">
+        <span class="absolute -bottom-72 -right-20 text-blue text-[400px] font-display leading-none">
           ”
         </span>
         <div ref={setCommentsWrapperRef} class="relative w-full transition-all">
@@ -101,7 +101,9 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                     type="button"
                     class={twMerge(
                       "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-4 border-b-8 border-black transition-all transform size-16",
-                      isSelected() ? "size-24 border-b-4" : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-4"
+                      isSelected()
+                        ? "size-24 border-b-4"
+                        : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-4"
                     )}
                     disabled={isSelected()}
                     title={`${isSelected() ? "" : "Selecionar "}${
