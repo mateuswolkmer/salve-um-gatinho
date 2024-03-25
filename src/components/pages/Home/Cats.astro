@@ -5,19 +5,37 @@ import { CatCard } from "../../CatCard";
 type Props = {};
 
 const {} = Astro.props;
+
+// TODO get from database
+const cats = [{
+    name: 'Pingo'
+},{
+    name: 'Preta'
+},{
+    name: 'Claraluz'
+},{
+    name: 'Vemcá'
+},{
+    name: 'Vitória Régia'
+},{
+    name: 'Blau'
+},{
+    name: 'Miojo'
+},{
+    name: 'Norman'
+},{
+    name: 'Felipe'
+},{
+    name: 'Rian'
+}]
 ---
 <section class="p-section">
     <div class="flex flex-col gap-12 items-start">
         <div class="flex gap-8 flex-nowrap -mr-20">
-            <CatCard variant="vertical" cat={{ name: 'Vemcá'}} />
-            <CatCard variant="vertical" cat={{ name: 'Blau'}} />
-            <CatCard variant="vertical" cat={{ name: 'Vitória Régia'}} />
-            <CatCard variant="vertical" cat={{ name: 'Claraluz'}} />
-            <CatCard variant="vertical" cat={{ name: 'Claraluz'}} />
-            <CatCard variant="vertical" cat={{ name: 'Claraluz'}} />
+            {cats.map(cat => <CatCard transition:name={`cat_${cat.name}`} variant="vertical" cat={cat} />)}
         </div>
         <div class="flex justify-between md:justify-center w-full">
-            <ButtonLink href="/sobre" variant="nav">Ver mais</ButtonLink>
+            <ButtonLink href="/adote" variant="nav">Ver mais</ButtonLink>
             <!-- FIXME make next button work -->
             <Button variant="nav" class="md:absolute md:right-10"></Button>
         </div>

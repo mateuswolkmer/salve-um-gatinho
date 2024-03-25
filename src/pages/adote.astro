@@ -1,9 +1,35 @@
 ---
+import { CatCard } from "../components/CatCard";
 import Layout from "../layouts/Layout.astro";
+
+// TODO get from database
+const cats = [{
+    name: 'Pingo'
+},{
+    name: 'Preta'
+},{
+    name: 'Claraluz'
+},{
+    name: 'Vemcá'
+},{
+    name: 'Vitória Régia'
+},{
+    name: 'Blau'
+},{
+    name: 'Miojo'
+},{
+    name: 'Norman'
+},{
+    name: 'Felipe'
+},{
+    name: 'Rian'
+}]
 ---
 
 <Layout title="Adote">
-	<main>
-        <h1>Adote</h1>
-    </main>
+    <div class="p-section flex flex-wrap gap-8 justify-center">
+        {cats.map(cat => (
+            <CatCard transition:animate="slide" transition:name={`cat_${cat.name}`} cat={cat} />
+        ))}
+    </div>
 </Layout>
