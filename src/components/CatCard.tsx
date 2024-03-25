@@ -8,7 +8,7 @@ const catCardVariants = cva(
     variants: {
       variant: {
         small: "p-3 gap-3 flex-row items-end h-40 w-80",
-        vertical: "p-4 gap-4 flex-col h-[32rem] w-80",
+        vertical: "p-4 gap-4 flex-col h-[30rem] w-80 min-w-80",
         big: "p-4 gap-4 flex-col h-[32rem] md:w-[30rem] w-full",
       },
     },

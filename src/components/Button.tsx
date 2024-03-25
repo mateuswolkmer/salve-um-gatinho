@@ -16,10 +16,13 @@ const buttonVariants = cva(
 );
 
 export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants>;
+  VariantProps<typeof buttonVariants> & {
+    navDirection?: "forward" | "backward";
+  };
 
 export const Button: Component<ButtonProps> = ({
   variant,
+  navDirection = "forward",
   class: classes,
   children,
   ...rest
@@ -30,8 +33,13 @@ export const Button: Component<ButtonProps> = ({
       class={twMerge(buttonVariants({ variant }), classes)}
       {...rest}
     >
+      {variant === "nav" && navDirection === "backward" && (
+        <span class="text-3xl transition-transform group-hover:scale-125">
+          {"<"}
+        </span>
+      )}
       {children}
-      {variant === "nav" && (
+      {variant === "nav" && navDirection === "forward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {">"}
         </span>
@@ -41,11 +49,14 @@ export const Button: Component<ButtonProps> = ({
 };
 
 export type ButtonLink = JSX.AnchorHTMLAttributes<HTMLAnchorElement> &
-  VariantProps<typeof buttonVariants>;
+  VariantProps<typeof buttonVariants> & {
+    navDirection?: "forward" | "backward";
+  };
 
 export const ButtonLink: Component<ButtonLink> = ({
   href,
   variant,
+  navDirection = "forward",
   class: classes,
   children,
   ...rest
@@ -56,8 +67,13 @@ export const ButtonLink: Component<ButtonLink> = ({
       class={twMerge(buttonVariants({ variant }), classes)}
       {...rest}
     >
+      {variant === "nav" && navDirection === "backward" && (
+        <span class="text-3xl transition-transform group-hover:scale-125">
+          {"<"}
+        </span>
+      )}
       {children}
-      {variant === "nav" && (
+      {variant === "nav" && navDirection === "forward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {">"}
         </span>

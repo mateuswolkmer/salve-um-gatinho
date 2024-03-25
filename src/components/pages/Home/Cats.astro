@@ -1,6 +1,5 @@
 ---
-import { Button, ButtonLink } from "../../Button";
-import { CatCard } from "../../CatCard";
+import { CatsList } from "../../CatsList";
 
 type Props = {};
 
@@ -30,14 +29,6 @@ const cats = [{
 }]
 ---
 <section class="p-section">
-    <div class="flex flex-col gap-12 items-start">
-        <div class="flex gap-8 flex-nowrap -mr-20">
-            {cats.map(cat => <CatCard transition:name={`cat_${cat.name}`} variant="vertical" cat={cat} />)}
-        </div>
-        <div class="flex justify-between md:justify-center w-full">
-            <ButtonLink href="/adote" variant="nav">Ver mais</ButtonLink>
-            <!-- FIXME make next button work -->
-            <Button variant="nav" class="md:absolute md:right-10"></Button>
-        </div>
-    </div>
+    <CatsList cats={cats} client:load />
 </section>
+
