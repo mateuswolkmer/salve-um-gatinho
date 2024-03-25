@@ -3,7 +3,7 @@ import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const catCardVariants = cva(
-  "transition-all hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-none border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden",
+  "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden",
   {
     variants: {
       variant: {
