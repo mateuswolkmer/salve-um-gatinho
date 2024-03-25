@@ -19,7 +19,7 @@ const cats = [{
             <h1 class="text-9xl max-w-4xl text-shadow-pink">Eles merecem uma chance de te fazer feliz</h1>
             <ButtonLink href="/adote" variant="cta">Adote</ButtonLink>
         </div>
-        <div class="flex flex-col items-center gap-6">
+        <div class="hidden lg:flex flex-col items-center gap-6">
             {cats.map(cat => <CatCard transition:animate="slide" transition:name={`cat_${cat.name}`} variant="small" cat={cat} />)}
             <ButtonLink href="/adote" variant="nav">Ver mais</ButtonLink>
         </div>

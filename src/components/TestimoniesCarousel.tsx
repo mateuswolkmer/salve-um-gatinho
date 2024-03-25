@@ -47,10 +47,10 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
   return (
     <div class="flex flex-col items-center w-full">
       <div class="w-full bg-blue-200 rounded-xl border-4 border-black flex items-center justify-center px-10 py-20 relative">
-        <span class="absolute -top-20 -left-20 text-blue text-[400px] font-display leading-none">
+        <span class="absolute -top-[5.5rem] left:0 right:0 md:-top-20 md:-left-20 text-blue text-[400px] font-display leading-none">
           “
         </span>
-        <span class="absolute -bottom-72 -right-20 text-blue text-[400px] font-display leading-none">
+        <span class="hidden md:block absolute -bottom-72 -right-20 text-blue text-[400px] font-display leading-none">
           ”
         </span>
         <div ref={setCommentsWrapperRef} class="relative w-full transition-all">
@@ -85,6 +85,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
           </For>
         </div>
       </div>
+      {/* FIXME make responsive, add buttons to go to next or previous testimony on mobile, centered on middle */}
       <div class="flex flex-col gap-1 items-center -mt-12">
         <div class="flex gap-6 items-center h-24 mb-20">
           <For each={testimonies}>

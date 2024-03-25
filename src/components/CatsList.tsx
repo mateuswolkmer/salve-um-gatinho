@@ -33,22 +33,12 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
           />
         ))}
       </div>
-      <div class="flex justify-between md:justify-center w-full">
-        <Button
-          variant="nav"
-          navDirection="backward"
-          class="md:absolute md:left-10"
-          onClick={scrollLeft}
-        />
+      <div class="flex justify-between w-full">
+        <Button variant="nav" navDirection="backward" onClick={scrollLeft} />
         <ButtonLink href="/adote" variant="nav">
           Ver mais
         </ButtonLink>
-        <Button
-          variant="nav"
-          navDirection="forward"
-          class="md:absolute md:right-10"
-          onClick={scrollRight}
-        />
+        <Button variant="nav" navDirection="forward" onClick={scrollRight} />
       </div>
     </div>
   );
