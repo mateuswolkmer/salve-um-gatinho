@@ -71,16 +71,25 @@ export default {
       });
       addUtilities({
         ".text-shadow-pink": {
-          "-webkit-text-stroke": "1px white",
-          "text-shadow": `4px 4px 0 ${theme("colors.pink.DEFAULT")}`,
+          // "-webkit-text-stroke": "1px white",
+          // "text-shadow": `4px 4px 0 ${theme("colors.pink.DEFAULT")}`,
+          "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 6px 6px 0 ${theme(
+            "colors.pink.DEFAULT"
+          )}`,
         },
         ".text-shadow-blue": {
-          "-webkit-text-stroke": "1px white",
-          "text-shadow": `4px 4px 0 ${theme("colors.blue.DEFAULT")}`,
+          // "-webkit-text-stroke": "1px white",
+          // "text-shadow": `4px 4px 0 ${theme("colors.blue.DEFAULT")}`,
+          "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 6px 6px 0 ${theme(
+            "colors.blue.DEFAULT"
+          )}`,
         },
         ".text-shadow-yellow": {
-          "-webkit-text-stroke": "1px white",
-          "text-shadow": `4px 4px 0 ${theme("colors.yellow.DEFAULT")}`,
+          // "-webkit-text-stroke": "1px white",
+          // "text-shadow": `4px 4px 0 ${theme("colors.yellow.DEFAULT")}`,
+          "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 6px 6px 0 ${theme(
+            "colors.yellow.DEFAULT"
+          )}`,
         },
       });
     }),
