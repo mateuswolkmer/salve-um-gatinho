@@ -8,6 +8,7 @@ import {
   createSignal,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
+import { Button } from "./Button";
 
 export type Testimony = {
   image: string;
@@ -28,7 +29,18 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
   const initialSelected = isEven ? 0 : Math.floor(testimonies.length / 2);
 
   const [selected, setSelected] = createSignal(initialSelected);
-  const selectedTestimony = createMemo(() => testimonies[selected()]);
+
+  const setSelectedForward = () => {
+    if (selected() < testimonies.length - 1) setSelected((cur) => cur + 1);
+  };
+  const forwardDisabled = createMemo(
+    () => selected() === testimonies.length - 1
+  );
+
+  const setSelectedBackward = () => {
+    if (selected() > 0) setSelected((cur) => cur - 1);
+  };
+  const backwardDisabled = () => selected() === 0;
 
   const [commentRefs, setCommentRefs] = createSignal<HTMLParagraphElement[]>(
     []
@@ -46,7 +58,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
 
   return (
     <div class="flex flex-col items-center w-full">
-      <div class="w-full bg-blue-200 rounded-xl border-4 border-black flex items-center justify-center px-10 py-20 relative">
+      <div class="w-full bg-blue-200 rounded-xl border-4 border-black flex items-center justify-center px-10 pb-20 pt-24 md:pt-20 relative">
         <span class="absolute -top-[5.5rem] left:0 right:0 md:-top-20 md:-left-20 text-blue text-[400px] font-display leading-none">
           “
         </span>
@@ -85,9 +97,16 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
           </For>
         </div>
       </div>
-      {/* FIXME make responsive, add buttons to go to next or previous testimony on mobile, centered on middle */}
       <div class="flex flex-col gap-1 items-center -mt-12">
-        <div class="flex gap-6 items-center h-24 mb-20">
+        <div class="flex gap-6 items-center h-24 mb-20 relative">
+          <Button
+            variant="nav"
+            navDirection="backward"
+            class="absolute right-20 md:hidden disabled:bg-red-500"
+            onClick={setSelectedBackward}
+            // FIXME disabled not working
+            disabled={backwardDisabled()}
+          />
           <For each={testimonies}>
             {(testimony, i) => {
               const isSelected = createMemo(() => selected() === i());
@@ -97,14 +116,14 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
               });
 
               return (
-                <div class="relative">
+                <div class="absolute md:relative top-0 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0">
                   <button
                     type="button"
                     class={twMerge(
-                      "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-4 border-b-8 border-black transition-all transform size-16",
+                      "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-4 border-b-8 border-black transition-all duration-500 md:duration-300 size-24 md:size-16 opacity-0 md:opacity-100",
                       isSelected()
-                        ? "size-24 border-b-4"
-                        : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-4"
+                        ? "size-24 md:size-24 border-b-4 opacity-100 z-10"
+                        : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-4 pointer-events-none md:pointer-events-auto"
                     )}
                     disabled={isSelected()}
                     title={`${isSelected() ? "" : "Selecionar "}${
@@ -137,6 +156,14 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
               );
             }}
           </For>
+          <Button
+            variant="nav"
+            navDirection="forward"
+            class="absolute left-20 md:hidden"
+            onClick={setSelectedForward}
+            // FIXME disabled not working
+            disabled={forwardDisabled()}
+          />
         </div>
       </div>
     </div>

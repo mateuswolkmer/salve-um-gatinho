@@ -11,11 +11,11 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
   let catsListRef: HTMLDivElement | undefined = undefined;
 
   const scrollRight = () => {
-    if (catsListRef) catsListRef.scrollLeft += 500;
+    if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft += 500;
   };
 
   const scrollLeft = () => {
-    if (catsListRef) catsListRef.scrollLeft -= 500;
+    if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft -= 500;
   };
 
   return (
