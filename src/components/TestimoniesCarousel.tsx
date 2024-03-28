@@ -6,6 +6,7 @@ import {
   createEffect,
   createMemo,
   createSignal,
+  createComputed,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
@@ -33,14 +34,22 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
   const setSelectedForward = () => {
     if (selected() < testimonies.length - 1) setSelected((cur) => cur + 1);
   };
-  const forwardDisabled = createMemo(
-    () => selected() === testimonies.length - 1
-  );
 
   const setSelectedBackward = () => {
     if (selected() > 0) setSelected((cur) => cur - 1);
   };
-  const backwardDisabled = () => selected() === 0;
+
+  let backwardButton: HTMLButtonElement | undefined;
+  let forwardButton: HTMLButtonElement | undefined;
+
+  createEffect(() => {
+    if (backwardButton) {
+      backwardButton.disabled = selected() === 0;
+    }
+    if (forwardButton) {
+      forwardButton.disabled = selected() === testimonies.length - 1;
+    }
+  });
 
   const [commentRefs, setCommentRefs] = createSignal<HTMLParagraphElement[]>(
     []
@@ -102,10 +111,9 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
           <Button
             variant="nav"
             navDirection="backward"
-            class="absolute right-20 md:hidden disabled:bg-red-500"
+            class="absolute right-20 md:hidden"
             onClick={setSelectedBackward}
-            // FIXME disabled not working
-            disabled={backwardDisabled()}
+            ref={backwardButton}
           />
           <For each={testimonies}>
             {(testimony, i) => {
@@ -161,8 +169,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
             navDirection="forward"
             class="absolute left-20 md:hidden"
             onClick={setSelectedForward}
-            // FIXME disabled not working
-            disabled={forwardDisabled()}
+            ref={forwardButton}
           />
         </div>
       </div>

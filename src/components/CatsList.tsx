@@ -1,4 +1,4 @@
-import { createMemo, type Component, onMount } from "solid-js";
+import { createMemo, type Component, onMount, createEffect } from "solid-js";
 import { CatCard } from "./CatCard";
 import { Button, ButtonLink } from "./Button";
 
@@ -8,7 +8,7 @@ export type CatsListProps = {
 };
 
 export const CatsList: Component<CatsListProps> = ({ cats }) => {
-  let catsListRef: HTMLDivElement | undefined = undefined;
+  let catsListRef: HTMLDivElement | undefined;
 
   const scrollRight = () => {
     if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft += 500;
@@ -17,6 +17,26 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
   const scrollLeft = () => {
     if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft -= 500;
   };
+
+  let backwardButton: HTMLButtonElement | undefined;
+  let forwardButton: HTMLButtonElement | undefined;
+
+  createEffect(() => {
+    const onScroll = () => {
+      if (!catsListRef || !backwardButton || !forwardButton) return;
+
+      const reachedStart = catsListRef.scrollLeft <= 50;
+      const reachedEnd =
+        catsListRef.scrollLeft + catsListRef.offsetWidth >=
+        catsListRef.scrollWidth - 50;
+
+      backwardButton.disabled = reachedStart;
+      forwardButton.disabled = reachedEnd;
+    };
+
+    catsListRef?.addEventListener("scroll", onScroll);
+    return () => catsListRef?.removeEventListener("scroll", onScroll);
+  });
 
   return (
     <div class="flex flex-col gap-12 items-start">
@@ -33,12 +53,23 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
           />
         ))}
       </div>
-      <div class="flex justify-between w-full">
-        <Button variant="nav" navDirection="backward" onClick={scrollLeft} />
+      <div class="flex justify-between items-center w-full">
+        <Button
+          variant="nav"
+          navDirection="backward"
+          onClick={scrollLeft}
+          ref={backwardButton}
+          disabled
+        />
         <ButtonLink href="/adote" variant="nav">
           Ver mais
         </ButtonLink>
-        <Button variant="nav" navDirection="forward" onClick={scrollRight} />
+        <Button
+          variant="nav"
+          navDirection="forward"
+          onClick={scrollRight}
+          ref={forwardButton}
+        />
       </div>
     </div>
   );
