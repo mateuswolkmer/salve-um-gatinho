@@ -27,9 +27,11 @@ const cats = [{
 ---
 
 <Layout title="Adote">
-    <div class="p-section flex flex-wrap gap-8 justify-center">
-        {cats.map(cat => (
-            <CatCard transition:animate="slide" transition:name={`cat_${cat.name}`} cat={cat} />
-        ))}
+    <div class="p-section">
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+            {cats.map(cat => (
+                <CatCard transition:animate="slide" transition:name={`cat_${cat.name}`} cat={cat} />
+            ))}
+        </div>
     </div>
 </Layout>

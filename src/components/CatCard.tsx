@@ -9,7 +9,7 @@ const catCardVariants = cva(
       variant: {
         small: "p-3 gap-3 flex-row items-end h-40 w-80",
         vertical: "p-4 gap-4 flex-col h-[30rem] w-80 min-w-80",
-        big: "p-4 gap-4 flex-col h-[32rem] md:w-[30rem] w-full",
+        big: "p-4 gap-4 flex-col h-72 md:h-80 xl:h-96 w-full",
       },
     },
   }
@@ -43,7 +43,7 @@ export const CatCard: Component<CatCardProps> = ({
           "bg-gray-200 rounded-xl w-full h-full",
           variant === "small" && "w-1/2 h-full"
         )}
-      />
+      ></div>
       <div class={catCardTitleVariants({ variant })}>
         <span
           class={twMerge(
