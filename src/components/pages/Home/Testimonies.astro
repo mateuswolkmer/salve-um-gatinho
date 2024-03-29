@@ -1,4 +1,5 @@
 ---
+import PageSection from "../../PageSection.astro";
 import { TestimoniesCarousel, type Testimony } from "../../TestimoniesCarousel";
 
 type Props = {};
@@ -45,8 +46,8 @@ const testimonies: Testimony[] = [
 	},
 ];
 ---
-<section class="p-section">
+<PageSection>
     <div class="w-full max-w-3xl m-auto">
         <TestimoniesCarousel testimonies={testimonies} client:visible />
     </div>
-</section>
+</PageSection>

@@ -1,5 +1,6 @@
 ---
 import { Button } from '../../Button';
+import PageSection from '../../PageSection.astro';
 
 type Props = {};
 
@@ -21,29 +22,29 @@ if (Astro.request.method === "POST") {
   }
 }
 ---
-<section class="p-section">
-    <div class="flex flex-col gap-10 max-w-xl m-auto">
-        <!-- FIXME think of better header -->
-        <p class="text-3xl font-medium text-center">Fale conosco</p>
-        <form method="post" autocomplete="on" class="flex flex-col gap-2">
-            <div class="flex flex-col gap-1">
-                <label for="name" class="text-lg font-semibold">Nome</label>
-                <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
-            </div>
-            <div class="flex flex-col gap-1">
-                <label for="email" class="text-lg font-semibold">Email</label>
-                <input id="email" name="email" type="email" placeholder="maria@gmail.com" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
-            </div>
-            <div class="flex flex-col gap-1">
-                <label for="subject" class="text-lg font-semibold">Assunto</label>
-                <input id="subject" name="subject" type="text" placeholder="Dúvida" class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
-            </div>
-            <div class="flex flex-col gap-1">
-                <label for="message" class="text-lg font-semibold">Mensagem</label>
-                <textarea id="message" placeholder="Olá, eu gostaria de tirar uma dúvida..." name="message" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
-            </div>
-            <Button variant="form" class="self-center mt-4" type="submit">Enviar</Button>
-        </form>
+<PageSection>
+  <div class="flex flex-col gap-10 max-w-xl m-auto">
+      <!-- FIXME think of better header -->
+      <p class="text-3xl font-medium text-center">Fale conosco</p>
+      <form method="post" autocomplete="on" class="flex flex-col gap-2">
+          <div class="flex flex-col gap-1">
+              <label for="name" class="text-lg font-semibold">Nome</label>
+              <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+          </div>
+          <div class="flex flex-col gap-1">
+              <label for="email" class="text-lg font-semibold">Email</label>
+              <input id="email" name="email" type="email" placeholder="maria@gmail.com" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+          </div>
+          <div class="flex flex-col gap-1">
+              <label for="subject" class="text-lg font-semibold">Assunto</label>
+              <input id="subject" name="subject" type="text" placeholder="Dúvida" class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+          </div>
+          <div class="flex flex-col gap-1">
+              <label for="message" class="text-lg font-semibold">Mensagem</label>
+              <textarea id="message" placeholder="Olá, eu gostaria de tirar uma dúvida..." name="message" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
+          </div>
+          <Button variant="form" class="self-center mt-4" type="submit">Enviar</Button>
+      </form>
     </div>
-</div>
-</section>
+  </div>  
+</PageSection>

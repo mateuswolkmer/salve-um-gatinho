@@ -1,6 +1,7 @@
 ---
 import { ButtonLink } from "../../Button";
 import { CatCard } from "../../CatCard";
+import PageSection from "../../PageSection.astro";
 
 type Props = {};
 
@@ -15,10 +16,10 @@ const cats = [{
     formattedName: 'preta'
 }]
 ---
-<section class="p-section max-w-[100rem] m-auto">
+<PageSection class="max-w-[100rem] m-auto">
     <div class="flex content-between gap-4 w-full">
-        <div class="flex flex-col gap-8 items-start w-full">
-            <h1 class="text-9xl max-w-4xl text-shadow-pink">Eles merecem uma chance de te fazer feliz</h1>
+        <div class="flex flex-col gap-8 items-center sm:items-start w-full text-center sm:text-start">
+            <h1 class="text-7xl sm:text-8xl md:text-9xl max-w-4xl text-shadow-pink">Eles merecem uma chance de te fazer feliz</h1>
             <ButtonLink href="/gatos" variant="cta">Adote</ButtonLink>
         </div>
         <div class="hidden lg:flex flex-col items-center gap-6">
@@ -27,4 +28,4 @@ const cats = [{
             <ButtonLink href="/gatos" variant="nav">Ver mais</ButtonLink>
         </div>
     </div>
-</section>
+</PageSection>

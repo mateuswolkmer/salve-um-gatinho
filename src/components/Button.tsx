@@ -7,7 +7,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        cta: "text-6xl bg-pink hover:bg-pink-300 active:bg-pink-600 py-5 px-20",
+        cta: "text-5xl sm:text-6xl bg-pink hover:bg-pink-300 active:bg-pink-600 py-4 sm:py-5 px-16 sm:px-20",
         nav: "text-3xl bg-blue hover:bg-blue-300 active:bg-blue-600 py-2 px-5",
         form: "text-4xl bg-yellow hover:bg-yellow-300 active:bg-yellow-600 py-2 px-6",
       },
