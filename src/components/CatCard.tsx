@@ -3,7 +3,7 @@ import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const catCardVariants = cva(
-  "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden",
+  "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden font-body",
   {
     variants: {
       variant: {
@@ -36,8 +36,18 @@ export const CatCard: Component<CatCardProps> = ({
   class: classes,
   ...rest
 }) => {
+  const formattedName = cat.name
+    ?.toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9 ]/g, "")
+    .replace(/\s+/g, "_");
   return (
-    <div class={twMerge(catCardVariants({ variant }), classes)}>
+    <a
+      href={`gatos/${formattedName}`}
+      class={twMerge(catCardVariants({ variant }), classes)}
+      style={{ "view-transition-name": `cat_${formattedName}` }}
+    >
       <div
         class={twMerge(
           "bg-gray-200 rounded-xl w-full h-full",
@@ -50,6 +60,7 @@ export const CatCard: Component<CatCardProps> = ({
             "text-3xl font-bold text-ellipsis text-nowrap overflow-y-visible overflow-x-clip",
             variant === "big" && "text-4xl"
           )}
+          style={{ "view-transition-name": formattedName }}
         >
           {cat.name}
         </span>
@@ -59,6 +70,6 @@ export const CatCard: Component<CatCardProps> = ({
           </span>
         </div>
       </div>
-    </div>
+    </a>
   );
 };

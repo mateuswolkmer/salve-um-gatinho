@@ -49,7 +49,7 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
           <CatCard
             variant="vertical"
             cat={cat}
-            style={{ "view-transition-name": `cat_${cat.name}` }}
+            // style={{ "view-transition-name": `cat_${cat.name}` }}
           />
         ))}
       </div>
@@ -61,7 +61,7 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
           ref={backwardButton}
           disabled
         />
-        <ButtonLink href="/adote" variant="nav">
+        <ButtonLink href="/gatos" variant="nav">
           Ver mais
         </ButtonLink>
         <Button
