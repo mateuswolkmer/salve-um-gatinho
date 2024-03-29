@@ -53,6 +53,7 @@ export const CatCard: Component<CatCardProps> = ({
           "bg-gray-200 rounded-xl w-full h-full",
           variant === "small" && "w-1/2 h-full"
         )}
+        style={{ "view-transition-name": `picture_${formattedName}` }}
       ></div>
       <div class={catCardTitleVariants({ variant })}>
         <span

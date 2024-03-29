@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { formatRelative, formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+
+// TODO remove when SSR
+export function getStaticPaths() {
+  const cats = [
+    { urlName: 'pingo', name: 'Pingo', description: 'Sou um gato preguiçoso que adora tirar sonecas no sol e tenho uma paixão por caixas vazias, onde me escondo para tirar um cochilo tranquilo.', rescueDate: '2023-05-15', birthDate: '2019-02-20' },
+    { urlName: 'preta', name: 'Preta', description: 'Sou uma gata elegante que adora brincar com bolinhas de lã e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2022-11-30', birthDate: '2018-08-10' },
+    { urlName: 'claraluz', name: 'Claraluz', description: 'Sou um gato curioso que gosto de explorar todos os cantos da casa e tenho uma habilidade incrível para me esconder nos lugares mais inusitados.', rescueDate: '2023-03-25', birthDate: '2019-01-05' },
+    { urlName: 'vemca', name: 'Vemcá', description: 'Sou um gato carinhoso que adora receber carinho na barriga e tenho um miado encantador que derrete o coração de todos que me conhecem.', rescueDate: '2023-07-12', birthDate: '2019-04-18' },
+    { urlName: 'vitoria_regia', name: 'Vitória Régia', description: 'Sou uma gata independente que adora observar os pássaros pela janela e tenho um olhar misterioso que cativa a todos ao meu redor.', rescueDate: '2023-10-05', birthDate: '2018-06-15' },
+    { urlName: 'blau', name: 'Blau', description: 'Sou um gato brincalhão que adora correr pela casa atrás de bolinhas e tenho uma habilidade surpreendente para me equilibrar nos lugares mais inusitados.', rescueDate: '2024-01-20', birthDate: '2019-08-05' },
+    { urlName: 'miojo', name: 'Miojo', description: 'Sou um gato comilão que adora experimentar novos petiscos e tenho um talento especial para encontrar os lugares mais inusitados para tirar uma soneca.', rescueDate: '2024-09-10', birthDate: '2019-06-25' },
+    { urlName: 'norman', name: 'Norman', description: 'Sou um gato prestativo que adora ajudar nas tarefas domésticas e tenho uma habilidade incrível para me comunicar de forma única com meus donos.', rescueDate: '2023-12-18', birthDate: '2018-10-30' },
+    { urlName: 'felipe', name: 'Felipe', description: 'Sou um gato aventureiro que adora explorar o jardim e tenho uma paixão por caçar borboletas, sempre trazendo minhas "presas" como presentes para minha família.', rescueDate: '2024-02-28', birthDate: '2019-01-10' },
+    { urlName: 'rian', name: 'Rian', description: 'Sou um gato sonhador que adora cochilar em lugares inusitados e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2023-06-05', birthDate: '2019-03-15' }
+  ];
+
+  return cats.map((cat) => ({
+    params: { urlName: cat.urlName},
+    props: { cat }
+  }))
+}
+
+const { urlName } = Astro.params;
+const { cat: { name, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate } } = Astro.props;
+
+const today = new Date();
+const birthDate = formatRelative(unformattedBirthDate, today, { locale: ptBR });
+const rescueDate = formatRelative(unformattedRescueDate, today, { locale: ptBR });
+const birthDateDistance = formatDistanceToNow(unformattedBirthDate, { locale: ptBR, addSuffix: true });
+const rescueDateDistance = formatDistanceToNow(unformattedRescueDate, { locale: ptBR, addSuffix: true });
+---
+<Layout title="Adote">
+    <div class="p-section">
+      <div class="flex flex-col items-center lg:items-start lg:flex-row gap-20 max-w-7xl m-auto">
+        <div class="bg-gray-200 rounded-xl w-1/2 lg:w-1/3 h-[26rem]" transition:name={`picture_${urlName}`}></div>
+        <div class="flex flex-col gap-4 flex-1">
+          <span class="text-7xl bold font-body font-bold" transition:name={urlName}>{name}</span>
+          <p class="">Nasci {birthDateDistance} <small>({birthDate}).</small></p>
+          <p class="">Fui resgatado {rescueDateDistance} <small>({rescueDate}).</small></p>
+          <p class="">{description}</p>
+        </div>
+      </div>
+    </div>
+</Layout>
