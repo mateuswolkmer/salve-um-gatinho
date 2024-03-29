@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
+import { Tag } from "./Tag";
 
 const catCardVariants = cva(
   "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden font-body",
@@ -67,9 +68,7 @@ export const CatCard: Component<CatCardProps> = ({
           {cat.name}
         </span>
         <div class="flex gap-2">
-          <span class="border-2 border-black rounded-full px-2 text-base bg-gray-200 relative after:-top-2 after:-right-2 after:absolute after:text-black after:text-3xl after:content-['*'] after:font-bold after:text-shadow-yellow">
-            Novo
-          </span>
+          <Tag special="new">Novo</Tag>
         </div>
       </div>
     </a>
