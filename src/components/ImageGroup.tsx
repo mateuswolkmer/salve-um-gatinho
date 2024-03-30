@@ -1,4 +1,4 @@
-import { Component, For, createMemo, createSignal } from "solid-js";
+import { type Component, For, createMemo, createSignal } from "solid-js";
 
 export type ImageGroupProps = {};
 
