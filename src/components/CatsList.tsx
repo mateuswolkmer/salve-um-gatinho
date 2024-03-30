@@ -5,9 +5,13 @@ import { Button, ButtonLink } from "./Button";
 export type CatsListProps = {
   // TODO add proper types
   cats?: { name: string }[];
+  disableTransition?: boolean;
 };
 
-export const CatsList: Component<CatsListProps> = ({ cats }) => {
+export const CatsList: Component<CatsListProps> = ({
+  cats,
+  disableTransition,
+}) => {
   let catsListRef: HTMLDivElement | undefined;
 
   const scrollRight = () => {
@@ -49,7 +53,7 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
           <CatCard
             variant="vertical"
             cat={cat}
-            // style={{ "view-transition-name": `cat_${cat.name}` }}
+            disableTransition={disableTransition}
           />
         ))}
       </div>

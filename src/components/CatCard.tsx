@@ -29,11 +29,13 @@ const catCardTitleVariants = cva("flex", {
 export type CatCardProps = JSX.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof catCardVariants> & {
     cat?: any;
+    disableTransition?: boolean;
   };
 
 export const CatCard: Component<CatCardProps> = ({
   cat = {},
   variant = "big",
+  disableTransition,
   class: classes,
   ...rest
 }) => {
@@ -46,9 +48,13 @@ export const CatCard: Component<CatCardProps> = ({
 
   return (
     <a
-      href={`gatos/${formattedName}`}
+      href={`/gatos/${formattedName}`}
       class={twMerge(catCardVariants({ variant }), classes)}
-      style={{ "view-transition-name": `cat_${formattedName}` }}
+      style={
+        disableTransition
+          ? {}
+          : { "view-transition-name": `cat_${formattedName}` }
+      }
     >
       <div
         class={twMerge(

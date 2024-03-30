@@ -4,6 +4,21 @@ import { formatRelative, formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { Tag } from '../../components/Tag';
 import PageSection from '../../components/PageSection.astro';
+import { CatsList } from '../../components/CatsList';
+import { Button } from '../../components/Button';
+
+  const cats = [
+    { urlName: 'pingo', name: 'Pingo', gender: 'male', description: 'Sou um gato preguiçoso que adora tirar sonecas no sol e tenho uma paixão por caixas vazias, onde me escondo para tirar um cochilo tranquilo.', rescueDate: '2023-05-15', birthDate: '2019-02-20', neutered: true, vaccinated: false },
+    { urlName: 'preta', name: 'Preta', gender: 'female', description: 'Sou uma gata elegante que adora brincar com bolinhas de lã e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2022-11-30', birthDate: '2018-08-10', neutered: false, vaccinated: true },
+    { urlName: 'claraluz', name: 'Claraluz', gender: 'female', description: 'Sou um gato curioso que gosto de explorar todos os cantos da casa e tenho uma habilidade incrível para me esconder nos lugares mais inusitados.', rescueDate: '2023-03-25', birthDate: '2019-01-05', neutered: true, vaccinated: true },
+    { urlName: 'vemca', name: 'Vemcá', gender: 'male', description: 'Sou um gato carinhoso que adora receber carinho na barriga e tenho um miado encantador que derrete o coração de todos que me conhecem.', rescueDate: '2023-07-12', birthDate: '2019-04-18', neutered: false, vaccinated: false },
+    { urlName: 'vitoriaregia', name: 'Vitória Régia', gender: 'female', description: 'Sou uma gata independente que adora observar os pássaros pela janela e tenho um olhar misterioso que cativa a todos ao meu redor.', rescueDate: '2023-10-05', birthDate: '2018-06-15', neutered: true, vaccinated: true },
+    { urlName: 'blau', name: 'Blau', gender: 'male', description: 'Sou um gato brincalhão que adora correr pela casa atrás de bolinhas e tenho uma habilidade surpreendente para me equilibrar nos lugares mais inusitados.', rescueDate: '2024-01-20', birthDate: '2019-08-05', neutered: false, vaccinated: true },
+    { urlName: 'miojo', name: 'Miojo', gender: 'male', description: 'Sou um gato comilão que adora experimentar novos petiscos e tenho um talento especial para encontrar os lugares mais inusitados para tirar uma soneca.', rescueDate: '2024-09-10', birthDate: '2019-06-25', neutered: true, vaccinated: false },
+    { urlName: 'norman', name: 'Norman', gender: 'male', description: 'Sou um gato prestativo que adora ajudar nas tarefas domésticas e tenho uma habilidade incrível para me comunicar de forma única com meus donos.', rescueDate: '2023-12-18', birthDate: '2018-10-30', neutered: false, vaccinated: true },
+    { urlName: 'felipe', name: 'Felipe', gender: 'male', description: 'Sou um gato aventureiro que adora explorar o jardim e tenho uma paixão por caçar borboletas, sempre trazendo minhas "presas" como presentes para minha família.', rescueDate: '2024-02-28', birthDate: '2019-01-10', neutered: true, vaccinated: true },
+    { urlName: 'rian', name: 'Rian', gender: 'male', description: 'Sou um gato sonhador que adora cochilar em lugares inusitados e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2023-06-05', birthDate: '2019-03-15', neutered: false, vaccinated: false }
+  ];
 
 // TODO remove when SSR
 export function getStaticPaths() {
@@ -53,10 +68,14 @@ const showPatronize = !neutered || !vaccinated;
 ---
 <Layout title="Adote">
     <PageSection>
-      <div class="flex flex-col items-center lg:items-start lg:flex-row gap-20 max-w-7xl m-auto">
-        <div class="bg-gray-200 rounded-xl w-full md:w-1/2 lg:w-1/3 h-[26rem]" transition:name={`picture_${urlName}`}></div>
+      <div class="flex flex-col gap-24">
+        <div class="flex flex-col items-center lg:flex-row gap-20 max-w-7xl m-auto">
+          <div class="relative w-full md:w-1/2 lg:w-1/3 h-96" transition:name={`picture_${urlName}`}>
+          <div class="bg-gray-200 rounded-xl transition-all w-full h-full"></div>
+          <!-- TODO use in the future <ImageGroup /> -->
+        </div>
         <div class="flex flex-col gap-4 flex-1">
-          <div class="flex gap-4 items-center">
+          <div class="flex gap-4 items-center flex-wrap">
             <span class="text-5xl sm:text-7xl bold font-body font-bold" transition:name={urlName}>{name}</span>
             <div class="flex gap-2 items-center">
               {gender === 'female' ? <Tag special="female">Fêmea</Tag> : <Tag special="male">Macho</Tag>}
@@ -67,11 +86,37 @@ const showPatronize = !neutered || !vaccinated;
           <p>Nasci {birthDateDistance} <small>({birthDate}).</small></p>
           <p>Fui resgatad{article} {rescueDateDistance} <small>({rescueDate}).</small></p>
           <p>{status}.</small> 
-             <!-- FIXME add small button size-->
+            <!-- FIXME add small button size-->
             {showPatronize ? <button class="font-body text-lg font-bold underline">Me apadrinhe</button> : '🎉'}
           </p>
           <p>{description}</p>
         </div>
       </div>
+      <div class="flex flex-col items-start gap-4 max-w-7xl m-auto w-full">
+        <Button variant="cta">Me adote</Button>
+        <!-- FIXME show/hide based on button -->
+        <div class="border-4 border-black rounded-xl bg-pink w-full p-4 md:p-6">
+          <form method="post" autocomplete="on" class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
+                <label for="name" class="text-lg font-semibold">Nome</label>
+                <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="email" class="text-lg font-semibold">Email</label>
+                <input id="email" name="email" type="email" placeholder="maria@gmail.com" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="subject" class="text-lg font-semibold">Já adotou pelo Salve?</label>
+                <input id="subject" name="subject" type="text" placeholder="Sim/Não" class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+            </div>
+            <Button variant="form" class="self-start mt-4" type="submit">Enviar</Button>
+        </form>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>
+        <CatsList cats={cats.filter(cat => cat.urlName !== urlName)} client:visible disableTransition />
+      </div>
     </div>
+  </div>
 </Layout>
