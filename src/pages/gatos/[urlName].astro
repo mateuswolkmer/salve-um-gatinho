@@ -65,6 +65,9 @@ if(neutered && vaccinated) {
 
 const showPatronize = !neutered || !vaccinated;
 
+// will only work when SSR
+const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
+
 ---
 <Layout title="Adote">
     <PageSection>
@@ -93,7 +96,7 @@ const showPatronize = !neutered || !vaccinated;
         </div>
       </div>
       <div class="max-w-7xl m-auto w-full">
-        <AdoptForm client:visible />
+        <AdoptForm startOpened={startOpened} client:visible />
       </div>
       <div class="flex flex-col gap-2">
         <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>
