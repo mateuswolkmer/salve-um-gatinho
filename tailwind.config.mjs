@@ -69,6 +69,21 @@ export default {
         span: { fontSize: theme("fontSize.2xl") },
       });
       addUtilities({
+        ".text-shadow-pink-sm": {
+          "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 3px 3px 0 ${theme(
+            "colors.pink.DEFAULT"
+          )}`,
+        },
+        ".text-shadow-blue-sm": {
+          "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 3px 3px 0 ${theme(
+            "colors.blue.DEFAULT"
+          )}`,
+        },
+        ".text-shadow-yellow-sm": {
+          "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 3px 3px 0 ${theme(
+            "colors.yellow.DEFAULT"
+          )}`,
+        },
         ".text-shadow-pink": {
           "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 6px 6px 0 ${theme(
             "colors.pink.DEFAULT"
