@@ -35,7 +35,7 @@ export const AdoptForm: Component<AdoptFormProps> = ({
           "border-4 border-black rounded-xl bg-pink-300 p-4 md:p-6 overflow-hidden w-full transition-all duration-300":
             true,
           "max-h-14 max-w-64 sm:max-w-[20rem] sm:max-h-20 m-4": !formOpened(),
-          "max-w-full max-h-[38rem]": formOpened(),
+          "max-w-full max-h-[40rem]": formOpened(),
         }}
       >
         <h2
