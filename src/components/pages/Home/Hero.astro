@@ -1,4 +1,5 @@
 ---
+import client from "../../../../tina/__generated__/client";
 import { ButtonLink } from "../../Button";
 import { CatCard } from "../../CatCard";
 import PageSection from "../../PageSection.astro";
@@ -7,14 +8,12 @@ type Props = {};
 
 const {} = Astro.props;
 
-// TODO get from database
-const cats = [{
-    name: 'Pingo',
-    formattedName: 'pingo'
-},{
-    name: 'Preta',
-    formattedName: 'preta'
-}]
+const catsResponse = await client.queries.catConnection();
+
+const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
+  ...catResponse?.node,
+  slug: catResponse?.node?._sys.filename,
+}));
 ---
 <PageSection class="max-w-[100rem] m-auto">
     <div class="flex content-between gap-4 w-full">
@@ -24,7 +23,7 @@ const cats = [{
         </div>
         <div class="hidden lg:flex flex-col items-center gap-6">
             <!-- {cats.map(cat => <CatCard transition:name={`cat_${cat.name}`} variant="small" cat={cat} />)} -->
-            {cats.map(cat => <CatCard variant="small" cat={cat} />)}
+            {cats?.map(cat => <CatCard variant="small" cat={cat} />)}
             <ButtonLink href="/gatos" variant="nav">Ver mais</ButtonLink>
         </div>
     </div>

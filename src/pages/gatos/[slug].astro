@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AdoptForm } from '../../components/pages/Cat/AdoptForm';
+import { formatRelative, formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+import { Tag } from '../../components/Tag';
+import PageSection from '../../components/PageSection.astro';
+import { CatsList } from '../../components/CatsList';
+import client from '../../../tina/__generated__/client';
+import type { Cat } from '../../../tina/__generated__/types';
+
+  // const cats = [
+  //   { slug: 'pingo', name: 'Pingo', gender: 'male', description: 'Sou um gato preguiçoso que adora tirar sonecas no sol e tenho uma paixão por caixas vazias, onde me escondo para tirar um cochilo tranquilo.', rescueDate: '2023-05-15', birthDate: '2019-02-20', neutered: true, vaccinated: false },
+  //   { slug: 'preta', name: 'Preta', gender: 'female', description: 'Sou uma gata elegante que adora brincar com bolinhas de lã e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2022-11-30', birthDate: '2018-08-10', neutered: false, vaccinated: true },
+  //   { slug: 'claraluz', name: 'Claraluz', gender: 'female', description: 'Sou um gato curioso que gosto de explorar todos os cantos da casa e tenho uma habilidade incrível para me esconder nos lugares mais inusitados.', rescueDate: '2023-03-25', birthDate: '2019-01-05', neutered: true, vaccinated: true },
+  //   { slug: 'vemca', name: 'Vemcá', gender: 'male', description: 'Sou um gato carinhoso que adora receber carinho na barriga e tenho um miado encantador que derrete o coração de todos que me conhecem.', rescueDate: '2023-07-12', birthDate: '2019-04-18', neutered: false, vaccinated: false },
+  //   { slug: 'vitoriaregia', name: 'Vitória Régia', gender: 'female', description: 'Sou uma gata independente que adora observar os pássaros pela janela e tenho um olhar misterioso que cativa a todos ao meu redor.', rescueDate: '2023-10-05', birthDate: '2018-06-15', neutered: true, vaccinated: true },
+  //   { slug: 'blau', name: 'Blau', gender: 'male', description: 'Sou um gato brincalhão que adora correr pela casa atrás de bolinhas e tenho uma habilidade surpreendente para me equilibrar nos lugares mais inusitados.', rescueDate: '2024-01-20', birthDate: '2019-08-05', neutered: false, vaccinated: true },
+  //   { slug: 'miojo', name: 'Miojo', gender: 'male', description: 'Sou um gato comilão que adora experimentar novos petiscos e tenho um talento especial para encontrar os lugares mais inusitados para tirar uma soneca.', rescueDate: '2024-09-10', birthDate: '2019-06-25', neutered: true, vaccinated: false },
+  //   { slug: 'norman', name: 'Norman', gender: 'male', description: 'Sou um gato prestativo que adora ajudar nas tarefas domésticas e tenho uma habilidade incrível para me comunicar de forma única com meus donos.', rescueDate: '2023-12-18', birthDate: '2018-10-30', neutered: false, vaccinated: true },
+  //   { slug: 'felipe', name: 'Felipe', gender: 'male', description: 'Sou um gato aventureiro que adora explorar o jardim e tenho uma paixão por caçar borboletas, sempre trazendo minhas "presas" como presentes para minha família.', rescueDate: '2024-02-28', birthDate: '2019-01-10', neutered: true, vaccinated: true },
+  //   { slug: 'rian', name: 'Rian', gender: 'male', description: 'Sou um gato sonhador que adora cochilar em lugares inusitados e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2023-06-05', birthDate: '2019-03-15', neutered: false, vaccinated: false }
+  // ];
+
+  const catsResponse = await client.queries.catConnection();
+
+  const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
+    ...catResponse?.node,
+    slug: catResponse?.node?._sys.filename,
+  }));
+  
+  // TODO remove when SSR
+  export async function getStaticPaths() {
+  
+    const catsResponse = await client.queries.catConnection();
+    
+    const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
+      ...catResponse?.node,
+      slug: catResponse?.node?._sys.filename,
+    }));
+
+  // const cats = [
+  //   { slug: 'pingo', name: 'Pingo', gender: 'male', description: 'Sou um gato preguiçoso que adora tirar sonecas no sol e tenho uma paixão por caixas vazias, onde me escondo para tirar um cochilo tranquilo.', rescueDate: '2023-05-15', birthDate: '2019-02-20', neutered: true, vaccinated: false },
+  //   { slug: 'preta', name: 'Preta', gender: 'female', description: 'Sou uma gata elegante que adora brincar com bolinhas de lã e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2022-11-30', birthDate: '2018-08-10', neutered: false, vaccinated: true },
+  //   { slug: 'claraluz', name: 'Claraluz', gender: 'female', description: 'Sou um gato curioso que gosto de explorar todos os cantos da casa e tenho uma habilidade incrível para me esconder nos lugares mais inusitados.', rescueDate: '2023-03-25', birthDate: '2019-01-05', neutered: true, vaccinated: true },
+  //   { slug: 'vemca', name: 'Vemcá', gender: 'male', description: 'Sou um gato carinhoso que adora receber carinho na barriga e tenho um miado encantador que derrete o coração de todos que me conhecem.', rescueDate: '2023-07-12', birthDate: '2019-04-18', neutered: false, vaccinated: false },
+  //   { slug: 'vitoriaregia', name: 'Vitória Régia', gender: 'female', description: 'Sou uma gata independente que adora observar os pássaros pela janela e tenho um olhar misterioso que cativa a todos ao meu redor.', rescueDate: '2023-10-05', birthDate: '2018-06-15', neutered: true, vaccinated: true },
+  //   { slug: 'blau', name: 'Blau', gender: 'male', description: 'Sou um gato brincalhão que adora correr pela casa atrás de bolinhas e tenho uma habilidade surpreendente para me equilibrar nos lugares mais inusitados.', rescueDate: '2024-01-20', birthDate: '2019-08-05', neutered: false, vaccinated: true },
+  //   { slug: 'miojo', name: 'Miojo', gender: 'male', description: 'Sou um gato comilão que adora experimentar novos petiscos e tenho um talento especial para encontrar os lugares mais inusitados para tirar uma soneca.', rescueDate: '2024-09-10', birthDate: '2019-06-25', neutered: true, vaccinated: false },
+  //   { slug: 'norman', name: 'Norman', gender: 'male', description: 'Sou um gato prestativo que adora ajudar nas tarefas domésticas e tenho uma habilidade incrível para me comunicar de forma única com meus donos.', rescueDate: '2023-12-18', birthDate: '2018-10-30', neutered: false, vaccinated: true },
+  //   { slug: 'felipe', name: 'Felipe', gender: 'male', description: 'Sou um gato aventureiro que adora explorar o jardim e tenho uma paixão por caçar borboletas, sempre trazendo minhas "presas" como presentes para minha família.', rescueDate: '2024-02-28', birthDate: '2019-01-10', neutered: true, vaccinated: true },
+  //   { slug: 'rian', name: 'Rian', gender: 'male', description: 'Sou um gato sonhador que adora cochilar em lugares inusitados e tenho um talento especial para encontrar os lugares mais confortáveis da casa para me aconchegar.', rescueDate: '2023-06-05', birthDate: '2019-03-15', neutered: false, vaccinated: false }
+  // ];
+
+  return cats?.map((cat) => ({
+    params: { slug: cat.slug },
+    props: { cat }
+  }))
+}
+
+export type Props = {
+  cat: Cat;
+}
+
+const { slug } = Astro.params;
+const { cat: { name, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, patronized } } = Astro.props;
+
+const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
+
+const today = new Date();
+const birthDate = unformattedBirthDate && formatRelative(unformattedBirthDate, today, { locale: ptBR });
+const rescueDate = unformattedRescueDate && formatRelative(unformattedRescueDate, today, { locale: ptBR });
+const birthDateDistance = unformattedBirthDate && formatDistanceToNow(unformattedBirthDate, { locale: ptBR, addSuffix: true });
+const rescueDateDistance = unformattedRescueDate && formatDistanceToNow(unformattedRescueDate, { locale: ptBR, addSuffix: true });
+
+const article = gender === 'female' ? 'a' : 'o';
+
+let status;
+if(neutered && vaccinated) {
+  status = `Estou castrad${article} e vacinad${article}`
+} else if (neutered && !vaccinated) {
+  status = `Estou castrad${article}, mas não vacinad${article}`
+} else if (!neutered && vaccinated) {
+  status = `Estou vacinad${article}, mas não castrad${article}`
+} else {
+  status = `Não estou castrad${article} nem vacinad${article}`
+}
+
+// will only work when SSR
+const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
+
+---
+<Layout title="Adote">
+    <PageSection>
+      <div class="flex flex-col gap-24">
+        <div class="flex flex-col items-center lg:flex-row gap-20 max-w-7xl m-auto">
+          <div class="relative w-full md:w-1/2 lg:w-1/3 h-96" transition:name={`picture_${slug}`}>
+          <div class="bg-gray-200 rounded-xl transition-all w-full h-full"></div>
+          <!-- TODO use in the future <ImageGroup /> -->
+        </div>
+        <div class="flex flex-col gap-4 flex-1">
+          <div class="flex gap-4 items-center flex-wrap">
+            <span class="text-5xl sm:text-7xl bold font-body font-bold" transition:name={slug}>{name}</span>
+            <div class="flex gap-2 items-center">
+              {gender === 'female' ? <Tag special="female">Fêmea</Tag> : <Tag special="male">Macho</Tag>}
+              <Tag>Brincalhão</Tag>
+              <Tag>Sociável</Tag>
+            </div>
+          </div>
+          {Boolean(birthDate) && <p>Nasci {bornAtTheShelter ? "no abrigo ": ""}{birthDateDistance} <small>({birthDate}).</small></p>}
+          {Boolean(rescueDate && !bornAtTheShelter) && <p>Fui resgatad{article} {rescueDateDistance} <small>({rescueDate}).</small></p>}
+          {Boolean(status) && <p>{status}.</p>}
+          <!-- FIXME add small button size-->
+          {patronized ? <p>Estou apardinhad{article}. 🎉</p> : <button class="font-body text-lg font-bold underline self-start">Me apadrinhe</button>}
+          <p>{description}</p>
+        </div>
+      </div>
+      <div class="max-w-7xl m-auto w-full">
+        <AdoptForm startOpened={startOpened} client:visible />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>
+        <CatsList cats={cats?.filter(cat => cat.slug !== slug)} client:visible disableTransition />
+      </div>
+    </div>
+  </div>
+</Layout>

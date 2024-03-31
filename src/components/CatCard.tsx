@@ -2,6 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { Tag } from "./Tag";
+import type { Cat } from "../../tina/__generated__/types";
 
 const catCardVariants = cva(
   "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 border-4 border-b-8 active:border-b-4 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden font-body",
@@ -28,32 +29,27 @@ const catCardTitleVariants = cva("flex", {
 
 export type CatCardProps = JSX.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof catCardVariants> & {
-    cat?: any;
+    cat?: Cat;
     disableTransition?: boolean;
   };
 
 export const CatCard: Component<CatCardProps> = ({
-  cat = {},
+  cat,
   variant = "big",
   disableTransition,
   class: classes,
   ...rest
 }) => {
-  const formattedName = cat.name
-    ?.toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-zA-Z0-9 ]/g, "")
-    .replace(/\s+/g, "");
+  if (!cat) {
+    return undefined;
+  }
 
   return (
     <a
-      href={`/gatos/${formattedName}`}
+      href={`/gatos/${cat.slug}`}
       class={twMerge(catCardVariants({ variant }), classes)}
       style={
-        disableTransition
-          ? {}
-          : { "view-transition-name": `cat_${formattedName}` }
+        disableTransition ? {} : { "view-transition-name": `cat_${cat.slug}` }
       }
     >
       <div
@@ -61,7 +57,7 @@ export const CatCard: Component<CatCardProps> = ({
           "bg-gray-200 rounded-xl w-full h-full",
           variant === "small" && "w-1/2 h-full"
         )}
-        style={{ "view-transition-name": `picture_${formattedName}` }}
+        style={{ "view-transition-name": `picture_${cat.slug}` }}
       ></div>
       <div class={catCardTitleVariants({ variant })}>
         <span
@@ -69,7 +65,7 @@ export const CatCard: Component<CatCardProps> = ({
             "text-3xl font-bold text-ellipsis text-nowrap overflow-y-visible overflow-x-clip",
             variant === "big" && "text-4xl"
           )}
-          style={{ "view-transition-name": formattedName }}
+          style={{ "view-transition-name": cat.slug }}
         >
           {cat.name}
         </span>

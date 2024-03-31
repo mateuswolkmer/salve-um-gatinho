@@ -1,10 +1,10 @@
 import { createMemo, type Component, onMount, createEffect } from "solid-js";
 import { CatCard } from "./CatCard";
 import { Button, ButtonLink } from "./Button";
+import type { Cat } from "../../tina/__generated__/types";
 
 export type CatsListProps = {
-  // TODO add proper types
-  cats?: { name: string }[];
+  cats?: Cat[];
   disableTransition?: boolean;
 };
 

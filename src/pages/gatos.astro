@@ -1,35 +1,20 @@
 ---
+import client from "../../tina/__generated__/client";
 import { CatCard } from "../components/CatCard";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
 
-// TODO get from database
-const cats = [{
-    name: 'Pingo'
-},{
-    name: 'Preta'
-},{
-    name: 'Claraluz'
-},{
-    name: 'Vemcá'
-},{
-    name: 'Vitória Régia'
-},{
-    name: 'Blau'
-},{
-    name: 'Miojo'
-},{
-    name: 'Norman'
-},{
-    name: 'Felipe'
-},{
-    name: 'Rian'
-}]
+const catsResponse = await client.queries.catConnection();
+
+const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
+  ...catResponse?.node,
+  slug: catResponse?.node?._sys.filename,
+}));
 ---
 <Layout title="Gatos">
     <PageSection>
         <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-            {cats.map(cat => (
+            {cats?.map(cat => (
                 <CatCard transition:animate="slide" cat={cat} />
             ))}
         </div>
