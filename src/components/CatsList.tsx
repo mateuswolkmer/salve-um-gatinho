@@ -15,11 +15,11 @@ export const CatsList: Component<CatsListProps> = ({
   let catsListRef: HTMLDivElement | undefined;
 
   const scrollRight = () => {
-    if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft += 500;
+    if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft += 350;
   };
 
   const scrollLeft = () => {
-    if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft -= 500;
+    if (catsListRef) (catsListRef as HTMLDivElement).scrollLeft -= 350;
   };
 
   let backwardButton: HTMLButtonElement | undefined;
@@ -47,7 +47,7 @@ export const CatsList: Component<CatsListProps> = ({
       <div
         ref={catsListRef}
         id="cats-list"
-        class="flex gap-8 flex-nowrap -mr-20 w-full py-8 overflow-y-visible overflow-x-scroll scroll-smooth"
+        class="flex gap-8 flex-nowrap py-8 w-screen -ml-10 px-10 overflow-y-visible overflow-x-scroll scroll-smooth"
       >
         {cats?.map((cat) => (
           <CatCard
