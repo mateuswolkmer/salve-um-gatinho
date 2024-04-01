@@ -1,5 +1,5 @@
 import { Form, TinaCMS, defineConfig } from "tinacms";
-import { slugFromName } from "./utils";
+import { hidden, slugFromName } from "./utils";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -35,7 +35,6 @@ export default defineConfig({
               return slugFromName(values.name);
             },
           },
-          // FIXME not working currently
           beforeSubmit: async ({
             form,
             values,
@@ -48,17 +47,34 @@ export default defineConfig({
             let finalValues: Record<string, any> = {
               ...values,
               slug: slugFromName(values.name),
-              lastUpdated: now,
+              updatedDate: now,
             };
 
             if (form.crudType === "create") {
-              finalValues["createdAt"] = now;
+              finalValues["createdDate"] = now;
             }
 
             return finalValues;
           },
         },
         fields: [
+          // Meta (hidden)
+          {
+            name: "slug",
+            type: "string",
+            ui: hidden,
+          },
+          {
+            name: "createdDate",
+            type: "datetime",
+            ui: hidden,
+          },
+          {
+            name: "updatedDate",
+            type: "datetime",
+            ui: hidden,
+          },
+          // Basic
           {
             name: "name",
             label: "Nome",
@@ -121,6 +137,7 @@ export default defineConfig({
               "Usar o mesmo do nascimento quando foi nascido no abrigo",
             type: "datetime",
           },
+          // Status
           {
             name: "neutered",
             label: "Castrado",
@@ -131,6 +148,7 @@ export default defineConfig({
             label: "Vacinado",
             type: "boolean",
           },
+          // Personality
           {
             name: "social",
             label: "Sociável",

@@ -25,8 +25,7 @@ import type { Cat } from '../../../tina/__generated__/types';
   const catsResponse = await client.queries.catConnection();
 
   const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-    ...catResponse?.node,
-    slug: catResponse?.node?._sys.filename,
+    ...catResponse?.node
   }));
   
   // TODO remove when SSR
@@ -35,9 +34,10 @@ import type { Cat } from '../../../tina/__generated__/types';
     const catsResponse = await client.queries.catConnection();
     
     const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-      ...catResponse?.node,
-      slug: catResponse?.node?._sys.filename,
+      ...catResponse?.node
     }));
+
+    console.log('cats', cats)
 
   // const cats = [
   //   { slug: 'pingo', name: 'Pingo', gender: 'male', description: 'Sou um gato preguiçoso que adora tirar sonecas no sol e tenho uma paixão por caixas vazias, onde me escondo para tirar um cochilo tranquilo.', rescueDate: '2023-05-15', birthDate: '2019-02-20', neutered: true, vaccinated: false },

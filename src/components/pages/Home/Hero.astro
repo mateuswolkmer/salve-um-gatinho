@@ -11,8 +11,7 @@ const {} = Astro.props;
 const catsResponse = await client.queries.catConnection();
 
 const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-  ...catResponse?.node,
-  slug: catResponse?.node?._sys.filename,
+  ...catResponse?.node
 }));
 ---
 <PageSection class="max-w-[100rem] m-auto">

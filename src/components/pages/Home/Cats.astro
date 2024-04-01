@@ -6,8 +6,7 @@ import PageSection from "../../PageSection.astro";
 const catsResponse = await client.queries.catConnection();
 
 const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-  ...catResponse?.node,
-  slug: catResponse?.node?._sys.filename,
+  ...catResponse?.node
 }));
 ---
 <PageSection>
