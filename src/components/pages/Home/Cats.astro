@@ -10,7 +10,7 @@ const allCats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
   ...catResponse?.node as Cat
 }));
 
-const newestCats = allCats?.toSpliced(0, 2) ?? [];
+const newestCats = Array.isArray(allCats) ? allCats.toSpliced(0, 2) : [];
 ---
 <PageSection>
     <CatsList cats={newestCats} client:visible />
