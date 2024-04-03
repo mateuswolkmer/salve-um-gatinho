@@ -15,7 +15,7 @@ const allCats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
   ...catResponse?.node as Cat
 }));
 
-const catsExceptFirsTwo = Array.isArray(allCats) ? allCats.toSpliced(2, 1000) : [];
+const catsExceptFirsTwo = Array.isArray(allCats) ? [...allCats].splice(2, 1000) : [];
 ---
 <PageSection class="max-w-[100rem] m-auto">
     <div class="flex content-between gap-4 w-full">
