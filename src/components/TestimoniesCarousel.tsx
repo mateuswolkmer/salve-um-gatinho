@@ -6,7 +6,6 @@ import {
   createEffect,
   createMemo,
   createSignal,
-  createComputed,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
@@ -81,8 +80,8 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                 selected() === i()
                   ? "selected"
                   : selected() > i()
-                  ? "left"
-                  : "right"
+                    ? "left"
+                    : "right"
               );
 
               return (

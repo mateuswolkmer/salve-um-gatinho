@@ -51,6 +51,7 @@ export const CatCard: Component<CatCardProps> = ({
       style={
         disableTransition ? {} : { "view-transition-name": `cat_${cat.slug}` }
       }
+      {...rest}
     >
       <div
         class={twMerge(

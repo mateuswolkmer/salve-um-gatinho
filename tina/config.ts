@@ -1,4 +1,4 @@
-import { Form, TinaCMS, defineConfig } from "tinacms";
+import { Form, defineConfig } from "tinacms";
 import { hidden, slugFromName } from "./utils";
 
 // Your hosting provider likely exposes this as an environment variable

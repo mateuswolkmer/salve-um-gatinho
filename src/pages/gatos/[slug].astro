@@ -49,7 +49,7 @@ const rescueDateDistance = unformattedRescueDate && formatDistanceToNow(unformat
 
 const article = gender === 'female' ? 'a' : 'o';
 
-let status;
+let status: string;
 if(neutered && vaccinated) {
   status = `Estou castrad${article} e vacinad${article}`
 } else if (neutered && !vaccinated) {
