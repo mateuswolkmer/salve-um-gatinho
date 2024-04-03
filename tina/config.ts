@@ -30,7 +30,6 @@ export default defineConfig({
         path: "content/cats",
         ui: {
           filename: {
-            readonly: true,
             slugify: (values) => {
               return slugFromName(values.name);
             },
@@ -184,6 +183,47 @@ export default defineConfig({
               // @ts-ignore
               direction: "horizontal",
             },
+          },
+        ],
+      },
+      {
+        name: "testimony",
+        label: "Depoimentos",
+        path: "content/testimonies",
+        ui: {
+          filename: {
+            slugify: (values) => {
+              return slugFromName(values.personName);
+            },
+          },
+        },
+        fields: [
+          {
+            name: "personName",
+            label: "Nome do adotante",
+            type: "string",
+            isTitle: true,
+            required: true,
+            searchable: true,
+          },
+          {
+            name: "cat",
+            label: "Gato adotado",
+            type: "reference",
+            collections: ["cat"],
+            required: true,
+            searchable: true,
+          },
+          {
+            name: "plus",
+            label: "Quantos gatos a mais esta pessoa adotou",
+            type: "number",
+          },
+          {
+            name: "message",
+            label: "Mensagem",
+            type: "string",
+            required: true,
           },
         ],
       },

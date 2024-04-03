@@ -6,11 +6,13 @@ import PageSection from "../../PageSection.astro";
 
 const catsResponse = await client.queries.catConnection();
 
-const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
+const allCats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
   ...catResponse?.node as Cat
-})).toSpliced(0, 2);
+}));
+
+const newestCats = allCats?.toSpliced(0, 2) ?? [];
 ---
 <PageSection>
-    <CatsList cats={cats} client:visible />
+    <CatsList cats={newestCats} client:visible />
 </PageSection>
 

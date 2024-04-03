@@ -11,9 +11,11 @@ const {} = Astro.props;
 
 const catsResponse = await client.queries.catConnection();
 
-const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
+const allCats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
   ...catResponse?.node as Cat
-})).toSpliced(2, 1000);
+}));
+
+const catsExceptFirsTwo = allCats?.toSpliced(2, 1000) ?? [];
 ---
 <PageSection class="max-w-[100rem] m-auto">
     <div class="flex content-between gap-4 w-full">
@@ -23,7 +25,7 @@ const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
         </div>
         <div class="hidden lg:flex flex-col items-center gap-6">
             <!-- {cats.map(cat => <CatCard transition:name={`cat_${cat.name}`} variant="small" cat={cat} />)} -->
-            {cats?.map(cat => <CatCard variant="small" cat={cat} />)}
+            {catsExceptFirsTwo.map(cat => <CatCard variant="small" cat={cat} />)}
             <ButtonLink href="/gatos" variant="nav">Ver mais</ButtonLink>
         </div>
     </div>

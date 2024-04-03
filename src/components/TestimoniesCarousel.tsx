@@ -9,14 +9,7 @@ import {
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
-
-export type Testimony = {
-  image: string;
-  name: string;
-  adopted: string;
-  comment: string;
-  adoptedPlus?: number;
-};
+import type { Testimony } from "../../tina/__generated__/types";
 
 export type TestimoniesCarousel = {
   testimonies: Testimony[];
@@ -50,17 +43,17 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
     }
   });
 
-  const [commentRefs, setCommentRefs] = createSignal<HTMLParagraphElement[]>(
+  const [messageRefs, setMessageRefs] = createSignal<HTMLParagraphElement[]>(
     []
   );
-  const [commentsWrapperRef, setCommentsWrapperRef] =
+  const [messagesWrapperRef, setMessagesWrapperRef] =
     createSignal<HTMLDivElement>();
 
   createEffect(() => {
-    const wrapper = commentsWrapperRef();
-    if (selected() && wrapper) {
-      const selectedCommentHeight = commentRefs()[selected()].scrollHeight;
-      wrapper.style.height = `${selectedCommentHeight}px`;
+    const wrapper = messagesWrapperRef();
+    if (!isNaN(selected()) && wrapper) {
+      const selectedMessageHeight = messageRefs()[selected()].scrollHeight;
+      wrapper.style.height = `${selectedMessageHeight}px`;
     }
   });
 
@@ -73,7 +66,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
         <span class="hidden md:block absolute -bottom-72 -right-20 text-blue text-[400px] font-display leading-none">
           ”
         </span>
-        <div ref={setCommentsWrapperRef} class="relative w-full transition-all">
+        <div ref={setMessagesWrapperRef} class="relative w-full transition-all">
           <For each={testimonies}>
             {(testimony, i) => {
               const state = createMemo(() =>
@@ -87,18 +80,18 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
               return (
                 <p
                   ref={(ref) => {
-                    const newCommentRefs = commentRefs();
-                    newCommentRefs[i()] = ref;
-                    setCommentRefs(newCommentRefs);
+                    const newMessageRefs = messageRefs();
+                    newMessageRefs[i()] = ref;
+                    setMessageRefs(newMessageRefs);
                   }}
                   class={twMerge(
-                    "m-auto transition-all duration-300 absolute left-0 right-0 top-0 text-center",
+                    "m-auto transition-all duration-300 absolute left-0 right-0 top-0 text-center text-pretty",
                     state() === "selected" && "opacity-1 translate-x-0",
                     state() === "left" && "opacity-0 -translate-x-10",
                     state() === "right" && "opacity-0 translate-x-10"
                   )}
                 >
-                  {testimony.comment}
+                  {testimony.message}
                 </p>
               );
             }}
@@ -148,14 +141,11 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                       )}
                     >
                       <span class="text-nowrap font-medium">
-                        {testimony.name}
+                        {testimony.personName}
                       </span>
                       <span class="text-lg text-nowrap">
-                        adotou {testimony.adopted}
-                        <Show when={testimony.adoptedPlus}>
-                          {" "}
-                          + {testimony.adoptedPlus}
-                        </Show>
+                        adotou {testimony.cat.name}
+                        <Show when={testimony.plus}> + {testimony.plus}</Show>
                       </span>
                     </div>
                   </Show>
