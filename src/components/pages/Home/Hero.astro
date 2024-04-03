@@ -1,5 +1,6 @@
 ---
 import client from "../../../../tina/__generated__/client";
+import type { Cat } from "../../../../tina/__generated__/types";
 import { ButtonLink } from "../../Button";
 import { CatCard } from "../../CatCard";
 import PageSection from "../../PageSection.astro";
@@ -11,8 +12,8 @@ const {} = Astro.props;
 const catsResponse = await client.queries.catConnection();
 
 const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-  ...catResponse?.node
-}));
+  ...catResponse?.node as Cat
+})).toSpliced(2, 1000);
 ---
 <PageSection class="max-w-[100rem] m-auto">
     <div class="flex content-between gap-4 w-full">

@@ -1,5 +1,6 @@
 ---
 import client from "../../tina/__generated__/client";
+import type { Cat } from "../../tina/__generated__/types";
 import { CatCard } from "../components/CatCard";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
@@ -7,7 +8,7 @@ import Layout from "../layouts/Layout.astro";
 const catsResponse = await client.queries.catConnection();
 
 const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-  ...catResponse?.node,
+  ...catResponse?.node as Cat
 }));
 ---
 <Layout title="Gatos">
