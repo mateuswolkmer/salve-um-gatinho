@@ -120,17 +120,26 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                   <button
                     type="button"
                     class={twMerge(
-                      "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-4 border-b-8 border-black transition-all duration-500 md:duration-300 size-24 md:size-16 opacity-0 md:opacity-100",
+                      "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-4 border-b-8 border-black transition-all duration-500 md:duration-300 size-24 md:size-16 opacity-0 md:opacity-100 overflow-hidden",
                       isSelected()
                         ? "size-24 md:size-24 border-b-4 opacity-100 z-10"
                         : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-4 pointer-events-none md:pointer-events-auto"
                     )}
                     disabled={isSelected()}
                     title={`${isSelected() ? "" : "Selecionar "}${
-                      testimony.name
+                      testimony.personName
                     }`}
                     onClick={() => setSelected(i)}
-                  />
+                  >
+                    <img
+                      src={testimony.personImage}
+                      alt={testimony.personName}
+                      class={twMerge(
+                        "object-cover min-w-full min-h-full transition-all",
+                        !isSelected() ? "saturate-0" : "saturate-100"
+                      )}
+                    />
+                  </button>
                   <Show when={isMounted()}>
                     <div
                       class={twMerge(

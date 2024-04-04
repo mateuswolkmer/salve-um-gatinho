@@ -18,8 +18,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: "src/assets",
+      publicFolder: "",
     },
   },
   search: {
@@ -208,6 +208,12 @@ export default defineConfig({
             label: "Nome do adotante",
             type: "string",
             isTitle: true,
+            required: true,
+          },
+          {
+            name: "personImage",
+            label: "Foto do adotante",
+            type: "image",
             required: true,
           },
           {

@@ -1,5 +1,6 @@
 ---
 personName: João
+personImage: /src/assets/joao.png
 cat: content/cats/vitoriaregia.md
 plus: 2
 message: >-

@@ -1,5 +1,6 @@
 ---
 personName: Lorena
+personImage: /src/assets/lorena.png
 cat: content/cats/preta.md
 plus: 1
 message: >-
