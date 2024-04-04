@@ -1,18 +1,11 @@
 ---
-import client from "../../../../tina/__generated__/client";
-import type { Cat } from "../../../../tina/__generated__/types";
+import { getOldCats } from "../../../api/cats";
 import { CatsList } from "../../CatsList";
 import PageSection from "../../PageSection.astro";
 
-const catsResponse = await client.queries.catConnection();
-
-const allCats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-  ...catResponse?.node as Cat
-}));
-
-const newestCats = Array.isArray(allCats) ? [...allCats].splice(0, 2) : [];
+const oldCats = await getOldCats();
 ---
 <PageSection>
-    <CatsList cats={newestCats} client:visible />
+    <CatsList cats={oldCats} client:visible />
 </PageSection>
 

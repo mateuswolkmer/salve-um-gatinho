@@ -1,61 +1,13 @@
 ---
-import client from "../../../../tina/__generated__/client";
-import type { Testimony } from "../../../../tina/__generated__/types";
+import { getAllTestimonies } from "../../../api/testimonies";
 import PageSection from "../../PageSection.astro";
 import { TestimoniesCarousel } from "../../TestimoniesCarousel";
 
-type Props = {};
-
-const {} = Astro.props;
-
-const testimoniesResponse = await client.queries.testimonyConnection();
-
-const testimonies = testimoniesResponse.data.testimonyConnection.edges?.map((response) => ({
-  ...response?.node as Testimony
-}));
-
-// TODO pull from database
-// const testimonies: Testimony[] = [
-// 	{
-// 		image: "",
-// 		name: "Paula",
-// 		adopted: "Pedro",
-// 		comment: "1",
-// 		adoptedPlus: 0,
-// 	},
-// 	{
-// 		image: "",
-// 		name: "Janaína",
-// 		adopted: "Tofu",
-// 		comment: "2",
-// 		adoptedPlus: 2,
-// 	},
-// 	{
-// 		image: "",
-// 		name: "Cláudia",
-// 		adopted: "Polenta",
-// 		comment:
-// 			"Adotar pelo Salve foi a melhor decisão possível! Me ajudaram com todo processo :)",
-// 		adoptedPlus: 3,
-// 	},
-// 	{
-// 		image: "",
-// 		name: "Jonas",
-// 		adopted: "Catarina",
-// 		comment: "4",
-// 		adoptedPlus: 0,
-// 	},
-// 	{
-// 		image: "",
-// 		name: "Carla",
-// 		adopted: "Kibe",
-// 		comment: "Adorei!",
-// 		adoptedPlus: 1,
-// 	},
-// ];
+const allTestimonies = await getAllTestimonies();
 ---
+
 <PageSection>
     <div class="w-full max-w-3xl m-auto">
-        <TestimoniesCarousel testimonies={testimonies} client:visible />
+        <TestimoniesCarousel testimonies={allTestimonies} client:visible />
     </div>
 </PageSection>

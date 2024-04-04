@@ -22,6 +22,12 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_TOKEN,
+      stopwordLanguages: ["eng", "porBr"],
+    },
+  },
   schema: {
     collections: [
       {
@@ -80,7 +86,6 @@ export default defineConfig({
             type: "string",
             isTitle: true,
             required: true,
-            searchable: true,
           },
           {
             name: "adopted",
@@ -204,7 +209,6 @@ export default defineConfig({
             type: "string",
             isTitle: true,
             required: true,
-            searchable: true,
           },
           {
             name: "cat",
@@ -212,7 +216,6 @@ export default defineConfig({
             type: "reference",
             collections: ["cat"],
             required: true,
-            searchable: true,
           },
           {
             name: "plus",

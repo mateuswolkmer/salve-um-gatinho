@@ -1,21 +1,10 @@
 ---
-import client from "../../../../tina/__generated__/client";
-import type { Cat } from "../../../../tina/__generated__/types";
+import { getNewCats } from "../../../api/cats";
 import { ButtonLink } from "../../Button";
 import { CatCard } from "../../CatCard";
 import PageSection from "../../PageSection.astro";
 
-type Props = {};
-
-const {} = Astro.props;
-
-const catsResponse = await client.queries.catConnection();
-
-const allCats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-  ...catResponse?.node as Cat
-}));
-
-const catsExceptFirsTwo = Array.isArray(allCats) ? [...allCats].splice(2, 1000) : [];
+const newCats = await getNewCats();
 ---
 <PageSection class="max-w-[100rem] m-auto">
     <div class="flex content-between gap-4 w-full">
@@ -25,7 +14,7 @@ const catsExceptFirsTwo = Array.isArray(allCats) ? [...allCats].splice(2, 1000) 
         </div>
         <div class="hidden lg:flex flex-col items-center gap-6">
             <!-- {cats.map(cat => <CatCard transition:name={`cat_${cat.name}`} variant="small" cat={cat} />)} -->
-            {catsExceptFirsTwo.map(cat => <CatCard variant="small" cat={cat} />)}
+            {newCats.map(cat => <CatCard variant="small" cat={cat} />)}
             <ButtonLink href="/gatos" variant="nav">Ver mais</ButtonLink>
         </div>
     </div>
