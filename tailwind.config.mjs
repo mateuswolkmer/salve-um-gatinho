@@ -52,15 +52,21 @@ export default {
           900: "#322d18",
         },
       },
-    },
-    keyframes: {
-      "move-right": {
-        "0%": { transform: "translateX(-100%)" },
-        "100%": { transform: "translateX(100%)" },
+      keyframes: {
+        "move-right": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        hover: {
+          "0%": { transform: "translateY(5px)" },
+          "50%": { transform: "translateY(-5px)" },
+          "100%": { transform: "translateY(5px)" },
+        },
       },
-    },
-    animation: {
-      "carousel-item": "move-right 10s linear infinite",
+      animation: {
+        "carousel-item": "move-right 10s linear infinite",
+        hover: "hover 5s ease infinite",
+      },
     },
   },
   plugins: [
