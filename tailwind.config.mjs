@@ -53,6 +53,15 @@ export default {
         },
       },
     },
+    keyframes: {
+      "move-right": {
+        "0%": { transform: "translateX(-100%)" },
+        "100%": { transform: "translateX(100%)" },
+      },
+    },
+    animation: {
+      "carousel-item": "move-right 10s linear infinite",
+    },
   },
   plugins: [
     plugin(({ addBase, addUtilities, theme }) => {

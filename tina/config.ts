@@ -236,6 +236,33 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "partner",
+        label: "Parceiros",
+        path: "content/partners",
+        ui: {
+          filename: {
+            slugify: (values) => {
+              return slugFromName(values.name);
+            },
+          },
+        },
+        fields: [
+          {
+            name: "name",
+            label: "Nome",
+            type: "string",
+            isTitle: true,
+            required: true,
+          },
+          {
+            name: "image",
+            label: "Logo",
+            type: "image",
+            required: true,
+          },
+        ],
+      },
     ],
   },
 });

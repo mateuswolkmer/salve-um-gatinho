@@ -1,32 +1,36 @@
 ---
+import { getAllPartners } from '../../../api/partners';
 import PageSection from '../../PageSection.astro';
 
-type Props = {};
+const partners = await getAllPartners();
 
-const {} = Astro.props;
-
-// TODO get data from database
-const partners = [
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-	{ name: "", image: "" },
-];
+const carouselAnimationDuration = partners.length * 2;
 ---
 <PageSection>
     <div class="flex flex-col gap-12 items-center">
-        <!-- FIXME think of better header -->
         <h1 class="text-3xl font-body font-medium">Parceiros</h1>
-        <div class="flex gap-12 flex-wrap justify-center">
-            {partners.map((partner) => (
-                <div class="bg-gray-200 w-full sm:w-44 h-20 rounded-xl"/>
-            ))}
+        <div class="relative w-[1200px] h-48 overflow-hidden">
+			<div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white z-10" />
+			<div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white z-10" />
+            {partners.map((partner, i) => {
+				const animationDelay = i * 2;
+
+				// random value between 10 and -10
+				const isEven = i % 2 === 0;
+				const backgroundRotation = ((Math.random() * 7) + 3) - (isEven ? 15 : 0);
+
+				return (
+					<div 
+						class="absolute inset-0 animate-carousel-item my-6 grid place-content-center place-items-center" 
+						style={{ animationDelay: `-${animationDelay}s`, animationDuration: `${carouselAnimationDuration}s` }}>
+						<div 
+							class="w-52 h-40 -z-10 rotate-2 rounded-xl bg-blue-100 col-span-full row-span-full"
+							style={{ transform: `rotate(${backgroundRotation}deg)`}} 
+							/>
+						<img src={partner.image} alt={partner.name} class="w-32 col-span-full row-span-full" />
+					</div>
+				);
+			})}
         </div>
     </div>
 </PageSection>
