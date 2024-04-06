@@ -1,7 +1,7 @@
 ---
 name: content/cats/claraluz.md
 personName: Márcia
-personImage: /src/assets/marcia.png
+personImage: /src/assets/Pessoas/marcia.png
 cat: content/cats/claraluz.md
 plus: 3
 message: >-

@@ -1,13 +1,15 @@
 ---
 slug: felipe
 createdDate: 2024-09-10T15:17:53.566Z
-updatedDate: 2019-08-05T15:18:03.567Z
+updatedDate: 2024-04-06T23:08:58.248Z
 name: Felipe
+image: /src/assets/Gatos/felipe.png
 gender: male
-rescueDate: 2024-02-28
-birthDate: 2019-01-10
+birthDate: 2019-01-10T00:00:00.000Z
+rescueDate: 2024-02-28T00:00:00.000Z
 neutered: true
 vaccinated: true
 ---
+
 
 Sou um gato aventureiro que adora explorar o jardim e tenho uma paixão por caçar borboletas, sempre trazendo minhas "presas" como presentes para minha família.

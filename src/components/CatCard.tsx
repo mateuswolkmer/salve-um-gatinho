@@ -55,11 +55,19 @@ export const CatCard: Component<CatCardProps> = ({
     >
       <div
         class={twMerge(
-          "bg-gray-200 rounded-xl w-full h-full",
+          "bg-gray-200 rounded-xl w-full h-full overflow-hidden",
           variant === "small" && "w-1/2 h-full"
         )}
         style={{ "view-transition-name": `picture_${cat.slug}` }}
-      ></div>
+      >
+        {cat.image && (
+          <img
+            src={cat.image}
+            alt={cat.name}
+            class="object-cover w-full h-full"
+          />
+        )}
+      </div>
       <div class={catCardTitleVariants({ variant })}>
         <span
           class={twMerge(

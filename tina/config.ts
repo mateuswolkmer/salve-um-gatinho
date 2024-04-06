@@ -98,6 +98,11 @@ export default defineConfig({
             type: "boolean",
           },
           {
+            name: "image",
+            label: "Foto",
+            type: "image",
+          },
+          {
             name: "description",
             label: "Descrição",
             type: "string",
