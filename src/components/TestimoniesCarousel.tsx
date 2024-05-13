@@ -24,24 +24,12 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
   const [selected, setSelected] = createSignal(initialSelected);
 
   const setSelectedForward = () => {
-    if (selected() < testimonies.length - 1) setSelected((cur) => cur + 1);
+    setSelected((cur) => (selected() < testimonies.length - 1 ? cur + 1 : 0));
   };
 
   const setSelectedBackward = () => {
-    if (selected() > 0) setSelected((cur) => cur - 1);
+    setSelected((cur) => (selected() > 0 ? cur - 1 : testimonies.length - 1));
   };
-
-  let backwardButton: HTMLButtonElement | undefined;
-  let forwardButton: HTMLButtonElement | undefined;
-
-  createEffect(() => {
-    if (backwardButton) {
-      backwardButton.disabled = selected() === 0;
-    }
-    if (forwardButton) {
-      forwardButton.disabled = selected() === testimonies.length - 1;
-    }
-  });
 
   const [messageRefs, setMessageRefs] = createSignal<HTMLParagraphElement[]>(
     []
@@ -109,9 +97,8 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
           <Button
             variant="nav"
             navDirection="backward"
-            class="absolute right-20 md:hidden"
+            class="absolute right-20 md:relative md:right-0"
             onClick={setSelectedBackward}
-            ref={backwardButton}
           />
           <For each={testimonies}>
             {(testimony, i) => {
@@ -171,9 +158,8 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
           <Button
             variant="nav"
             navDirection="forward"
-            class="absolute left-20 md:hidden"
+            class="absolute left-20 md:relative md:left-0"
             onClick={setSelectedForward}
-            ref={forwardButton}
           />
         </div>
       </div>
