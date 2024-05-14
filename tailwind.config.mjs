@@ -70,6 +70,7 @@ export default {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     plugin(({ addBase, addUtilities, theme }) => {
       addBase({
         h1: { fontFamily: theme("fontFamily.display") },
@@ -80,8 +81,8 @@ export default {
         h6: { fontFamily: theme("fontFamily.display") },
         button: { fontFamily: theme("fontFamily.display") },
         a: { fontFamily: theme("fontFamily.display") },
-        p: { fontSize: theme("fontSize.2xl") },
-        span: { fontSize: theme("fontSize.2xl") },
+        p: { fontSize: theme("fontSize.xl") },
+        span: { fontSize: theme("fontSize.xl") },
       });
       addUtilities({
         ".text-shadow-pink-sm": {

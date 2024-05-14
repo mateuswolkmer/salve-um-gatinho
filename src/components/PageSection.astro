@@ -1,5 +1,6 @@
 ---
+import { twMerge } from "tailwind-merge";
 ---
-<section class="py-16 sm:py-24 px-5 sm:px-10">
+<section class={twMerge("py-16 sm:py-24 px-5 sm:px-10", Astro.props.class)}>
     <slot/>
 </section>

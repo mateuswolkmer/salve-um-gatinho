@@ -54,7 +54,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
             selected() % 2 === 0 ? "-rotate-1" : "rotate-1"
           )}
         />
-        <span class="absolute -top-[5.5rem] left:0 right:0 md:-top-20 md:-left-20 text-blue text-shadow-blue text-[400px] font-display leading-none animate-hover">
+        <span class="absolute -top-[5.5rem] md:-top-20 md:-left-20 text-blue text-shadow-blue text-[400px] font-display leading-none animate-hover">
           “
         </span>
         <span class="hidden md:block absolute -bottom-72 -right-20 text-blue text-shadow-blue text-[400px] font-display leading-none animate-hover delay-1000">

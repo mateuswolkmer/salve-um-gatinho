@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.0",
+    "@tailwindcss/typography": "^0.5.13",
     "@tinacms/cli": "^1.5.43",
     "@types/node": "^20.12.2"
   }
