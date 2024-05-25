@@ -47,7 +47,7 @@ export const CatsList: Component<CatsListProps> = ({
       <div
         ref={catsListRef}
         id="cats-list"
-        class="flex gap-8 flex-nowrap py-8 w-screen -ml-10 px-10 overflow-y-visible overflow-x-scroll scroll-smooth"
+        class="flex gap-8 flex-nowrap py-8 w-screen -ml-10 px-10 overflow-y-visible no-scrollbar overflow-x-scroll scroll-smooth"
       >
         {cats?.map((cat) => (
           <CatCard
