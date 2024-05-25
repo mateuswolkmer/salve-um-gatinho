@@ -32,7 +32,7 @@ export const AdoptForm: Component<AdoptFormProps> = ({
       </Button>
       <div
         classList={{
-          "border-4 border-black rounded-xl bg-pink-300 p-4 md:p-6 overflow-hidden w-full transition-all duration-300":
+          "border-2 border-black rounded-xl bg-pink-300 p-4 md:p-6 overflow-hidden w-full transition-all duration-300":
             true,
           "max-h-14 max-w-64 sm:max-w-[20rem] sm:max-h-20 m-4": !formOpened(),
           "max-w-full max-h-[40rem]": formOpened(),
@@ -67,7 +67,7 @@ export const AdoptForm: Component<AdoptFormProps> = ({
                   type="text"
                   placeholder="Maria"
                   required
-                  class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+                  class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
                 />
               </div>
               <div class="flex flex-col gap-1">
@@ -80,7 +80,7 @@ export const AdoptForm: Component<AdoptFormProps> = ({
                   type="email"
                   placeholder="maria@gmail.com"
                   required
-                  class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+                  class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
                 />
               </div>
               <div class="flex flex-col gap-1">
@@ -92,7 +92,7 @@ export const AdoptForm: Component<AdoptFormProps> = ({
                   name="subject"
                   type="text"
                   placeholder="Sim/Não"
-                  class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+                  class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
                 />
               </div>
             </div>

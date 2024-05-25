@@ -3,7 +3,7 @@ import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "transition-all hover:scale-105 hover:shadow-lg hover:-rotate-1 active:scale-95 :active:shadow-none border-4 [&:not(:disabled)]:border-b-8 [&:not(:disabled)]:active:border-b-4 border-black rounded-xl flex gap-2 group focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none disabled:bg-gray-300 disabled:hover:pointer-events-none",
+  "transition-all hover:scale-105 hover:shadow-lg hover:-rotate-1 active:scale-95 :active:shadow-none border-2 [&:not(:disabled)]:border-b-4 [&:not(:disabled)]:active:border-b-2 border-black rounded-xl flex gap-2 group focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none disabled:bg-gray-300 disabled:hover:pointer-events-none",
   {
     variants: {
       variant: {

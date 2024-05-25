@@ -29,19 +29,19 @@ if (Astro.request.method === "POST") {
       <form method="post" autocomplete="on" class="flex flex-col gap-2">
           <div class="flex flex-col gap-1">
               <label for="name" class="text-lg font-semibold">Nome</label>
-              <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+              <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
           </div>
           <div class="flex flex-col gap-1">
               <label for="email" class="text-lg font-semibold">Email</label>
-              <input id="email" name="email" type="email" placeholder="maria@gmail.com" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+              <input id="email" name="email" type="email" placeholder="maria@gmail.com" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
           </div>
           <div class="flex flex-col gap-1">
               <label for="subject" class="text-lg font-semibold">Assunto</label>
-              <input id="subject" name="subject" type="text" placeholder="Dúvida" class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+              <input id="subject" name="subject" type="text" placeholder="Dúvida" class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
           </div>
           <div class="flex flex-col gap-1">
               <label for="message" class="text-lg font-semibold">Mensagem</label>
-              <textarea id="message" placeholder="Olá, eu gostaria de tirar uma dúvida..." name="message" required class="transition-all border-4 border-b-8 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
+              <textarea id="message" placeholder="Olá, eu gostaria de tirar uma dúvida..." name="message" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
           </div>
           <Button variant="form" class="self-center mt-4" type="submit">Enviar</Button>
       </form>
