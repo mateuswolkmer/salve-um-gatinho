@@ -19,13 +19,15 @@ import BottomDiagonal from "../components/dividers/BottomDiagonal.astro";
 <Layout>
 	<Hero />
 	<div class="relative">
-		<TopDiagonal />
+		<div class="absolute top-0 w-full h-28 bg-gradient-to-b from-page-background z-10" />
+		<!-- <TopDiagonal /> -->
 	</div>
-	<Actions class='bg-blue-300/50' />
-	<Location class='bg-blue-300/50' />
-	<Emergency class='bg-blue-300/50' />
-	<div class="relative -top-12">
-		<BottomDiagonal />
+	<Actions class='bg-pattern-boxes-blue' />
+	<Location class='bg-pattern-boxes-blue' />
+	<Emergency class='bg-pattern-boxes-blue' />
+	<div class="relative -top-28">
+		<div class="absolute top-0 w-full h-28 bg-gradient-to-t from-page-background z-10" />
+		<!-- <BottomDiagonal /> -->
 	</div>
 	<Story />
 	<Cats />
