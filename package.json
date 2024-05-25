@@ -19,6 +19,7 @@
     "@solid-primitives/presence": "^0.0.6",
     "astro": "^4.4.15",
     "class-variance-authority": "^0.7.0",
+    "countup.js": "^2.8.0",
     "date-fns": "^3.6.0",
     "solid-js": "^1.8.15",
     "tailwind-merge": "^2.2.2",

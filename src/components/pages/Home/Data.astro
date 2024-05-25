@@ -3,6 +3,7 @@ import PageSection from '../../PageSection.astro';
 import Paw from '../../patterns/Paw.astro';
 import Triangle from '../../patterns/Triangle.astro';
 import Circle from '../../patterns/Circle.astro';
+import { CountNumber } from '../../CountNumber';
 
 // TODO pull from database
 const data = {
@@ -18,22 +19,30 @@ const data = {
         <Triangle class="-z-10 hidden md:block left-1/2 -translate-x-1/2 top-14 rotate-12" />
         <Circle class="-z-10 right-0 sm:right-24 md:right-0 lg:-right-8 -bottom-20 lg:-top-16 -rotate-12" />
         <div class="flex flex-col gap-4">
-            <h6 class="text-7xl text-shadow-pink">{data.helped}</h6>
+            <h6 id="helped" class="text-7xl text-shadow-pink">
+                <CountNumber client:only value={data.helped} id="helped" />
+            </h6>
             <div class="flex flex-col">
                 <span>gatos beneficiados</span>
                 <span class="text-lg">*resgatados ou apoiados</span>
             </div>
         </div>
         <div class="flex flex-col gap-4">
-            <h6 class="text-7xl text-shadow-blue">{data.adopted}</h6>
+            <h6 id="adopted" class="text-7xl text-shadow-blue">
+                <CountNumber client:only value={data.adopted} id="adopted" />
+            </h6>
             <span>gatos adotados</span>
         </div>
         <div class="flex flex-col gap-4">
-            <h6 class="text-7xl text-shadow-yellow">{data.prepared}</h6>
+            <h6 id="prepared" class="text-7xl text-shadow-yellow">
+                <CountNumber client:only value={data.prepared} id="prepared" />
+            </h6>
             <span>gatos em tratamento ou socialização</span>
         </div>
         <div class="flex flex-col gap-4">
-            <h6 class="text-7xl text-shadow-pink">{data.available}</h6>
+            <h6 id="available" class="text-7xl text-shadow-pink">
+                <CountNumber client:only value={data.available} id="available" />
+            </h6>
             <span>gatos disponíveis para adoção</span>
         </div>
     </div>
