@@ -1,9 +1,8 @@
 ---
 import PageSection from '../../PageSection.astro';
-
-type Props = {};
-
-const {} = Astro.props;
+import Paw from '../../patterns/Paw.astro';
+import Triangle from '../../patterns/Triangle.astro';
+import Circle from '../../patterns/Circle.astro';
 
 // TODO pull from database
 const data = {
@@ -13,9 +12,11 @@ const data = {
 	available: 34,
 };
 ---
-<PageSection>
-    <!-- FIXME add forms in background -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-5xl m-auto gap-8 text-center w-full">
+<PageSection class="sm:py-48">
+    <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-5xl m-auto gap-8 text-center w-full">
+        <Paw class="-z-10 left-0 sm:left-24 md:left-0 lg:-left-14 -top-20 -rotate-12" />
+        <Triangle class="-z-10 hidden md:block left-1/2 -translate-x-1/2 top-14 rotate-12" />
+        <Circle class="-z-10 right-0 sm:right-24 md:right-0 lg:-right-8 -bottom-20 lg:-top-16 -rotate-12" />
         <div class="flex flex-col gap-4">
             <h6 class="text-7xl text-shadow-pink">{data.helped}</h6>
             <div class="flex flex-col">

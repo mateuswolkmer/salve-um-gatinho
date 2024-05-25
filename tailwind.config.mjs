@@ -51,6 +51,7 @@ export default {
           800: "#635a2f",
           900: "#322d18",
         },
+        "page-background": "#fefbf2", // yellow-100/50
       },
       keyframes: {
         "move-right": {

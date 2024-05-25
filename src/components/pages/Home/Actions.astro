@@ -2,10 +2,6 @@
 import { Button } from "../../Button";
 import PageSection from "../../PageSection.astro";
 
-type Props = {};
-
-const {} = Astro.props;
-
 const actions = [
 	{
 		image: "",
@@ -24,7 +20,7 @@ const actions = [
 	},
 ];
 ---
-<PageSection>
+<PageSection class={Astro.props.class}>
     <div class="flex flex-col lg:flex-row gap-8 items-center justify-center">
         {actions.map(action => (
             <a href={action.href} class="flex flex-col gap-4 w-full flex-1 items-center group max-w-96">
