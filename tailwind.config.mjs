@@ -55,8 +55,8 @@ export default {
       },
       keyframes: {
         "move-right": {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
+          "0%": { transform: "translateX(var(--initial-transform))" },
+          "100%": { transform: "translateX(0%)" },
         },
         hover: {
           "0%": { transform: "translateY(5px)" },
@@ -65,7 +65,7 @@ export default {
         },
       },
       animation: {
-        "carousel-item": "move-right 10s linear infinite",
+        scroll: "move-right var(--duration) linear infinite",
         hover: "hover 5s ease infinite",
       },
     },
