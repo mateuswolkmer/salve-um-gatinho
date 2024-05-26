@@ -5,24 +5,24 @@ import { Tag } from "./Tag";
 import type { Cat } from "../../tina/__generated__/types";
 
 const catCardVariants = cva(
-  "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 bg-white border-2 border-b-4 active:border-b-2 border-black rounded-xl flex focus:outline-4 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden font-body",
+  "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 bg-white border-2 border-b-4 active:border-b-2 border-black rounded-xl flex focus:outline-2 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden font-body",
   {
     variants: {
       variant: {
-        small: "p-3 gap-3 flex-row items-end h-40 w-80",
-        vertical: "p-4 gap-4 flex-col h-[30rem] w-80 min-w-80",
-        big: "p-4 gap-4 flex-col h-72 md:h-80 xl:h-96 w-full",
+        small: "flex-row items-end h-40 w-80",
+        vertical: "flex-col h-[30rem] w-80 min-w-80",
+        big: "flex-col h-72 md:h-80 xl:h-96 w-full",
       },
     },
   }
 );
 
-const catCardTitleVariants = cva("flex", {
+const catCardTitleVariants = cva("flex border-black", {
   variants: {
     variant: {
-      small: "flex-col-reverse gap-2 w-1/2",
-      vertical: "flex-row items-center justify-between flex-1",
-      big: "flex-row items-center justify-between flex-1",
+      small: "p-3 flex-col-reverse gap-2 w-1/2 h-full border-l-2",
+      vertical: "p-4 flex-row items-center justify-between flex-1 border-t-2",
+      big: "p-4 flex-row items-center justify-between flex-1 border-t-2",
     },
   },
 });
@@ -55,7 +55,7 @@ export const CatCard: Component<CatCardProps> = ({
     >
       <div
         class={twMerge(
-          "bg-gray-200 rounded-xl w-full h-full overflow-hidden",
+          "bg-gray-200 w-full h-full overflow-hidden",
           variant === "small" && "w-1/2 h-full"
         )}
         style={{ "view-transition-name": `picture_${cat.slug}` }}

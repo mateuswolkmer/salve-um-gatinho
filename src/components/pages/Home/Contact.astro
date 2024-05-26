@@ -22,10 +22,8 @@ if (Astro.request.method === "POST") {
   }
 }
 ---
-<PageSection>
-  <div class="flex flex-col gap-10 max-w-xl m-auto">
-      <!-- FIXME think of better header -->
-      <p class="text-3xl font-medium text-center">Fale conosco</p>
+<PageSection title="Fale conosco">
+  <div class="w-full max-w-xl m-auto">
       <form method="post" autocomplete="on" class="flex flex-col gap-2">
           <div class="flex flex-col gap-1">
               <label for="name" class="text-lg font-semibold">Nome</label>

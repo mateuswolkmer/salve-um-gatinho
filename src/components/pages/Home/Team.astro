@@ -7,18 +7,10 @@ type Props = {};
 
 const {} = Astro.props;
 ---
-<PageSection>
-    <div class="flex flex-col gap-10">
-        <!-- FIXME think of better header -->
-        <p class="text-3xl font-medium text-center">Equipe</p>
-        <div class:list={[
-            "flex items-center justify-center w-full bg-black w-full max-w-5xl m-auto border-2 border-black rounded-xl relative",
-            "before:absolute before:inset-0 before:bg-pink before:transform before:-translate-x-4 before:translate-y-4 before:rounded-xl before:-z-10",
-            "after:absolute after:inset-0 after:bg-yellow after:transform after:translate-x-4 after:-translate-y-4 after:rounded-xl after:-z-10"
-        ]}>
-            <div class="w-full h-full rounded-xl overflow-hidden">
-                <Image src={GuriasImage} alt="Equipe" class="object-cover w-full">
-            </div>
+<PageSection title='Equipe'>
+    <div class="flex items-center justify-center w-full bg-black max-w-5xl m-auto border-2 border-black rounded-xl relative">
+        <div class="w-full h-full rounded-xl overflow-hidden">
+            <Image src={GuriasImage} alt="Equipe" class="object-cover w-full">
         </div>
     </div>
 </PageSection>

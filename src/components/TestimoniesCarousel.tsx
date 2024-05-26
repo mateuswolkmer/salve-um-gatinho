@@ -22,13 +22,16 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
   const initialSelected = isEven ? 0 : Math.floor(testimonies.length / 2);
 
   const [selected, setSelected] = createSignal(initialSelected);
+  const [tiltLeft, setTiltLeft] = createSignal(true);
 
   const setSelectedForward = () => {
     setSelected((cur) => (selected() < testimonies.length - 1 ? cur + 1 : 0));
+    setTiltLeft((cur) => !cur)
   };
-
+  
   const setSelectedBackward = () => {
     setSelected((cur) => (selected() > 0 ? cur - 1 : testimonies.length - 1));
+    setTiltLeft((cur) => !cur)
   };
 
   const [messageRefs, setMessageRefs] = createSignal<HTMLParagraphElement[]>(
@@ -51,13 +54,13 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
         <div
           class={twMerge(
             "absolute inset-0 rounded-xl bg-blue-200 border-black border-2 transition-all",
-            selected() % 2 === 0 ? "-rotate-1" : "rotate-1"
+            tiltLeft() ? "-rotate-1" : "rotate-1"
           )}
         />
-        <span class="absolute -top-[5.5rem] md:-top-20 md:-left-20 text-blue text-shadow-blue text-[400px] font-display leading-none animate-hover">
+        <span class="absolute -top-[5.5rem] md:-top-20 md:-left-20 text-blue text-[320px] font-display leading-none animate-hover">
           “
         </span>
-        <span class="hidden md:block absolute -bottom-72 -right-20 text-blue text-shadow-blue text-[400px] font-display leading-none animate-hover delay-1000">
+        <span class="hidden md:block absolute -bottom-60 -right-20 text-blue text-[320px] font-display leading-none animate-hover delay-1000">
           ”
         </span>
         <div ref={setMessagesWrapperRef} class="relative w-full transition-all">
@@ -115,7 +118,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                     class={twMerge(
                       "bg-gray-200 rounded-t-[100%] rounded-b-3xl border-2 border-b-4 border-black transition-all duration-500 md:duration-300 size-24 md:size-16 opacity-0 md:opacity-100 overflow-hidden",
                       isSelected()
-                        ? "size-24 md:size-24 border-b-4 opacity-100 z-10"
+                        ? "size-24 md:size-24 border-b-2 opacity-100 z-10"
                         : "hover:scale-110 hover:shadow-lg active:scale-90 active:shadow-none active:border-b-2 pointer-events-none md:pointer-events-auto"
                     )}
                     disabled={isSelected()}

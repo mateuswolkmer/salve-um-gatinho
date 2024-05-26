@@ -43,7 +43,7 @@ export const CatsList: Component<CatsListProps> = ({
   });
 
   return (
-    <div class="flex flex-col gap-12 items-start">
+    <div class="flex flex-col gap-4 items-start">
       <div
         ref={catsListRef}
         id="cats-list"
