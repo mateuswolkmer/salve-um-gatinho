@@ -11,7 +11,7 @@ export default {
     },
     extend: {
       spacing: {
-        header: "100px",
+        header: "80px",
         footer: "400px",
       },
       colors: {
@@ -104,7 +104,9 @@ export default {
         ".bg-pattern-boxes-blue": {
           "background-image": `
             linear-gradient(${theme("colors.blue.300")} 1px, transparent 1px), 
-            linear-gradient(to right, ${theme("colors.blue.300")} 1px, transparent 1px)`,
+            linear-gradient(to right, ${theme(
+              "colors.blue.300"
+            )} 1px, transparent 1px)`,
           "background-size": "20px 20px",
         },
         ".no-scrollbar": {

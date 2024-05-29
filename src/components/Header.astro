@@ -1,11 +1,19 @@
 ---
 import Link from './Link.astro';
+import Pattern from '../assets/pattern.png'
+import LogoBlack from '../assets/logo_black.png'
+import { Image } from 'astro:assets';
 ---
-<div class="p-8 bg-blue m-4 flex items-center justify-between rounded-xl h-header border-black border-2" transition:name="header">
-    <div>
-        <Link href='/'>Home</Link>
+<div class="bg-blue m-4 flex items-center justify-between rounded-xl h-header border-black border-2 sticky top-4 z-20" transition:name="header">
+    <div class="flex-1 overflow-hidden h-full">
+        <Image src={Pattern} alt="" aria-hidden class="h-24 w-auto" />
     </div>
-    <div class="flex gap-8">
+    <div>
+        <a href='/'>
+            <Image src={LogoBlack} alt="Salve um Gatinho" class='h-14 w-auto' />
+        </a>
+    </div>
+    <div class="flex-1 flex justify-end gap-8 p-8">
         <Link href='/sobre'>Sobre</Link>
         <Link href='/gatos'>Adote</Link>
     </div>
