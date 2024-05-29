@@ -5,12 +5,12 @@ import LogoBlack from '../assets/Logos/logo_black.png'
 import { Image } from 'astro:assets';
 ---
 <div class="bg-blue m-4 flex items-center justify-between rounded-xl h-header border-black border-2 sticky top-4 z-20" transition:name="header">
-    <div class="flex-1 overflow-hidden h-full">
+    <div class="flex-1 overflow-hidden h-full hidden md:block">
         <Image src={Pattern} alt="" aria-hidden class="h-24 w-auto" />
     </div>
     <div>
         <a href='/'>
-            <Image src={LogoBlack} alt="Salve um Gatinho" class='h-14 w-auto' />
+            <Image src={LogoBlack} alt="Salve um Gatinho" class='h-14 w-auto pl-4 md:pl-0' />
         </a>
     </div>
     <div class="flex-1 flex justify-end gap-8 p-8">

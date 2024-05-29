@@ -1,20 +1,24 @@
 ---
 import { Button } from "../../Button";
 import PageSection from "../../PageSection.astro";
+import AdoptImage from '../../../assets/Outras/actions/adopt.jpeg'
+import PatronizeImage from '../../../assets/Outras/actions/patronize.jpeg'
+import HelpImage from '../../../assets/Outras/actions/help.jpeg'
+import { Image } from 'astro:assets';
 
 const actions = [
 	{
-		image: "",
+		image: AdoptImage,
 		label: "Adote",
 		href: "/gatos",
 	},
 	{
-		image: "",
+		image: PatronizeImage,
 		label: "Apadrinhe",
 		href: "/apadrinhe",
 	},
 	{
-		image: "",
+		image: HelpImage,
 		label: "Ajude",
 		href: "/ajude",
 	},
@@ -24,8 +28,8 @@ const actions = [
     <div class="flex flex-col w-full lg:flex-row gap-8 items-center justify-center mb-2">
         {actions.map(action => (
             <a href={action.href} class="flex flex-col gap-4 w-full flex-1 items-center group max-w-96">
-                <div id="card" class="h-96 w-full border-2 border-black rounded-xl">
-					<div class="size-full bg-gray-200 rounded-xl"/>
+                <div id="card" class="h-96 w-full border-2 border-black rounded-xl flex items-center justify-center overflow-hidden">
+					<Image src={action.image} alt={action.label} class='h-full object-cover group-hover:scale-105 transition-transform' />
                 </div>
                 <Button variant="nav" class="group-hover:-rotate-1">
                     {action.label}
