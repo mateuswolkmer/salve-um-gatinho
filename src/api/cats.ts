@@ -34,3 +34,14 @@ export const getOldCats = async (
 
   return [...allCats].splice(AMOUNT_OF_NEW_CATS, allCats.length);
 };
+
+const AMOUNT_OF_RANDOM_CATS = 5;
+
+export const getRandomCats = async (
+  connection?: Awaited<ReturnType<typeof loadCatConnection>>
+): Promise<Cat[]> => {
+  const allCats = await getAllCats(connection);
+
+  const shuffledCats = [...allCats].sort(() => 0.5 - Math.random());
+  return shuffledCats.slice(0, AMOUNT_OF_RANDOM_CATS);
+};

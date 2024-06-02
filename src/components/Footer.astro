@@ -1,10 +1,53 @@
 ---
 import Link from './Link.astro';
----
-<div class="p-8 bg-blue m-4 flex items-start justify-between rounded-xl h-footer border-black border-2" transition:name="footer">
-    <div></div>
-    <div class="flex gap-8">
-        <Link href='/sobre'>Sobre</Link>
-        <Link href='/gatos'>Adote</Link>
+import QrImage from '../assets/Outras/qr.png'
+import FacebookIcon from '../assets/Outras/icons/facebook.svg'
+import InstagramIcon from '../assets/Outras/icons/instagram.svg'
+import { ButtonLink } from '../components/Button'
+import { Image } from 'astro:assets';
+import { getRandomCats } from '../api/cats';
+
+const randomCats = await getRandomCats();
+--- 
+<div class="w-full flex flex-col p-4 gap-4">
+    <div class="p-8 bg-blue flex flex-col md:flex-row items-start justify-between gap-2 rounded-xl min-h-footer border-black border-2" transition:name="footer">
+        <div class="text-center md:text-start w-full md:w-72">
+            <h1 class="text-4xl sm:text-7xl text-shadow-blue">Salve-se com um gatinho</h1>
+        </div>
+        <div class="flex-1 flex gap-12">
+            <div class="flex flex-col gap-1">
+                <h4 class="mb-2 text-lg">Conheça</h4>
+                <Link class="font-body text-xl after:h-0.5" href='/sobre'>Sobre</Link>
+                <Link class="font-body text-xl after:h-0.5" href='/faq'>FAQ 🚧</Link>
+                <Link class="font-body text-xl after:h-0.5" href='/blop'>Blog 🚧</Link>
+            </div>
+            <div class="flex flex-col gap-1 items-start">
+                <h4 class="mb-2 text-lg">Ajude</h4>
+                <Link class="font-body text-xl after:h-0.5" href='/gatos'>Adote</Link>
+                <Link class="font-body text-xl after:h-0.5" href='/apadrinhe'>Apadrinhe 🚧</Link>
+                <Link class="font-body text-xl after:h-0.5" href='/doe'>Doe 🚧</Link>
+                <Image src={QrImage} alt="Qr code de doação" aria-hidden class="h-32 w-auto" />
+            </div>
+        </div>
+        <div class="flex flex-col gap-1 items-start min-w-52">
+            <h4 class="mb-2 text-lg">Me leva 🥺</h4>
+            {randomCats?.map(cat => (
+                <Link class="font-body text-xl after:h-0.5" href={`/gatos/${cat.slug}`}>{cat.name}</Link>
+            ))}
+            <Link class="mt-2 font-body text-xl after:h-0.5" href='/doe'>Ver mais</Link>
+        </div>
+    </div>
+    <div class="flex justify-between items-center w-full">
+        <div class="flex gap-2">
+            <ButtonLink variant='icon' href='https://www.facebook.com/salveumgatinho.rs' target='_blank'>
+                <Image src={FacebookIcon} alt="Ícone do Facebook" aria-hidden class="h-full w-auto" />
+            </ButtonLink>
+            <ButtonLink variant='icon' href='https://www.instagram.com/salve1gatinho/' target='_blank'>
+                <Image src={InstagramIcon} alt="Ícone do Instagram" aria-hidden class="h-full w-auto" />
+            </ButtonLink>
+        </div>
+        <span class="text-base">
+            © Salve um Gatinho, 2024
+        </span>
     </div>
 </div>
