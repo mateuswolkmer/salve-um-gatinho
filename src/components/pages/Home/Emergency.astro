@@ -1,10 +1,13 @@
 ---
+import { Highlight } from '../../Highlight';
 import PageSection from '../../PageSection.astro';
+import Paws from '../../../assets/Outras/background/paws.svg'
+import { Image } from 'astro:assets';
 ---
 <PageSection class={Astro.props.class}>
-    <div class="relative flex flex-col gap-10 max-w-5xl w-full bg-pink-100 border-2 border-black rounded-xl p-20 text-center items-center z-10">
-        <!-- FIXME add paws in background -->
-        <h2 class="text-4xl font-body">Para atendimentos de emergencia, ligue</h2>
+    <div class="relative flex flex-col gap-10 max-w-5xl w-full bg-pink-100 border-2 border-black rounded-xl p-8 md:p-20 text-center items-center z-10 overflow-hidden">
+        <Image src={Paws} alt="" aria-hidden class='hidden md:block absolute -right-12 top-0 h-full -z-10' />
+        <h2 class="text-3xl md:text-4xl font-body text-balance">Para atendimentos de emergencia de animais feridos <Highlight class="font-bold">sem tutores</Highlight>, ligue</h2>
         <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start">
             <div class="flex flex-col gap-1 flex-1">
                 <!-- FIXME add white and colored shadow to text -->
