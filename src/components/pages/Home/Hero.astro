@@ -21,12 +21,14 @@ const newCats = await getNewCats();
 
 <!-- hide element at first render to avoid FOUC -->
 <!-- TODO refactor so this is not needed -->
-<!-- FIXME it's breaking view transitions from other page to home  -->
-<script is:inline>    
-    document.getElementById('new-cats').classList.add('!hidden');
-    document.addEventListener('astro:page-load', function() {
-        document.getElementById('new-cats').classList.remove('!hidden');
-    });
+<script is:inline>
+    if(!window.newCatsAnimated) {
+        document.getElementById('new-cats').classList.add('!hidden');
+        document.addEventListener('astro:page-load', function() {
+            document.getElementById('new-cats').classList.remove('!hidden');
+        });
+        window.newCatsAnimated = true;
+    }
 </script>
 
 <script>
