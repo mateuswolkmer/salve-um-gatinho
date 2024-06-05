@@ -23,7 +23,7 @@ const duration = partners.length * 2;
 			style={{ '--initial-transform': `-${initialTransform}%`, '--duration': `${duration}s`}}> 
 			<!-- repeat 3 times so they loop nicely -->
 			{[...partners, ...partners, ...partners].map((partner, i) => (
-				<img src={partner.image} alt={partner.name} class="w-32" />)
+				<img src={partner.image} alt={partner.name} class="w-32" loading='lazy' />)
 			)}
 		</div>
 	</div>

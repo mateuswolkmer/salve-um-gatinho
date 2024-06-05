@@ -26,12 +26,12 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
 
   const setSelectedForward = () => {
     setSelected((cur) => (selected() < testimonies.length - 1 ? cur + 1 : 0));
-    setTiltLeft((cur) => !cur)
+    setTiltLeft((cur) => !cur);
   };
-  
+
   const setSelectedBackward = () => {
     setSelected((cur) => (selected() > 0 ? cur - 1 : testimonies.length - 1));
-    setTiltLeft((cur) => !cur)
+    setTiltLeft((cur) => !cur);
   };
 
   const [messageRefs, setMessageRefs] = createSignal<HTMLParagraphElement[]>(
@@ -70,8 +70,8 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                 selected() === i()
                   ? "selected"
                   : selected() > i()
-                    ? "left"
-                    : "right"
+                  ? "left"
+                  : "right"
               );
 
               return (
@@ -134,6 +134,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                         "object-cover min-w-full min-h-full transition-all",
                         !isSelected() ? "saturate-0" : "saturate-100"
                       )}
+                      loading="lazy"
                     />
                   </button>
                   <Show when={isMounted()}>

@@ -65,6 +65,7 @@ export const CatCard: Component<CatCardProps> = ({
             src={cat.image}
             alt={cat.name}
             class="object-cover w-full h-full"
+            loading="lazy"
           />
         )}
       </div>
