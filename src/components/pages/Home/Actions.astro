@@ -25,10 +25,10 @@ const actions = [
 ];
 ---
 <PageSection class={Astro.props.class}>
-    <div class="flex flex-col w-full lg:flex-row gap-8 items-center justify-center mb-2">
+    <div class="flex flex-col w-full sm:flex-row gap-4 sm:gap-8 items-center justify-center mb-2">
         {actions.map(action => (
-            <a href={action.href} class="flex flex-col gap-4 w-full flex-1 items-center group max-w-96">
-                <div id="card" class="h-96 w-full border-2 border-black rounded-xl flex items-center justify-center overflow-hidden">
+            <a href={action.href} class="flex flex-col gap-2 sm:gap-4 w-full flex-1 items-center group max-w-96">
+                <div id="card" class="h-40 sm:h-64 lg:h-96 w-full border-2 border-black rounded-xl flex items-center justify-center overflow-hidden">
 					<Image src={action.image} alt={action.label} class='h-full object-cover group-hover:scale-105 transition-transform' />
                 </div>
                 <Button variant="nav" class="group-hover:-rotate-1">
