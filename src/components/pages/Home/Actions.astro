@@ -29,7 +29,8 @@ const actions = [
         {actions.map(action => (
             <a href={action.href} class="flex flex-col gap-2 sm:gap-4 w-full flex-1 items-center group max-w-96">
                 <div id="card" class="h-40 sm:h-64 lg:h-96 w-full border-2 border-black rounded-xl flex items-center justify-center overflow-hidden">
-					<Image src={action.image} alt={action.label} class='h-full object-cover group-hover:scale-105 transition-transform' />
+					{/* FIXME reduce width once images are cropped */}
+                    <Image src={action.image} width={1000} alt={action.label} class='h-full object-cover group-hover:scale-105 transition-transform' />
                 </div>
                 <Button variant="nav" class="group-hover:-rotate-1">
                     {action.label}
