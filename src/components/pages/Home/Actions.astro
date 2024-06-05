@@ -25,7 +25,7 @@ const actions = [
 ];
 ---
 <PageSection class={Astro.props.class}>
-    <div class="flex flex-col w-full sm:flex-row gap-4 sm:gap-8 items-center justify-center mb-2">
+    <div id="actions-container" class="flex flex-col w-full sm:flex-row gap-4 sm:gap-12 lg:gap-24 items-center justify-center mb-2">
         {actions.map(action => (
             <a href={action.href} class="flex flex-col gap-2 sm:gap-4 w-full flex-1 items-center group max-w-96">
                 <div id="card" class="h-40 sm:h-64 lg:h-96 w-full border-2 border-black rounded-xl flex items-center justify-center overflow-hidden">
@@ -38,3 +38,14 @@ const actions = [
         )}
     </div>
 </PageSection>
+
+<script>
+    import { animate, scroll } from 'motion';
+
+    if (window.innerWidth > 640) {
+        scroll(
+            animate("#actions-container", { gap: window.innerWidth > 1024 ? ['2rem', '3rem', '6rem'] : ['1rem', '3rem'] }), 
+            { target: document.querySelector('#actions-container'), offset: ["end start", "end end"] }
+        );
+    }
+</script>
