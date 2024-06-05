@@ -12,10 +12,28 @@ const newCats = await getNewCats();
             <h1 class="text-7xl sm:text-8xl md:text-9xl max-w-[55rem] text-shadow-pink">Eles merecem uma chance de te fazer feliz</h1>
             <ButtonLink href="/gatos" variant="cta">Adote</ButtonLink>
         </div>
-        <div class="hidden lg:flex flex-col items-center gap-6">
-            <!-- {cats.map(cat => <CatCard transition:name={`cat_${cat.name}`} variant="small" cat={cat} />)} -->
+        <div id='new-cats' class="hidden lg:flex flex-col items-center gap-6">
             {newCats.map(cat => <CatCard variant="small" cat={cat} />)}
             <ButtonLink href="/gatos" variant="nav">Ver mais</ButtonLink>
         </div>
     </div>
 </PageSection>
+
+<!-- hide element at first render to avoid FOUC -->
+<!-- TODO refactor so this is not needed -->
+<!-- FIXME it's breaking view transitions from other page to home  -->
+<script is:inline>    
+    document.getElementById('new-cats').classList.add('!hidden');
+    document.addEventListener('astro:page-load', function() {
+        document.getElementById('new-cats').classList.remove('!hidden');
+    });
+</script>
+
+<script>
+    import { animate, stagger } from 'motion';
+
+    animate('#new-cats > *', 
+        { opacity: ['0', '1'], transform: ['rotate(-3deg) translateY(-12px)', ' rotate(1deg) translateY(0)', '']}, 
+        { delay: stagger(0.3, { from: -1 }) }
+    );
+</script>
