@@ -161,9 +161,9 @@ export default defineConfig({
           {
             name: "social",
             label: "Sociável",
-            description: "O quão sociável é o gato (1 a 5)",
+            description: "O quão sociável é o gato (1 a 3)",
             type: "string",
-            options: ["1", "2", "3", "4", "5"],
+            options: ["1", "2", "3"],
             ui: {
               component: "radio-group",
               // @ts-ignore
@@ -171,11 +171,11 @@ export default defineConfig({
             },
           },
           {
-            name: "plauful",
+            name: "playful",
             label: "Brincalhão",
-            description: "O quão brincalhão é o gato (1 a 5)",
+            description: "O quão brincalhão é o gato (1 a 3)",
             type: "string",
-            options: ["1", "2", "3", "4", "5"],
+            options: ["1", "2", "3"],
             ui: {
               component: "radio-group",
               // @ts-ignore
@@ -185,9 +185,9 @@ export default defineConfig({
           {
             name: "loving",
             label: "Carinhoso",
-            description: "O quão carinhoso é o gato (1 a 5)",
+            description: "O quão carinhoso é o gato (1 a 3)",
             type: "string",
-            options: ["1", "2", "3", "4", "5"],
+            options: ["1", "2", "3"],
             ui: {
               component: "radio-group",
               // @ts-ignore

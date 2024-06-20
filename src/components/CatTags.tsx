@@ -20,14 +20,20 @@ export const CatTags: Component<CatTagsProps> = ({
   return (
     <div class={twMerge("flex gap-2 items-center", classNames)} {...rest}>
       <Show when={rescueDate && differenceInDays(today, rescueDate) <= 30}>
-        <Tag special="new">Novo</Tag>
+        <Tag color="yellow" icon="star">
+          Novo
+        </Tag>
       </Show>
       <Show when={showOnly !== "new"}>
         <Show when={gender === "female"}>
-          <Tag special="female">Fêmea</Tag>
+          <Tag color="pink" icon="gender-female">
+            Fêmea
+          </Tag>
         </Show>
         <Show when={gender === "male"}>
-          <Tag special="male">Macho</Tag>
+          <Tag color="blue" icon="gender-male">
+            Macho
+          </Tag>
         </Show>
         {tags?.map((tag) => (
           <Tag>{tag}</Tag>

@@ -16,6 +16,7 @@
     "@fontsource-variable/outfit": "^5.0.12",
     "@fontsource/rubik": "^5.0.19",
     "@fontsource/staatliches": "^5.0.19",
+    "@phosphor-icons/web": "^2.1.1",
     "@solid-primitives/presence": "^0.0.6",
     "astro": "^4.4.15",
     "class-variance-authority": "^0.7.0",

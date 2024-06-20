@@ -28,7 +28,7 @@ export type Props = {
 
 const { slug } = Astro.params;
 const { cat } = Astro.props;
-const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, patronized } = cat;
+const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, patronized, social, playful, loving } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
 
@@ -72,6 +72,34 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
             <span class="text-5xl sm:text-7xl bold font-body font-bold" transition:name={slug || ""}>{name}</span>
             <CatTags cat={cat} />
           </div>
+          <!-- TODO change to component and animate -->
+          {social && playful && loving ? 
+            <div class="flex gap-8 items-center">
+              <div class="text-gray-500">
+                <span class="">sociável</span>
+                <div class="text-xl">
+                  <i class:list={["ph-duotone ph-cat", {"text-black !font-bold before:!text-blue before:!opacity-100": ["1", "2", "3"].includes(social) }]}/>
+                  <i class:list={["ph-duotone ph-cat", {"text-black !font-bold before:!text-blue before:!opacity-100": ["2", "3"].includes(social) }]}/>
+                  <i class:list={["ph-duotone ph-cat", {"text-black !font-bold before:!text-blue before:!opacity-100": ["3"].includes(social) }]}/>
+                </div>
+              </div>
+              <div class="text-gray-500">
+                <span>brincalhão</span>
+                <div class="text-xl">
+                  <i class:list={["ph-duotone ph-yarn", {"text-black !font-bold before:!text-yellow before:!opacity-100": ["1", "2", "3"].includes(playful) }]}/>
+                  <i class:list={["ph-duotone ph-yarn", {"text-black !font-bold before:!text-yellow before:!opacity-100": ["2", "3"].includes(playful) }]}/>
+                  <i class:list={["ph-duotone ph-yarn", {"text-black !font-bold before:!text-yellow before:!opacity-100": ["3"].includes(playful) }]}/>
+                </div>
+              </div>
+              <div class="text-gray-500">
+                <span>carente</span>
+                <div class="text-xl">
+                  <i class:list={["ph-duotone ph-heart", {"text-black !font-bold before:!text-pink before:!opacity-100": ["1", "2", "3"].includes(loving) }]}/>
+                  <i class:list={["ph-duotone ph-heart", {"text-black !font-bold before:!text-pink before:!opacity-100": ["2", "3"].includes(loving) }]}/>
+                  <i class:list={["ph-duotone ph-heart", {"text-black !font-bold before:!text-pink before:!opacity-100": ["3"].includes(loving) }]}/>
+                </div>
+              </div>
+            </div> : <></>}
           {Boolean(birthDate) && <p>Nasci {bornAtTheShelter ? "no abrigo ": ""}{birthDateDistance} <small>({birthDate}).</small></p>}
           {Boolean(rescueDate && !bornAtTheShelter) && <p>Fui resgatad{article} {rescueDateDistance} <small>({rescueDate}).</small></p>}
           {Boolean(status) && <p>{status}.</p>}

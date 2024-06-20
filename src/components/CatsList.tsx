@@ -40,14 +40,17 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
 
   return (
     <div class="flex flex-col gap-4 items-start">
-      <div
-        ref={catsListRef}
-        id="cats-list"
-        class="flex gap-8 flex-nowrap py-8 w-screen -ml-10 px-10 overflow-y-visible no-scrollbar overflow-x-scroll scroll-smooth"
-      >
-        {cats?.map((cat) => (
-          <CatCard variant="vertical" cat={cat} />
-        ))}
+      <div class="relative">
+        <div
+          ref={catsListRef}
+          id="cats-list"
+          class="flex gap-8 flex-nowrap py-8 w-screen -ml-10 px-10 overflow-y-visible no-scrollbar overflow-x-scroll scroll-smooth"
+        >
+          {cats?.map((cat) => (
+            <CatCard variant="vertical" cat={cat} />
+          ))}
+        </div>
+        <div class="absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-white to-transparent" />
       </div>
       <div class="flex justify-between items-center w-full">
         <Button
