@@ -46,7 +46,7 @@ export const CatCard: Component<CatCardProps> = ({
 
   return (
     <a
-      href={`/adotar/${cat.slug}`}
+      href={`/${cat.slug}`}
       class={twMerge(catCardVariants({ variant }), classes)}
       style={
         disableTransition ? {} : { "view-transition-name": `cat_${cat.slug}` }
@@ -80,7 +80,9 @@ export const CatCard: Component<CatCardProps> = ({
           {cat.name}
         </span>
         <div class="flex gap-2">
-          <Tag special="new">Novo</Tag>
+          {cat.tags?.map((tag) => (
+            <Tag>{tag}</Tag>
+          ))}
         </div>
       </div>
     </a>

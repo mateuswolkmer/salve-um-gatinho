@@ -1,30 +1,20 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { AdoptForm } from '../../components/pages/Cat/AdoptForm';
+import Layout from '../layouts/Layout.astro';
+import { AdoptForm } from '../components/pages/Cat/AdoptForm';
 import { formatRelative, formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { Tag } from '../../components/Tag';
-import PageSection from '../../components/PageSection.astro';
-import { CatsList } from '../../components/CatsList';
-import client from '../../../tina/__generated__/client';
-import type { Cat } from '../../../tina/__generated__/types';
+import { Tag } from '../components/Tag';
+import PageSection from '../components/PageSection.astro';
+import { CatsList } from '../components/CatsList';
+import type { Cat } from '../../tina/__generated__/types';
+import { getAllCats } from '../api/cats';
 
-  const catsResponse = await client.queries.catConnection();
+const cats = await getAllCats();
 
-  const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-    ...catResponse?.node as Cat
-  }));
-  
-  // TODO remove when SSR
-  export async function getStaticPaths() {
-  
-    const catsResponse = await client.queries.catConnection();
-    
-    const cats = catsResponse.data.catConnection.edges?.map((catResponse) => ({
-      ...catResponse?.node as Cat
-    }));
-
-    console.log('cats', cats)
+// TODO remove when SSR
+export async function getStaticPaths() {
+  // FIXME double call
+  const cats = await getAllCats();
 
   return cats?.map((cat) => ({
     params: { slug: cat.slug },
