@@ -46,7 +46,7 @@ export const CatCard: Component<CatCardProps> = ({
 
   return (
     <a
-      href={`/gatos/${cat.slug}`}
+      href={`/adotar/${cat.slug}`}
       class={twMerge(catCardVariants({ variant }), classes)}
       style={
         disableTransition ? {} : { "view-transition-name": `cat_${cat.slug}` }

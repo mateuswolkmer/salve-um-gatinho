@@ -1,0 +1,25 @@
+---
+import { getAllCats } from "../api/cats";
+import { ListWithFilters } from "../components/pages/Cats/ListWithFilters";
+import PageSection from "../components/PageSection.astro";
+import Layout from "../layouts/Layout.astro";
+
+// doesn't work
+// const isApadrinhar = Astro.url.searchParams.get('modo')  === 'apadrinhar';
+
+const allCats = await getAllCats();
+---
+<Layout title="Gatos">
+    <PageSection class="pt-4 sm:pt-8">
+        <div class="prose border-2 border-black w-full max-w-5xl m-auto p-4 rounded-xl bg-pink-100">
+            <h2 class="inline font-body">Adotar</h2> 
+            <p class="inline">
+                um gatinho é um ato de amor e responsabilidade. Para cada adoção, realizamos um processo seletivo para garantir que o ambiente e as condições do novo lar são adequados para o bem-estar do gato. Este processo inclui um formulário, entrevista, e em alguns casos, uma visita domiciliar.
+            </p>
+            <p>
+                Antes de prosseguir, veja <a class="font-body" transition:name="o-que-saber-antes-de-adotar" transition:animate="none" href="/sobre#o-que-saber-antes-de-adotar">o que você precisa saber antes de adotar um gatinho</a>.
+            </p>
+        </div>
+        <ListWithFilters cats={allCats} />
+    </PageSection>
+</Layout>

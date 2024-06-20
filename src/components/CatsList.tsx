@@ -65,7 +65,7 @@ export const CatsList: Component<CatsListProps> = ({
           ref={backwardButton}
           disabled
         />
-        <ButtonLink href="/gatos" variant="nav">
+        <ButtonLink href="/adotar" variant="nav">
           Ver mais
         </ButtonLink>
         <Button

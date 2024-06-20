@@ -23,8 +23,8 @@ const randomCats = await getRandomCats();
             </div>
             <div class="flex flex-col gap-1 items-start">
                 <h4 class="mb-2 text-lg">Ajude</h4>
-                <Link class="font-body text-xl after:h-0.5" href='/gatos'>Adote</Link>
-                <Link class="font-body text-xl after:h-0.5" href='/apadrinhe'>Apadrinhe 🚧</Link>
+                <Link class="font-body text-xl after:h-0.5" href='/adotar'>Adote</Link>
+                <Link class="font-body text-xl after:h-0.5" href='/apadrinhar'>Apadrinhe</Link>
                 <Link class="font-body text-xl after:h-0.5" href='/doe'>Doe 🚧</Link>
                 <Image src={QrImage} alt="Qr code de doação" aria-hidden class="h-32 w-auto" />
             </div>
@@ -32,7 +32,7 @@ const randomCats = await getRandomCats();
         <div class="flex flex-col gap-1 items-start min-w-52">
             <h4 class="mb-2 text-lg">Me leva 🥺</h4>
             {randomCats?.map(cat => (
-                <Link class="font-body text-xl after:h-0.5" href={`/gatos/${cat.slug}`}>{cat.name}</Link>
+                <Link class="font-body text-xl after:h-0.5" href={`/adotar/${cat.slug}`}>{cat.name}</Link>
             ))}
             <Link class="mt-2 font-body text-xl after:h-0.5" href='/doe'>Ver mais</Link>
         </div>
