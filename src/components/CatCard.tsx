@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Tag } from "./Tag";
+import { CatTags } from "./CatTags";
 import type { Cat } from "../../tina/__generated__/types";
 
 const catCardVariants = cva(
@@ -17,7 +17,7 @@ const catCardVariants = cva(
   }
 );
 
-const catCardTitleVariants = cva("flex border-black", {
+const catCardTitleVariants = cva("flex border-black relative gap-4", {
   variants: {
     variant: {
       small: "p-3 flex-col-reverse gap-2 w-1/2 h-full border-l-2",
@@ -45,44 +45,47 @@ export const CatCard: Component<CatCardProps> = ({
   }
 
   return (
-    <a
-      href={`/${cat.slug}`}
-      class={twMerge(catCardVariants({ variant }), classes)}
-      style={
-        disableTransition ? {} : { "view-transition-name": `cat_${cat.slug}` }
-      }
-      {...rest}
-    >
+    <a href={`/${cat.slug}`} {...rest}>
       <div
-        class={twMerge(
-          "bg-gray-200 w-full h-full overflow-hidden",
-          variant === "small" && "w-1/2 h-full"
-        )}
-        style={{ "view-transition-name": `picture_${cat.slug}` }}
+        class={twMerge(catCardVariants({ variant }), classes)}
+        style={
+          { "view-transition-name": `cat_${cat.slug}` }
+          // disableTransition ? {} : { "view-transition-name": `cat_${cat.slug}` }
+        }
       >
-        {cat.image && (
-          <img
-            src={cat.image}
-            alt={cat.name}
-            class="object-cover w-full h-full"
-            loading="lazy"
-          />
-        )}
-      </div>
-      <div class={catCardTitleVariants({ variant })}>
-        <span
+        <div
           class={twMerge(
-            "text-3xl font-bold text-ellipsis text-nowrap overflow-y-visible overflow-x-clip",
-            variant === "big" && "text-4xl"
+            "bg-gray-200 w-full h-full overflow-hidden",
+            variant === "small" && "w-1/2 h-full"
           )}
-          style={{ "view-transition-name": cat.slug }}
         >
-          {cat.name}
-        </span>
-        <div class="flex gap-2">
-          {cat.tags?.map((tag) => (
-            <Tag>{tag}</Tag>
-          ))}
+          {cat.image && (
+            <img
+              src={cat.image}
+              alt={cat.name}
+              class="object-cover w-full h-full"
+              loading="lazy"
+              style={{
+                "view-transition-name": `picture_${cat.slug}`,
+              }}
+            />
+          )}
+        </div>
+        <div class={catCardTitleVariants({ variant })}>
+          <span
+            class={twMerge(
+              "text-3xl font-bold text-ellipsis text-nowrap overflow-y-visible overflow-x-clip",
+              variant === "big" && "text-4xl"
+            )}
+            style={{ "view-transition-name": cat.slug }}
+          >
+            {cat.name}
+          </span>
+          <CatTags
+            cat={cat}
+            showOnly={variant === "small" ? "new" : undefined}
+          />
+          <div class="absolute h-full w-4 bg-gradient-to-l from-white to-transparent right-0" />
         </div>
       </div>
     </a>

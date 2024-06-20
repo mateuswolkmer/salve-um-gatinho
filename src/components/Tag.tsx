@@ -14,11 +14,11 @@ export const Tag: Component<TagProps> = ({ special, children }) => {
         "after:-right-2 after:absolute after:text-black after:font-bold":
           special !== undefined,
         // TODO replace after with icons
-        "after:content-['*'] after:text-shadow-yellow after:text-3xl":
+        "after:content-['*'] after:text-shadow-yellow after:text-3xl bg-yellow-300":
           special === "new",
-        "after:content-['♂️']  after:text-shadow-blue after:text-xl":
+        "after:content-['♂️']  after:text-shadow-blue after:text-xl bg-blue-300":
           special === "male",
-        "after:content-['♀️']  after:text-shadow-pink after:text-xl":
+        "after:content-['♀️']  after:text-shadow-pink after:text-xl bg-pink-300":
           special === "female",
       }}
     >

@@ -1,5 +1,6 @@
 import client from "../../tina/__generated__/client";
 import type { Cat } from "../../tina/__generated__/types";
+import { compareDesc } from "date-fns";
 
 export const loadCatConnection = async () =>
   await client.queries.catConnection();
@@ -23,7 +24,9 @@ export const getNewCats = async (
 ): Promise<Cat[]> => {
   const allCats = await getAllCats(connection);
 
-  return [...allCats].splice(0, AMOUNT_OF_NEW_CATS);
+  return [...allCats]
+    .sort((a, b) => compareDesc(a.rescueDate, b.rescueDate))
+    .splice(0, AMOUNT_OF_NEW_CATS);
 };
 
 // just the ones that are not new

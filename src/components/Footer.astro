@@ -32,7 +32,7 @@ const randomCats = await getRandomCats();
         <div class="flex flex-col gap-1 items-start min-w-52">
             <h4 class="mb-2 text-lg">Me leva 🥺</h4>
             {randomCats?.map(cat => (
-                <Link class="font-body text-xl after:h-0.5" href={`/adotar/${cat.slug}`}>{cat.name}</Link>
+                <Link class="font-body text-xl after:h-0.5" href={`/${cat.slug}`}>{cat.name}</Link>
             ))}
             <Link class="mt-2 font-body text-xl after:h-0.5" href='/doe'>Ver mais</Link>
         </div>

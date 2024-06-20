@@ -31,11 +31,14 @@ const newCats = await getNewCats();
 <!-- TODO refactor so this is not needed -->
 <script is:inline>
     if(!window.newCatsAnimated) {
-        document.getElementById('new-cats').classList.add('!hidden');
-        document.addEventListener('astro:page-load', function() {
-            document.getElementById('new-cats').classList.remove('!hidden');
-        });
-        window.newCatsAnimated = true;
+        const newCatsElement = document.getElementById('new-cats');
+        if(newCatsElement) {
+            newCatsElement.classList.add('!hidden');
+            document.addEventListener('astro:page-load', function() {
+                newCatsElement.classList.remove('!hidden');
+            });
+            window.newCatsAnimated = true;
+        }
     }
 </script>
 
