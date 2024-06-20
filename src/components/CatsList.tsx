@@ -5,13 +5,9 @@ import type { Cat } from "../../tina/__generated__/types";
 
 export type CatsListProps = {
   cats?: Cat[];
-  disableTransition?: boolean;
 };
 
-export const CatsList: Component<CatsListProps> = ({
-  cats,
-  disableTransition,
-}) => {
+export const CatsList: Component<CatsListProps> = ({ cats }) => {
   let catsListRef: HTMLDivElement | undefined;
 
   const scrollRight = () => {
@@ -50,11 +46,7 @@ export const CatsList: Component<CatsListProps> = ({
         class="flex gap-8 flex-nowrap py-8 w-screen -ml-10 px-10 overflow-y-visible no-scrollbar overflow-x-scroll scroll-smooth"
       >
         {cats?.map((cat) => (
-          <CatCard
-            variant="vertical"
-            cat={cat}
-            disableTransition={disableTransition}
-          />
+          <CatCard variant="vertical" cat={cat} />
         ))}
       </div>
       <div class="flex justify-between items-center w-full">

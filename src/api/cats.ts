@@ -6,13 +6,16 @@ export const loadCatConnection = async () =>
   await client.queries.catConnection();
 
 export const getAllCats = async (
-  connection?: Awaited<ReturnType<typeof loadCatConnection>>
+  connection?: Awaited<ReturnType<typeof loadCatConnection>>,
+  sort = true
 ): Promise<Cat[]> => {
   let catConnection = connection ?? (await loadCatConnection());
 
   const allCats = catConnection.data.catConnection.edges?.map((response) => ({
     ...(response?.node as Cat),
   }));
+
+  if (sort) allCats.sort((a, b) => compareDesc(a.rescueDate, b.rescueDate));
 
   return allCats;
 };
@@ -24,9 +27,7 @@ export const getNewCats = async (
 ): Promise<Cat[]> => {
   const allCats = await getAllCats(connection);
 
-  return [...allCats]
-    .sort((a, b) => compareDesc(a.rescueDate, b.rescueDate))
-    .splice(0, AMOUNT_OF_NEW_CATS);
+  return [...allCats].splice(0, AMOUNT_OF_NEW_CATS);
 };
 
 // just the ones that are not new
@@ -43,7 +44,7 @@ const AMOUNT_OF_RANDOM_CATS = 5;
 export const getRandomCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
-  const allCats = await getAllCats(connection);
+  const allCats = await getAllCats(connection, false);
 
   const shuffledCats = [...allCats].sort(() => 0.5 - Math.random());
   return shuffledCats.slice(0, AMOUNT_OF_RANDOM_CATS);

@@ -85,7 +85,7 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
       </div>
       <div class="flex flex-col gap-2">
         <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>
-        <CatsList cats={cats?.filter(cat => cat.slug !== slug)} client:visible disableTransition />
+        <CatsList cats={cats?.filter(cat => cat.slug !== slug)} client:visible />
       </div>
     </div>
   </div>
