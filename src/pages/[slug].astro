@@ -74,10 +74,10 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
           </div>
           <!-- TODO change to component and animate -->
           {social && playful && loving ? 
-            <div class="flex gap-8 items-center">
+            <div class="flex gap-8 gap-y-2 items-center flex-wrap">
               <div class="text-gray-500">
                 <span class="">sociável</span>
-                <div class="text-xl">
+                <div class="text-xl text-nowrap">
                   <i class:list={["ph-duotone ph-cat", {"text-black !font-bold before:!text-blue before:!opacity-100": ["1", "2", "3"].includes(social) }]}/>
                   <i class:list={["ph-duotone ph-cat", {"text-black !font-bold before:!text-blue before:!opacity-100": ["2", "3"].includes(social) }]}/>
                   <i class:list={["ph-duotone ph-cat", {"text-black !font-bold before:!text-blue before:!opacity-100": ["3"].includes(social) }]}/>
@@ -85,7 +85,7 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
               </div>
               <div class="text-gray-500">
                 <span>brincalhão</span>
-                <div class="text-xl">
+                <div class="text-xl text-nowrap">
                   <i class:list={["ph-duotone ph-yarn", {"text-black !font-bold before:!text-yellow before:!opacity-100": ["1", "2", "3"].includes(playful) }]}/>
                   <i class:list={["ph-duotone ph-yarn", {"text-black !font-bold before:!text-yellow before:!opacity-100": ["2", "3"].includes(playful) }]}/>
                   <i class:list={["ph-duotone ph-yarn", {"text-black !font-bold before:!text-yellow before:!opacity-100": ["3"].includes(playful) }]}/>
@@ -93,7 +93,7 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
               </div>
               <div class="text-gray-500">
                 <span>carente</span>
-                <div class="text-xl">
+                <div class="text-xl text-nowrap">
                   <i class:list={["ph-duotone ph-heart", {"text-black !font-bold before:!text-pink before:!opacity-100": ["1", "2", "3"].includes(loving) }]}/>
                   <i class:list={["ph-duotone ph-heart", {"text-black !font-bold before:!text-pink before:!opacity-100": ["2", "3"].includes(loving) }]}/>
                   <i class:list={["ph-duotone ph-heart", {"text-black !font-bold before:!text-pink before:!opacity-100": ["3"].includes(loving) }]}/>
