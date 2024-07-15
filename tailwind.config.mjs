@@ -113,6 +113,14 @@ export default {
           "-ms-overflow-style": "none" /* IE and Edge */,
           "scrollbar-width": "none" /* Firefox */,
         },
+        ".polaroid": {
+          border: "1px solid black",
+          "box-shadow": theme("boxShadow.lg"),
+          padding: `${theme("padding.4")} ${theme("padding.4")} ${theme(
+            "padding.16"
+          )} ${theme("padding.4")}`,
+          "border-radius": theme("borderRadius.lg"),
+        },
       });
     }),
   ],
