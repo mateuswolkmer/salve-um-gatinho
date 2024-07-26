@@ -21,26 +21,21 @@ export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
     navDirection?: "forward" | "backward";
   };
 
-export const Button: Component<ButtonProps> = ({
-  variant,
-  navDirection = "forward",
-  class: classes,
-  children,
-  ...rest
-}) => {
+export const Button: Component<ButtonProps> = (props) => {
+  const { navDirection = "forward" } = props;
   return (
     <button
       type="button"
-      class={twMerge(buttonVariants({ variant }), classes)}
-      {...rest}
+      {...props}
+      class={twMerge(buttonVariants({ variant: props.variant }), props.class)}
     >
-      {variant === "nav" && navDirection === "backward" && (
+      {props.variant === "nav" && navDirection === "backward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {"<"}
         </span>
       )}
-      {children}
-      {variant === "nav" && navDirection === "forward" && (
+      {props.children}
+      {props.variant === "nav" && navDirection === "forward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {">"}
         </span>

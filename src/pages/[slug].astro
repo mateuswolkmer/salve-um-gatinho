@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { AdoptForm } from '../components/pages/Cat/AdoptForm';
 import { formatRelative, formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import PageSection from '../components/PageSection.astro';
@@ -8,6 +7,7 @@ import { CatsList } from '../components/CatsList';
 import { CatTags } from '../components/CatTags';
 import type { Cat } from '../../tina/__generated__/types';
 import { getAllCats } from '../api/cats';
+import { AdoptPatronizeForm } from '../components/pages/Cat/AdoptPatronizeForm';
 
 const cats = await getAllCats();
 
@@ -28,7 +28,7 @@ export type Props = {
 
 const { slug } = Astro.params;
 const { cat } = Astro.props;
-const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, patronized, social, playful, loving } = cat;
+const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
 
@@ -103,13 +103,12 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
           {Boolean(birthDate) && <p>Nasci {bornAtTheShelter ? "no abrigo ": ""}{birthDateDistance} <small>({birthDate}).</small></p>}
           {Boolean(rescueDate && !bornAtTheShelter) && <p>Fui resgatad{article} {rescueDateDistance} <small>({rescueDate}).</small></p>}
           {Boolean(status) && <p>{status}.</p>}
-          <!-- FIXME add small button size-->
-          {patronized ? <p>Estou apardinhad{article}. 🎉</p> : <button class="font-body text-lg font-bold underline self-start">Me apadrinhe</button>}
           <p>{description}</p>
+          {Boolean(patronized) && <p>Já estou apardinhad{article}. 🎉</p>}
         </div>
       </div>
       <div class="max-w-7xl m-auto w-full">
-        <AdoptForm startOpened={startOpened} client:visible />
+        <AdoptPatronizeForm startOpened={startOpened} catName={name} hideAdoptButton={adopted} hidePatronizeButton={patronized} client:load />
       </div>
       <div class="flex flex-col gap-2">
         <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>
