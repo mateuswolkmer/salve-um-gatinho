@@ -15,7 +15,7 @@ const randomCats = await getRandomCats();
             <h1 class="text-4xl sm:text-7xl text-shadow-blue">Salve-se com um gatinho</h1>
         </div>
         <div class="flex-1 flex gap-12">
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col items-start gap-1">
                 <h4 class="mb-2 text-lg">Conheça</h4>
                 <Link class="font-body text-xl after:h-0.5" href='/sobre'>Sobre</Link>
                 <Link class="font-body text-xl after:h-0.5" href='/faq'>FAQ 🚧</Link>
@@ -34,7 +34,7 @@ const randomCats = await getRandomCats();
             {randomCats?.map(cat => (
                 <Link class="font-body text-xl after:h-0.5" href={`/${cat.slug}`}>{cat.name}</Link>
             ))}
-            <Link class="mt-2 font-body text-xl after:h-0.5" href='/doe'>Ver mais</Link>
+            <Link class="mt-2 font-body text-xl after:h-0.5" href='/adotar'>Ver mais</Link>
         </div>
     </div>
     <div class="flex justify-between items-center w-full">
