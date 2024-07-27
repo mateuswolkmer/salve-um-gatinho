@@ -18,6 +18,8 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
   const adoptFormOpened = () => openedForm() === "adopt";
   const patronizeFormOpened = () => openedForm() === "patronize";
 
+  const urlFriendlyName = props.catName?.replaceAll(" ", "+");
+
   return (
     <div class="flex flex-col lg:flex-row items-start justify-center w-full gap-4">
       {!props.hideAdoptButton && (
@@ -63,7 +65,7 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
             <Show when={adoptFormOpened()}>
               <div class="flex flex-col items-center gap-4">
                 <iframe
-                  src={`https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?embedded=true&usp=pp_url&entry.828023490=${props.catName}`}
+                  src={`https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?embedded=true&usp=pp_url&entry.828023490=${urlFriendlyName}`}
                   width="full"
                   height="400"
                   class="w-full rounded-xl"
@@ -71,7 +73,7 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
                   Carregando formulário...
                 </iframe>
                 <a
-                  href={`https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?usp=pp_url&entry.828023490=${props.catName}`}
+                  href={`https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?usp=pp_url&entry.828023490=${urlFriendlyName}`}
                   target="_blank"
                 >
                   Abrir em nova aba <i class="ph-arrow-square-out ph-duotone" />
@@ -123,9 +125,8 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
             </div>
             <Show when={patronizeFormOpened()}>
               <div class="flex flex-col items-center gap-4">
-                {/* FIXME adjust apadrinhar links */}
                 <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?embedded=true"
+                  src={`https://docs.google.com/forms/d/e/1FAIpQLScNEsej6sS06QTzG66525-8H9CO0VGbdkMqDT_6BW0nXOZi3w/viewform?embedded=true&usp=pp_url&entry.828023490=${urlFriendlyName}`}
                   width="full"
                   height="400"
                   class="w-full rounded-xl"
@@ -133,7 +134,7 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
                   Carregando formulário...
                 </iframe>
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw"
+                  href={`https://docs.google.com/forms/d/e/1FAIpQLScNEsej6sS06QTzG66525-8H9CO0VGbdkMqDT_6BW0nXOZi3w/viewform?usp=pp_url&entry.828023490=${urlFriendlyName}`}
                   target="_blank"
                 >
                   Abrir em nova aba <i class="ph-arrow-square-out ph-duotone" />
