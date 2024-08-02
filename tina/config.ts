@@ -107,6 +107,9 @@ export default defineConfig({
             label: "Descrição",
             type: "string",
             isBody: true,
+            ui: {
+              component: "textarea",
+            },
           },
           {
             name: "tags",
@@ -238,6 +241,9 @@ export default defineConfig({
             label: "Mensagem",
             type: "string",
             required: true,
+            ui: {
+              component: "textarea",
+            },
           },
         ],
       },
