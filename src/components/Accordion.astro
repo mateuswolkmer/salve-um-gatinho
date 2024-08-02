@@ -1,0 +1,20 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+    title: string;
+    class?: string;
+}
+
+const id = Astro.props.title?.replaceAll(' ', '_')?.toLocaleLowerCase() || '';
+---
+<div class={twMerge("relative flex flex-col items-start  w-full", Astro.props.class)}>
+    <input type="checkbox" id={id} name={id} class="peer hidden" />
+    <label for={id} class="flex flex-row justify-between items-center w-full cursor-pointer">
+        <h3 class="m-0">{Astro.props.title}</h3>
+    </label>
+    <i class="ph-duotone ph-caret-circle-down absolute right-2 top-2 transition-transform peer-checked:rotate-180 pointer-events-none"/>
+    <div class="hidden peer-checked:block">
+        <slot/>
+    </div>
+</div>
