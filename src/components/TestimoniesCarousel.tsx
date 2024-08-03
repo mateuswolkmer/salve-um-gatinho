@@ -23,15 +23,21 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
 
   const [selected, setSelected] = createSignal(initialSelected);
   const [tiltLeft, setTiltLeft] = createSignal(true);
+  const toggleTilt = () => setTiltLeft((cur) => !cur);
 
-  const setSelectedForward = () => {
-    setSelected((cur) => (selected() < testimonies.length - 1 ? cur + 1 : 0));
-    setTiltLeft((cur) => !cur);
+  const handleSelectIndex = (index: number) => {
+    setSelected(index);
+    toggleTilt();
   };
 
-  const setSelectedBackward = () => {
+  const handleSelectForward = () => {
+    setSelected((cur) => (selected() < testimonies.length - 1 ? cur + 1 : 0));
+    toggleTilt();
+  };
+
+  const handleSelectBackward = () => {
     setSelected((cur) => (selected() > 0 ? cur - 1 : testimonies.length - 1));
-    setTiltLeft((cur) => !cur);
+    toggleTilt();
   };
 
   const [messageRefs, setMessageRefs] = createSignal<HTMLParagraphElement[]>(
@@ -101,7 +107,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
             variant="nav"
             navDirection="backward"
             class="absolute right-20 md:relative md:right-0"
-            onClick={setSelectedBackward}
+            onClick={handleSelectBackward}
           />
           <For each={testimonies}>
             {(testimony, i) => {
@@ -125,7 +131,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                     title={`${isSelected() ? "" : "Selecionar "}${
                       testimony.personName
                     }`}
-                    onClick={() => setSelected(i)}
+                    onClick={() => handleSelectIndex(i())}
                   >
                     <img
                       src={testimony.personImage}
@@ -163,7 +169,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
             variant="nav"
             navDirection="forward"
             class="absolute left-20 md:relative md:left-0"
-            onClick={setSelectedForward}
+            onClick={handleSelectForward}
           />
         </div>
       </div>

@@ -1,22 +1,27 @@
 ---
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { getAllFaqs } from "../api/faq";
 import Accordion from "../components/Accordion.astro";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
+
+const allFaqs = await getAllFaqs();
+
+console.log('allFaqs', allFaqs[0].answer);
 ---
 <Layout title="Sobre">
-	<PageSection class='prose prose-headings:font-normal prose-headings:text-center prose-a:font-body prose-a:font-bold prose-p:text-pretty prose-xl m-auto'>
+	<PageSection class='prose prose-headings:font-normal prose-headings:text-center prose-headings:m-0 prose-a:font-body prose-a:font-bold prose-p:text-pretty prose-xl m-auto'>
         <h1>Perguntas e Respostas</h1>
         <div class="bg-pink-100 rounded-xl border-2 border-black p-4 w-full">
-            <h2 id="informações-importantes">
+            <h2 id="informações-importantes" class="!m-10">
                 Informações importantes
             </h2>
-            <div class="flex flex-col">
-                <Accordion title="O que você precisa saber antes de adotar">
-                    Adotar...
-                </Accordion>
-                <Accordion title="O que você precisa saber antes de apadrinhar">
-                    Apadrinhar...
-                </Accordion>
+            <div class="flex flex-col gap-2">
+                {allFaqs?.map(faq => (
+                    <Accordion title={faq.question}>
+                        <TinaMarkdown content={faq.answer} />
+                    </Accordion>
+                ))}
             </div>
         </div>
     </PageSection>

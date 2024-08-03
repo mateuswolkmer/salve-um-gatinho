@@ -274,6 +274,33 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "faq",
+        label: "FAQ",
+        path: "content/faq",
+        ui: {
+          filename: {
+            slugify: (values) => {
+              return slugFromName(values.question);
+            },
+          },
+        },
+        fields: [
+          {
+            name: "question",
+            label: "Pergunta",
+            type: "string",
+            isTitle: true,
+            required: true,
+          },
+          {
+            name: "answer",
+            label: "Resposta",
+            type: "rich-text",
+            required: true,
+          },
+        ],
+      },
     ],
   },
 });
