@@ -15,3 +15,17 @@ export const getAllFaqs = async (
 
   return allFaqs;
 };
+
+export const getCategorizedFaqs = async (
+  connection?: Awaited<ReturnType<typeof loadFaqsConnection>>
+): Promise<{ important: Faq[]; other: Faq[] }> => {
+  const allFaqs = await getAllFaqs(connection);
+
+  return allFaqs.reduce(
+    (acc, cur) => {
+      acc[cur.important ? "important" : "other"].push(cur);
+      return acc;
+    },
+    { important: [], other: [] }
+  );
+};

@@ -294,6 +294,12 @@ export default defineConfig({
             required: true,
           },
           {
+            name: "important",
+            label: "Importante",
+            description: "Aparecerá antes das outras perguntas",
+            type: "boolean",
+          },
+          {
             name: "answer",
             label: "Resposta",
             type: "rich-text",

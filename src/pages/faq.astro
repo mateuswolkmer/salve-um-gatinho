@@ -1,28 +1,39 @@
 ---
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { getAllFaqs } from "../api/faq";
+import { getAllFaqs, getCategorizedFaqs } from "../api/faq";
 import Accordion from "../components/Accordion.astro";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
 
-const allFaqs = await getAllFaqs();
-
-console.log('allFaqs', allFaqs[0].answer);
+const { important: importantFaqs, other: otherFaqs } = await getCategorizedFaqs();
 ---
 <Layout title="Sobre">
-	<PageSection class='prose prose-headings:font-normal prose-headings:text-center prose-headings:m-0 prose-a:font-body prose-a:font-bold prose-p:text-pretty prose-xl m-auto'>
-        <h1>Perguntas e Respostas</h1>
-        <div class="bg-pink-100 rounded-xl border-2 border-black p-4 w-full">
-            <h2 id="informações-importantes" class="!m-10">
-                Informações importantes
-            </h2>
-            <div class="flex flex-col gap-2">
-                {allFaqs?.map(faq => (
-                    <Accordion title={faq.question}>
-                        <TinaMarkdown content={faq.answer} />
-                    </Accordion>
-                ))}
+	<PageSection class='prose prose-headings:font-normal prose-headings:text-center prose-headings:m-0 prose-a:font-body prose-a:font-bold prose-p:text-pretty prose-xl m-auto gap-6'>
+        <h1 class="!mb-10">Perguntas e Respostas</h1>
+        {Boolean(importantFaqs?.length) &&
+            <div class="bg-pink-100 rounded-xl border-2 border-black p-4 w-full">
+                <h2 id="informações-importantes" class="!m-10">
+                    Informações importantes
+                </h2>
+                <div class="flex flex-col gap-2">
+                    {importantFaqs.map(faq => (
+                        <Accordion title={faq.question}>
+                            <TinaMarkdown content={faq.answer} />
+                        </Accordion>
+                    ))}
+                </div>
             </div>
-        </div>
+        }
+        {Boolean(otherFaqs?.length) &&
+            <div class="bg-blue-100 rounded-xl border-2 border-black p-4 w-full">
+                <div class="flex flex-col gap-2">
+                    {otherFaqs.map(faq => (
+                        <Accordion title={faq.question}>
+                            <TinaMarkdown content={faq.answer} />
+                        </Accordion>
+                    ))}
+                </div>
+            </div>
+        }
     </PageSection>
 </Layout>
