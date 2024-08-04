@@ -63,10 +63,17 @@ export default {
           "50%": { transform: "translateY(-5px)" },
           "100%": { transform: "translateY(5px)" },
         },
+        no: {
+          "0%": { transform: "rotate(0)" },
+          "33%": { transform: "rotate(-1deg)" },
+          "66%": { transform: "rotate(1deg)" },
+          "100%": { transform: "rotate(0)" },
+        },
       },
       animation: {
         scroll: "move-right var(--duration) linear infinite",
         hover: "hover 5s ease infinite",
+        no: "no 0.5s ease",
       },
     },
   },
