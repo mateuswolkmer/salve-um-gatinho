@@ -1,6 +1,6 @@
 ---
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { getAllFaqs, getCategorizedFaqs } from "../api/faq";
+import { getCategorizedFaqs } from "../api/faq";
 import Accordion from "../components/Accordion.astro";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
@@ -37,3 +37,14 @@ const { important: importantFaqs, other: otherFaqs } = await getCategorizedFaqs(
         }
     </PageSection>
 </Layout>
+
+<!-- find and open accordion if url contain hash -->
+<script is:inline>
+    if(window.location.hash) {
+        const element = document.querySelector(`[id*="${window.location.hash.replace("#","")}"]`);
+        if(element) {
+            element.checked = true;
+            element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+    }
+</script>

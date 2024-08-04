@@ -100,14 +100,19 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
                 />
                 <label for="accept_adopt" class="text-xl">
                   Confirmo que li{" "}
-                  <a href="/faq" class="font-body font-bold underline">
-                    <Show when={props.type === "adopt"}>
+                  <Show when={props.type === "adopt"}>
+                    <a href="/faq#adotar" class="font-body font-bold underline">
                       o que preciso saber antes de adotar
-                    </Show>
-                    <Show when={props.type === "patronize"}>
+                    </a>
+                  </Show>
+                  <Show when={props.type === "patronize"}>
+                    <a
+                      href="/faq#apadrinhar"
+                      class="font-body font-bold underline"
+                    >
                       o que preciso saber antes de apadrinhar
-                    </Show>
-                  </a>
+                    </a>
+                  </Show>
                   .
                 </label>
               </div>
