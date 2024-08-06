@@ -16,12 +16,16 @@ answer: >
 
   * Supermercado Alegria (Assis Brasil)
 
-  * Pet Shop Wazlavick
+  * Pet Shop Wazlawick
 
   * Agropecuária Sandri
 
   * Agropet Bicho Center (Arroio Grande)
 
   * Don Juan Moda Homem (Marechal Floriano)
+
+
+  Encontre o ponto mais próximo no Google Maps:
+  [https://maps.app.goo.gl/DKYEAPZCNSuc1V2k9](https://maps.app.goo.gl/DKYEAPZCNSuc1V2k9).
 ---
 
