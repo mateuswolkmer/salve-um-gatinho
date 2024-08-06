@@ -25,7 +25,7 @@ answer: >
   * Don Juan Moda Homem (Marechal Floriano)
 
 
-  Encontre o ponto mais próximo no Google Maps:
-  [https://maps.app.goo.gl/DKYEAPZCNSuc1V2k9](https://maps.app.goo.gl/DKYEAPZCNSuc1V2k9).
+  [Veja o ponto mais próximo no Google
+  Maps](https://www.google.com/maps/d/u/0/edit?mid=1iagnsnaQxId1d7BG7ijbccmCdA2wLOs\&usp=sharing).
 ---
 
