@@ -1,7 +1,7 @@
 ---
 slug: claraluz
 createdDate: 2024-04-03T15:17:53.566Z
-updatedDate: 2024-08-02T21:18:05.910Z
+updatedDate: 2024-12-06T21:29:56.616Z
 name: Claraluz
 image: /src/assets/Gatos/claraluz.png
 gender: female
@@ -11,4 +11,4 @@ neutered: true
 vaccinated: true
 ---
 
-Sou um gato curioso que gosto de explorar todos os cantos da casa e tenho uma habilidade incrível para me esconder nos lugares mais inusitados.
+Sou uma gata curiosa que gosto de explorar todos os cantos da casa e tenho uma habilidade incrível para me esconder nos lugares mais inusitados.
