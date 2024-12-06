@@ -1,15 +1,30 @@
 ---
-import { Button } from '../../Button'; 
+import { Button } from '../../Button';
 import PageSection from '../../PageSection.astro';
-import { actions } from 'astro:actions';
 
 type Props = {};
 
 const {} = Astro.props;
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username");
+    const email = data.get("email");
+    const subject = data.get("subject");
+    const message = data.get("message");
+
+    console.log(`name: ${name} email:${email} subject:${subject} message:${message}`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`error: ${error.message}`)
+    }
+  }
+}
 ---
 <PageSection title="Fale conosco">
   <div class="w-full max-w-xl m-auto">
-      <form autocomplete="on" class="flex flex-col gap-2" method="POST" action={actions.sendEmail}>
+      <form method="post" autocomplete="on" class="flex flex-col gap-2">
           <div class="flex flex-col gap-1">
               <label for="name" class="text-lg font-semibold">Nome</label>
               <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
@@ -20,73 +35,14 @@ const {} = Astro.props;
           </div>
           <div class="flex flex-col gap-1">
               <label for="subject" class="text-lg font-semibold">Assunto</label>
-              <input id="subject" name="subject" type="text" placeholder="Dúvida" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
+              <input id="subject" name="subject" type="text" placeholder="Dúvida" class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
           </div>
           <div class="flex flex-col gap-1">
               <label for="message" class="text-lg font-semibold">Mensagem</label>
-              <textarea id="message" name="message" placeholder="Olá, eu gostaria de tirar uma dúvida..."  class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
+              <textarea id="message" placeholder="Olá, eu gostaria de tirar uma dúvida..." name="message" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
           </div>
           <Button variant="form" class="self-center mt-4" type="submit">Enviar</Button>
       </form>
-      <div id="success-message" class="mt-4 text-blue-600 text-center text-lg animate-pulse hidden max-h-0 transition-all">Iremos responder assim que possível!</div>
-      <div id="error-message" class="mt-4 text-pink-600 text-center text-lg animate-pulse hidden max-h-0 transition-all">Favor tentar novamente, ou enviar um email diretamente para nós.</div>
     </div>
   </div>  
 </PageSection>
-
-<script>
-    import { actions } from 'astro:actions';
-
-    const form = document.querySelector('form');
-
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-    const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-
-    const hasSentEmailToday = document.cookie.includes('emailSent=true'); 
-
-    if (hasSentEmailToday) {
-        submitButton.disabled = true;
-        submitButton.textContent = 'Enviado';
-    }
-
-    form?.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        if(hasSentEmailToday) {
-            return;
-        }
-
-        const formData = new FormData(form);
-
-        try {
-            const { data, error } = await actions.sendEmail(formData);
-
-            if (data) {
-                submitButton.disabled = true;
-                submitButton.textContent = data.message;
-
-                successMessage.classList.remove('hidden');
-                successMessage.classList.add('max-h-full');
-
-                // Set a cookie that expires in 1 day
-                document.cookie = "emailSent=true; max-age=86400; path=/";
-            }
-            if (error) {
-                submitButton.disabled = true;
-                submitButton.textContent = error.message;
-
-                errorMessage.classList.remove('hidden');
-                errorMessage.classList.add('max-h-full');   
-            }
-        } catch (error) {
-            console.error('Error sending email:', error);
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Erro';
-
-            errorMessage.classList.add('hidden');
-            errorMessage.classList.remove('max-h-full');
-        }
-    });
-</script>
