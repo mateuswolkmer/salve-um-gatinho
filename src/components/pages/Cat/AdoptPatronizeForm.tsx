@@ -1,11 +1,13 @@
-import { createSignal, type Component } from "solid-js";
+import { createSignal, onMount, type Component } from "solid-js";
 import { Button } from "../../Button";
 import { twMerge } from "tailwind-merge";
 import { FormWithSteps } from "./FormWithSteps";
 
+export type FormType = "adotar" | "apadrinhar" | "";
+
 export type AdoptPatronizeFormProps = {
   catName: string;
-  startOpened?: boolean;
+  startOpenedForm?: FormType;
   hideAdoptButton?: boolean;
   hidePatronizeButton?: boolean;
 };
@@ -13,15 +15,17 @@ export type AdoptPatronizeFormProps = {
 export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
   props
 ) => {
-  const [openedForm, setOpenedForm] = createSignal<"" | "adopt" | "patronize">(
-    ""
+  const [openedForm, setOpenedForm] = createSignal<FormType>(
+    props.startOpenedForm
   );
-  const [hasOpenedAnyForm, setHasOpenedAnyForm] = createSignal<boolean>(false);
+  const [hasOpenedAnyForm, setHasOpenedAnyForm] = createSignal<boolean>(
+    Boolean(props.startOpenedForm)
+  );
 
-  const adoptFormOpened = () => openedForm() === "adopt";
-  const patronizeFormOpened = () => openedForm() === "patronize";
+  const adoptFormOpened = () => openedForm() === "adotar";
+  const patronizeFormOpened = () => openedForm() === "apadrinhar";
 
-  const handleOpenForm = (form: "adopt" | "patronize") => {
+  const handleOpenForm = (form: "adotar" | "apadrinhar") => {
     setOpenedForm(form);
     setHasOpenedAnyForm(true);
   };
@@ -29,6 +33,18 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
   const handleCloseForm = () => setOpenedForm("");
 
   const urlFriendlyName = props.catName?.replaceAll(" ", "+");
+
+  onMount(() => {
+    if (props.startOpenedForm) {
+      document
+        .getElementById(`${props.startOpenedForm}-container`)
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+    }
+  });
 
   return (
     <div class="flex flex-col lg:flex-row items-start justify-center w-full gap-4">
@@ -41,7 +57,7 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
         >
           <Button
             class={twMerge(
-              "absolute left-0 lg:left-auto lg:right-0 top-0 transition-[transform,colors] z-10",
+              "absolute left-0 lg:left-auto lg:right-0 top-0 transition-all z-10",
               !hasOpenedAnyForm() && "motion-preset-slide-up motion-delay-700",
               adoptFormOpened()
                 ? "opacity-0 pointer-events-none -z-20"
@@ -49,12 +65,12 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
                     "lg:motion-preset-rebound-right motion-opacity-in-100 motion-duration-300"
             )}
             variant="cta"
-            onClick={() => handleOpenForm("adopt")}
+            onClick={() => handleOpenForm("adotar")}
           >
             Adotar
           </Button>
           <FormWithSteps
-            type="adopt"
+            type="adotar"
             catName={urlFriendlyName}
             isOpen={adoptFormOpened()}
             onClose={handleCloseForm}
@@ -78,12 +94,12 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
                     "lg:motion-preset-rebound-left motion-opacity-in-100 motion-duration-300"
             )}
             variant="cta"
-            onClick={() => handleOpenForm("patronize")}
+            onClick={() => handleOpenForm("apadrinhar")}
           >
             Apadrinhar
           </Button>
           <FormWithSteps
-            type="patronize"
+            type="apadrinhar"
             catName={urlFriendlyName}
             isOpen={patronizeFormOpened()}
             onClose={handleCloseForm}

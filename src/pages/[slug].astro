@@ -7,27 +7,24 @@ import { CatsList } from '../components/CatsList';
 import { CatTags } from '../components/CatTags';
 import type { Cat } from '../../tina/__generated__/types';
 import { getAllCats } from '../api/cats';
-import { AdoptPatronizeForm } from '../components/pages/Cat/AdoptPatronizeForm';
+import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
 
-const cats = await getAllCats();
-
-// TODO remove when SSR
 export async function getStaticPaths() {
-  // FIXME double call
   const cats = await getAllCats();
 
   return cats?.map((cat) => ({
     params: { slug: cat.slug },
-    props: { cat }
+    props: { cat, cats }
   }))
 }
 
 export type Props = {
   cat: Cat;
+  cats: Cat[];
 }
 
 const { slug } = Astro.params;
-const { cat } = Astro.props;
+const { cat, cats } = Astro.props;
 const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
@@ -51,9 +48,7 @@ if(neutered && vaccinated) {
   status = `Não estou castrad${article} nem vacinad${article}`
 }
 
-// will only work when SSR
-const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
-
+const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
 ---
 <Layout title={name}>
     <PageSection>
@@ -72,7 +67,7 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
             <span class="text-5xl sm:text-7xl bold font-body font-bold motion-preset-slide-down" transition:name={slug || ""}>{name}</span>
             <CatTags cat={cat} />
           </div>
-          <!-- TODO change to component and animate -->
+          <!-- TODO change to component -->
           {social && playful && loving ? 
             <div class="flex gap-8 gap-y-2 items-center flex-wrap">
               <div class="text-gray-500">
@@ -108,7 +103,7 @@ const startOpened = Boolean(Astro.url.searchParams.get('adotar')) || false;
         </div>
       </div>
       <div class="max-w-7xl m-auto w-full">
-        <AdoptPatronizeForm startOpened={startOpened} catName={name} hideAdoptButton={adopted} hidePatronizeButton={patronized} client:load />
+        <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted} hidePatronizeButton={patronized} client:load />
       </div>
       <div class="flex flex-col gap-2">
         <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>

@@ -1,9 +1,10 @@
 import { Show, createSignal, type Component } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { Button } from "../../Button";
+import type { FormType } from "./AdoptPatronizeForm";
 
 export type FormWithStepsProps = {
-  type: "adopt" | "patronize";
+  type: FormType;
   catName: string;
   isOpen: boolean;
   onClose: () => void;
@@ -40,18 +41,19 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
 
   return (
     <div
+      id={`${props.type}-container`}
       class={twMerge(
         "flex flex-col gap-4 border-2 border-black rounded-xl p-4 md:p-6 overflow-hidden w-full transition-all motion-duration-300",
-        props.type === "adopt" && "bg-pink-300",
-        props.type === "patronize" && "bg-blue-300",
+        props.type === "adotar" && "bg-pink-300",
+        props.type === "apadrinhar" && "bg-blue-300",
         props.isOpen
           ? "opacity-1 max-w-full max-h-[40rem] w-full duration-500"
           : "opacity-0 max-h-14 max-w-16 sm:max-w-[16rem] sm:max-h-20 m-4 duration-100",
         props.isOpen &&
-          props.type === "adopt" &&
+          props.type === "adotar" &&
           "motion-preset-rebound-down lg:motion-preset-rebound-left",
         props.isOpen &&
-          props.type === "patronize" &&
+          props.type === "apadrinhar" &&
           "motion-preset-rebound-down lg:motion-preset-rebound-right"
       )}
     >
@@ -64,8 +66,8 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
               : "text-5xl sm:text-6xl px-14 -mt-4 -ml-2 -rotate-1"
           )}
         >
-          <Show when={props.type === "adopt"}>Adotar</Show>
-          <Show when={props.type === "patronize"}>Apadrinhar</Show>
+          <Show when={props.type === "adotar"}>Adotar</Show>
+          <Show when={props.type === "apadrinhar"}>Apadrinhar</Show>
         </h2>
         <button onClick={props.onClose}>
           <i class="ph-x-circle ph-duotone text-3xl" />
@@ -75,7 +77,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
         <Show when={step() === 0}>
           <div class="flex flex-col items-start gap-8">
             <div class="flex flex-col gap-4">
-              <Show when={props.type === "adopt"}>
+              <Show when={props.type === "adotar"}>
                 <p>
                   Levamos a adoção a sério, e será preciso passar por um
                   processo de seleção para garantir que você está apto(a) a
@@ -86,7 +88,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
                   você melhor.
                 </p>
               </Show>
-              <Show when={props.type === "patronize"}>
+              <Show when={props.type === "apadrinhar"}>
                 <p>
                   Apadrinhar é um gesto nobre, mas precisamos garantir que
                   podemos contar com seu apoio mensal para nos organizarmos
@@ -106,12 +108,12 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
                 />
                 <label for="accept_adopt" class="text-xl">
                   Confirmo que li{" "}
-                  <Show when={props.type === "adopt"}>
+                  <Show when={props.type === "adotar"}>
                     <a href="/faq#adotar" class="font-body font-bold underline">
                       o que preciso saber antes de adotar
                     </a>
                   </Show>
-                  <Show when={props.type === "patronize"}>
+                  <Show when={props.type === "apadrinhar"}>
                     <a
                       href="/faq#apadrinhar"
                       class="font-body font-bold underline"
