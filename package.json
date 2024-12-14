@@ -36,6 +36,8 @@
     "@biomejs/biome": "^1.9.4",
     "@tailwindcss/typography": "^0.5.15",
     "@tinacms/cli": "^1.6.12",
-    "@types/node": "^22.10.1"
+    "@types/node": "^22.10.1",
+    "tailwindcss-intersect": "^2.0.1",
+    "tailwindcss-motion": "^1.0.0"
   }
 }

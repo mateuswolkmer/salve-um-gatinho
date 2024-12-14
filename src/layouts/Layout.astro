@@ -30,6 +30,11 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Salve {title ? `- ${title}` : "um Gatinho"}</title>
     <ClientRouter />
+    <!-- https://github.com/heidkaemper/tailwindcss-intersect -->
+    <script
+      defer
+      src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"
+    ></script>
   </head>
   <body class="font-body bg-page-background">
     <Header />

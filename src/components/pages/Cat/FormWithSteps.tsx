@@ -41,12 +41,18 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
   return (
     <div
       class={twMerge(
-        "flex flex-col gap-4 border-2 border-black rounded-xl p-4 md:p-6 overflow-hidden w-full transition-all",
+        "flex flex-col gap-4 border-2 border-black rounded-xl p-4 md:p-6 overflow-hidden w-full transition-all motion-duration-300",
         props.type === "adopt" && "bg-pink-300",
         props.type === "patronize" && "bg-blue-300",
         props.isOpen
-          ? "max-w-full max-h-[40rem] w-full duration-500"
-          : "max-h-14 max-w-16 sm:max-w-[16rem] sm:max-h-20 m-4 duration-100"
+          ? "opacity-1 max-w-full max-h-[40rem] w-full duration-500"
+          : "opacity-0 max-h-14 max-w-16 sm:max-w-[16rem] sm:max-h-20 m-4 duration-100",
+        props.isOpen &&
+          props.type === "adopt" &&
+          "motion-preset-rebound-down lg:motion-preset-rebound-left",
+        props.isOpen &&
+          props.type === "patronize" &&
+          "motion-preset-rebound-down lg:motion-preset-rebound-right"
       )}
     >
       <div class="flex flex-row w-full justify-between items-center">

@@ -18,7 +18,13 @@ export const CatTags: Component<CatTagsProps> = ({
   ...rest
 }) => {
   return (
-    <div class={twMerge("flex gap-2 items-center", classNames)} {...rest}>
+    <div
+      class={twMerge(
+        "flex gap-2 items-center motion-preset-slide-left motion-delay-300",
+        classNames
+      )}
+      {...rest}
+    >
       <Show when={rescueDate && differenceInDays(today, rescueDate) <= 30}>
         <Tag color="yellow" icon="star">
           Novo
