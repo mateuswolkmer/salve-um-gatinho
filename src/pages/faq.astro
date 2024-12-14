@@ -5,46 +5,61 @@ import Accordion from "../components/Accordion.astro";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
 
-const { important: importantFaqs, other: otherFaqs } = await getCategorizedFaqs();
+const { important: importantFaqs, other: otherFaqs } =
+  await getCategorizedFaqs();
 ---
+
 <Layout title="Sobre">
-	<PageSection class='prose prose-headings:font-normal prose-headings:text-center prose-headings:m-0 prose-a:font-body prose-a:font-bold prose-p:text-pretty prose-xl m-auto gap-6'>
-        <h1 class="!mb-10">Perguntas e Respostas</h1>
-        {Boolean(importantFaqs?.length) &&
-            <div class="bg-pink-100 rounded-xl border-2 border-black p-4 w-full">
-                <h2 id="informações-importantes" class="!m-10">
-                    Informações importantes
-                </h2>
-                <div class="flex flex-col gap-2">
-                    {importantFaqs.map(faq => (
-                        <Accordion title={faq.question}>
-                            <TinaMarkdown content={faq.answer} />
-                        </Accordion>
-                    ))}
-                </div>
-            </div>
-        }
-        {Boolean(otherFaqs?.length) &&
-            <div class="bg-blue-100 rounded-xl border-2 border-black p-4 w-full">
-                <div class="flex flex-col gap-2">
-                    {otherFaqs.map(faq => (
-                        <Accordion title={faq.question}>
-                            <TinaMarkdown content={faq.answer} />
-                        </Accordion>
-                    ))}
-                </div>
-            </div>
-        }
-    </PageSection>
+  <PageSection
+    class="prose prose-headings:font-normal prose-headings:text-center prose-headings:m-0 prose-a:font-body prose-a:font-bold prose-p:text-pretty prose-xl m-auto gap-6"
+  >
+    <h1 class="!mb-10">Perguntas e Respostas</h1>
+    {
+      Boolean(importantFaqs?.length) && (
+        <div class="bg-pink-100 rounded-xl border-2 border-black p-4 w-full motion-preset-slide-up">
+          <h2 id="informações-importantes" class="!m-10">
+            Importante
+          </h2>
+          <div class="flex flex-col gap-2">
+            {importantFaqs.map((faq) => (
+              <Accordion title={faq.question}>
+                <TinaMarkdown content={faq.answer} />
+              </Accordion>
+            ))}
+          </div>
+        </div>
+      )
+    }
+    {
+      Boolean(otherFaqs?.length) && (
+        <div class="bg-blue-100 rounded-xl border-2 border-black p-4 w-full motion-preset-slide-up motion-delay-200">
+          <h2 class="!m-10">Outras</h2>
+          <div class="flex flex-col gap-2">
+            {otherFaqs.map((faq) => (
+              <Accordion title={faq.question}>
+                <TinaMarkdown content={faq.answer} />
+              </Accordion>
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </PageSection>
 </Layout>
 
 <!-- find and open accordion if url contain hash -->
 <script is:inline>
-    if(window.location.hash) {
-        const element = document.querySelector(`[id*="${window.location.hash.replace("#","")}"]`);
-        if(element) {
-            element.checked = true;
-            element.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }
+  if (window.location.hash) {
+    const element = document.querySelector(
+      `[id*="${window.location.hash.replace("#", "")}"]`
+    );
+    if (element) {
+      element.checked = true;
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "end",
+      });
     }
+  }
 </script>

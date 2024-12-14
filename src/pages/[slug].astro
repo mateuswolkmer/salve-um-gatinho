@@ -65,7 +65,9 @@ const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
         <div class="flex flex-col gap-4 flex-1">
           <div class="flex gap-4 items-center flex-wrap">
             <span class="text-5xl sm:text-7xl bold font-body font-bold motion-preset-slide-down" transition:name={slug || ""}>{name}</span>
-            <CatTags cat={cat} />
+            <div class="motion-preset-slide-left motion-delay-300">
+              <CatTags cat={cat} />
+            </div>
           </div>
           <!-- TODO change to component -->
           {social && playful && loving ? 

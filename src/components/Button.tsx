@@ -22,7 +22,7 @@ export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
   };
 
 export const Button: Component<ButtonProps> = (props) => {
-  const { navDirection = "forward" } = props;
+  const { navDirection = "" } = props;
   return (
     <button
       type="button"
@@ -52,7 +52,7 @@ export type ButtonLink = JSX.AnchorHTMLAttributes<HTMLAnchorElement> &
 export const ButtonLink: Component<ButtonLink> = ({
   href,
   variant,
-  navDirection = "forward",
+  navDirection = "",
   class: classes,
   children,
   ...rest
