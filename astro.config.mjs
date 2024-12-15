@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import solidJs from "@astrojs/solid-js";
 import reactJs from "@astrojs/react";
-import opengraphImages from "astro-opengraph-images";
-import { catsOg } from "./src/og";
+// import opengraphImages from "astro-opengraph-images";
+// import { catsOg } from "./src/og";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,20 +13,21 @@ export default defineConfig({
     tailwind(),
     solidJs(),
     reactJs(),
-    opengraphImages({
-      options: {
-        fonts: [
-          {
-            name: "Staatliches",
-            weight: 400,
-            style: "normal",
-            data: fs.readFileSync(
-              "node_modules/@fontsource/staatliches/files/staatliches-latin-400-normal.woff"
-            ),
-          },
-        ],
-      },
-      render: catsOg,
-    }),
+    // TODO come back to improved RTE images later
+    // opengraphImages({
+    //   options: {
+    //     fonts: [
+    //       {
+    //         name: "Staatliches",
+    //         weight: 400,
+    //         style: "normal",
+    //         data: fs.readFileSync(
+    //           "node_modules/@fontsource/staatliches/files/staatliches-latin-400-normal.woff"
+    //         ),
+    //       },
+    //     ],
+    //   },
+    //   render: catsOg,
+    // }),
   ],
 });

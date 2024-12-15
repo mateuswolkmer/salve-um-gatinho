@@ -9,17 +9,27 @@ import Layout from "../layouts/Layout.astro";
 
 const allCats = await getAllCats();
 ---
-<Layout title="Gatos">
-    <PageSection class="pt-4 sm:pt-8">
-        <div class="prose border-2 border-black w-full max-w-5xl m-auto p-4 rounded-xl bg-pink-100">
-            <h2 class="inline font-body">Adotar</h2> 
-            <p class="inline">
-                um gatinho é um ato de amor e responsabilidade. Para cada adoção, realizamos um processo seletivo para garantir que o ambiente e as condições do novo lar são adequados para o bem-estar do gato. Este processo inclui um formulário, entrevista, e em alguns casos, uma visita domiciliar.
-            </p>
-            <p>
-                Antes de escolher seu gatinho, veja <a class="font-body font-bold" href="/faq#adotar">o que preciso saber antes de adotar</a>.
-            </p>
-        </div>
-        <ListWithFilters cats={allCats} />
-    </PageSection>
+
+<Layout title="Adote">
+  <PageSection class="pt-4 sm:pt-8">
+    <div
+      class="prose border-2 border-black w-full max-w-5xl m-auto p-4 rounded-xl bg-pink-100"
+    >
+      <h2 class="inline font-body">Adotar</h2>
+      <p class="inline">
+        um gatinho é um ato de amor e responsabilidade. Para cada adoção,
+        realizamos um processo seletivo para garantir que o ambiente e as
+        condições do novo lar são adequados para o bem-estar do gato. Este
+        processo inclui um formulário, entrevista, e em alguns casos, uma visita
+        domiciliar.
+      </p>
+      <p>
+        Antes de escolher seu gatinho, veja <a
+          class="font-body font-bold"
+          href="/faq#adotar">o que preciso saber antes de adotar</a
+        >.
+      </p>
+    </div>
+    <ListWithFilters cats={allCats} />
+  </PageSection>
 </Layout>

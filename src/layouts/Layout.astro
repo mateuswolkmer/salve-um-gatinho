@@ -7,19 +7,21 @@ import "@phosphor-icons/web/duotone";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SEO } from "astro-seo";
-import { getImagePath } from "astro-opengraph-images";
+// import { getImagePath } from "astro-opengraph-images";
+import HeroImage from "../../../assets/Outras/hero.jpeg";
 
 interface Props {
   title?: string;
   og?: {
+    title?: string;
+    description?: string;
     image?: string;
   };
 }
 
-const { title, og: { image: ogImage } = {} } = Astro.props;
+const { title, og = {} } = Astro.props;
 const { url, site } = Astro;
 // const openGraphImageUrl = ogImage || getImagePath({ url, site });
-const openGraphImageUrl = getImagePath({ url, site });
 
 const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
 ---
@@ -49,13 +51,14 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
     <SEO
       openGraph={{
         basic: {
-          title: pageTitle,
+          title: og.title || pageTitle,
           type: "website",
-          image: openGraphImageUrl,
+          image: og.image || HeroImage.src,
           url: url,
         },
         optional: {
-          description: "Eles merecem uma chance de te fazer feliz",
+          description:
+            og.description || "Eles merecem uma chance de te fazer feliz",
         },
       }}
     />

@@ -2,76 +2,135 @@
 import { Image } from "astro:assets";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
-import KittensImage from '../assets/Outras/about/kittens.jpeg'
-import LeftWhoImage from '../assets/Outras/about/who_left.jpg'
-import RightWhoImage from '../assets/Outras/about/who_right.jpg'
-import LeftSpaceImage from '../assets/Outras/about/space_left.jpeg'
-import RightSpaceImage from '../assets/Outras/about/space_right.jpeg'
-import LeftKnowImage from '../assets/Outras/about/know_left.jpeg'
-import RightKnowImage from '../assets/Outras/about/know_right.jpeg'
-import ExtensionImage from '../assets/Outras/about/extension.jpg'
+import KittensImage from "../assets/Outras/about/kittens.jpeg";
+import LeftWhoImage from "../assets/Outras/about/who_left.jpg";
+import RightWhoImage from "../assets/Outras/about/who_right.jpg";
+import LeftSpaceImage from "../assets/Outras/about/space_left.jpeg";
+import RightSpaceImage from "../assets/Outras/about/space_right.jpeg";
+import LeftKnowImage from "../assets/Outras/about/know_left.jpeg";
+import RightKnowImage from "../assets/Outras/about/know_right.jpeg";
+import ExtensionImage from "../assets/Outras/about/extension.jpg";
 ---
-<Layout title="Sobre">
-	<PageSection class='prose prose-headings:font-normal prose-headings:text-center prose-a:font-body prose-a:font-bold prose-figcaption:text-center prose-figcaption:text-sm prose-p:text-pretty prose-xl m-auto'>
-        <div class="relative">
-            <Image src={LeftKnowImage} alt="" class="hidden xl:block absolute right-full mr-24 top-16 h-[30rem] w-auto -rotate-2 polaroid transition-transform hover:scale-105" />
-            <Image src={RightKnowImage} alt="" class="hidden xl:block absolute left-full ml-24 top-40 h-[30rem] w-auto rotate-2 polaroid transition-transform hover:scale-105" />
-            <h1>Quem somos</h1>
-            <p>
-                Criado em 2015 com o objetivo de salvar a vida dos gatos que viviam nas ruas em situação de vulnerabilidade, o Salve Um Gatinho se formou com a união de pessoas que não se conforma em ver esses animais sofrendo todo o tipo de privação e violência. Seres frágeis e amorosos, que merecem viver com dignidade, proteção e amor!
-            </p>
-            <dl class="flex flex-col gap-4">
-                <div class="bg-pink-100 flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden">
-                    <span class="absolute -top-20 -right-10 text-pink-300 text-[420px] font-display leading-none rotate-12 pointer-events-none">
-                        ?
-                    </span>
-                    <dt class="m-0 p-0 flex gap-2 items-center">
-                        <h3 class="m-0">O que fazemos</h3>
-                    </dt>
-                    <dd class="m-0 p-0 z-10">
-                        Resgatamos, acolhemos, encaminhamos para veterinário, tratamos, castramos, socializamos e encaminhamos para adoção responsável, mudando assim a vida de milhares de gatos que teriam um destino incerto e infeliz.
-                    </dd>
-                </div>
-                <div class="bg-blue-100 flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden">
-                    <span class="absolute -top-20 right-3 text-blue-300 text-[420px] font-display leading-none rotate-12 pointer-events-none">
-                        !
-                    </span>
-                    <dt class="m-0 p-0 flex gap-2 items-center">
-                        <h3 class="m-0">Como fazemos</h3>
-                    </dt> 
-                    <dd class="m-0 p-0 z-10">
-                        Com a ajuda da comunidade, que é essencial nesse processo! Qualquer pessoa pode ajudar a salvar um gatinho, seja com doações, pedido de ajuda, apadrinhamento, compra de produtos ou adotando um gatinho.
-                    </dd>
-                </div>
-            </dl>
-        </div>
 
-        <div class="relative">
-            <Image src={LeftSpaceImage} alt="" class="hidden xl:block absolute right-full mr-24 top-96 h-80 w-auto -rotate-3 polaroid transition-transform hover:scale-105" />
-            <Image src={RightSpaceImage} alt="" class="hidden xl:block absolute left-full ml-24 top-96 h-80 w-auto rotate-1 polaroid transition-transform hover:scale-105" />
-            <Image src={LeftWhoImage} alt="" class="hidden xl:block absolute right-full mr-24 top-2/4 h-80 w-auto -rotate-2 polaroid transition-transform hover:scale-105" />
-            <Image src={RightWhoImage} alt="" class="hidden xl:block absolute left-full ml-24 top-3/4 h-80 w-auto rotate-2 polaroid transition-transform hover:scale-105" />
-            <h2>
-                Nosso espaço
-            </h2>
-            <p>
-                Nosso lar temporário é dividido em treze espaços, contando com 4 gaiolas individuais para tratamento intensivo de gatos doentes. Os gatos ficam separados conforme sua condição: idosos, adultos, filhotes, mães com recém nascidos, FIV positivos, FeLV positivos, FIV e FeLV positivos.
-            </p>
-            <figure>
-                <Image src={KittensImage} alt="Foto das gaiolas com duas ninhadas, com mães e filhotes" class="prose-img:rounded-xl w-full border-2 border-black rounded-xl" />
-                <figcaption>Gaiola das ninhadas</figcaption>
-            </figure>
-            <p>
-                Estamos construindo mais um espaço seguro, com telas de proteção, para recreação ao ar livre, para que os gatos possam ficar em um espaço maior, onde possam curtir o sol.
-            </p>
-            <figure>
-                <Image src={ExtensionImage} alt="Foto da construção em andamento da extensão para o lar temporário dos gatinhos" class="prose-img:rounded-xl w-full border-2 border-black rounded-xl" />
-                <figcaption>Extensão externa telada em construção</figcaption>
-            </figure>
+<Layout
+  title="Sobre"
+  og={{ description: "Conheça mais sobre o nosso trabalho" }}
+>
+  <PageSection
+    class="prose prose-headings:font-normal prose-headings:text-center prose-a:font-body prose-a:font-bold prose-figcaption:text-center prose-figcaption:text-sm prose-p:text-pretty prose-xl m-auto"
+  >
+    <div class="relative">
+      <Image
+        src={LeftKnowImage}
+        alt=""
+        class="hidden xl:block absolute right-full mr-24 top-16 h-[30rem] w-auto -rotate-2 polaroid transition-transform hover:scale-105"
+      />
+      <Image
+        src={RightKnowImage}
+        alt=""
+        class="hidden xl:block absolute left-full ml-24 top-40 h-[30rem] w-auto rotate-2 polaroid transition-transform hover:scale-105"
+      />
+      <h1>Quem somos</h1>
+      <p>
+        Criado em 2015 com o objetivo de salvar a vida dos gatos que viviam nas
+        ruas em situação de vulnerabilidade, o Salve Um Gatinho se formou com a
+        união de pessoas que não se conforma em ver esses animais sofrendo todo
+        o tipo de privação e violência. Seres frágeis e amorosos, que merecem
+        viver com dignidade, proteção e amor!
+      </p>
+      <dl class="flex flex-col gap-4">
+        <div
+          class="bg-pink-100 flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
+        >
+          <span
+            class="absolute -top-20 -right-10 text-pink-300 text-[420px] font-display leading-none rotate-12 pointer-events-none"
+          >
+            ?
+          </span>
+          <dt class="m-0 p-0 flex gap-2 items-center">
+            <h3 class="m-0">O que fazemos</h3>
+          </dt>
+          <dd class="m-0 p-0 z-10">
+            Resgatamos, acolhemos, encaminhamos para veterinário, tratamos,
+            castramos, socializamos e encaminhamos para adoção responsável,
+            mudando assim a vida de milhares de gatos que teriam um destino
+            incerto e infeliz.
+          </dd>
         </div>
-        
-        <p>
-            Agora que você conhece um pouco do Salve um Gatinho, é hora de dar o próximo passo: <a href="/adotar">adotar seu gatinho</a>!
-        </p>
-    </PageSection>
+        <div
+          class="bg-blue-100 flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
+        >
+          <span
+            class="absolute -top-20 right-3 text-blue-300 text-[420px] font-display leading-none rotate-12 pointer-events-none"
+          >
+            !
+          </span>
+          <dt class="m-0 p-0 flex gap-2 items-center">
+            <h3 class="m-0">Como fazemos</h3>
+          </dt>
+          <dd class="m-0 p-0 z-10">
+            Com a ajuda da comunidade, que é essencial nesse processo! Qualquer
+            pessoa pode ajudar a salvar um gatinho, seja com doações, pedido de
+            ajuda, apadrinhamento, compra de produtos ou adotando um gatinho.
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="relative">
+      <Image
+        src={LeftSpaceImage}
+        alt=""
+        class="hidden xl:block absolute right-full mr-24 top-96 h-80 w-auto -rotate-3 polaroid transition-transform hover:scale-105"
+      />
+      <Image
+        src={RightSpaceImage}
+        alt=""
+        class="hidden xl:block absolute left-full ml-24 top-96 h-80 w-auto rotate-1 polaroid transition-transform hover:scale-105"
+      />
+      <Image
+        src={LeftWhoImage}
+        alt=""
+        class="hidden xl:block absolute right-full mr-24 top-2/4 h-80 w-auto -rotate-2 polaroid transition-transform hover:scale-105"
+      />
+      <Image
+        src={RightWhoImage}
+        alt=""
+        class="hidden xl:block absolute left-full ml-24 top-3/4 h-80 w-auto rotate-2 polaroid transition-transform hover:scale-105"
+      />
+      <h2>Nosso espaço</h2>
+      <p>
+        Nosso lar temporário é dividido em treze espaços, contando com 4 gaiolas
+        individuais para tratamento intensivo de gatos doentes. Os gatos ficam
+        separados conforme sua condição: idosos, adultos, filhotes, mães com
+        recém nascidos, FIV positivos, FeLV positivos, FIV e FeLV positivos.
+      </p>
+      <figure>
+        <Image
+          src={KittensImage}
+          alt="Foto das gaiolas com duas ninhadas, com mães e filhotes"
+          class="prose-img:rounded-xl w-full border-2 border-black rounded-xl"
+        />
+        <figcaption>Gaiola das ninhadas</figcaption>
+      </figure>
+      <p>
+        Estamos construindo mais um espaço seguro, com telas de proteção, para
+        recreação ao ar livre, para que os gatos possam ficar em um espaço
+        maior, onde possam curtir o sol.
+      </p>
+      <figure>
+        <Image
+          src={ExtensionImage}
+          alt="Foto da construção em andamento da extensão para o lar temporário dos gatinhos"
+          class="prose-img:rounded-xl w-full border-2 border-black rounded-xl"
+        />
+        <figcaption>Extensão externa telada em construção</figcaption>
+      </figure>
+    </div>
+
+    <p>
+      Agora que você conhece um pouco do Salve um Gatinho, é hora de dar o
+      próximo passo: <a href="/adotar">adotar seu gatinho</a>!
+    </p>
+  </PageSection>
 </Layout>

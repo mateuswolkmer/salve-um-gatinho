@@ -25,7 +25,7 @@ export type Props = {
 
 const { slug } = Astro.params;
 const { cat, cats } = Astro.props;
-const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized } = cat;
+const { name, image, description, tags, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
 
@@ -48,9 +48,8 @@ if(neutered && vaccinated) {
   status = `Não estou castrad${article} nem vacinad${article}`
 }
 
-const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
 ---
-<Layout title={name}>
+<Layout title={name} og={{ title: `Adote ${name}!`, description: tags.join(', '), image }}> 
     <PageSection>
       <div class="flex flex-col gap-24">
         <div class="flex flex-col items-center lg:flex-row gap-20 max-w-7xl m-auto">
