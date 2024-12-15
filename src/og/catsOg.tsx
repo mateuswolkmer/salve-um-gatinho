@@ -2,8 +2,11 @@ import React from "react";
 import type { RenderFunctionInput } from "astro-opengraph-images";
 import { twi } from "tw-to-css";
 
+const SITE_URL = "https://salve-um-gatinho.vercel.app";
+
 export async function catsOg({
   title,
+  // image,
   document,
 }: RenderFunctionInput): Promise<React.ReactNode> {
   const titleOg =
@@ -12,6 +15,8 @@ export async function catsOg({
     document.querySelector('[data-og="image"]')?.getAttribute("src") ?? "";
   const tags = document.querySelector('[data-og="tags"]')?.textContent ?? "";
 
+  const imageSrc = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+
   // split tags by capital letters (start of a new tag)
   const splitTags = tags.split(/(?=[A-Z])/);
 
@@ -19,9 +24,10 @@ export async function catsOg({
     <div style={twi("flex h-full w-full flex items-start justify-start")}>
       <img
         style={twi("absolute inset-0 h-full w-full object-cover")}
-        src={image}
+        src={imageSrc}
       />
-      <div
+      <h1 style={twi("text-[60px]")}>{titleOg || title}</h1>
+      {/* <div
         style={twi("absolute bottom-2 left-2 flex items-start justify-start")}
       >
         <div style={twi("flex flex-col gap-2")}>
@@ -38,7 +44,7 @@ export async function catsOg({
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   ) as React.ReactNode;
 }
