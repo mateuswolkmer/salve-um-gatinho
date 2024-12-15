@@ -19,7 +19,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
     title: cat.name,
     description: `Adote ${cat.gender === "female" ? "a" : "o"} ${cat.name}!`,
     logo: {
-      path: "./src/assets/Logos/logo-small.png",
+      path: "./src/assets/Logos/logo_small.png",
     },
     bgImage: {
       path: cat.image,
