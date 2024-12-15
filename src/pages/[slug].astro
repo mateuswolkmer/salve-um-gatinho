@@ -108,7 +108,8 @@ const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
         <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted} hidePatronizeButton={patronized} client:load />
       </div>
       <div class="flex flex-col gap-2">
-        <h2 class="text-4xl font-body font-bold">Outros parecidos</h2>
+        <!-- TODO only show similar cats (check tags) -->
+        <h2 class="text-4xl font-body font-bold">Outros</h2>
         <CatsList cats={cats?.filter(cat => cat.slug !== slug)} client:visible />
       </div>
     </div>

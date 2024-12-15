@@ -11,6 +11,7 @@ const buttonVariants = cva(
         nav: "text-3xl bg-blue hover:bg-blue-300 active:bg-blue-600 py-2 px-5",
         form: "text-4xl bg-yellow hover:bg-yellow-300 active:bg-yellow-600 py-2 px-6",
         icon: "bg-yellow hover:bg-yellow-300 active:bg-yellow-600 items-center justify-center rounded-full w-14 h-14 p-2",
+        link: "relative after:transition-all after:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:max-w-0 hover:after:max-w-full after:w-full border-none",
       },
     },
   }
@@ -19,14 +20,31 @@ const buttonVariants = cva(
 export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     navDirection?: "forward" | "backward";
+    onClickToClipboard?: string;
   };
 
 export const Button: Component<ButtonProps> = (props) => {
-  const { navDirection = "" } = props;
+  const { navDirection = "", onClickToClipboard, onClick, ...rest } = props;
+
+  const handleOnClick = (
+    e: MouseEvent & {
+      currentTarget: HTMLButtonElement;
+      target: HTMLButtonElement;
+    }
+  ) => {
+    if (typeof onClick === "function") {
+      onClick?.(e);
+    }
+    if (onClickToClipboard) {
+      navigator.clipboard.writeText(onClickToClipboard);
+    }
+  };
+
   return (
     <button
       type="button"
-      {...props}
+      {...rest}
+      onclick={handleOnClick}
       class={twMerge(buttonVariants({ variant: props.variant }), props.class)}
     >
       {props.variant === "nav" && navDirection === "backward" && (
