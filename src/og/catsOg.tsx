@@ -14,13 +14,13 @@ export async function catsOg({
   return (
     <div
       style={twi(
-        "h-full w-full flex items-start justify-start border border-blue-500 border-[12px] bg-gray-50"
+        "flex h-full w-full flex items-start justify-start border border-blue-500 border-[12px] bg-gray-50"
       )}
     >
       <div style={twi("flex items-start justify-start h-full")}>
         <div style={twi("flex flex-col justify-between w-full h-full")}>
           <h1 style={twi("text-[80px] p-20 font-black text-left")}>{title}</h1>
-          <div style={twi("text-2xl pb-10 px-20 font-bold mb-0")}>
+          <div style={twi("flex text-2xl pb-10 px-20 font-bold mb-0")}>
             {bodyTruncated}
           </div>
         </div>
