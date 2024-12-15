@@ -6,13 +6,13 @@ import opengraphImages, { presets } from "astro-opengraph-images";
 
 // https://astro.build/config
 export default defineConfig({
+  // TODO change to prod when launched
+  site: "https://salve-um-gatinho.vercel.app/",
   integrations: [
     tailwind(),
     solidJs(),
     reactJs(),
     opengraphImages({
-      // TODO change to prod when launched
-      site: "https://salve-um-gatinho.vercel.app",
       options: {
         fonts: [
           {
