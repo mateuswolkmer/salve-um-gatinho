@@ -16,6 +16,8 @@ interface Props {
 const { title } = Astro.props;
 const { url, site } = Astro;
 const openGraphImageUrl = getImagePath({ url, site });
+
+const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
 ---
 
 <!doctype html>
@@ -32,7 +34,7 @@ const openGraphImageUrl = getImagePath({ url, site });
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    <title>Salve {title ? `- ${title}` : "um Gatinho"}</title>
+    <title>{pageTitle}</title>
     <ClientRouter />
     <!-- https://github.com/heidkaemper/tailwindcss-intersect -->
     <script
@@ -43,7 +45,7 @@ const openGraphImageUrl = getImagePath({ url, site });
     <SEO
       openGraph={{
         basic: {
-          title: title,
+          title: pageTitle,
           type: "website",
           image: openGraphImageUrl,
           url: url,
