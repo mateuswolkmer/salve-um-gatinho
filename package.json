@@ -32,6 +32,7 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.16",
     "tinacms": "^2.5.0",
+    "tw-to-css": "^0.0.12",
     "typescript": "^5.7.2"
   },
   "devDependencies": {
