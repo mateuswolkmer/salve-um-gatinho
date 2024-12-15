@@ -48,6 +48,7 @@ if(neutered && vaccinated) {
   status = `Não estou castrad${article} nem vacinad${article}`
 }
 
+const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
 ---
 <Layout title={name} og={{ title: `Adote ${name}!`, description: tags?.join(', '), image }}> 
     <PageSection>
