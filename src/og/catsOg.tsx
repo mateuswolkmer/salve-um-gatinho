@@ -1,5 +1,6 @@
-import type { RenderFunctionInput } from "astro-opengraph-images";
 import React from "react";
+import type { RenderFunctionInput } from "astro-opengraph-images";
+import { twi } from "tw-to-css";
 
 export async function catsOg({
   title,
@@ -9,8 +10,6 @@ export async function catsOg({
   const body = document.querySelector("body")?.textContent ?? "";
   // truncate the body to 50 characters, add ellipsis if truncated
   const bodyTruncated = body.substring(0, 50) + (body.length > 50 ? "..." : "");
-
-  const twi = (await import("tw-to-css")).twi;
 
   return (
     <div

@@ -18,7 +18,8 @@ interface Props {
 
 const { title, og: { image: ogImage } = {} } = Astro.props;
 const { url, site } = Astro;
-const openGraphImageUrl = ogImage || getImagePath({ url, site });
+// const openGraphImageUrl = ogImage || getImagePath({ url, site });
+const openGraphImageUrl = getImagePath({ url, site });
 
 const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
 ---
