@@ -50,22 +50,22 @@ if(neutered && vaccinated) {
 
 const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
 ---
-<Layout title={name} og={{ image: image }}>
+<Layout title={name}>
     <PageSection>
       <div class="flex flex-col gap-24">
         <div class="flex flex-col items-center lg:flex-row gap-20 max-w-7xl m-auto">
           <div class="relative w-full md:w-1/2 lg:w-1/3 h-96">
-          <div class="motion-preset-expand bg-gray-200 rounded-xl border-black border-2 transition-all w-full h-full overflow-hidden flex items-center justify-center" >
+          <div class="motion-preset-expand bg-gray-200 rounded-xl border-black border-2 transition-all w-full h-full overflow-hidden flex items-center justify-center">
             {image && (
-              <img src={image} alt={name} class="object-cover w-full h-full" transition:name={`picture_${slug}`}/>
+              <img data-og="image" src={image} alt={name} class="object-cover w-full h-full" transition:name={`picture_${slug}`}/>
             )}
             <!-- TODO use in the future <ImageGroup /> -->
           </div>
         </div>
         <div class="flex flex-col gap-4 flex-1">
           <div class="flex gap-4 items-center flex-wrap">
-            <span class="text-5xl sm:text-7xl bold font-body font-bold motion-preset-slide-down" transition:name={slug || ""}>{name}</span>
-            <div class="motion-preset-slide-left motion-delay-300">
+            <span data-og="title" class="text-5xl sm:text-7xl bold font-body font-bold motion-preset-slide-down" transition:name={slug || ""}>{name}</span>
+            <div data-og="tags" class="motion-preset-slide-left motion-delay-300">
               <CatTags cat={cat} />
             </div>
           </div>

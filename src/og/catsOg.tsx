@@ -6,22 +6,36 @@ export async function catsOg({
   title,
   document,
 }: RenderFunctionInput): Promise<React.ReactNode> {
-  // extract the body
-  const body = document.querySelector("body")?.textContent ?? "";
-  // truncate the body to 50 characters, add ellipsis if truncated
-  const bodyTruncated = body.substring(0, 50) + (body.length > 50 ? "..." : "");
+  const titleOg =
+    document.querySelector('[data-og="title"]')?.textContent ?? "";
+  const image =
+    document.querySelector('[data-og="image"]')?.getAttribute("src") ?? "";
+  const tags = document.querySelector('[data-og="tags"]')?.textContent ?? "";
+
+  // split tags by capital letters (start of a new tag)
+  const splitTags = tags.split(/(?=[A-Z])/);
 
   return (
-    <div
-      style={twi(
-        "flex h-full w-full flex items-start justify-start border border-blue-500 border-[12px] bg-gray-50"
-      )}
-    >
-      <div style={twi("flex items-start justify-start h-full")}>
-        <div style={twi("flex flex-col justify-between w-full h-full")}>
-          <h1 style={twi("text-[80px] p-20 font-black text-left")}>{title}</h1>
-          <div style={twi("flex text-2xl pb-10 px-20 font-bold mb-0")}>
-            {bodyTruncated}
+    <div style={twi("flex h-full w-full flex items-start justify-start")}>
+      <img
+        style={twi("absolute inset-0 h-full w-full object-cover")}
+        src={image}
+      />
+      <div
+        style={twi("absolute bottom-2 left-2 flex items-start justify-start")}
+      >
+        <div style={twi("flex flex-col gap-2")}>
+          <h1 style={twi("text-[60px] font-black")}>{titleOg || title}</h1>
+          <div style={twi("flex flex-row")}>
+            {splitTags.map((tag) => (
+              <span
+                style={twi(
+                  "border-2 border-black rounded-full p-2 bg-blue-100"
+                )}
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </div>
