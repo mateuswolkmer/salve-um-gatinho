@@ -16,11 +16,11 @@ export default defineConfig({
       options: {
         fonts: [
           {
-            name: "Outfit",
+            name: "Staatliches",
             weight: 400,
             style: "normal",
             data: fs.readFileSync(
-              "node_modules/@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2"
+              "node_modules/@fontsource/staatliches/files/staatliches-latin-400-normal.woff"
             ),
           },
         ],
