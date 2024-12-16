@@ -12,7 +12,7 @@ export default {
     extend: {
       spacing: {
         header: "80px",
-        footer: "400px",
+        footer: "320px",
       },
       colors: {
         pink: {

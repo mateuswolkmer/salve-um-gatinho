@@ -1,21 +1,26 @@
 ---
-import Link from './Link.astro';
-import Pattern from '../assets/Outras/background/pattern.svg'
-import LogoBlack from '../assets/Logos/logo_black.svg'
-import { Image } from 'astro:assets';
+import Link from "./Link.astro";
+import Pattern from "../assets/Outras/background/pattern.svg";
+import LogoBlack from "../assets/Logos/logo_black.svg";
+import { Image } from "astro:assets";
 ---
-<div class="bg-blue m-4 flex items-center justify-between rounded-xl h-header border-black border-2 sticky top-4 z-40" transition:name="header">
-    <div class="flex-1 overflow-hidden h-full hidden md:block">
-        <Image src={Pattern} alt="" aria-hidden class="h-24 w-auto" />
-    </div>
-    <div>
-        <a href='/'>
-            <Image src={LogoBlack} alt="Salve um Gatinho" class='h-14 w-auto pl-4 md:pl-0' />
-        </a>
-    </div>
-    <div class="flex-1 flex justify-end gap-8 p-8">
-        <Link href='/faq'>FAQ</Link>
-        <Link href='/sobre'>Sobre</Link>
-        <Link href='/adotar'>Adote</Link>
-    </div>
+
+<div
+  class="bg-blue m-4 grid grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] grid-rows-1 items-center rounded-xl h-header border-black border-2 sticky top-4 z-40"
+  transition:name="header"
+>
+  <div class="overflow-hidden h-full hidden lg:block">
+    <Image src={Pattern} alt="" aria-hidden class="h-24 w-auto" />
+  </div>
+  <div class="pl-4 lg:pl-0">
+    <a href="/">
+      <Image src={LogoBlack} alt="Salve um Gatinho" class="h-14 w-auto" />
+    </a>
+  </div>
+  <div class="flex justify-end gap-8 p-4 lg:p-8">
+    <Link href="/faq">FAQ</Link>
+    <Link href="/sobre">Sobre</Link>
+    <Link href="/ajudar">Ajude</Link>
+    <Link href="/adotar">Adote</Link>
+  </div>
 </div>
