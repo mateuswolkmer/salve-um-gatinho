@@ -3,6 +3,14 @@ import Link from "./Link.astro";
 import Pattern from "../assets/Outras/background/pattern.svg";
 import LogoBlack from "../assets/Logos/logo_black.svg";
 import { Image } from "astro:assets";
+import { Button } from "./Button";
+
+const items: { href: string; title: string }[] = [
+  { href: "/faq", title: "FAQ" },
+  { href: "/sobre", title: "Sobre" },
+  { href: "/ajudar", title: "Ajude" },
+  { href: "/adotar", title: "Adote" },
+];
 ---
 
 <div
@@ -12,15 +20,64 @@ import { Image } from "astro:assets";
   <div class="overflow-hidden h-full hidden lg:block">
     <Image src={Pattern} alt="" aria-hidden class="h-24 w-auto" />
   </div>
-  <div class="pl-4 lg:pl-0">
+  <div class="pl-4 lg:pl-0 z-20">
     <a href="/">
       <Image src={LogoBlack} alt="Salve um Gatinho" class="h-14 w-auto" />
     </a>
   </div>
-  <div class="flex justify-end gap-8 p-4 lg:p-8">
-    <Link href="/faq">FAQ</Link>
-    <Link href="/sobre">Sobre</Link>
-    <Link href="/ajudar">Ajude</Link>
-    <Link href="/adotar">Adote</Link>
+  <!-- desktop -->
+  <ul class="justify-end gap-8 p-4 lg:p-8 md:flex hidden">
+    {
+      items.map((link) => (
+        <li>
+          <Link href={link.href}>{link.title}</Link>
+        </li>
+      ))
+    }
+  </ul>
+  <!-- mobile -->
+  <div class="justify-end gap-4 p-4 lg:p-8 md:hidden z-10">
+    <Button variant="icon" role="dialog">
+      <i class="ph-duotone ph-list text-2xl"></i>
+    </Button>
   </div>
+  <div class="absolute right-0 rotate-180 md:hidden h-full overflow-hidden">
+    <Image src={Pattern} alt="" aria-hidden class="h-20 w-auto" />
+  </div>
+  <dialog
+    class="w-full mt-[calc(theme('height.header')+theme('spacing.8'))] border-black border-2 rounded-xl bg-blue open:motion-preset-slide-down motion-duration-200"
+  >
+    <div class="absolute top-4 right-4" autofocus>
+      <Button variant="icon" role="dialog">
+        <i class="ph-duotone ph-x text-2xl"></i>
+      </Button>
+    </div>
+    <ul class="p-4 flex flex-col gap-2">
+      {
+        items.map((link) => (
+          <li>
+            <Link href={link.href} class="text-2xl">
+              {link.title}
+            </Link>
+          </li>
+        ))
+      }
+    </ul>
+  </dialog>
 </div>
+
+<script is:inline>
+  const dialog = document.querySelector("dialog");
+  const showDialogButton = document.querySelector('button[role="dialog"]');
+  const closeDialogButton = document.querySelector(
+    'dialog button[role="dialog"]'
+  );
+
+  showDialogButton.addEventListener("click", () => {
+    dialog.showModal();
+  });
+
+  closeDialogButton.addEventListener("click", () => {
+    dialog.close();
+  });
+</script>
