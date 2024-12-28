@@ -98,6 +98,34 @@ export default defineConfig({
             type: "boolean",
           },
           {
+            name: "condition",
+            label: "Condição especial",
+            type: "string",
+            description: "Deixe vazio caso apto",
+            options: [
+              {
+                value: "socialization",
+                label: "Em socialização",
+              },
+              {
+                value: "treatment",
+                label: "Em tratamento",
+              },
+              {
+                value: "breastfeeding",
+                label: "Amamentando",
+              },
+              {
+                value: "breastfed",
+                label: "Mamando",
+              },
+              {
+                value: "pregnant",
+                label: "Prenha",
+              },
+            ],
+          },
+          {
             name: "image",
             label: "Foto",
             type: "image",
@@ -109,17 +137,6 @@ export default defineConfig({
             isBody: true,
             ui: {
               component: "textarea",
-            },
-          },
-          {
-            name: "tags",
-            label: "Tags",
-            description: "Tags adicionais (exemplo: Especial, Cego, ",
-            type: "string",
-            list: true,
-            options: ["Especial", "Cego"],
-            ui: {
-              component: "tags",
             },
           },
           {
@@ -138,6 +155,55 @@ export default defineConfig({
             ],
           },
           {
+            name: "color",
+            label: "Pelagem",
+            type: "string",
+            options: [
+              {
+                value: "preto",
+                label: "Preto",
+              },
+              {
+                value: "branco",
+                label: "Branco",
+              },
+              {
+                value: "cinza",
+                label: "Cinza",
+              },
+              {
+                value: "laranja",
+                label: "Laranja",
+              },
+              {
+                value: "sialata",
+                label: "Sialata",
+              },
+              {
+                value: "tricolor",
+                label: "Tricolor",
+              },
+              {
+                value: "tigrado",
+                label: "Tigrado",
+              },
+              {
+                value: "frajola",
+                label: "Frajola",
+              },
+            ],
+          },
+          {
+            name: "fiv",
+            label: "FIV",
+            type: "boolean",
+          },
+          {
+            name: "felv",
+            label: "FeLV",
+            type: "boolean",
+          },
+          {
             name: "birthDate",
             label: "Data de nascimento",
             type: "datetime",
@@ -148,6 +214,17 @@ export default defineConfig({
             description:
               "Usar o mesmo do nascimento quando foi nascido no abrigo",
             type: "datetime",
+          },
+          {
+            name: "tags",
+            label: "Tags",
+            description:
+              "Observações adicionais (exemplo: Especial, Cego, Esporotricose...)",
+            type: "string",
+            list: true,
+            ui: {
+              component: "tags",
+            },
           },
           // Status
           {

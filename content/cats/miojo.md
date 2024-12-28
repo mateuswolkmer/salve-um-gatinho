@@ -1,12 +1,17 @@
 ---
 slug: miojo
 createdDate: 2024-09-10T15:17:53.566Z
-updatedDate: 2024-08-02T21:18:21.498Z
+updatedDate: 2024-12-28T21:58:17.256Z
 name: Miojo
 image: /src/assets/Gatos/miojo.png
 gender: male
-birthDate: 2019-06-25T03:00:00.000Z
-rescueDate: 2024-09-10T03:00:00.000Z
+color: tigrado
+fiv: true
+felv: true
+birthDate: 2024-02-14T03:00:00.000Z
+rescueDate: 2024-12-11T03:00:00.000Z
+tags:
+  - Lindo
 neutered: true
 vaccinated: false
 social: '1'

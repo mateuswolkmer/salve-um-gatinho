@@ -1,10 +1,8 @@
-import { Show, type Component, type JSX } from "solid-js";
+import { type Component, type JSX } from "solid-js";
 import type { Cat } from "../../tina/__generated__/types";
 import { twMerge } from "tailwind-merge";
 import { Tag } from "./Tag";
-import { differenceInDays } from "date-fns";
-
-const today = new Date();
+import { getCatGeneralTags } from "../utils";
 
 export type CatTagsProps = JSX.HTMLAttributes<HTMLDivElement> & {
   cat?: Cat;
@@ -12,33 +10,18 @@ export type CatTagsProps = JSX.HTMLAttributes<HTMLDivElement> & {
 };
 
 export const CatTags: Component<CatTagsProps> = ({
-  cat: { tags, gender, rescueDate },
+  cat,
   class: classNames,
   showOnly,
   ...rest
 }) => {
+  const tags = getCatGeneralTags(cat);
+
   return (
     <div class={twMerge("flex gap-2 items-center", classNames)} {...rest}>
-      <Show when={rescueDate && differenceInDays(today, rescueDate) <= 30}>
-        <Tag color="yellow" icon="star">
-          Novo
-        </Tag>
-      </Show>
-      <Show when={showOnly !== "new"}>
-        <Show when={gender === "female"}>
-          <Tag color="pink" icon="gender-female">
-            Fêmea
-          </Tag>
-        </Show>
-        <Show when={gender === "male"}>
-          <Tag color="blue" icon="gender-male">
-            Macho
-          </Tag>
-        </Show>
-        {tags?.map((tag) => (
-          <Tag>{tag}</Tag>
-        ))}
-      </Show>
+      {tags?.map(({ label, tagProps = {} }) => (
+        <Tag {...tagProps}>{label}</Tag>
+      ))}
     </div>
   );
 };

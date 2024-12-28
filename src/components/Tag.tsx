@@ -31,7 +31,8 @@ export const Tag: Component<TagProps> = ({
               `ph-${icon} ph-duotone before:!opacity-100 !font-bold`,
               color === "yellow" && "before:!text-yellow-500",
               color === "blue" && "before:!text-blue-500",
-              color === "pink" && "before:!text-pink-500"
+              color === "pink" && "before:!text-pink-500",
+              !color && "before:!text-white"
             )}
           />
         </div>
