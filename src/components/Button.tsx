@@ -17,14 +17,24 @@ const buttonVariants = cva(
   }
 );
 
-export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps = Omit<
+  JSX.ButtonHTMLAttributes<HTMLButtonElement>,
+  "disabled"
+> &
   VariantProps<typeof buttonVariants> & {
     navDirection?: "forward" | "backward";
     onClickToClipboard?: string;
+    disabled: boolean | (() => boolean);
   };
 
 export const Button: Component<ButtonProps> = (props) => {
-  const { navDirection = "", onClickToClipboard, onClick, ...rest } = props;
+  const {
+    navDirection = "",
+    onClickToClipboard,
+    onClick,
+    disabled,
+    ...rest
+  } = props;
 
   const handleOnClick = (
     e: MouseEvent & {
@@ -43,6 +53,7 @@ export const Button: Component<ButtonProps> = (props) => {
   return (
     <button
       type="button"
+      disabled={typeof disabled === "function" ? disabled() : disabled}
       {...rest}
       onclick={handleOnClick}
       class={twMerge(buttonVariants({ variant: props.variant }), props.class)}

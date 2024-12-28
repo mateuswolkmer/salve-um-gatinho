@@ -104,23 +104,23 @@ export default defineConfig({
             description: "Deixe vazio caso apto",
             options: [
               {
-                value: "socialization",
+                value: "em socialização",
                 label: "Em socialização",
               },
               {
-                value: "treatment",
+                value: "em tratamento",
                 label: "Em tratamento",
               },
               {
-                value: "breastfeeding",
+                value: "amamentando",
                 label: "Amamentando",
               },
               {
-                value: "breastfed",
+                value: "mamando",
                 label: "Mamando",
               },
               {
-                value: "pregnant",
+                value: "prenha",
                 label: "Prenha",
               },
             ],

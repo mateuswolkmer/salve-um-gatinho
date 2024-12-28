@@ -8,6 +8,7 @@ import { CatTags } from '../components/CatTags';
 import type { Cat } from '../../tina/__generated__/types';
 import { getAllCats } from '../api/cats';
 import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
+import { Highlight } from '../components/Highlight';
 
 export async function getStaticPaths() {
   const cats = await getAllCats();
@@ -25,7 +26,7 @@ export type Props = {
 
 const { slug } = Astro.params;
 const { cat, cats } = Astro.props;
-const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized } = cat;
+const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized, condition } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
 
@@ -65,7 +66,7 @@ const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
         </div>
         <div class="flex flex-col gap-4 flex-1">
           <div class="flex gap-4 items-center flex-wrap">
-            <span data-og="title" class="text-5xl sm:text-7xl bold font-body font-bold motion-preset-slide-down" transition:name={slug || ""}>{name}</span>
+            <h1 data-og="title" class="text-5xl sm:text-7xl bold font-body font-bold motion-preset-slide-down" transition:name={slug || ""}>{name}</h1>
             <div data-og="tags" class="motion-preset-slide-left motion-delay-300">
               <CatTags cat={cat} type="general" />
             </div>
@@ -105,7 +106,8 @@ const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
           {Boolean(patronized) && <p>Já estou apardinhad{article}. 🎉</p>}
         </div>
       </div>
-      <div class="max-w-7xl m-auto w-full">
+      <div class="max-w-7xl m-auto w-full flex flex-col gap-4">
+        {Boolean(!adopted && condition) && <p class="text-center">No momento <Highlight>estou {condition}</Highlight>, mas logo estarei disponível!</p>}
         <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted} hidePatronizeButton={patronized} client:load />
       </div>
       <div class="flex flex-col gap-2">

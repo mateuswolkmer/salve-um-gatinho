@@ -11,7 +11,7 @@ export type FormWithStepsProps = {
 };
 
 const forms = {
-  adopt: {
+  adotar: {
     link: (catName) =>
       `https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?usp=pp_url${
         catName ? `&entry.828023490=${catName}` : ""
@@ -21,7 +21,7 @@ const forms = {
         catName ? `&entry.828023490=${catName}` : ""
       }`,
   },
-  patronize: {
+  apadrinhar: {
     link: (catName) =>
       `https://docs.google.com/forms/d/e/1FAIpQLScNEsej6sS06QTzG66525-8H9CO0VGbdkMqDT_6BW0nXOZi3w/viewform?usp=pp_url${
         catName ? `&entry.828023490=${catName}` : ""
@@ -38,6 +38,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
   const handleStepForward = () => setStep((prev) => prev + 1);
 
   const [hasAccepted, setHasAccepted] = createSignal(false);
+  const isButtonDisabled = () => !hasAccepted();
 
   return (
     <div
@@ -104,17 +105,24 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
                   type="checkbox"
                   id="accept_adopt"
                   class="accent-yellow size-5 min-w-5 min-h-5 relative after:absolute after:inset-0 after:border-black after:border-2 after:rounded-sm"
+                  // @ts-expect-error
+                  value={hasAccepted()}
                   onChange={(e) => setHasAccepted(e.target.checked)}
                 />
                 <label for="accept_adopt" class="text-xl">
                   Confirmo que li{" "}
                   <Show when={props.type === "adotar"}>
-                    <a href="/faq#adotar" class="font-body font-bold underline">
+                    <a
+                      target="_blank"
+                      href="/faq#adotar"
+                      class="font-body font-bold underline"
+                    >
                       o que preciso saber antes de adotar
                     </a>
                   </Show>
                   <Show when={props.type === "apadrinhar"}>
                     <a
+                      target="_blank"
                       href="/faq#apadrinhar"
                       class="font-body font-bold underline"
                     >
@@ -127,7 +135,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
             </div>
             <Button
               variant="form"
-              disabled={!hasAccepted()}
+              disabled={isButtonDisabled}
               onClick={handleStepForward}
             >
               Prosseguir para formulário
