@@ -159,38 +159,14 @@ export default defineConfig({
             label: "Pelagem",
             type: "string",
             options: [
-              {
-                value: "preto",
-                label: "Preto",
-              },
-              {
-                value: "branco",
-                label: "Branco",
-              },
-              {
-                value: "cinza",
-                label: "Cinza",
-              },
-              {
-                value: "laranja",
-                label: "Laranja",
-              },
-              {
-                value: "sialata",
-                label: "Sialata",
-              },
-              {
-                value: "tricolor",
-                label: "Tricolor",
-              },
-              {
-                value: "tigrado",
-                label: "Tigrado",
-              },
-              {
-                value: "frajola",
-                label: "Frajola",
-              },
+              "Preto",
+              "Branco",
+              "Cinza",
+              "Laranja",
+              "Sialata",
+              "Tricolor",
+              "Tigrado",
+              "Frajola",
             ],
           },
           {

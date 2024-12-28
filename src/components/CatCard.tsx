@@ -78,7 +78,7 @@ export const CatCard: Component<CatCardProps> = ({
           </span>
           <CatTags
             cat={cat}
-            showOnly={variant === "small" ? "new" : undefined}
+            showOnly={variant === "small" ? "Novo" : undefined}
           />
           <div class="absolute h-full w-4 bg-gradient-to-l from-white to-transparent right-0" />
         </div>

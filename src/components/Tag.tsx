@@ -16,7 +16,7 @@ export const Tag: Component<TagProps> = ({
   return (
     <span
       class={twMerge(
-        "border-2 border-black rounded-full px-2 text-base relative after:-top-2",
+        "border-2 border-black rounded-full px-2 text-base relative after:-top-2 bg-white",
         color === "yellow" && "bg-yellow-100",
         color === "blue" && "bg-blue-100",
         color === "pink" && "bg-pink-100",
