@@ -103,3 +103,21 @@ export const getCatAppearenceTags = (cat: Cat) => {
 
   return tags;
 };
+
+export const getCatStringTags = (cat: Cat) => {
+  const tags: string[] = [];
+
+  tags.push(...getCatAppearenceTags(cat).map((tag) => tag.label));
+  tags.push(
+    ...getCatGeneralTags(cat)
+      .map((tag) => tag.label)
+      .filter((tag) => tag !== "Novo")
+  );
+
+  if (tags.length > 5) {
+    tags.splice(5);
+    tags.push("…");
+  }
+
+  return tags.join(" • ");
+};

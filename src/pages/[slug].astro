@@ -10,6 +10,7 @@ import { getAllCats } from '../api/cats';
 import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
 import { Highlight } from '../components/Highlight';
 import ShareLinks from '../components/ShareLinks.astro';
+import { getCatStringTags } from '../utils/catUtils';
 
 export async function getStaticPaths() {
   const cats = await getAllCats();
@@ -52,6 +53,9 @@ if(neutered && vaccinated) {
 
 const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
 const ogTitle = `Adote${patronized ? ' ' : ' ou apadrinhe'} ${article} ${name}!`;
+
+const shareText = `${ogTitle}
+${getCatStringTags(cat)}`;
 ---
 <Layout title={name} og={{ title: ogTitle, description: description, image }}>  
     <PageSection>
@@ -65,7 +69,7 @@ const ogTitle = `Adote${patronized ? ' ' : ' ou apadrinhe'} ${article} ${name}!`
             <!-- TODO use in the future <ImageGroup /> -->
             <CatTags cat={cat} type="appearence" class="absolute bottom-4 left-4" />
           </div>
-          <ShareLinks class='mt-4 hidden lg:flex' shareText={ogTitle}/>
+          <ShareLinks class='mt-4 hidden lg:flex' shareText={shareText}/>
         </div>
         <div class="flex flex-col gap-4 flex-1">
           <div class="flex gap-4 items-center flex-wrap">

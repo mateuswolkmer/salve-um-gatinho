@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { ButtonLink } from "./Button";
 import FacebookIcon from "../assets/Outras/icons/facebook.svg";
 import TwitterIcon from "../assets/Outras/icons/x.svg";
+import WhatsAppIcon from "../assets/Outras/icons/whatsapp.svg";
 import { twMerge } from "tailwind-merge";
 
 export type Props = {
@@ -19,24 +20,27 @@ const encodedText = encodeURIComponent(shareText);
 <div class={twMerge("flex gap-2", classNames)}>
   <ButtonLink
     target="_blank"
-    href={`https://www.facebook.com/sharer.php?display=page&u=${encodedUrl}`}
+    href={`https://www.facebook.com/sharer.php?u=${encodedUrl}&quote=${encodedText}`}
     variant="icon"
+    title="Compartilhar no Facebook"
   >
-    <Image
-      src={FacebookIcon}
-      alt="Compartilhar no Facebook"
-      class="h-full w-auto"
-    />
+    <Image src={FacebookIcon} class="h-full w-auto" alt="" />
   </ButtonLink>
   <ButtonLink
     target="_blank"
     href={`https://twitter.com/share?url=${encodedUrl}&text=${encodedText}`}
     variant="icon"
+    title="Compartilhar no X (Twitter)"
   >
-    <Image
-      src={TwitterIcon}
-      alt="Compartilhar no X (Twitter)"
-      class="h-full w-auto p-1"
-    />
+    <Image src={TwitterIcon} class="h-full w-auto p-1" alt="" />
+  </ButtonLink>
+  <ButtonLink
+    target="_blank"
+    href={`https://wa.me/?text=${encodedText}%0A%0A${encodedUrl}`}
+    variant="icon"
+    title="Compartilhar no WhatsApp"
+    class="p-1.5"
+  >
+    <Image src={WhatsAppIcon} class="h-full w-auto p-1" alt="" />
   </ButtonLink>
 </div>
