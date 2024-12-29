@@ -1,6 +1,6 @@
 ---
-import { Button } from '../../Button';
-import PageSection from '../../PageSection.astro';
+import { Button } from "../../Button";
+import PageSection from "../../PageSection.astro";
 
 type Props = {};
 
@@ -14,35 +14,67 @@ if (Astro.request.method === "POST") {
     const subject = data.get("subject");
     const message = data.get("message");
 
-    console.log(`name: ${name} email:${email} subject:${subject} message:${message}`);
+    console.log(
+      `name: ${name} email:${email} subject:${subject} message:${message}`
+    );
   } catch (error) {
     if (error instanceof Error) {
-      console.error(`error: ${error.message}`)
+      console.error(`error: ${error.message}`);
     }
   }
 }
 ---
+
 <PageSection title="Fale conosco">
-  <div class="w-full max-w-xl m-auto">
-      <form method="post" autocomplete="on" class="flex flex-col gap-2">
-          <div class="flex flex-col gap-1">
-              <label for="name" class="text-lg font-semibold">Nome</label>
-              <input id="name" name="name" type="text" placeholder="Maria" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
-          </div>
-          <div class="flex flex-col gap-1">
-              <label for="email" class="text-lg font-semibold">Email</label>
-              <input id="email" name="email" type="email" placeholder="maria@gmail.com" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
-          </div>
-          <div class="flex flex-col gap-1">
-              <label for="subject" class="text-lg font-semibold">Assunto</label>
-              <input id="subject" name="subject" type="text" placeholder="Dúvida" class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"/>
-          </div>
-          <div class="flex flex-col gap-1">
-              <label for="message" class="text-lg font-semibold">Mensagem</label>
-              <textarea id="message" placeholder="Olá, eu gostaria de tirar uma dúvida..." name="message" required class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl" rows="3"/>
-          </div>
-          <Button variant="form" class="self-center mt-4" type="submit">Enviar</Button>
-      </form>
-    </div>
-  </div>  
+  <div
+    class="w-full max-w-xl m-auto intersect:motion-preset-slide-up intersect-once"
+  >
+    <form method="post" autocomplete="on" class="flex flex-col gap-2">
+      <div class="flex flex-col gap-1">
+        <label for="name" class="text-lg font-semibold">Nome</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Maria"
+          required
+          class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="email" class="text-lg font-semibold">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="maria@gmail.com"
+          required
+          class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="subject" class="text-lg font-semibold">Assunto</label>
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          placeholder="Dúvida"
+          class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="message" class="text-lg font-semibold">Mensagem</label>
+        <textarea
+          id="message"
+          placeholder="Olá, eu gostaria de tirar uma dúvida..."
+          name="message"
+          required
+          class="transition-all border-2 border-b-4 focus:border-b-4 focus:mb-1 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl"
+          rows="3"></textarea>
+      </div>
+      <Button variant="form" class="self-center mt-4" type="submit"
+        >Enviar</Button
+      >
+    </form>
+  </div>
 </PageSection>

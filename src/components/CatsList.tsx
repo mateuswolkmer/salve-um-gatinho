@@ -39,7 +39,7 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
   });
 
   return (
-    <div class="flex flex-col gap-4 items-start -mr-10">
+    <div class="flex flex-col gap-4 items-start -mr-10 intersect:motion-preset-slide-up intersect-once">
       <div class="relative">
         <div
           ref={catsListRef}
