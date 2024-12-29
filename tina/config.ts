@@ -120,8 +120,8 @@ export default defineConfig({
                 label: "Mamando",
               },
               {
-                value: "prenha",
-                label: "Prenha",
+                value: "grávida",
+                label: "Grávida",
               },
             ],
           },

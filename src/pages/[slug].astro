@@ -9,6 +9,7 @@ import type { Cat } from '../../tina/__generated__/types';
 import { getAllCats } from '../api/cats';
 import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
 import { Highlight } from '../components/Highlight';
+import ShareLinks from '../components/ShareLinks.astro';
 
 export async function getStaticPaths() {
   const cats = await getAllCats();
@@ -50,8 +51,9 @@ if(neutered && vaccinated) {
 }
 
 const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
+const ogTitle = `Adote${patronized ? ' ' : ' ou apadrinhe'} ${article} ${name}!`;
 ---
-<Layout title={name} og={{ title: `Adote${patronized ? ' ' : ' ou apadrinhe'} ${article} ${name}!`, description: description, image }}>  
+<Layout title={name} og={{ title: ogTitle, description: description, image }}>  
     <PageSection>
       <div class="flex flex-col gap-24">
         <div class="flex flex-col items-center lg:flex-row gap-20 max-w-7xl m-auto">
@@ -63,6 +65,7 @@ const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
             <!-- TODO use in the future <ImageGroup /> -->
             <CatTags cat={cat} type="appearence" class="absolute bottom-4 left-4" />
           </div>
+          <ShareLinks class='mt-4 hidden lg:flex' shareText={ogTitle}/>
         </div>
         <div class="flex flex-col gap-4 flex-1">
           <div class="flex gap-4 items-center flex-wrap">
@@ -104,6 +107,7 @@ const startOpenedForm = Astro.url.searchParams.get('form') as FormType || '';
           {Boolean(status) && <p>{status}.</p>}
           <p>{description}</p>
           {Boolean(patronized) && <p>Já estou apardinhad{article}. 🎉</p>}
+          <ShareLinks class='mt-4 lg:hidden' shareText={ogTitle}/>
         </div>
       </div>
       <div class="max-w-7xl m-auto w-full flex flex-col gap-4">

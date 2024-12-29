@@ -10,7 +10,7 @@ const buttonVariants = cva(
         cta: "text-5xl sm:text-6xl bg-pink hover:bg-pink-300 active:bg-pink-600 py-4 sm:py-5 px-16 sm:px-20",
         nav: "text-3xl bg-blue hover:bg-blue-300 active:bg-blue-600 py-2 px-5",
         form: "text-4xl bg-yellow hover:bg-yellow-300 active:bg-yellow-600 py-2 px-6",
-        icon: "bg-yellow hover:bg-yellow-300 active:bg-yellow-600 items-center justify-center rounded-full w-14 h-14 p-2",
+        icon: "bg-yellow hover:bg-yellow-300 active:bg-yellow-600 items-center justify-center rounded-full size-12 p-2",
         link: "relative after:transition-all after:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:max-w-0 hover:after:max-w-full after:w-full border-none",
       },
     },
@@ -24,7 +24,7 @@ export type ButtonProps = Omit<
   VariantProps<typeof buttonVariants> & {
     navDirection?: "forward" | "backward";
     onClickToClipboard?: string;
-    disabled: boolean | (() => boolean);
+    disabled?: boolean | (() => boolean);
   };
 
 export const Button: Component<ButtonProps> = (props) => {
@@ -33,6 +33,8 @@ export const Button: Component<ButtonProps> = (props) => {
     onClickToClipboard,
     onClick,
     disabled,
+    variant,
+    children,
     ...rest
   } = props;
 
@@ -56,15 +58,15 @@ export const Button: Component<ButtonProps> = (props) => {
       disabled={typeof disabled === "function" ? disabled() : disabled}
       {...rest}
       onclick={handleOnClick}
-      class={twMerge(buttonVariants({ variant: props.variant }), props.class)}
+      class={twMerge(buttonVariants({ variant }), props.class)}
     >
-      {props.variant === "nav" && navDirection === "backward" && (
+      {variant === "nav" && navDirection === "backward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {"<"}
         </span>
       )}
       {props.children}
-      {props.variant === "nav" && navDirection === "forward" && (
+      {variant === "nav" && navDirection === "forward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {">"}
         </span>
