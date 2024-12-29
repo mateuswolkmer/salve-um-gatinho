@@ -1,5 +1,5 @@
 import { type VariantProps, cva } from "class-variance-authority";
-import type { Component, JSX } from "solid-js";
+import { createSignal, type Component, type JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
@@ -38,6 +38,8 @@ export const Button: Component<ButtonProps> = (props) => {
     ...rest
   } = props;
 
+  const [hasCopyiedToClipboard, setHasCopyiedToClipboard] = createSignal(false);
+
   const handleOnClick = (
     e: MouseEvent & {
       currentTarget: HTMLButtonElement;
@@ -48,7 +50,10 @@ export const Button: Component<ButtonProps> = (props) => {
       onClick?.(e);
     }
     if (onClickToClipboard) {
-      navigator.clipboard.writeText(onClickToClipboard);
+      navigator.clipboard
+        .writeText(onClickToClipboard)
+        .then(() => setHasCopyiedToClipboard(true))
+        .catch(() => setHasCopyiedToClipboard(false));
     }
   };
 
@@ -66,6 +71,11 @@ export const Button: Component<ButtonProps> = (props) => {
         </span>
       )}
       {props.children}
+      {hasCopyiedToClipboard() ? (
+        <i class="ph-duotone ph-check-fat motion-preset-pop my-auto" />
+      ) : (
+        ""
+      )}
       {variant === "nav" && navDirection === "forward" && (
         <span class="text-3xl transition-transform group-hover:scale-125">
           {">"}
