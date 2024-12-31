@@ -360,6 +360,45 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "howToHelp",
+        label: "Formas de Ajudar",
+        path: "content/howToHelp",
+        ui: {
+          filename: {
+            slugify: (values) => {
+              return slugFromName(values.title);
+            },
+          },
+        },
+        fields: [
+          {
+            name: "title",
+            label: "Título",
+            type: "string",
+            isTitle: true,
+            required: true,
+          },
+          {
+            name: "content",
+            label: "Texto",
+            type: "rich-text",
+            required: true,
+            isBody: true,
+          },
+          {
+            name: "image",
+            label: "Imagem",
+            type: "image",
+          },
+          {
+            name: "noBorderImage",
+            label: "Imagem sem bordas",
+            description: "Não adiciona bordas na imagem",
+            type: "boolean",
+          },
+        ],
+      },
     ],
   },
 });

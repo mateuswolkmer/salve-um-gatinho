@@ -2,43 +2,11 @@
 import { Image } from "astro:assets";
 import PageSection from "../components/PageSection.astro";
 import Layout from "../layouts/Layout.astro";
-import PatronizeImage from "../assets/Outras/actions/patronize.jpeg";
-import PixQrImage from "../assets/Outras/qr-pix.png";
-import AnjoImage from "../assets/Outras/help/anjo.jpg";
-import ColetaImage from "../assets/Outras/help/coleta.png";
+import { getAllHowToHelp } from "../api/howToHelp";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { twMerge } from "tailwind-merge";
 
-// TODO convert to markdown
-const items: { title: string; content: string; image?: ImageMetadata }[] = [
-  {
-    title: "Apadrinhe",
-    content:
-      "Ao apadrinhar um gatinho, você ajuda mensalmente com um valor para garantir alimentação, medicamentos e bem-estar ao gatinho escolhido, até ele encontrar uma casa permanente. É o mais próximo de adotar! Veja <a>o que você precisa saber para apadrinhar</a>.",
-    image: PatronizeImage,
-  },
-  {
-    title: "Doe (PIX)",
-    content:
-      'Ao realizar uma doação única ou mensal, você estará ajudando na manutenção e melhorias do lar temporário, assim como qualquer necessidade dos gatinhos. Iremos redirecionar o dinheiro para onde há maior necessidade no momento. Para doar em dinheiro, faça um PIX através do QR code ao lado, ou através do CPF: 625.833.950/68. Caso deseja doar de outras formar, veja os "Pontos de Coleta" abaixo.',
-    image: PixQrImage,
-  },
-  {
-    title: "Pontos de coleta",
-    content:
-      'Nos ajude com ração, potinhos, cobertas e qualquer outro item que possa ser utilizado para o cuidado dos gatinhos. <a href="faq#onde">Descubra aqui</a> onde você pode deixar suas doações em nossos pontos de coleta espalhados pela cidade.',
-    image: ColetaImage,
-  },
-  {
-    title: "Seja um Anjo",
-    content:
-      'O projeto "Anjos do Salve" foi criado para conseguirmos ter melhor planejamento financeiro, através de doações mensais fixas. Ao escolher um valor (acima de R$15), você participará do nosso grupo exclusivo em que compartilhamos o dia-a-dia dos cuidados e resgates, assim como poderá agendar visitas ao lar temporário. <a href="https://chat.whatsapp.com/LGntpchDXgWHPgxgNtwmun">Participe do grupo</a> e escolha o valor da sua contribuição mensal!',
-    image: AnjoImage,
-  },
-  {
-    title: "Siga as redes",
-    content:
-      "Caso queira ajudar aind amais, sempre postamos em nossas redes sociais quando precisamos de auxílio emergencial, como quando precisamos de doador de sangue, ração, ou ajuda para um tratamento caro. Além disso, nós e nossos parceiros frequentemente realizamos rifas e/ou eventos beneficentes para arrecadações. Saiba de tudo nos seguindo no Facebook ou Instagram!",
-  },
-];
+const items = await getAllHowToHelp();
 ---
 
 <Layout title="Ajude" og={{ description: "Saiba como nos ajudar" }}>
@@ -56,7 +24,7 @@ const items: { title: string; content: string; image?: ImageMetadata }[] = [
     </p>
     <ol class="w-full flex flex-col gap-10">
       {
-        items.map(({ title, content, image }) => (
+        items.map(({ title, content, image, noBorderImage }) => (
           <div class="flex gap-4 lg:gap-20 items-center flex-col group lg:odd:flex-row-reverse lg:even:flex-row">
             {image ? (
               <div class="h-80 w-full min-w-96 overflow-hidden flex items-center justify-center lg:group-odd:-mr-44 lg:group-even:-ml-44">
@@ -65,15 +33,23 @@ const items: { title: string; content: string; image?: ImageMetadata }[] = [
                   alt={title}
                   width={400}
                   height={400}
-                  class="h-full w-full object-contain"
+                  class={twMerge(
+                    "h-auto w-auto max-w-full max-h-full m-auto",
+                    !noBorderImage && "rounded-xl border-black border-2"
+                  )}
                 />
               </div>
             ) : (
               ""
             )}
             <li class="w-full text-wrap lg:max-w-[50vw]">
-              <h3 class="!text-left !mt-0">{title}</h3>
-              <p>{content}</p>
+              <h3
+                class="!text-left !mt-0"
+                id={title?.toLowerCase().replaceAll(" ", "-")}
+              >
+                {title}
+              </h3>
+              <TinaMarkdown content={content} />
             </li>
           </div>
         ))
