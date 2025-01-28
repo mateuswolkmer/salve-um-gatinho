@@ -287,7 +287,6 @@ export default defineConfig({
             label: "Gato adotado",
             type: "reference",
             collections: ["cat"],
-            required: true,
           },
           {
             name: "plus",

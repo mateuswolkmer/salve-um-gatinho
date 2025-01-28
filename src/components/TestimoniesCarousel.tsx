@@ -155,10 +155,12 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                       <span class="text-nowrap font-medium">
                         {testimony.personName}
                       </span>
-                      <span class="text-lg text-nowrap">
-                        adotou {testimony.cat.name}
-                        <Show when={testimony.plus}> + {testimony.plus}</Show>
-                      </span>
+                      <Show when={testimony.cat}>
+                        <span class="text-lg text-nowrap">
+                          adotou {testimony.cat.name}
+                          <Show when={testimony.plus}> + {testimony.plus}</Show>
+                        </span>
+                      </Show>
                     </div>
                   </Show>
                 </div>
