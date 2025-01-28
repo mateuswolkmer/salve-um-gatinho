@@ -1,8 +1,9 @@
 ---
 slug: anabel
 createdDate: 2025-01-28T20:31:28.902Z
-updatedDate: 2025-01-28T20:31:28.902Z
+updatedDate: 2025-01-28T20:34:08.597Z
 name: Anabel
+condition: em tratamento
 image: /src/assets/20250128_172348.jpg
 gender: female
 color: Cinza
@@ -14,5 +15,6 @@ social: '3'
 playful: '2'
 loving: '3'
 ---
+
 
 Eu vivia amarrada em uma corrente curta, quando fui resgatada estava grávida e, por conta da minha desnutrição, perdi todos os meus filhotes. Eu mereço um futuro melhor. Me adote!
