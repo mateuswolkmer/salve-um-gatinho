@@ -3,15 +3,21 @@ import type { Component, JSX } from "solid-js";
 
 export type CountNumberProps = JSX.HTMLAttributes<HTMLSpanElement> & {
   value?: number;
+  plus?: boolean;
 };
 
 export const CountNumber: Component<CountNumberProps> = ({
-    id,
-    value
+  id,
+  value,
+  plus = false,
 }) => {
-    if(!value) return null;
+  if (!value) return null;
 
-    new CountUp(id, value, { enableScrollSpy: true, scrollSpyOnce: true });
+  new CountUp(id, value, {
+    enableScrollSpy: true,
+    scrollSpyOnce: true,
+    formattingFn: (n) => (plus ? `${n}+` : `${n}`),
+  });
 
-    return value;
+  return value;
 };

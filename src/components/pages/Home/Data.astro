@@ -31,7 +31,7 @@ const data = {
       class="flex flex-col gap-4 intersect:motion-preset-slide-up intersect-once motion-delay-100"
     >
       <h6 id="helped" class="text-7xl text-shadow-pink">
-        <CountNumber client:only="solid-js" value={data.helped} id="helped" />
+        <CountNumber client:only="solid-js" value={data.helped} id="helped" plus />
       </h6>
       <div class="flex flex-col">
         <span>gatos beneficiados</span>
@@ -42,7 +42,7 @@ const data = {
       class="flex flex-col gap-4 intersect:motion-preset-slide-up intersect-once motion-delay-300"
     >
       <h6 id="adopted" class="text-7xl text-shadow-blue">
-        <CountNumber client:only="solid-js" value={data.adopted} id="adopted" />
+        <CountNumber client:only="solid-js" value={data.adopted} id="adopted" plus />
       </h6>
       <span>gatos adotados</span>
     </div>
