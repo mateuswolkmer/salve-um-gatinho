@@ -28,7 +28,7 @@ export type Props = {
 
 const { slug } = Astro.params;
 const { cat, cats } = Astro.props;
-const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized, condition } = cat;
+const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized, condition, coliving } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
 
@@ -108,7 +108,7 @@ ${getCatStringTags(cat)}`;
             </div> : <></>}
           {Boolean(birthDate) && <p>Nasci {bornAtTheShelter ? "no abrigo ": ""}{birthDateDistance} <small>({birthDate}).</small></p>}
           {Boolean(rescueDate && !bornAtTheShelter) && <p>Fui resgatad{article} {rescueDateDistance} <small>({rescueDate}).</small></p>}
-          {Boolean(status) && <p>{status}.</p>}
+          {typeof coliving !== undefined && <p>{coliving ? "Convivo" : "Não convivo"} bem com outros gatos{coliving ? "" : ` prefiro ser filh${article} único`}.</p>}
           <p>{description}</p>
           {Boolean(patronized) && <p>Já estou apardinhad{article}. 🎉</p>}
           <ShareLinks class='mt-4 lg:hidden' shareText={ogTitle}/>

@@ -215,6 +215,11 @@ export default defineConfig({
           },
           // Personality
           {
+            name: "coliving",
+            label: "Boa convivência com outros gatos?",
+            type: "boolean",
+          },
+          {
             name: "social",
             label: "Sociável",
             description: "O quão sociável é o gato (1 a 3)",
