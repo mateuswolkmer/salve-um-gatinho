@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import VercelAnalytics from '@vercel/analytics/astro';
+import VercelSpeedInsights from '@vercel/speed-insights/astro';
 import "../global.css";
 import "@fontsource-variable/outfit";
 import "@fontsource/staatliches";
@@ -9,7 +11,6 @@ import Header from "../components/Header.astro";
 import { SEO } from "astro-seo";
 // import { getImagePath } from "astro-opengraph-images";
 import HeroImage from "../assets/Outras/hero.jpeg";
-import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -64,7 +65,8 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
       }}
     />
 
-    <Analytics />
+    <VercelAnalytics />
+    <VercelSpeedInsights />
   </head>
   <body class="font-body bg-page-background">
     <Header />
