@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import solidJs from "@astrojs/solid-js";
 import reactJs from "@astrojs/react";
-import vercel from "@astrojs/vercel";
+// import vercel from "@astrojs/vercel";
 
 // import opengraphImages from "astro-opengraph-images";
 // import { catsOg } from "./src/og";
@@ -12,7 +12,7 @@ export default defineConfig({
   // TODO change to prod when launched
   site: "https://salve-um-gatinho.vercel.app/",
   // output: "server",
-  adapter: vercel(),
+  // adapter: vercel(),
   integrations: [
     tailwind(),
     solidJs(),
