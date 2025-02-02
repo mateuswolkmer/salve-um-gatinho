@@ -11,7 +11,7 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   // TODO change to prod when launched
   site: "https://salve-um-gatinho.vercel.app/",
-  output: "server",
+  // output: "server",
   adapter: vercel(),
   integrations: [
     tailwind(),
