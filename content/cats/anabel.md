@@ -1,9 +1,9 @@
 ---
 slug: anabel
 createdDate: 2025-01-28T20:31:28.902Z
-updatedDate: 2025-01-28T21:20:52.033Z
+updatedDate: 2025-02-02T04:22:07.055Z
 name: Anabel
-adopted: true
+adopted: false
 condition: em tratamento
 image: /src/assets/20250128_172348.jpg
 gender: female
@@ -18,6 +18,7 @@ social: '3'
 playful: '2'
 loving: '3'
 ---
+
 
 
 
