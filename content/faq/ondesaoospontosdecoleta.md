@@ -1,5 +1,5 @@
 ---
-question: Onde colocar doações
+question: Onde colocar doações?
 answer: >
   Para doar ração, sachê, areia sanitária e outros items essenciais, possuímos
   pontos de coletas espalhados por Santa Cruz.
