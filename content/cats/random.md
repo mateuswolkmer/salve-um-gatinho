@@ -8,14 +8,13 @@ gender: female
 color: Frajola
 birthDate: 2023-02-01T03:00:00.000Z
 rescueDate: 2024-10-07T03:00:00.000Z
-tags:
-  - fiv/felv negativa
+tested: negative
 neutered: true
 vaccinated: false
 coliving: true
-social: '2'
-playful: '1'
-loving: '1'
+social: "2"
+playful: "1"
+loving: "1"
 ---
 
 Resgatada de uma colônia de gatos no Arroio Grande, estava com prenhez em fase inicial, mas sem condições de seguir gestando por problemas hormonais graves. Passei por cirurgia e fui castrada. Já posso ser adotada, mas quem me quiser precisará ser paciente. Só o que digo é que tenho potencial de ser uma ótima companhia.

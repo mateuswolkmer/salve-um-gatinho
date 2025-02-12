@@ -9,14 +9,12 @@ gender: female
 color: Preto
 birthDate: 2023-02-01T03:00:00.000Z
 rescueDate: 2024-06-20T03:00:00.000Z
-tags:
-  - fiv/felv negativa
+tested: negative
 neutered: true
 coliving: true
-social: '3'
-playful: '2'
-loving: '3'
+social: "3"
+playful: "2"
+loving: "3"
 ---
-
 
 Fui vítima de severos maus tratos, que resultaram numa lesão extensa nas minhas costas por conta de um plástico derretido que colaram em mim. Eu fui resgatada mas não recebi o atendimento que precisava. Então as tias do Salve Um Gatinho souberam do meu caso e me levaram para atendimento veterinário. Atualmente estou no lar temporário, me recuperando da minha terceira cirurgia para reparar a lesão nas costas.

@@ -1,7 +1,7 @@
 ---
 slug: anabel
 createdDate: 2025-01-28T20:31:28.902Z
-updatedDate: 2025-02-02T04:22:07.055Z
+updatedDate: 2025-02-12T02:11:49.519Z
 name: Anabel
 adopted: false
 condition: em tratamento
@@ -13,11 +13,13 @@ rescueDate: 2024-04-12T03:00:00.000Z
 tags:
   - Chiado no pulmão
 neutered: true
+tested: not-tested
 coliving: true
 social: '3'
 playful: '2'
 loving: '3'
 ---
+
 
 
 

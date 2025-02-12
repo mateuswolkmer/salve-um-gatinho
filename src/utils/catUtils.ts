@@ -33,14 +33,21 @@ export const getCatGeneralTags = (cat: Cat) => {
     });
   }
 
-  if (cat.fiv) {
+  if (!cat.tested || cat.tested === "not-tested") {
+    tags.push({
+      label: "Não testado",
+      tagProps: { color: "yellow" },
+    });
+  }
+
+  if (cat.tested === "fiv" || cat.tested === "fiv-felv") {
     tags.push({
       label: "FIV+",
       tagProps: { color: "yellow", icon: "virus" },
     });
   }
 
-  if (cat.felv) {
+  if (cat.tested === "felv" || cat.tested === "fiv-felv") {
     tags.push({
       label: "FeLV+",
       tagProps: { color: "yellow", icon: "virus" },

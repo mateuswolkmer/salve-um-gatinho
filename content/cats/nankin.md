@@ -8,14 +8,12 @@ gender: male
 color: Preto
 birthDate: 2023-02-01T03:00:00.000Z
 rescueDate: 2024-08-22T03:00:00.000Z
-tags:
-  - fiv/felv negativo
+tested: negative
 neutered: true
 coliving: true
-social: '3'
-playful: '3'
-loving: '3'
+social: "3"
+playful: "3"
+loving: "3"
 ---
 
-
-Eu fui encontrado por uma moça muito querida que viu que eu estava abandonado e sem rumo e me trouxe para o Salve Um Gatinho.  Depois de um período convalescendo de rinotraqueíte, fui castrado e agora já posso ser adotado!
+Eu fui encontrado por uma moça muito querida que viu que eu estava abandonado e sem rumo e me trouxe para o Salve Um Gatinho. Depois de um período convalescendo de rinotraqueíte, fui castrado e agora já posso ser adotado!

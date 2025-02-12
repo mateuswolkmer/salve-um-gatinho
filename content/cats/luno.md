@@ -8,12 +8,11 @@ gender: male
 color: Tigrado
 birthDate: 2022-02-01T03:00:00.000Z
 rescueDate: 2025-01-13T03:00:00.000Z
-tags:
-  - fiv/felv negativo
+tested: negative
 neutered: true
-social: '3'
-playful: '3'
-loving: '3'
+social: "3"
+playful: "3"
+loving: "3"
 ---
 
 Fui adotado, mas minha tutora não me dava atenção e passou a me deixar na rua. Fiquei doente e ela me ignorou. Então pedi socorro a uma pessoa que passava na rua, que me resgatou e me trouxe para o lar temporário. Fui castrado. Lindo como sou, espero tocar seu coração!

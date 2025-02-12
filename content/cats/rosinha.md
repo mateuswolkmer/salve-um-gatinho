@@ -8,13 +8,12 @@ gender: female
 color: Tigrado
 birthDate: 2023-02-01T03:00:00.000Z
 rescueDate: 2024-08-02T03:00:00.000Z
-tags:
-  - fiv/felv negativa
+tested: negative
 neutered: true
 coliving: true
-social: '3'
-playful: '2'
-loving: '2'
+social: "3"
+playful: "2"
+loving: "2"
 ---
 
-Vítima do abandono no bairro Várzea, fui resgatada grávida. Meus filhotes nasceram no lar temporário, com saúde e proteção. Estou totalmente pronta para uma nova vida! 
+Vítima do abandono no bairro Várzea, fui resgatada grávida. Meus filhotes nasceram no lar temporário, com saúde e proteção. Estou totalmente pronta para uma nova vida!

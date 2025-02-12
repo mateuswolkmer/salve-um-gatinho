@@ -170,16 +170,6 @@ export default defineConfig({
             ],
           },
           {
-            name: "fiv",
-            label: "FIV",
-            type: "boolean",
-          },
-          {
-            name: "felv",
-            label: "FeLV",
-            type: "boolean",
-          },
-          {
             name: "birthDate",
             label: "Data de nascimento",
             type: "datetime",
@@ -212,6 +202,18 @@ export default defineConfig({
             name: "vaccinated",
             label: "Vacinado",
             type: "boolean",
+          },
+          {
+            name: "tested",
+            label: "Testado para FIV/FeLV",
+            type: "string",
+            options: [
+              { value: "not-tested", label: "Não testado" },
+              { value: "negative", label: "Testado e negativo" },
+              { value: "fiv", label: "FIV+" },
+              { value: "felv", label: "FeLV+" },
+              { value: "fiv-felv", label: "FIV+ e FeLV+" },
+            ],
           },
           // Personality
           {

@@ -8,13 +8,12 @@ gender: female
 color: Tigrado
 birthDate: 2022-02-01T03:00:00.000Z
 rescueDate: 2024-03-06T03:00:00.000Z
-tags:
-  - fiv/felv negativa
+tested: negative
 neutered: true
 coliving: true
-social: '2'
-playful: '1'
-loving: '1'
+social: "2"
+playful: "1"
+loving: "1"
 ---
 
-Nasci no antigo sanatório Kaempf, de onde fui resgatada ainda filhote, mas era muito arisca.  Até hoje tenho medo das pessoas, mas garanto que com amor e calma você chegará ao meu coração!
+Nasci no antigo sanatório Kaempf, de onde fui resgatada ainda filhote, mas era muito arisca. Até hoje tenho medo das pessoas, mas garanto que com amor e calma você chegará ao meu coração!

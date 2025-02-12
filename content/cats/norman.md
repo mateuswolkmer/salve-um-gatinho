@@ -8,13 +8,12 @@ gender: male
 color: Branco
 birthDate: 2023-02-06T03:00:00.000Z
 rescueDate: 2023-12-22T03:00:00.000Z
-tags:
-  - fiv/felv negativo
+tested: negative
 neutered: true
 coliving: true
-social: '1'
-playful: '2'
-loving: '2'
+social: "1"
+playful: "2"
+loving: "2"
 ---
 
-Já estou há mais de um ano no lar temporário e até agora ninguém se interessou em me adotar. Sou um gato medroso, mas não sou agressivo, só preciso de paciência para ser adotado. 
+Já estou há mais de um ano no lar temporário e até agora ninguém se interessou em me adotar. Sou um gato medroso, mas não sou agressivo, só preciso de paciência para ser adotado.

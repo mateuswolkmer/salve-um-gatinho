@@ -7,15 +7,15 @@ condition: em tratamento
 image: /src/assets/WhatsApp Image 2025-02-06 at 16.27.10.jpeg
 gender: male
 color: Tigrado
-fiv: true
+tested: fiv
 birthDate: 2022-02-06T03:00:00.000Z
 rescueDate: 2024-09-11T03:00:00.000Z
 tags:
   - Esporotricose
 coliving: true
-social: '3'
-playful: '3'
-loving: '3'
+social: "3"
+playful: "3"
+loving: "3"
 ---
 
-Fui resgatado em Linha Santa Cruz com vários ferimentos. Um exame detectou esporotricose, uma doença de pele. Comecei meu tratamento, que em poucos dias trouxe ótimos resultados, mas ainda preciso tomar o medicamento por mais algumas semanas e, então, poderei ser adotado. 
+Fui resgatado em Linha Santa Cruz com vários ferimentos. Um exame detectou esporotricose, uma doença de pele. Comecei meu tratamento, que em poucos dias trouxe ótimos resultados, mas ainda preciso tomar o medicamento por mais algumas semanas e, então, poderei ser adotado.

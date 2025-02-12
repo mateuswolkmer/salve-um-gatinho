@@ -9,13 +9,12 @@ gender: male
 color: Frajola
 birthDate: 2023-02-01T03:00:00.000Z
 rescueDate: 2023-12-30T03:00:00.000Z
-tags:
-  - fiv/felv negativo
+tested: negative
 neutered: true
 coliving: true
-social: '2'
-playful: '2'
-loving: '1'
+social: "2"
+playful: "2"
+loving: "1"
 ---
 
 Fui encontrado ainda filhote vagando pela rua no bairro Verena. Muito medroso, nunca consegui confiar nos humanos. Estou me recuperando de uma cirurgia no olho, em breve poderei ser adotado.
