@@ -6,7 +6,7 @@ interface Props {
     class?: string;
 }
 ---
-<section class={twMerge("py-16 sm:py-24 px-5 sm:px-10 flex flex-col gap-10 items-center", Astro.props.class)}>
+<section class={twMerge("py-16 sm:py-24 px-5 sm:px-10 flex flex-col gap-10 items-center overflow-hidden", Astro.props.class)}>
     {Astro.props.title && <h2 class="text-xl font-body font-bold uppercase">{Astro.props.title}</h2>}
     <slot/>
 </section>

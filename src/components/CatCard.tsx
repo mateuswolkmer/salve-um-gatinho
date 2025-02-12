@@ -61,7 +61,10 @@ export const CatCard: Component<CatCardProps> = ({
             <img
               src={cat.image}
               alt={cat.name}
-              class="object-cover w-full h-full"
+              class={twMerge(
+                "object-cover w-full h-full transition",
+                !imgLoaded() && "opacity-0"
+              )}
               loading="lazy"
               onLoad={() => setImgLoaded(true)}
               style={{
