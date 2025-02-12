@@ -1,9 +1,9 @@
 ---
 slug: anabel
 createdDate: 2025-01-28T20:31:28.902Z
-updatedDate: 2025-02-12T03:16:58.506Z
+updatedDate: 2025-02-12T03:29:25.544Z
 name: Anabel
-adopted: true
+adopted: false
 patronized: false
 condition: em tratamento
 image: /src/assets/20250128_172348.jpg
@@ -20,6 +20,7 @@ social: '3'
 playful: '2'
 loving: '3'
 ---
+
 
 
 Eu vivia amarrada em uma corrente curta, quando fui resgatada estava grávida e, por conta da minha desnutrição, perdi todos os meus filhotes. Eu mereço um futuro melhor. Me adote!
