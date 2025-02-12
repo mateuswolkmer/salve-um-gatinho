@@ -30,6 +30,6 @@ const allCats = await getAllCats();
         >.
       </p>
     </div>
-    <ListWithFilters cats={allCats} />
+    <ListWithFilters cats={allCats} client:only="solid-js" />
   </PageSection>
 </Layout>

@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { Component, JSX } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { CatTags } from "./CatTags";
 import type { Cat } from "../../tina/__generated__/types";
@@ -27,7 +28,7 @@ const catCardTitleVariants = cva("flex border-black relative gap-4", {
   },
 });
 
-export type CatCardProps = JSX.HTMLAttributes<HTMLDivElement> &
+export type CatCardProps = JSX.HTMLAttributes<HTMLAnchorElement> &
   VariantProps<typeof catCardVariants> & {
     cat?: Cat;
   };
@@ -42,6 +43,8 @@ export const CatCard: Component<CatCardProps> = ({
     return undefined;
   }
 
+  const [imgLoaded, setImgLoaded] = createSignal(false);
+
   return (
     <a href={`/${cat.slug}`} {...rest}>
       <div
@@ -50,7 +53,7 @@ export const CatCard: Component<CatCardProps> = ({
       >
         <div
           class={twMerge(
-            "bg-gray-200 w-full h-full overflow-hidden",
+            "relative bg-gray-200 w-full h-full overflow-hidden",
             variant === "small" && "w-1/2 h-full"
           )}
         >
@@ -60,11 +63,36 @@ export const CatCard: Component<CatCardProps> = ({
               alt={cat.name}
               class="object-cover w-full h-full"
               loading="lazy"
+              onLoad={() => setImgLoaded(true)}
               style={{
                 "view-transition-name": `picture_${cat.slug}`,
               }}
             />
           )}
+          <Show when={!imgLoaded()}>
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200">
+              <svg
+                class="animate-spin w-6 h-6 text-gray-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                />
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
+              </svg>
+            </div>
+          </Show>
         </div>
         <div class={catCardTitleVariants({ variant })}>
           <span
