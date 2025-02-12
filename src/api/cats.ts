@@ -7,17 +7,26 @@ export const loadCatConnection = async () =>
 
 export const getAllCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>,
-  sort = true
+  {
+    sort = true,
+    filterAdopted = true,
+  }: { sort?: boolean; filterAdopted?: boolean } = {}
 ): Promise<Cat[]> => {
-  let catConnection = connection ?? (await loadCatConnection());
+  const catConnection = connection ?? (await loadCatConnection());
 
-  const allCats = catConnection.data.catConnection.edges?.map((response) => ({
+  let cats = (catConnection.data.catConnection.edges ?? []).map((response) => ({
     ...(response?.node as Cat),
   }));
 
-  if (sort) allCats.sort((a, b) => compareDesc(a.rescueDate, b.rescueDate));
+  if (filterAdopted) {
+    cats = cats.filter((cat) => !cat.adopted);
+  }
 
-  return allCats;
+  if (sort) {
+    cats.sort((a, b) => compareDesc(a.rescueDate, b.rescueDate));
+  }
+
+  return cats;
 };
 
 const AMOUNT_OF_NEW_CATS = 2;
@@ -26,7 +35,6 @@ export const getNewCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
   const allCats = await getAllCats(connection);
-
   return [...allCats].splice(0, AMOUNT_OF_NEW_CATS);
 };
 
@@ -35,7 +43,6 @@ export const getOldCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
   const allCats = await getAllCats(connection);
-
   return [...allCats].splice(AMOUNT_OF_NEW_CATS, allCats.length);
 };
 
@@ -44,8 +51,9 @@ const AMOUNT_OF_RANDOM_CATS = 5;
 export const getRandomCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
-  const allCats = await getAllCats(connection, false);
-
+  const allCats = await getAllCats(connection, {
+    sort: false,
+  });
   const shuffledCats = [...allCats].sort(() => 0.5 - Math.random());
   return shuffledCats.slice(0, AMOUNT_OF_RANDOM_CATS);
 };

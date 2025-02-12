@@ -15,7 +15,7 @@ import ShareLinks from '../components/ShareLinks.astro';
 import { getCatStringTags } from '../utils/catUtils';
 
 export async function getStaticPaths() {
-  const cats = await getAllCats();
+  const cats = await getAllCats(undefined, { filterAdopted: false });
 
   return cats?.map((cat) => ({
     params: { slug: cat.slug },
@@ -68,6 +68,11 @@ ${getCatStringTags(cat)}`;
           {image && (
             <img data-og="image" src={image} alt={name} class="object-cover w-full h-full" transition:name={`picture_${slug}`}/>
           )}
+          {adopted && (
+            <div class="motion-rotate-loop-6 motion-ease-in-out/rotate motion-duration-1500/rotate motion-translate-y-in-[200%] motion-opacity-in-0 motion-scale-in-[0.5] motion-ease-spring-bouncier motion-delay-300 absolute bottom-14 border-y-2 border-black w-[200%] text-center bg-pink p-4">
+              <span class="block text-5xl font-display motion-preset-pop motion-delay-500">🎉 Adotad{article} 🎉</span>
+            </div>
+          )}
           <!-- TODO use in the future <ImageGroup /> -->
           <CatTags cat={cat} type="appearence" class="absolute bottom-4 left-4 motion-preset-slide-right motion-delay-500" />
         </div>
@@ -113,14 +118,14 @@ ${getCatStringTags(cat)}`;
         {Boolean(status) && <p>{status}.</p>}
         {Boolean(tested === 'negative') && <p>Fui testad{article} para FIV/FeLV e sou negativ{article}!</p>}
         {typeof coliving !== undefined && <p>{coliving ? "Convivo" : "Não convivo"} bem com outros gatos{coliving ? "" : ` prefiro ser filh${article} único`}.</p>}
-        <p class="mt-6">{description}</p>
         {Boolean(patronized) && <p>Já estou apardinhad{article}. 🎉</p>}
+        <p class="mt-6">{description}</p>
         <ShareLinks class='mt-4 lg:hidden' shareText={ogTitle}/>
       </div>
     </div>
     <div class="max-w-7xl m-auto w-full flex flex-col gap-4">
       {Boolean(!adopted && condition) && <p class="text-center">No momento <Highlight>estou {condition}</Highlight>, mas logo estarei disponível!</p>}
-      <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted} hidePatronizeButton={patronized} client:load />
+      <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted} hidePatronizeButton={adopted || patronized} client:load />
     </div>
     <div class="flex flex-col gap-2">
       <!-- TODO only show similar cats (check tags) -->
