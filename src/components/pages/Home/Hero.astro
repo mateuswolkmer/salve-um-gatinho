@@ -6,6 +6,7 @@ import PageSection from "../../PageSection.astro";
 import HeroImage from "../../../assets/Outras/hero.jpeg";
 import HeroCutImage from "../../../assets/Outras/hero_cut.png";
 import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
 
 const newCats = await getNewCats();
 ---
@@ -46,8 +47,17 @@ const newCats = await getNewCats();
       <ButtonLink href="/adotar" variant="cta">Adote</ButtonLink>
     </div>
     <div id="new-cats" class="hidden lg:flex flex-col items-center gap-6 z-20">
-      {newCats.map((cat) => <CatCard variant="small" cat={cat} />)}
-      <ButtonLink href="/adotar" variant="nav">Ver mais</ButtonLink>
+      {newCats.map((cat, i) => (
+        <CatCard class={twMerge(
+          "motion-preset-slide-down", 
+          i === 0 && "motion-delay-700", 
+          i === 1 && "motion-delay-1000",
+          i === 2 && "motion-delay-[1300ms]")} 
+          variant="small" 
+          cat={cat} 
+          client:only="solid-js" />
+        ))}
+      <ButtonLink href="/adotar" variant="nav" class="motion-preset-slide-down motion-delay-[1500ms]">Ver mais</ButtonLink>
     </div>
   </div>
 </PageSection>
@@ -68,19 +78,7 @@ const newCats = await getNewCats();
 </script>
 
 <script>
-  import { animate, stagger, scroll } from "motion";
+  import { animate, scroll } from "motion";
 
-  animate(
-    "#new-cats > *",
-    {
-      opacity: ["0", "1"],
-      transform: [
-        "rotate(-3deg) translateY(-12px)",
-        " rotate(1deg) translateY(0)",
-        "",
-      ],
-    },
-    { delay: stagger(0.3, { from: -5 }) }
-  );
   scroll(animate("#hero-image", { top: ["-2rem", "-60rem"] }));
 </script>

@@ -1,6 +1,7 @@
 import client from "../../tina/__generated__/client";
 import type { Cat } from "../../tina/__generated__/types";
 import { compareDesc } from "date-fns";
+import { isCatNew } from "../utils/catUtils";
 
 export const loadCatConnection = async () =>
   await client.queries.catConnection();
@@ -35,7 +36,11 @@ export const getNewCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
   const allCats = await getAllCats(connection);
-  return [...allCats].splice(0, AMOUNT_OF_NEW_CATS);
+
+  const newCats = allCats.filter(isCatNew);
+  return newCats.length < AMOUNT_OF_NEW_CATS
+    ? [...allCats]
+    : [...newCats].sort(() => 0.5 - Math.random()).slice(0, AMOUNT_OF_NEW_CATS);
 };
 
 // just the ones that are not new

@@ -6,6 +6,6 @@ import PageSection from "../../PageSection.astro";
 const oldCats = await getOldCats();
 ---
 <PageSection>
-    <CatsList cats={oldCats} client:visible />
+    <CatsList cats={oldCats} client:only="solid-js" />
 </PageSection>
 

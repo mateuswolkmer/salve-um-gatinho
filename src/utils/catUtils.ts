@@ -8,11 +8,15 @@ import type { TagProps } from "../components/Tag";
 
 const today = new Date();
 
+export const isCatNew = (cat: Cat) => {
+  return cat.rescueDate && differenceInDays(today, cat.rescueDate) <= 30;
+};
+
 export const getCatGeneralTags = (cat: Cat) => {
   const tags: { label: string; tagProps?: Pick<TagProps, "color" | "icon"> }[] =
     [];
 
-  if (cat.rescueDate && differenceInDays(today, cat.rescueDate) <= 30) {
+  if (isCatNew(cat)) {
     tags.push({
       label: "Novo",
       tagProps: { color: "yellow", icon: "star" },
