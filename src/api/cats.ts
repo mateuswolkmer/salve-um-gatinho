@@ -38,8 +38,9 @@ export const getNewCats = async (
   const allCats = await getAllCats(connection);
 
   const newCats = allCats.filter(isCatNew);
+
   return newCats.length < AMOUNT_OF_NEW_CATS
-    ? [...allCats]
+    ? [...newCats]
     : [...newCats].sort(() => 0.5 - Math.random()).slice(0, AMOUNT_OF_NEW_CATS);
 };
 
