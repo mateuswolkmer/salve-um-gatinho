@@ -76,7 +76,7 @@ ${getCatStringTags(cat)}`;
           <!-- TODO use in the future <ImageGroup /> -->
           <CatTags cat={cat} type="appearence" class="absolute bottom-4 left-4 motion-preset-slide-right motion-delay-500" />
         </div>
-        <ShareLinks class='mt-4 hidden lg:flex' shareText={shareText}/>
+        <ShareLinks class='mt-4 hidden lg:flex' shareText={shareText} catName={name}/>
       </div>
       <div class="flex flex-col gap-4 flex-1">
         <div class="flex gap-4 items-center flex-wrap">

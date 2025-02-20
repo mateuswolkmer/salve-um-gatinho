@@ -9,9 +9,11 @@ import { twMerge } from "tailwind-merge";
 export type Props = {
   class?: string;
   shareText?: string;
+  // only for tracking
+  catName?: string;
 };
 
-const { class: classNames, shareText } = Astro.props;
+const { class: classNames, shareText, catName } = Astro.props;
 
 const encodedUrl = encodeURIComponent(Astro.url.href);
 const encodedText = encodeURIComponent(shareText);
@@ -23,6 +25,9 @@ const encodedText = encodeURIComponent(shareText);
     href={`https://www.facebook.com/sharer.php?u=${encodedUrl}&quote=${encodedText}`}
     variant="icon"
     title="Compartilhar no Facebook"
+    data-umami-event="Share cat"
+    data-umami-event-platform="Facebook"
+    data-umami-event-cat-name={catName}
   >
     <Image src={FacebookIcon} class="h-full w-auto" alt="" />
   </ButtonLink>
@@ -31,6 +36,9 @@ const encodedText = encodeURIComponent(shareText);
     href={`https://twitter.com/share?url=${encodedUrl}&text=${encodedText}`}
     variant="icon"
     title="Compartilhar no X (Twitter)"
+    data-umami-event="Share cat"
+    data-umami-event-platform="X"
+    data-umami-event-cat-name={catName}
   >
     <Image src={TwitterIcon} class="h-full w-auto p-1" alt="" />
   </ButtonLink>
@@ -40,6 +48,9 @@ const encodedText = encodeURIComponent(shareText);
     variant="icon"
     title="Compartilhar no WhatsApp"
     class="p-1.5"
+    data-umami-event="Share cat"
+    data-umami-event-platform="WhatsApp"
+    data-umami-event-cat-name={catName}
   >
     <Image src={WhatsAppIcon} class="h-full w-auto p-1" alt="" />
   </ButtonLink>

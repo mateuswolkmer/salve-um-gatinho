@@ -137,6 +137,11 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
               variant="form"
               disabled={isButtonDisabled}
               onClick={handleStepForward}
+              data-umami-event="Cat form"
+              data-umami-event-form={
+                props.type === "adotar" ? "Adopt" : "Patronize"
+              }
+              data-umami-event-cat-name={props.catName}
             >
               Prosseguir para formulário
             </Button>

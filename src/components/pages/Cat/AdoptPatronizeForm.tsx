@@ -66,6 +66,9 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
             )}
             variant="cta"
             onClick={() => handleOpenForm("adotar")}
+            data-umami-event="Cat action"
+            data-umami-event-action="Adopt"
+            data-umami-event-cat-name={props.catName}
           >
             Adotar
           </Button>
@@ -95,6 +98,9 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
             )}
             variant="cta"
             onClick={() => handleOpenForm("apadrinhar")}
+            data-umami-event="Cat action"
+            data-umami-event-action="Patronize"
+            data-umami-event-cat-name={props.catName}
           >
             Apadrinhar
           </Button>
