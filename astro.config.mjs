@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import solidJs from "@astrojs/solid-js";
 import reactJs from "@astrojs/react";
-import umami from "@yeskunall/astro-umami";
+// import umami from "@yeskunall/astro-umami";
 
 // import vercel from "@astrojs/vercel";
 
@@ -19,7 +19,7 @@ export default defineConfig({
     tailwind(),
     solidJs(),
     reactJs(),
-    umami({ id: "b0ecec58-ff13-4ab2-b41d-1ceac7e8b7b4" }),
+    // umami({ id: "b0ecec58-ff13-4ab2-b41d-1ceac7e8b7b4" }),
     // TODO come back to improved RTE images later
     // opengraphImages({
     //   options: {
