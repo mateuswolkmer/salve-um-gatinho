@@ -68,7 +68,27 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
     <VercelAnalytics />
     <VercelSpeedInsights />
 
-    <script is:inline data-astro-rerun src="https://cloud.umami.is/script.js" data-website-id="b0ecec58-ff13-4ab2-b41d-1ceac7e8b7b4"></script>
+    <!-- makes sure Umami runs only once
+     TODO rewrite this to use the new umami script -->
+    <script src="https://cloud.umami.is/script.js" data-website-id="b0ecec58-ff13-4ab2-b41d-1ceac7e8b7b4"></script>
+    <script is:inline data-astro-rerun>
+      // This inline block will only re-run on client navigations (e.g. with ViewTransitions).
+      // On the very first hydration (i.e. on a full page load), we do nothing so that the already
+      // loaded external script isn’t loaded a second time.
+      if (window.__umamiDidRerun) {
+        // On a navigation, remove the previous Umami script and re-add it to trigger a reload.
+        const existing = document.querySelector('script[src="https://cloud.umami.is/script.js"]');
+        if (existing) existing.remove();
+        const script = document.createElement("script");
+        script.src = "https://cloud.umami.is/script.js";
+        script.async = true;
+        script.setAttribute("data-website-id", "b0ecec58-ff13-4ab2-b41d-1ceac7e8b7b4");
+        document.head.appendChild(script);
+      } else {
+        // Initial hydration: mark that the Umami script has been set up, so we skip reloading now.
+        window.__umamiDidRerun = true;
+      }
+    </script>
   </head>
   <body class="font-body bg-page-background">
     <Header />
