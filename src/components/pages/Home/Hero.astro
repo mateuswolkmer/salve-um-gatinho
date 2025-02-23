@@ -46,19 +46,20 @@ const newCats = await getNewCats();
       </h1>
       <ButtonLink href="/adotar" variant="cta">Adote</ButtonLink>
     </div>
-    <div id="new-cats" class="hidden lg:flex flex-col items-center gap-6 z-20">
-      {newCats.map((cat, i) => (
-        <CatCard class={twMerge(
-          "motion-preset-slide-down", 
-          i === 0 && "motion-delay-700", 
-          i === 1 && "motion-delay-1000",
-          i === 2 && "motion-delay-[1300ms]")} 
-          variant="small" 
-          cat={cat} 
-          client:only="solid-js" />
-        ))}
-      <ButtonLink href="/adotar" variant="nav" class="motion-preset-slide-down motion-delay-[1500ms]">Ver mais</ButtonLink>
-    </div>
+    {newCats?.length > 0 && 
+      <div id="new-cats" class="hidden lg:flex flex-col items-center gap-6 z-20">
+        {newCats.map((cat, i) => (
+          <CatCard class={twMerge(
+            "motion-preset-slide-down", 
+            i === 0 && "motion-delay-700", 
+            i === 1 && "motion-delay-1000",
+            i === 2 && "motion-delay-[1300ms]")} 
+            variant="small" 
+            cat={cat} 
+            client:only="solid-js" />
+          ))}
+        <ButtonLink href="/adotar" variant="nav" class="motion-preset-slide-down motion-delay-[1500ms]">Ver mais</ButtonLink>
+      </div>}
   </div>
 </PageSection>
 

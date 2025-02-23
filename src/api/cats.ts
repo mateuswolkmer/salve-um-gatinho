@@ -39,9 +39,21 @@ export const getNewCats = async (
 
   const newCats = allCats.filter(isCatNew);
 
-  return newCats.length < AMOUNT_OF_NEW_CATS
-    ? [...newCats]
-    : [...newCats].sort(() => 0.5 - Math.random()).slice(0, AMOUNT_OF_NEW_CATS);
+  const cats =
+    newCats.length <= AMOUNT_OF_NEW_CATS
+      ? [...newCats]
+      : [...newCats]
+          .sort(() => 0.5 - Math.random())
+          .slice(0, AMOUNT_OF_NEW_CATS);
+
+  while (cats.length < AMOUNT_OF_NEW_CATS) {
+    const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
+    if (!newCats.includes(randomCat)) {
+      cats.push(randomCat);
+    }
+  }
+
+  return cats;
 };
 
 // just the ones that are not new
