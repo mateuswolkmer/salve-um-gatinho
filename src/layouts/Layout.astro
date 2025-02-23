@@ -49,7 +49,7 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
         basic: {
           title: og.title || pageTitle,
           type: "website",
-          image: og.image || HeroImage.src,
+          image: og.image || new URL(HeroImage.src, site).href,
           url: url,
         },
         optional: {
