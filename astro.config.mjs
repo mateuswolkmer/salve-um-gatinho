@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import solidJs from "@astrojs/solid-js";
 import reactJs from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 // import vercel from "@astrojs/vercel";
 
@@ -10,29 +11,24 @@ import reactJs from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO change to prod when launched
-  site: "https://salve-um-gatinho.vercel.app/",
+  site: "https://salveumgatinho.org/",
   // output: "server",
   // adapter: vercel(),
-  integrations: [
-    tailwind(),
-    solidJs(),
-    reactJs(),
-    // TODO come back to improved RTE images later
-    // opengraphImages({
-    //   options: {
-    //     fonts: [
-    //       {
-    //         name: "Staatliches",
-    //         weight: 400,
-    //         style: "normal",
-    //         data: fs.readFileSync(
-    //           "node_modules/@fontsource/staatliches/files/staatliches-latin-400-normal.woff"
-    //         ),
-    //       },
-    //     ],
-    //   },
-    //   render: catsOg,
-    // }),
-  ],
+  integrations: [tailwind(), solidJs(), reactJs(), sitemap()],
+  // TODO bring back to improved OG images later
+  // opengraphImages({
+  //   options: {
+  //     fonts: [
+  //       {
+  //         name: "Staatliches",
+  //         weight: 400,
+  //         style: "normal",
+  //         data: fs.readFileSync(
+  //           "node_modules/@fontsource/staatliches/files/staatliches-latin-400-normal.woff"
+  //         ),
+  //       },
+  //     ],
+  //   },
+  //   render: catsOg,
+  // }),
 });
