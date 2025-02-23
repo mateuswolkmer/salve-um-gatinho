@@ -72,31 +72,24 @@ export const getCatAppearenceTags = (cat: Cat) => {
     [];
 
   if (cat.birthDate) {
-    const monthsDifference = differenceInMonths(today, cat.birthDate);
-    const yearDifference = differenceInYears(today, cat.birthDate);
+    const ageGroup = getCatAgeGroup(cat);
 
-    if (monthsDifference < 6) {
+    if (ageGroup === "Filhote") {
       tags.push({
         label: "Filhote",
         tagProps: { color: "yellow", icon: "baby" },
       });
-    }
-
-    if (monthsDifference >= 6 && yearDifference < 2) {
+    } else if (ageGroup === "Jovem") {
       tags.push({
         label: "Jovem",
         tagProps: { color: "yellow" },
       });
-    }
-
-    if (yearDifference >= 2 && yearDifference < 10) {
+    } else if (ageGroup === "Adulto") {
       tags.push({
         label: "Adulto",
         tagProps: { color: "yellow" },
       });
-    }
-
-    if (yearDifference >= 10) {
+    } else if (ageGroup === "Idoso") {
       tags.push({
         label: "Idoso",
         tagProps: { color: "yellow", icon: "eyeglasses" },
@@ -107,8 +100,6 @@ export const getCatAppearenceTags = (cat: Cat) => {
   if (cat.color) {
     tags.push({
       label: cat.color,
-      // TODO add custom tag colors
-      // tagProps: { color: "yellow" },
     });
   }
 
@@ -131,4 +122,31 @@ export const getCatStringTags = (cat: Cat) => {
   }
 
   return tags.join(" • ");
+};
+
+export const AgeGroups = {
+  Filhote: "Filhote",
+  Jovem: "Jovem",
+  Adulto: "Adulto",
+  Idoso: "Idoso",
+} as const;
+
+export type AgeGroup = keyof typeof AgeGroups;
+
+export const getCatAgeGroup = (cat: Cat): AgeGroup => {
+  if (!cat.birthDate) return "Adulto";
+
+  const monthsDifference = differenceInMonths(today, cat.birthDate);
+  const yearDifference = differenceInYears(today, cat.birthDate);
+
+  if (monthsDifference < 6) {
+    return "Filhote";
+  }
+  if (yearDifference < 2) {
+    return "Jovem";
+  }
+  if (yearDifference < 10) {
+    return "Adulto";
+  }
+  return "Idoso";
 };
