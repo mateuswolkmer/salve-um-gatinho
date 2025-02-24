@@ -107,6 +107,7 @@ export const ContactForm: Component<ContactFormProps> = ({}) => {
                 Enviar
               </Button>
             </Show>
+            {/* TODO improve messages */}
             <Suspense
               fallback={
                 <Button variant="form" disabled>
