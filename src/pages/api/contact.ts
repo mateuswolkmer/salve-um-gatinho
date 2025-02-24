@@ -24,16 +24,37 @@ export const POST: APIRoute = async ({ request }) => {
     const resend = new Resend(import.meta.env.PUBLIC_RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
-      to: ["delivered@resend.dev"],
-      subject: subject.toString(),
-      html: `<p>Nome: ${name}</p>
-      <p>Email: ${email}</p>
-      <p>Assunto: ${subject}</p>
-      <p>Mensagem: ${message}</p>`,
+      from: `Site <site@salveumgatinho.org>`,
+      to: ["site@salveumgatinho.org"],
+      subject: "Nova mensagem do site",
+      // TODO convert to React using resend/react-email
+      html: `
+<div>
+  <h3>Enviada em: <strong>${new Date().toLocaleString()}</strong></h3>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <tr>
+      <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Nome</th>
+      <td style="padding: 8px; border: 1px solid #ddd;">${name}</td>
+    </tr>
+    <tr>
+      <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Email</th>
+      <td style="padding: 8px; border: 1px solid #ddd;">${email}</td>
+    </tr>
+    <tr>
+      <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Assunto</th>
+      <td style="padding: 8px; border: 1px solid #ddd;">${subject}</td>
+    </tr>
+    <tr>
+      <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Mensagem</th>
+      <td style="padding: 8px; border: 1px solid #ddd;">${message}</td>
+    </tr>
+  </table>
+</div>`,
     });
 
     if (error) {
+      console.error(error);
+
       throw new Response(
         JSON.stringify({
           message: error.message,
@@ -53,6 +74,8 @@ export const POST: APIRoute = async ({ request }) => {
       }
     );
   } catch (error) {
+    console.error(error);
+
     return new Response(
       JSON.stringify({
         error: error?.message || "Internal Server Error",
