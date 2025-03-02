@@ -13,12 +13,12 @@ export type FormWithStepsProps = {
 const forms = {
   adotar: {
     link: (catName) =>
-      `https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?usp=pp_url${
-        catName ? `&entry.828023490=${catName}` : ""
+      `https://docs.google.com/forms/d/e/1FAIpQLSdFXyXYE76ebBbVEvE335QyuWtud_WecmjGzrscELjf7OC-5g/viewform?usp=pp_url${
+        catName ? `&entry.1570542373=${catName}` : ""
       }`,
     embed: (catName) =>
-      `https://docs.google.com/forms/d/e/1FAIpQLSffiIKJw6gupaE4XUlPBfHTxGpWjen57Tk2hlfyRMLlN_baSw/viewform?embedded=true&usp=pp_url${
-        catName ? `&entry.828023490=${catName}` : ""
+      `https://docs.google.com/forms/d/e/1FAIpQLSdFXyXYE76ebBbVEvE335QyuWtud_WecmjGzrscELjf7OC-5g/viewform?embedded=true&usp=pp_url${
+        catName ? `&entry.1570542373=${catName}` : ""
       }`,
   },
   apadrinhar: {

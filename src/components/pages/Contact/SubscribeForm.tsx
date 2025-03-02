@@ -36,9 +36,9 @@ export const SubscribeForm: Component = () => {
             size="sm"
           />
         </div>
-        <div class="mt-4 self-center">
+        <div class="w-full">
           <Show when={!formData()}>
-            <Button type="submit" variant="form-mini">
+            <Button type="submit" variant="form-mini" class="w-full">
               Inscreva-se
             </Button>
           </Show>
