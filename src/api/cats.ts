@@ -46,10 +46,17 @@ export const getNewCats = async (
           .sort(() => 0.5 - Math.random())
           .slice(0, AMOUNT_OF_NEW_CATS);
 
+  // failsafe
+  let iterations = 0;
   while (cats.length < AMOUNT_OF_NEW_CATS) {
     const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
-    if (!newCats.includes(randomCat)) {
+    if (!cats.includes(randomCat)) {
       cats.push(randomCat);
+    }
+
+    iterations++;
+    if (iterations > 20) {
+      break;
     }
   }
 

@@ -13,11 +13,11 @@ export type FormWithStepsProps = {
 const forms = {
   adotar: {
     link: (catName) =>
-      `https://docs.google.com/forms/d/e/1FAIpQLSdFXyXYE76ebBbVEvE335QyuWtud_WecmjGzrscELjf7OC-5g/viewform?usp=pp_url${
+      `https://docs.google.com/forms/d/e/1FAIpQLSdFXyXYE76ebBbVEvE335QyuWtud_WecmjGzrscELjf7OC-5g/viewform?usp=pp_url&entry.1658137340=Site${
         catName ? `&entry.1570542373=${catName}` : ""
       }`,
     embed: (catName) =>
-      `https://docs.google.com/forms/d/e/1FAIpQLSdFXyXYE76ebBbVEvE335QyuWtud_WecmjGzrscELjf7OC-5g/viewform?embedded=true&usp=pp_url${
+      `https://docs.google.com/forms/d/e/1FAIpQLSdFXyXYE76ebBbVEvE335QyuWtud_WecmjGzrscELjf7OC-5g/viewform?embedded=true&usp=pp_url&entry.1658137340=Site${
         catName ? `&entry.1570542373=${catName}` : ""
       }`,
   },
