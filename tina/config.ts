@@ -98,6 +98,11 @@ export default defineConfig({
             type: "boolean",
           },
           {
+            name: "passed",
+            label: "Partiu",
+            type: "boolean",
+          },
+          {
             name: "condition",
             label: "Condição especial",
             type: "string",

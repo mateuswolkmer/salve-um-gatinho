@@ -10,8 +10,9 @@ export const getAllCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>,
   {
     sort = true,
-    filterAdopted = true,
-  }: { sort?: boolean; filterAdopted?: boolean } = {}
+    /** Unavailable = adopted or passed */
+    filterUnavailable = true,
+  }: { sort?: boolean; filterUnavailable?: boolean } = {}
 ): Promise<Cat[]> => {
   const catConnection = connection ?? (await loadCatConnection());
 
@@ -19,8 +20,8 @@ export const getAllCats = async (
     ...(response?.node as Cat),
   }));
 
-  if (filterAdopted) {
-    cats = cats.filter((cat) => !cat.adopted);
+  if (filterUnavailable) {
+    cats = cats.filter((cat) => !cat.adopted && !cat.passed);
   }
 
   if (sort) {

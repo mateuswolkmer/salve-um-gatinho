@@ -15,7 +15,7 @@ import ShareLinks from '../components/ShareLinks.astro';
 import { getCatStringTags } from '../utils/catUtils';
 
 export async function getStaticPaths() {
-  const cats = await getAllCats(undefined, { filterAdopted: false });
+  const cats = await getAllCats(undefined, { filterUnavailable: false });
 
   return cats?.map((cat) => ({
     params: { slug: cat.slug },
@@ -30,7 +30,7 @@ export type Props = {
 
 const { slug } = Astro.params;
 const { cat, cats } = Astro.props;
-const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized, condition, coliving, tested } = cat;
+const { name, image, description, birthDate: unformattedBirthDate, rescueDate: unformattedRescueDate, neutered, vaccinated, gender, social, playful, loving, adopted, patronized, passed, condition, coliving, tested } = cat;
 
 const bornAtTheShelter = unformattedBirthDate === unformattedRescueDate;
 
@@ -66,7 +66,7 @@ ${getCatStringTags(cat)}`;
         <div class="relative w-full md:w-1/2 lg:w-1/3 h-96">
         <div class="motion-preset-expand rounded-xl border-black border-2 w-full h-full overflow-hidden flex items-center justify-center relative">
           {image && (
-            <img data-og="image" src={image} alt={name} class="object-cover w-full h-full" transition:name={`picture_${slug}`}/>
+            <img data-og="image" src={image} alt={name} class:list={["object-cover w-full h-full", { "grayscale": passed }]} transition:name={`picture_${slug}`}/>
           )}
           {adopted && (
             <div class="motion-rotate-loop-6 motion-ease-in-out/rotate motion-duration-1500/rotate motion-translate-y-in-[200%] motion-opacity-in-0 motion-scale-in-[0.5] motion-ease-spring-bouncier motion-delay-300 absolute bottom-14 border-y-2 border-black w-[200%] text-center bg-pink p-4">
@@ -124,8 +124,8 @@ ${getCatStringTags(cat)}`;
       </div>
     </div>
     <div class="max-w-7xl m-auto w-full flex flex-col gap-4">
-      {Boolean(!adopted && condition) && <p class="text-center">No momento <Highlight>estou {condition}</Highlight>, mas logo estarei disponível!</p>}
-      <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted} hidePatronizeButton={adopted || patronized} client:load />
+      {Boolean(!adopted && !passed && condition) && <p class="text-center">No momento <Highlight>estou {condition}</Highlight>, mas logo estarei disponível!</p>}
+      <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted || passed} hidePatronizeButton={adopted || patronized || passed} client:load />
     </div>
     <div class="flex flex-col gap-2">
       <!-- TODO only show similar cats (check tags) -->
