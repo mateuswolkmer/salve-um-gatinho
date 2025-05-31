@@ -78,9 +78,9 @@ export default {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require("tailwindcss-motion"),
-    require("tailwindcss-intersect"),
+    // require("@tailwindcss/typography"),
+    // require("tailwindcss-motion"),
+    // require("tailwindcss-intersect"),
     plugin(({ addBase, addUtilities, theme }) => {
       addBase({
         h1: { fontFamily: theme("fontFamily.display") },
