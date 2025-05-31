@@ -1,4 +1,4 @@
-import { Show, createSignal, type Component } from "solid-js";
+import { type Component, Show, createSignal } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import { Button } from "../../Button";
 import type { FormType } from "./AdoptPatronizeForm";
@@ -48,7 +48,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
         props.type === "adotar" && "bg-pink-300",
         props.type === "apadrinhar" && "bg-blue-300",
         props.isOpen
-          ? "opacity-1 max-w-full max-h-160 w-full duration-500"
+          ? "opacity-100 max-w-full max-h-160 w-full duration-500"
           : "opacity-0 max-h-14 max-w-16 sm:max-w-[16rem] sm:max-h-20 m-4 duration-100",
         props.isOpen &&
           props.type === "adotar" &&
@@ -116,6 +116,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
                       target="_blank"
                       href="/faq#adotar"
                       class="font-body font-bold underline"
+                      rel="noreferrer"
                     >
                       o que preciso saber antes de adotar
                     </a>
@@ -125,6 +126,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
                       target="_blank"
                       href="/faq#apadrinhar"
                       class="font-body font-bold underline"
+                      rel="noreferrer"
                     >
                       o que preciso saber antes de apadrinhar
                     </a>
@@ -150,6 +152,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
         <Show when={step() === 1}>
           <div class="flex flex-col items-center gap-4">
             <iframe
+              title="Formulário"
               src={forms[props.type].embed(props.catName)}
               width="full"
               height="400"
@@ -157,7 +160,11 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
             >
               Carregando formulário...
             </iframe>
-            <a href={forms[props.type].link(props.catName)} target="_blank">
+            <a
+              href={forms[props.type].link(props.catName)}
+              target="_blank"
+              rel="noreferrer"
+            >
               Abrir em nova aba <i class="ph-arrow-square-out ph-duotone" />
             </a>
           </div>

@@ -3,41 +3,109 @@
 @plugin "tailwindcss-motion";
 @plugin "tailwindcss-intersect";
 
-@config "../tailwind.config.mjs";
-
 @theme {
   --font-display: "Staatliches", sans-serif;
+  --font-body: "Outfit Variable", sans-serif;
+
+  --color-pink-100: #f6ecf4;
+  --color-pink-200: #eed9e9;
+  --color-pink-300: #e5c5df;
+  --color-pink-400: #ddb2d4;
+  --color-pink-500: #d49fc9;
+  --color-pink-600: #aa7fa1;
+  --color-pink-700: #7f5f79;
+  --color-pink-800: #554050;
+  --color-pink-900: #2a2028;
+  --color-pink: #d49fc9;
+
+  --color-blue-100: #eff8f8;
+  --color-blue-200: #dff2f2;
+  --color-blue-300: #ceebeb;
+  --color-blue-400: #bee5e5;
+  --color-blue-500: #aedede;
+  --color-blue-600: #8bb2b2;
+  --color-blue-700: #688585;
+  --color-blue-800: #465959;
+  --color-blue-900: #232c2c;
+  --color-blue: #aedede;
+
+  --color-yellow-100: #fef9e4;
+  --color-yellow-200: #fcf3c8;
+  --color-yellow-300: #fbecad;
+  --color-yellow-400: #f9e691;
+  --color-yellow-500: #f8e076;
+  --color-yellow-600: #c6b35e;
+  --color-yellow-700: #958647;
+  --color-yellow-800: #635a2f;
+  --color-yellow-900: #322d18;
+  --color-yellow: #f8e076;
+
+  --color-page-background: #fefbf2;
+
+  --spacing-header: 80px;
+  --spacing-footer: 320px;
+
+  --text-shadow-pink: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff, 3px 3px 0 var(--color-pink);
+  --text-shadow-blue: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff, 3px 3px 0 var(--color-blue);
+  --text-shadow-yellow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff, 3px 3px 0 var(--color-yellow);
+
+  --animate-no: no 0.5s ease;
+
+  @keyframes no {
+    0% {
+      transform: rotate(0);
+    }
+    33% {
+      transform: rotate(-1deg);
+    }
+    66% {
+      transform: rotate(1deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
 }
 
 @layer base {
-  h1 {
-    font-family: var(--font-display);
-  }
-  h2 {
-    font-family: var(--font-display);
-  }
-  h3 {
-    font-family: var(--font-display);
-  }
-  h4 {
-    font-family: var(--font-display);
-  }
-  h5 {
-    font-family: var(--font-display);
-  }
-  h6 {
-    font-family: var(--font-display);
-  }
-  button {
-    font-family: var(--font-display);
-  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
   a {
     font-family: var(--font-display);
   }
-  p {
-    font-size: var(--font-size-xl);
-  }
+  p,
   span {
     font-size: var(--font-size-xl);
   }
+}
+
+@layer components {
+  .polaroid {
+    border: 1px solid black;
+    box-shadow: var(--shadow-lg);
+    padding: 1rem 1rem 4rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .bg-pattern-boxes-blue {
+    background-image: linear-gradient(
+        var(--color-blue-300) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to right, var(--color-blue-300) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

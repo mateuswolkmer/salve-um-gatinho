@@ -148,7 +148,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                       class={twMerge(
                         "flex flex-col items-center text-center absolute top-28 left-0 right-0 transform origin-top duration-500 transition-all",
                         isVisible()
-                          ? "opacity-1 scale-100"
+                          ? "opacity-100 scale-100"
                           : "opacity-0 scale-0"
                       )}
                     >

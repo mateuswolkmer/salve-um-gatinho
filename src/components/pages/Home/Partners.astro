@@ -2,29 +2,31 @@
 import { getAllPartners } from '../../../api/partners';
 import PageSection from '../../PageSection.astro';
 
-let partners = await getAllPartners();
+const partners = await getAllPartners();
 
 // magic function that works
 // 81.5 is perfect for 7 partners, then we need to adjust by 0.28 for every change from that
 const calculateInitialTransform = (numPartners) => {
-  const baseTransform = 81.5;
-  const adjustment = 0.28;
-  const referenceCount = 7;
-  return baseTransform - (numPartners - referenceCount) * adjustment;
+	const baseTransform = 81.5;
+	const adjustment = 0.28;
+	const referenceCount = 7;
+	return baseTransform - (numPartners - referenceCount) * adjustment;
 };
 
+// TODO fix logic
 const initialTransform = calculateInitialTransform(partners.length);
 const duration = partners.length * 2;
 ---
 <PageSection title="Parceiros">
 	<div class="flex gap-32 max-w-5xl w-full overflow-hidden bg-yellow-300 border-2 border-black rounded-xl p-6 flex-nowrap">
-		<div 
-			class="flex gap-24 animate-scroll items-center" 
-			style={{ '--initial-transform': `-${initialTransform}%`, '--duration': `${duration}s`}}> 
+		<div class="translate-x-[var(--initial-transform)]" style={{ '--initial-transform': `-${initialTransform}%`}}>
+			<div 
+			class=`flex gap-24 items-center motion-translate-x-loop-100/reset motion-ease-linear motion-duration-[${duration}s]`>
 			<!-- repeat 3 times so they loop nicely -->
 			{[...partners, ...partners, ...partners].map((partner, i) => (
 				<img src={partner.image} alt={partner.name} class="w-32" loading='lazy' />)
 			)}
 		</div>
+	</div>
 	</div>
 </PageSection>
