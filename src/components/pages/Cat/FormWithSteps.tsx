@@ -48,7 +48,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
         props.type === "adotar" && "bg-pink-300",
         props.type === "apadrinhar" && "bg-blue-300",
         props.isOpen
-          ? "opacity-1 max-w-full max-h-[40rem] w-full duration-500"
+          ? "opacity-1 max-w-full max-h-160 w-full duration-500"
           : "opacity-0 max-h-14 max-w-16 sm:max-w-[16rem] sm:max-h-20 m-4 duration-100",
         props.isOpen &&
           props.type === "adotar" &&

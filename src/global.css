@@ -1,3 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-motion";
+@plugin "tailwindcss-intersect";
+
+@config "../tailwind.config.mjs";
+
+@theme {
+  --font-display: "Staatliches", sans-serif;
+}
+
+@layer base {
+  h1 {
+    font-family: var(--font-display);
+  }
+  h2 {
+    font-family: var(--font-display);
+  }
+  h3 {
+    font-family: var(--font-display);
+  }
+  h4 {
+    font-family: var(--font-display);
+  }
+  h5 {
+    font-family: var(--font-display);
+  }
+  h6 {
+    font-family: var(--font-display);
+  }
+  button {
+    font-family: var(--font-display);
+  }
+  a {
+    font-family: var(--font-display);
+  }
+  p {
+    font-size: var(--font-size-xl);
+  }
+  span {
+    font-size: var(--font-size-xl);
+  }
+}

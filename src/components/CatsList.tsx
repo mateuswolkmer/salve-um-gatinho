@@ -54,7 +54,7 @@ export const CatsList: Component<CatsListProps> = ({ cats }) => {
             />
           ))}
         </div>
-        {/* <div class="absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-white to-transparent" /> */}
+        {/* <div class="absolute top-0 right-0 h-full w-10 bg-linear-to-l from-white to-transparent" /> */}
       </div>
       <div class="flex justify-center gap-4 items-center w-full pr-10">
         <Button

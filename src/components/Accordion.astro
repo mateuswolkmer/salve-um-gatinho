@@ -12,7 +12,7 @@ const id = Astro.props.title?.replaceAll(' ', '_')?.toLocaleLowerCase() || '';
 <div {...Astro.props} class={twMerge("relative flex flex-col items-start w-full border-b last-of-type:border-0 border-gray-700", Astro.props.class)}>
     <input type="checkbox" id={id} name={id} class="peer hidden" />
     <label for={id} class="flex flex-row justify-between items-center w-full cursor-pointer pr-6">
-        <span class="!text-left font-medium">{Astro.props.title}</span>
+        <span class="text-left! font-medium">{Astro.props.title}</span>
     </label>
     <i class="ph-duotone ph-caret-circle-down absolute right-2 top-2 transition-transform peer-checked:rotate-180 pointer-events-none"/>
     <div class="overflow-hidden max-h-0 peer-checked:max-h-[3000px] transition-all duration-150 peer-checked:duration-500">

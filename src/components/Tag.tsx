@@ -28,11 +28,11 @@ export const Tag: Component<TagProps> = ({
         <div class="absolute -top-2 -right-2">
           <i
             class={twMerge(
-              `ph-${icon} ph-duotone before:!opacity-100 !font-bold`,
-              color === "yellow" && "before:!text-yellow-500",
-              color === "blue" && "before:!text-blue-500",
-              color === "pink" && "before:!text-pink-500",
-              !color && "before:!text-white"
+              `ph-${icon} ph-duotone before:opacity-100! font-bold!`,
+              color === "yellow" && "before:text-yellow-500!",
+              color === "blue" && "before:text-blue-500!",
+              color === "pink" && "before:text-pink-500!",
+              !color && "before:text-white!"
             )}
           />
         </div>

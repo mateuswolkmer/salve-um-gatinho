@@ -8,8 +8,8 @@ import {
   createSignal,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Button } from "./Button";
 import type { Testimony } from "../../tina/__generated__/types";
+import { Button } from "./Button";
 
 export type TestimoniesCarousel = {
   testimonies: Testimony[];
@@ -63,7 +63,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
             tiltLeft() ? "-rotate-1" : "rotate-1"
           )}
         />
-        <span class="absolute -top-[5.5rem] md:-top-20 md:-left-20 text-blue text-[320px] font-display leading-none motion-preset-oscillate-sm motion-duration-2000">
+        <span class="absolute -top-22 md:-top-20 md:-left-20 text-blue text-[320px] font-display leading-none motion-preset-oscillate-sm motion-duration-2000">
           “
         </span>
         <span class="hidden md:block absolute -bottom-60 -right-20 text-blue text-[320px] font-display leading-none motion-preset-oscillate-sm motion-duration-2000 motion-delay-500">
@@ -89,7 +89,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
                   }}
                   class={twMerge(
                     "m-auto transition-all duration-300 absolute left-0 right-0 top-0 text-center text-pretty",
-                    state() === "selected" && "opacity-1 translate-x-0",
+                    state() === "selected" && "opacity-100 translate-x-0",
                     state() === "left" && "opacity-0 -translate-x-10",
                     state() === "right" && "opacity-0 translate-x-10"
                   )}

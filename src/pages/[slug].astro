@@ -1,17 +1,17 @@
 ---
 export const prerender = true
 
-import Layout from '../layouts/Layout.astro';
-import { formatRelative, formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow, formatRelative } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import PageSection from '../components/PageSection.astro';
-import { CatsList } from '../components/CatsList';
-import { CatTags } from '../components/CatTags';
 import type { Cat } from '../../tina/__generated__/types';
 import { getAllCats } from '../api/cats';
-import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
+import { CatTags } from '../components/CatTags';
+import { CatsList } from '../components/CatsList';
 import { Highlight } from '../components/Highlight';
+import PageSection from '../components/PageSection.astro';
 import ShareLinks from '../components/ShareLinks.astro';
+import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
+import Layout from '../layouts/Layout.astro';
 import { getCatStringTags } from '../utils/catUtils';
 
 export async function getStaticPaths() {
@@ -91,25 +91,25 @@ ${getCatStringTags(cat)}`;
             <div class="text-gray-500">
               <span class="">sociável</span>
               <div class="text-xl text-nowrap ">
-                <i class:list={["ph-duotone ph-peace inline-block motion-preset-expand motion-delay-100", {"motion-preset-pop text-black !font-bold before:!text-blue before:!opacity-100": ["1", "2", "3"].includes(social) }]}/>
-                <i class:list={["ph-duotone ph-peace inline-block motion-preset-expand motion-delay-200", {"motion-preset-pop text-black !font-bold before:!text-blue before:!opacity-100": ["2", "3"].includes(social) }]}/>
-                <i class:list={["ph-duotone ph-peace inline-block motion-preset-expand motion-delay-300", {"motion-preset-pop text-black !font-bold before:!text-blue before:!opacity-100": ["3"].includes(social) }]}/>
+                <i class:list={["ph-duotone ph-peace inline-block motion-preset-expand motion-delay-100", {"motion-preset-pop text-black font-bold! before:!text-blue before:opacity-100!": ["1", "2", "3"].includes(social) }]}/>
+                <i class:list={["ph-duotone ph-peace inline-block motion-preset-expand motion-delay-200", {"motion-preset-pop text-black font-bold! before:!text-blue before:opacity-100!": ["2", "3"].includes(social) }]}/>
+                <i class:list={["ph-duotone ph-peace inline-block motion-preset-expand motion-delay-300", {"motion-preset-pop text-black font-bold! before:!text-blue before:opacity-100!": ["3"].includes(social) }]}/>
               </div>
             </div>
             <div class="text-gray-500">
               <span>brincalhão</span>
               <div class="text-xl text-nowrap">
-                <i class:list={["ph-duotone ph-yarn inline-block motion-preset-expand motion-delay-100", {"motion-preset-pop text-black !font-bold before:!text-yellow before:!opacity-100": ["1", "2", "3"].includes(playful) }]}/>
-                <i class:list={["ph-duotone ph-yarn inline-block motion-preset-expand motion-delay-200", {"motion-preset-pop text-black !font-bold before:!text-yellow before:!opacity-100": ["2", "3"].includes(playful) }]}/>
-                <i class:list={["ph-duotone ph-yarn inline-block motion-preset-expand motion-delay-300", {"motion-preset-pop text-black !font-bold before:!text-yellow before:!opacity-100": ["3"].includes(playful) }]}/>
+                <i class:list={["ph-duotone ph-yarn inline-block motion-preset-expand motion-delay-100", {"motion-preset-pop text-black font-bold! before:!text-yellow before:opacity-100!": ["1", "2", "3"].includes(playful) }]}/>
+                <i class:list={["ph-duotone ph-yarn inline-block motion-preset-expand motion-delay-200", {"motion-preset-pop text-black font-bold! before:!text-yellow before:opacity-100!": ["2", "3"].includes(playful) }]}/>
+                <i class:list={["ph-duotone ph-yarn inline-block motion-preset-expand motion-delay-300", {"motion-preset-pop text-black font-bold! before:!text-yellow before:opacity-100!": ["3"].includes(playful) }]}/>
               </div>
             </div>
             <div class="text-gray-500">
               <span>carente</span>
               <div class="text-xl text-nowrap">
-                <i class:list={["ph-duotone ph-heart inline-block motion-preset-expand motion-delay-100", {"motion-preset-pop text-black !font-bold before:!text-pink before:!opacity-100": ["1", "2", "3"].includes(loving) }]}/>
-                <i class:list={["ph-duotone ph-heart inline-block motion-preset-expand motion-delay-200", {"motion-preset-pop text-black !font-bold before:!text-pink before:!opacity-100": ["2", "3"].includes(loving) }]}/>
-                <i class:list={["ph-duotone ph-heart inline-block motion-preset-expand motion-delay-300", {"motion-preset-pop text-black !font-bold before:!text-pink before:!opacity-100": ["3"].includes(loving) }]}/>
+                <i class:list={["ph-duotone ph-heart inline-block motion-preset-expand motion-delay-100", {"motion-preset-pop text-black font-bold! before:!text-pink before:opacity-100!": ["1", "2", "3"].includes(loving) }]}/>
+                <i class:list={["ph-duotone ph-heart inline-block motion-preset-expand motion-delay-200", {"motion-preset-pop text-black font-bold! before:!text-pink before:opacity-100!": ["2", "3"].includes(loving) }]}/>
+                <i class:list={["ph-duotone ph-heart inline-block motion-preset-expand motion-delay-300", {"motion-preset-pop text-black font-bold! before:!text-pink before:opacity-100!": ["3"].includes(loving) }]}/>
               </div>
             </div>
           </div> : <></>}
@@ -127,7 +127,7 @@ ${getCatStringTags(cat)}`;
       {Boolean(!adopted && !passed && condition) && <p class="text-center">No momento <Highlight>estou {condition}</Highlight>, mas logo estarei disponível!</p>}
       <AdoptPatronizeForm startOpenedForm={startOpenedForm} catName={name} hideAdoptButton={adopted || passed} hidePatronizeButton={adopted || patronized || passed} client:load />
     </div>
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 view-grow">
       <!-- TODO only show similar cats (check tags) -->
       <h2 class="text-4xl font-body font-bold">Outros</h2>
       <CatsList cats={cats?.filter(cat => cat.slug !== slug)} client:only="solid-js" />

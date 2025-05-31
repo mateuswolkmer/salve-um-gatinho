@@ -12,7 +12,7 @@ export const SelectInput: Component<SelectInputProps> = ({
     <select
       {...rest}
       class={twMerge(
-        "transition-all border-2 border-b-4 focus:border-b-4 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl !outline-none",
+        "transition-all border-2 border-b-4 focus:border-b-4 transform focus:scale-[102%] border-black hover:scale-[99%] hover:shadow-lg focus:shadow-none rounded-xl p-2 text-xl outline-none!",
         classes
       )}
     >

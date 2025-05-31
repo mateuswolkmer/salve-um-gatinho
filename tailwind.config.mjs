@@ -78,22 +78,7 @@ export default {
     },
   },
   plugins: [
-    // require("@tailwindcss/typography"),
-    // require("tailwindcss-motion"),
-    // require("tailwindcss-intersect"),
-    plugin(({ addBase, addUtilities, theme }) => {
-      addBase({
-        h1: { fontFamily: theme("fontFamily.display") },
-        h2: { fontFamily: theme("fontFamily.display") },
-        h3: { fontFamily: theme("fontFamily.display") },
-        h4: { fontFamily: theme("fontFamily.display") },
-        h5: { fontFamily: theme("fontFamily.display") },
-        h6: { fontFamily: theme("fontFamily.display") },
-        button: { fontFamily: theme("fontFamily.display") },
-        a: { fontFamily: theme("fontFamily.display") },
-        p: { fontSize: theme("fontSize.xl") },
-        span: { fontSize: theme("fontSize.xl") },
-      });
+    plugin(({ addUtilities, theme }) => {
       addUtilities({
         ".text-shadow-pink": {
           "text-shadow": `-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF, 3px 3px 0 ${theme(

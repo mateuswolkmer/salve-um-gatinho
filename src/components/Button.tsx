@@ -3,7 +3,7 @@ import { createSignal, type Component, type JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "transition-all [&:not(:disabled)]:hover:scale-105 [&:not(:disabled)]:hover:shadow-lg [&:not(:disabled)]:hover:-rotate-1 [&:not(:disabled)]:active:scale-95 [&:not(:disabled)]:active:shadow-none border-2 [&:not(:disabled)]:border-b-4 [&:not(:disabled)]:active:border-b-2 disabled:hover:animate-no border-black rounded-xl flex gap-2 group focus:outline-2 focus:outline-offset-2 focus:outline-dashed focus:outline-pink [&:not(:disabled)]:active:outline-none disabled:bg-gray-300",
+  "transition-all not-disabled:hover:scale-105 not-disabled:hover:shadow-lg not-disabled:hover:-rotate-1 not-disabled:active:scale-95 not-disabled:active:shadow-none border-2 not-disabled:border-b-4 not-disabled:active:border-b-2 disabled:hover:animate-no border-black rounded-xl flex gap-2 group focus:outline-2 focus:outline-offset-2 focus:outline-dashed focus:outline-pink not-disabled:active:outline-none disabled:bg-gray-300",
   {
     variants: {
       variant: {

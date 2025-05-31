@@ -1,9 +1,9 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import solidJs from "@astrojs/solid-js";
 import reactJs from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
 // import opengraphImages from "astro-opengraph-images";
 // import { catsOg } from "./src/og";
@@ -13,7 +13,10 @@ export default defineConfig({
   site: "https://salveumgatinho.org/",
   // output: "server",
   adapter: vercel(),
-  integrations: [tailwind(), solidJs(), reactJs(), sitemap()],
+  integrations: [solidJs(), reactJs(), sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   // TODO bring back to improved OG images later
   // opengraphImages({
   //   options: {

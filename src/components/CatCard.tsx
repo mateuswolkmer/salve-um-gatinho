@@ -11,7 +11,7 @@ const catCardVariants = cva(
     variants: {
       variant: {
         small: "flex-row items-end h-40 w-80",
-        vertical: "flex-col h-[30rem] w-80 min-w-80",
+        vertical: "flex-col h-120 w-80 min-w-80",
         big: "flex-col h-72 md:h-80 xl:h-96 w-full",
       },
     },
@@ -117,7 +117,7 @@ export const CatCard: Component<CatCardProps> = ({
             cat={cat}
             showOnly={variant === "small" ? "Novo" : undefined}
           />
-          <div class="absolute h-full w-4 bg-gradient-to-l from-white to-transparent right-0" />
+          <div class="absolute h-full w-4 bg-linear-to-l from-white to-transparent right-0" />
         </div>
       </div>
     </a>

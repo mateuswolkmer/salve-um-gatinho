@@ -11,14 +11,14 @@ import { twMerge } from "tailwind-merge";
 const newCats = await getNewCats();
 ---
 
-<PageSection class="max-w-[100rem] m-auto">
+<PageSection class="max-w-400 m-auto">
   <div id="hero" class="relative flex content-between gap-4 w-full">
     <div
       id="hero-image"
       class="hidden sm:block absolute -top-8 left-0 sm:left-20 max-w-full h-[120%] w-auto pointer-events-none"
     >
       <div
-        class="absolute top-0.5 left-0.5 right-0.5 h-1/2 w-[full] bg-gradient-to-b from-white to-transparent rounded-lg"
+        class="absolute top-0.5 left-0.5 right-0.5 h-1/2 w-[full] bg-linear-to-b from-white to-transparent rounded-lg"
       >
       </div>
       <Image
@@ -40,7 +40,7 @@ const newCats = await getNewCats();
     >
       <h1
         data-og="title"
-        class="text-7xl sm:text-8xl xl:text-9xl max-w-[40rem] xl:max-w-[55rem] text-shadow-pink"
+        class="text-7xl sm:text-8xl xl:text-9xl max-w-160 xl:max-w-220 text-shadow-pink"
       >
         Eles merecem uma chance de te fazer feliz
       </h1>
@@ -70,9 +70,9 @@ const newCats = await getNewCats();
   if (!window.newCatsAnimated) {
     const newCatsElement = document.getElementById("new-cats");
     if (newCatsElement) {
-      newCatsElement.classList.add("!hidden");
+      newCatsElement.classList.add("hidden!");
       document.addEventListener("astro:page-load", function () {
-        newCatsElement.classList.remove("!hidden");
+        newCatsElement.classList.remove("hidden!");
       });
       window.newCatsAnimated = true;
     }
