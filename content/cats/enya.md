@@ -1,8 +1,9 @@
 ---
 slug: enya
 createdDate: 2025-02-06T19:16:27.554Z
-updatedDate: 2025-02-06T19:16:27.554Z
+updatedDate: 2025-06-07T17:54:03.299Z
 name: Enya
+adopted: true
 image: /src/assets/WhatsApp Image 2025-02-05 at 18.53.35.jpeg
 gender: female
 color: Tigrado
