@@ -1,7 +1,7 @@
 ---
 slug: tuto
 createdDate: 2025-02-05T00:27:27.442Z
-updatedDate: 2025-02-13T23:19:55.939Z
+updatedDate: 2025-06-07T18:04:15.248Z
 name: Tuto
 image: /src/assets/WhatsApp Image 2025-02-03 at 20.43.44.jpeg
 gender: male
