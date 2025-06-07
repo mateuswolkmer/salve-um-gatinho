@@ -1,7 +1,7 @@
 ---
 slug: dalmata
 createdDate: 2025-02-05T20:35:41.780Z
-updatedDate: 2025-02-05T20:35:41.780Z
+updatedDate: 2025-06-07T17:51:56.750Z
 name: Dálmata
 image: /src/assets/WhatsApp Image 2025-02-05 at 00.13.41.jpeg
 gender: male
