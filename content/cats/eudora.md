@@ -1,8 +1,9 @@
 ---
 slug: eudora
 createdDate: 2025-02-05T00:33:27.746Z
-updatedDate: 2025-02-05T00:33:27.746Z
+updatedDate: 2025-06-07T17:54:36.614Z
 name: Eudora
+adopted: true
 image: /src/assets/WhatsApp Image 2025-02-03 at 19.33.19.jpeg
 gender: female
 color: Tigrado
