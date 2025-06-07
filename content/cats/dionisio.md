@@ -1,7 +1,7 @@
 ---
 slug: dionisio
 createdDate: 2025-02-06T19:09:23.043Z
-updatedDate: 2025-02-06T19:09:23.043Z
+updatedDate: 2025-06-07T17:52:41.781Z
 name: Dionísio
 image: /src/assets/WhatsApp Image 2025-02-05 at 18.43.14.jpeg
 gender: male
