@@ -1,7 +1,7 @@
 ---
 slug: alisso
 createdDate: 2025-02-13T22:47:51.552Z
-updatedDate: 2025-02-13T22:47:51.552Z
+updatedDate: 2025-06-07T17:50:14.547Z
 name: Álisso
 image: /src/assets/WhatsApp Image 2025-02-10 at 17.02.55.jpeg
 gender: male
