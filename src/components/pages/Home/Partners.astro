@@ -6,16 +6,17 @@ const partners = await getAllPartners();
 ---
 <PageSection title="Parceiros">
   <div class="relative max-w-5xl w-full overflow-hidden bg-yellow-300 border-2 border-black rounded-xl p-6">
-    <div class="flex gap-24 items-center whitespace-nowrap">
-      {[...partners, ...partners].map((partner, i) => (
-        <div class="inline-block">
-          <img 
-            src={partner.image} 
-            alt={partner.name} 
-            loading='lazy' 
-            class="w-32 animate-scroll-item"
-            style={`animation-delay: ${i * -7.5}s`}
-          />
+    <div class="flex whitespace-nowrap items-center justify-center">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div class="shrink-0 flex gap-24 whitespace-nowrap items-center animate-scroll-item px-12" style={`--duration: ${partners.length * 3}s`}>
+          {partners.map((partner, i) => (
+            <img 
+              src={partner.image} 
+              alt={partner.name} 
+              loading='lazy'
+              class="w-32 h-auto object-contain"
+            />
+          ))} 
         </div>
       ))}
     </div>
@@ -25,14 +26,15 @@ const partners = await getAllPartners();
 <style>
   @keyframes scroll-item {
     0% {
-      transform: translateX(100%);
+      transform: translate(100%);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translate(-100%);
     }
   }
 
   .animate-scroll-item {
-    animation: scroll-item 15s linear infinite;
+    --duration: 27s;
+    animation: scroll-item var(--duration) linear infinite;
   }
 </style>
