@@ -1,8 +1,9 @@
 ---
 slug: gihun
 createdDate: 2025-02-05T20:21:31.957Z
-updatedDate: 2025-02-05T20:21:31.957Z
+updatedDate: 2025-06-07T17:55:45.780Z
 name: 'Gi-Hun '
+adopted: true
 condition: mamando
 image: /src/assets/WhatsApp Image 2025-02-04 at 23.56.44.jpeg
 gender: male
