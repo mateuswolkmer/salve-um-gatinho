@@ -1,8 +1,9 @@
 ---
 slug: manila
 createdDate: 2025-02-13T23:03:02.038Z
-updatedDate: 2025-02-13T23:03:02.038Z
+updatedDate: 2025-06-07T17:58:08.295Z
 name: Manila
+adopted: true
 condition: grávida
 image: /src/assets/WhatsApp Image 2025-02-13 at 19.57.36 (1).jpeg
 gender: female
@@ -14,5 +15,6 @@ social: '3'
 playful: '2'
 loving: '2'
 ---
+
 
 Depois de engravidar, passei a ser alimentada por algumas pessoas de bom coração em um condomínio, mas alguns moradores ameacaram me envenenar. Temendo pela minha vida e dos filhotes que estou gestando, foi pedido ajuda para o Salve Um Gatinho, e agora estou segura no lar temporário, onde terei meus filhotes.
