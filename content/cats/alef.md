@@ -1,8 +1,9 @@
 ---
 slug: alef
 createdDate: 2025-02-13T23:07:13.067Z
-updatedDate: 2025-02-13T23:07:13.067Z
+updatedDate: 2025-06-07T17:49:51.366Z
 name: Alef
+adopted: true
 condition: em tratamento
 image: /src/assets/WhatsApp Image 2025-02-13 at 19.57.37 (1).jpeg
 gender: male
