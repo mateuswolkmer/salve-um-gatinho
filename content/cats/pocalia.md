@@ -1,8 +1,9 @@
 ---
 slug: pocalia
 createdDate: 2025-02-10T19:19:58.455Z
-updatedDate: 2025-02-10T19:19:58.455Z
+updatedDate: 2025-06-07T18:03:21.800Z
 name: Pocalía
+adopted: true
 image: /src/assets/WhatsApp Image 2025-02-10 at 14.14.47.jpeg
 gender: female
 color: Branco
@@ -13,5 +14,6 @@ social: '3'
 playful: '3'
 loving: '3'
 ---
+
 
 Eu fui resgatada com meus irmãos do forro de uma casa. Minha mãe fugiu nessa ocasião e fomos amamentados por uma mãe de leite. Me adota?
