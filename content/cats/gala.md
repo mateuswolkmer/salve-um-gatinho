@@ -1,7 +1,7 @@
 ---
 slug: gala
 createdDate: 2025-02-06T19:07:02.711Z
-updatedDate: 2025-02-06T19:07:02.711Z
+updatedDate: 2025-06-07T17:55:32.715Z
 name: Galã
 image: /src/assets/WhatsApp Image 2025-02-05 at 18.37.51.jpeg
 gender: male
