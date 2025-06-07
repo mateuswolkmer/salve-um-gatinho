@@ -1,8 +1,9 @@
 ---
 slug: baianinha
 createdDate: 2025-02-13T23:00:14.840Z
-updatedDate: 2025-02-13T23:00:14.840Z
+updatedDate: 2025-06-07T17:50:48.366Z
 name: Baianinha
+adopted: true
 image: /src/assets/WhatsApp Image 2025-02-13 at 19.57.36.jpeg
 gender: female
 color: Tigrado
