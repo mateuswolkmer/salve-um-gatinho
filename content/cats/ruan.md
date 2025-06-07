@@ -1,8 +1,8 @@
 ---
-slug: ruan
+slug: juan
 createdDate: 2025-06-07T18:11:43.632Z
-updatedDate: 2025-06-07T18:11:43.632Z
-name: Ruan
+updatedDate: 2025-06-07T18:24:47.221Z
+name: Juan
 condition: em tratamento
 gender: male
 color: Frajola
@@ -15,4 +15,5 @@ social: '1'
 playful: '1'
 loving: '3'
 ---
+
 
