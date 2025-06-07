@@ -15,6 +15,10 @@ export const loadCatConnection = async () => {
   }
 };
 
+export const filterUnavailableCats = (cats: Cat[]) => {
+  return cats.filter((cat) => !cat.adopted && !cat.passed);
+};
+
 export const getAllCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>,
   {
@@ -38,7 +42,7 @@ export const getAllCats = async (
       .filter(Boolean) as Cat[];
 
     if (filterUnavailable) {
-      cats = cats.filter((cat) => !cat.adopted && !cat.passed);
+      cats = filterUnavailableCats(cats);
     }
 
     if (sort) {

@@ -4,7 +4,7 @@ export const prerender = true
 import { formatDistanceToNow, formatRelative } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import type { Cat } from '../../tina/__generated__/types';
-import { getAllCats } from '../api/cats';
+import { filterUnavailableCats, getAllCats } from '../api/cats';
 import { CatTags } from '../components/CatTags';
 import { CatsList } from '../components/CatsList';
 import { Highlight } from '../components/Highlight';
@@ -58,6 +58,8 @@ const ogTitle = `Adote${patronized ? ' ' : ' ou apadrinhe'} ${article} ${name}!`
 
 const shareText = `${ogTitle}
 ${getCatStringTags(cat)}`;
+
+const otherCats = filterUnavailableCats(cats?.filter(cat => cat.slug !== slug));
 ---
 <Layout title={name} og={{ title: ogTitle, description: description, image }}>  
   <PageSection>
@@ -130,7 +132,7 @@ ${getCatStringTags(cat)}`;
     <div class="flex flex-col gap-2 view-grow">
       <!-- TODO only show similar cats (check tags) -->
       <h2 class="text-4xl font-body font-bold">Outros</h2>
-      <CatsList cats={cats?.filter(cat => cat.slug !== slug)} client:only="solid-js" />
+      <CatsList cats={otherCats} client:only="solid-js" />
     </div>
   </PageSection>
 </Layout>
