@@ -1,7 +1,7 @@
 ---
 slug: lisianto
 createdDate: 2025-02-13T22:45:50.566Z
-updatedDate: 2025-02-13T22:45:50.566Z
+updatedDate: 2025-06-07T17:57:19.627Z
 name: Lisianto
 image: /src/assets/WhatsApp Image 2025-02-10 at 16.59.25.jpeg
 gender: male
