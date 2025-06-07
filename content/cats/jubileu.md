@@ -1,8 +1,9 @@
 ---
 slug: jubileu
 createdDate: 2025-02-05T20:29:38.967Z
-updatedDate: 2025-02-05T20:29:38.967Z
+updatedDate: 2025-06-07T17:57:07.243Z
 name: Jubileu
+adopted: true
 image: /src/assets/WhatsApp Image 2025-02-05 at 00.05.12.jpeg
 gender: male
 color: Tigrado
