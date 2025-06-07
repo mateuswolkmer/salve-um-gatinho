@@ -1,10 +1,19 @@
+import { compareDesc } from "date-fns";
 import client from "../../tina/__generated__/client";
 import type { Cat } from "../../tina/__generated__/types";
-import { compareDesc } from "date-fns";
 import { isCatNew } from "../utils/catUtils";
 
-export const loadCatConnection = async () =>
-  await client.queries.catConnection();
+export const loadCatConnection = async () => {
+  try {
+    const connection = await client.queries.catConnection({
+      first: 1000,
+    });
+    return connection;
+  } catch (error) {
+    console.error("Error loading cat connection:", error);
+    throw error;
+  }
+};
 
 export const getAllCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>,
@@ -14,21 +23,33 @@ export const getAllCats = async (
     filterUnavailable = true,
   }: { sort?: boolean; filterUnavailable?: boolean } = {}
 ): Promise<Cat[]> => {
-  const catConnection = connection ?? (await loadCatConnection());
+  try {
+    const catConnection = connection ?? (await loadCatConnection());
 
-  let cats = (catConnection.data.catConnection.edges ?? []).map((response) => ({
-    ...(response?.node as Cat),
-  }));
+    let cats = (catConnection.data.catConnection.edges ?? [])
+      .map((response) => {
+        if (!response?.node) {
+          return null;
+        }
+        return {
+          ...(response.node as Cat),
+        };
+      })
+      .filter(Boolean) as Cat[];
 
-  if (filterUnavailable) {
-    cats = cats.filter((cat) => !cat.adopted && !cat.passed);
+    if (filterUnavailable) {
+      cats = cats.filter((cat) => !cat.adopted && !cat.passed);
+    }
+
+    if (sort) {
+      cats.sort((a, b) => compareDesc(a.rescueDate, b.rescueDate));
+    }
+
+    return cats;
+  } catch (error) {
+    console.error("Error in getAllCats:", error);
+    throw error;
   }
-
-  if (sort) {
-    cats.sort((a, b) => compareDesc(a.rescueDate, b.rescueDate));
-  }
-
-  return cats;
 };
 
 const AMOUNT_OF_NEW_CATS = 2;
