@@ -1,7 +1,7 @@
 ---
 slug: bob
 createdDate: 2025-06-07T18:09:48.940Z
-updatedDate: 2025-06-07T18:09:48.940Z
+updatedDate: 2025-06-07T18:24:14.288Z
 name: Bob
 gender: male
 color: Preto
@@ -17,3 +17,4 @@ playful: '3'
 loving: '3'
 ---
 
+Nasci numa colônia de gatos e tive o azar de cruzar com algum ser maldoso, que me machucou muito! Por isso, a doutora teve que remover o meu rabo. Mesmo assim, gosto muito da companhia das pessoas, e sou um ótimo gatinho!
