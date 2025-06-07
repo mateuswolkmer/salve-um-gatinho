@@ -1,7 +1,7 @@
 ---
 slug: dominik
 createdDate: 2025-01-28T20:38:38.274Z
-updatedDate: 2025-06-07T17:52:59.564Z
+updatedDate: 2025-06-07T17:53:23.732Z
 name: Dominik
 condition: em tratamento
 image: /src/assets/20250128_171316.jpg
@@ -9,10 +9,8 @@ gender: male
 color: Sialata
 birthDate: 2023-01-28T03:00:00.000Z
 rescueDate: 2024-05-16T03:00:00.000Z
-tags:
-  - Esporotricose
 neutered: true
-tested: negative
+tested: felv
 coliving: true
 social: '3'
 playful: '3'
