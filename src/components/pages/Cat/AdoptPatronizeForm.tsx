@@ -1,6 +1,6 @@
-import { createSignal, onMount, type Component } from "solid-js";
-import { Button } from "../../Button";
+import { type Component, createSignal, onMount } from "solid-js";
 import { twMerge } from "tailwind-merge";
+import { Button } from "../../Button";
 import { FormWithSteps } from "./FormWithSteps";
 
 export type FormType = "adotar" | "apadrinhar" | "";
@@ -89,7 +89,7 @@ export const AdoptPatronizeForm: Component<AdoptPatronizeFormProps> = (
         >
           <Button
             class={twMerge(
-              "absolute left-0 z-10 bg-blue hover:bg-blue-300 active:bg-blue-600 transition-[transform,colors] opacity-100",
+              "absolute left-0 z-10 bg-blue hover:bg-blue active:bg-blue transition-[transform,colors] opacity-100",
               !hasOpenedAnyForm() && "motion-preset-slide-up motion-delay-1000",
               patronizeFormOpened()
                 ? "opacity-0 pointer-events-none -z-20"

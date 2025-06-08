@@ -35,11 +35,11 @@ export const ImageGroup: Component<ImageGroupProps> = () => {
       ></button>
       <button
         // onClick={() => setSelected(1)}
-        class="bg-pink-200 rounded-xl absolute inset-0 transition-all translate-x-20 -translate-y-4 rotate-3 scale-90 w-96 h-96 -z-10"
+        class="bg-pink rounded-xl absolute inset-0 transition-all translate-x-20 -translate-y-4 rotate-3 scale-90 w-96 h-96 -z-10"
       ></button>
       <button
         // onClick={() => setSelected(2)}
-        class="bg-blue-200 rounded-xl absolute inset-0 transition-all -translate-x-20 -translate-y-4 -rotate-6 scale-90 w-96 h-96 -z-10"
+        class="bg-blue rounded-xl absolute inset-0 transition-all -translate-x-20 -translate-y-4 -rotate-6 scale-90 w-96 h-96 -z-10"
       ></button>
     </div>
   );

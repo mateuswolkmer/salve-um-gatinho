@@ -1,12 +1,12 @@
 ---
+import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
 import { getNewCats } from "../../../api/cats";
+import HeroImage from "../../../assets/Outras/hero.jpeg";
+import HeroCutImage from "../../../assets/Outras/hero_cut.png";
 import { ButtonLink } from "../../Button";
 import { CatCard } from "../../CatCard";
 import PageSection from "../../PageSection.astro";
-import HeroImage from "../../../assets/Outras/hero.jpeg";
-import HeroCutImage from "../../../assets/Outras/hero_cut.png";
-import { Image } from "astro:assets";
-import { twMerge } from "tailwind-merge";
 
 const newCats = await getNewCats();
 ---
@@ -40,7 +40,7 @@ const newCats = await getNewCats();
     >
       <h1
         data-og="title"
-        class="text-7xl sm:text-8xl xl:text-9xl max-w-160 xl:max-w-220 text-shadow-pink"
+        class="text-7xl sm:text-8xl xl:text-9xl max-w-160 xl:max-w-220"
       >
         Eles merecem uma chance de te fazer feliz
       </h1>

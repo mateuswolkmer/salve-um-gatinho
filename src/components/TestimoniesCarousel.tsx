@@ -59,7 +59,7 @@ export const TestimoniesCarousel: Component<TestimoniesCarousel> = ({
       <div class="w-full rounded-xl flex items-center justify-center px-10 pb-20 pt-24 md:pt-20 relative">
         <div
           class={twMerge(
-            "absolute inset-0 rounded-xl bg-blue-200 border-black border-2 transition-all",
+            "absolute inset-0 rounded-xl bg-blue border-black border-2 transition-all",
             tiltLeft() ? "-rotate-1" : "rotate-1"
           )}
         />

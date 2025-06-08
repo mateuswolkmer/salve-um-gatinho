@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import PageSection from "../components/PageSection.astro";
-import Layout from "../layouts/Layout.astro";
+import ExtensionImage from "../assets/Outras/about/extension.jpg";
 import KittensImage from "../assets/Outras/about/kittens.jpeg";
-import LeftWhoImage from "../assets/Outras/about/who_left.jpg";
-import RightWhoImage from "../assets/Outras/about/who_right.jpg";
-import LeftSpaceImage from "../assets/Outras/about/space_left.jpeg";
-import RightSpaceImage from "../assets/Outras/about/space_right.jpeg";
 import LeftKnowImage from "../assets/Outras/about/know_left.jpeg";
 import RightKnowImage from "../assets/Outras/about/know_right.jpeg";
-import ExtensionImage from "../assets/Outras/about/extension.jpg";
+import LeftSpaceImage from "../assets/Outras/about/space_left.jpeg";
+import RightSpaceImage from "../assets/Outras/about/space_right.jpeg";
+import LeftWhoImage from "../assets/Outras/about/who_left.jpg";
+import RightWhoImage from "../assets/Outras/about/who_right.jpg";
+import PageSection from "../components/PageSection.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
@@ -40,10 +40,10 @@ import ExtensionImage from "../assets/Outras/about/extension.jpg";
       </p>
       <dl class="flex flex-col gap-4">
         <div
-          class="bg-pink-100 flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
+          class="bg-pink flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
         >
           <span
-            class="absolute -top-20 -right-10 text-pink-300 text-[420px] font-display leading-none rotate-12 pointer-events-none"
+            class="absolute -top-20 -right-10 text-pink text-[420px] font-display leading-none rotate-12 pointer-events-none"
           >
             ?
           </span>
@@ -58,10 +58,10 @@ import ExtensionImage from "../assets/Outras/about/extension.jpg";
           </dd>
         </div>
         <div
-          class="bg-blue-100 flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
+          class="bg-blue flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
         >
           <span
-            class="absolute -top-20 right-3 text-blue-300 text-[420px] font-display leading-none rotate-12 pointer-events-none"
+            class="absolute -top-20 right-3 text-blue text-[420px] font-display leading-none rotate-12 pointer-events-none"
           >
             !
           </span>

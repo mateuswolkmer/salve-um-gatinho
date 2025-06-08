@@ -1,5 +1,5 @@
-import React from "react";
 import type { RenderFunctionInput } from "astro-opengraph-images";
+import type React from "react";
 import { twi } from "tw-to-css";
 
 const SITE_URL = "https://salve-um-gatinho.vercel.app";
@@ -36,7 +36,7 @@ export async function catsOg({
             {splitTags.map((tag) => (
               <span
                 style={twi(
-                  "border-2 border-black rounded-full p-2 bg-blue-100"
+                  "border-2 border-black rounded-full p-2 bg-blue"
                 )}
               >
                 {tag}

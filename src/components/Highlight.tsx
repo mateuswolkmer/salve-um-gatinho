@@ -13,7 +13,7 @@ export const Highlight: Component<HighlightProps> = ({
   return (
     <em
       class={twMerge(
-        "relative text-nowrap not-italic after:absolute after:inset-0 after:top-1/3 after:h-1/2 z-10 after:bg-yellow-400 after:-z-10 after:-rotate-2 after:scale-[101%]",
+        "relative text-nowrap not-italic after:absolute after:inset-0 after:top-1/3 after:h-1/2 z-10 after:bg-yellow after:-z-10 after:-rotate-2 after:scale-[101%]",
         bold && "font-bold",
         classes
       )}

@@ -45,8 +45,8 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
       id={`${props.type}-container`}
       class={twMerge(
         "flex flex-col gap-4 border-2 border-black rounded-xl p-4 md:p-6 overflow-hidden w-full transition-all motion-duration-300",
-        props.type === "adotar" && "bg-pink-300",
-        props.type === "apadrinhar" && "bg-blue-300",
+        props.type === "adotar" && "bg-pink",
+        props.type === "apadrinhar" && "bg-blue",
         props.isOpen
           ? "opacity-100 max-w-full max-h-160 w-full duration-500"
           : "opacity-0 max-h-14 max-w-16 sm:max-w-[16rem] sm:max-h-20 m-4 duration-100",

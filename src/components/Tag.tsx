@@ -1,4 +1,4 @@
-import { Show, type Component, type JSX } from "solid-js";
+import { type Component, type JSX, Show } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 export type TagProps = JSX.HTMLAttributes<HTMLSpanElement> & {
@@ -17,9 +17,9 @@ export const Tag: Component<TagProps> = ({
     <span
       class={twMerge(
         "border-2 border-black rounded-full px-2 text-base relative after:-top-2 bg-white whitespace-nowrap",
-        color === "yellow" && "bg-yellow-100",
-        color === "blue" && "bg-blue-100",
-        color === "pink" && "bg-pink-100",
+        color === "yellow" && "bg-yellow",
+        color === "blue" && "bg-blue",
+        color === "pink" && "bg-pink",
         className
       )}
     >
@@ -29,9 +29,9 @@ export const Tag: Component<TagProps> = ({
           <i
             class={twMerge(
               `ph-${icon} ph-duotone before:opacity-100! font-bold!`,
-              color === "yellow" && "before:text-yellow-500!",
-              color === "blue" && "before:text-blue-500!",
-              color === "pink" && "before:text-pink-500!",
+              color === "yellow" && "before:text-yellow!",
+              color === "blue" && "before:text-blue!",
+              color === "pink" && "before:text-pink!",
               !color && "before:text-white!"
             )}
           />
