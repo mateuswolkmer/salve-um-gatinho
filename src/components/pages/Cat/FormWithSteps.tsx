@@ -1,6 +1,6 @@
 import { type Component, Show, createSignal } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Button } from "../../Button";
+import { Button } from "../../ui/Button";
 import type { FormType } from "./AdoptPatronizeForm";
 
 export type FormWithStepsProps = {

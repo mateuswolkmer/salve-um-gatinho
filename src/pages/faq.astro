@@ -1,8 +1,8 @@
 ---
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { getCategorizedFaqs } from "../api/faq";
-import Accordion from "../components/Accordion.astro";
-import PageSection from "../components/PageSection.astro";
+import PageSection from "../components/layout/PageSection.astro";
+import Accordion from "../components/ui/Accordion.astro";
 import Layout from "../layouts/Layout.astro";
 
 const { important: importantFaqs, other: otherFaqs } =

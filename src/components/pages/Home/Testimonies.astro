@@ -1,7 +1,7 @@
 ---
 import { getAllTestimonies } from "../../../api/testimonies";
-import PageSection from "../../PageSection.astro";
-import { TestimoniesCarousel } from "../../TestimoniesCarousel";
+import { TestimoniesCarousel } from "../../interactive/TestimoniesCarousel";
+import PageSection from "../../layout/PageSection.astro";
 
 const allTestimonies = await getAllTestimonies();
 ---

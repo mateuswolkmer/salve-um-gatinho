@@ -24,7 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
-      from: `Site <site@salveumgatinho.org>`,
+      from: "Site <site@salveumgatinho.org>",
       to: ["site@salveumgatinho.org"],
       subject: "Nova mensagem do site",
       // TODO convert to React using resend/react-email

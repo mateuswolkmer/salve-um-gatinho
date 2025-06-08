@@ -8,8 +8,8 @@ import {
   createSignal,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import type { Testimony } from "../../tina/__generated__/types";
-import { Button } from "./Button";
+import type { Testimony } from "../../../tina/__generated__/types";
+import { Button } from "../ui/Button";
 
 export type TestimoniesCarousel = {
   testimonies: Testimony[];

@@ -4,9 +4,9 @@ import { twMerge } from "tailwind-merge";
 import { getNewCats } from "../../../api/cats";
 import HeroImage from "../../../assets/Outras/hero.jpeg";
 import HeroCutImage from "../../../assets/Outras/hero_cut.png";
-import { ButtonLink } from "../../Button";
-import { CatCard } from "../../CatCard";
-import PageSection from "../../PageSection.astro";
+import PageSection from "../../layout/PageSection.astro";
+import { CatCard } from "../../pages/Cat/CatCard";
+import { ButtonLink } from "../../ui/Button";
 
 const newCats = await getNewCats();
 ---

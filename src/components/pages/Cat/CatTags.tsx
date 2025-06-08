@@ -1,8 +1,11 @@
-import { type Component, type JSX } from "solid-js";
-import type { Cat } from "../../tina/__generated__/types";
+import type { Component, JSX } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Tag } from "./Tag";
-import { getCatAppearenceTags, getCatGeneralTags } from "../utils";
+import type { Cat } from "../../../../tina/__generated__/types";
+import {
+  getCatAppearenceTags,
+  getCatGeneralTags,
+} from "../../../utils/catUtils";
+import { Tag } from "../../ui/Tag";
 
 export type CatTagsProps = JSX.HTMLAttributes<HTMLDivElement> & {
   cat?: Cat;

@@ -1,13 +1,13 @@
-import { type Component, createSignal, createEffect } from "solid-js";
-import { CatCard } from "../../CatCard";
-import {
-  getCatStringTags,
-  getCatAgeGroup,
-  AgeGroups,
-} from "../../../utils/catUtils";
+import { type Component, createEffect, createSignal } from "solid-js";
 import type { Cat } from "../../../../tina/__generated__/types";
-import { InputField } from "../../InputField";
-import { SelectInput } from "../../SelectInput";
+import {
+  AgeGroups,
+  getCatAgeGroup,
+  getCatStringTags,
+} from "../../../utils/catUtils";
+import { CatCard } from "../../pages/Cat/CatCard";
+import { InputField } from "../../ui/InputField";
+import { SelectInput } from "../../ui/SelectInput";
 
 // query params
 const GENERAL_QP = "filtro";

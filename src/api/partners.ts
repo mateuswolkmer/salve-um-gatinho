@@ -7,7 +7,7 @@ export const loadPartnersConnection = async () =>
 export const getAllPartners = async (
   connection?: Awaited<ReturnType<typeof loadPartnersConnection>>
 ): Promise<Partner[]> => {
-  let partnersConnection = connection ?? (await loadPartnersConnection());
+  const partnersConnection = connection ?? (await loadPartnersConnection());
 
   const allPartners = partnersConnection.data.partnerConnection.edges?.map(
     (response) => ({

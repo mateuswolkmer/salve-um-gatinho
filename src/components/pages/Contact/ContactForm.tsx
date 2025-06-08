@@ -1,13 +1,13 @@
 import {
   type Component,
-  createResource,
-  createSignal,
   Show,
   Suspense,
+  createResource,
+  createSignal,
 } from "solid-js";
-import { Button } from "../../Button";
 import { twMerge } from "tailwind-merge";
-import { InputField } from "../../InputField";
+import { Button } from "../../ui/Button";
+import { InputField } from "../../ui/InputField";
 
 const MAX_NAME_LENGTH = 100;
 const MAX_EMAIL_LENGTH = 100;

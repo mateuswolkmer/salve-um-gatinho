@@ -7,7 +7,8 @@ export const loadTestimoniesConnection = async () =>
 export const getAllTestimonies = async (
   connection?: Awaited<ReturnType<typeof loadTestimoniesConnection>>
 ): Promise<Testimony[]> => {
-  let testimoniesConnection = connection ?? (await loadTestimoniesConnection());
+  const testimoniesConnection =
+    connection ?? (await loadTestimoniesConnection());
 
   const allTestimonies =
     testimoniesConnection.data.testimonyConnection.edges?.map((response) => ({
