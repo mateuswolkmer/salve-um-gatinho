@@ -4,8 +4,9 @@
 @plugin "tailwindcss-intersect";
 
 @theme {
-  --font-display: "Staatliches", sans-serif;
-  --font-body: "Outfit Variable", sans-serif;
+  --font-display: "Caprasimo", serif;
+  --font-body: "Barlow", sans-serif;
+  --font-handwritten: "Gaegu", sans-serif;
 
   --color-dark: #1a1919;
   --color-light: #fffffe;
