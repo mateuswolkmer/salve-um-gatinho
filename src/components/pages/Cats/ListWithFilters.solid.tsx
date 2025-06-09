@@ -5,7 +5,7 @@ import {
   getCatAgeGroup,
   getCatStringTags,
 } from "../../../utils/catUtils";
-import { CatCard } from "../../pages/Cat/CatCard.solid';
+import { CatCard } from "../../pages/Cat/CatCard.solid";
 import { InputField } from "../../ui/InputField.solid";
 import { SelectInput } from "../../ui/SelectInput.solid";
 
