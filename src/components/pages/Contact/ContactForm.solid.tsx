@@ -6,8 +6,8 @@ import {
   createSignal,
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Button } from "../../ui/Button";
-import { InputField } from "../../ui/InputField";
+import { Button } from "../../ui/Button.solid";
+import { InputField } from "../../ui/InputField.solid";
 
 const MAX_NAME_LENGTH = 100;
 const MAX_EMAIL_LENGTH = 100;

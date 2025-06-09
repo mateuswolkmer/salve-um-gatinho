@@ -1,7 +1,7 @@
 import { type Component, createSignal, onMount } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Button } from "../../ui/Button";
-import { FormWithSteps } from "./FormWithSteps";
+import { Button } from "../../ui/Button.solid";
+import { FormWithSteps } from "./FormWithSteps.solid";
 
 export type FormType = "adotar" | "apadrinhar" | "";
 

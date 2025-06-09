@@ -1,7 +1,7 @@
 import { type Component, createEffect } from "solid-js";
 import type { Cat } from "../../../../tina/__generated__/types";
-import { CatCard } from "../../pages/Cat/CatCard";
-import { Button, ButtonLink } from "../../ui/Button";
+import { CatCard } from "../../pages/Cat/CatCard.solid";
+import { Button, ButtonLink } from "../../ui/Button.solid";
 
 export type CatsListProps = {
   cats?: Cat[];

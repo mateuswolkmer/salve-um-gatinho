@@ -1,6 +1,6 @@
-import reactJs from "@astrojs/react";
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import solidJs from "@astrojs/solid-js";
+import solid from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
@@ -13,7 +13,15 @@ export default defineConfig({
   site: "https://salveumgatinho.org/",
   // output: "server",
   adapter: vercel(),
-  integrations: [solidJs(), reactJs(), sitemap()],
+  integrations: [
+    solid({
+      include: "**/*.solid.tsx",
+    }),
+    react({
+      include: "**/*.react.tsx",
+    }),
+    sitemap(),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

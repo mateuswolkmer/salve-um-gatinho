@@ -9,7 +9,7 @@ import {
 } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import type { Testimony } from "../../../tina/__generated__/types";
-import { Button } from "../ui/Button";
+import { Button } from "../ui/Button.solid";
 
 export type TestimoniesCarousel = {
   testimonies: Testimony[];

@@ -1,8 +1,8 @@
 import type { Component } from "solid-js";
 import { Show, Suspense, createResource, createSignal } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Button } from "../../ui/Button";
-import { InputField } from "../../ui/InputField";
+import { Button } from "../../ui/Button.solid";
+import { InputField } from "../../ui/InputField.solid";
 
 const postSubscribeData = async (
   formData: FormData

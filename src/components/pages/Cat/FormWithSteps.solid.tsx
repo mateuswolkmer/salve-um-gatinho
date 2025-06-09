@@ -1,7 +1,7 @@
 import { type Component, Show, createSignal } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { Button } from "../../ui/Button";
-import type { FormType } from "./AdoptPatronizeForm";
+import { Button } from "../../ui/Button.solid";
+import type { FormType } from "./AdoptPatronizeForm.solid";
 
 export type FormWithStepsProps = {
   type: FormType;
@@ -70,7 +70,7 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
           <Show when={props.type === "adotar"}>Adotar</Show>
           <Show when={props.type === "apadrinhar"}>Apadrinhar</Show>
         </h2>
-        <button onClick={props.onClose}>
+        <button onClick={props.onClose} type="button">
           <i class="ph-x-circle ph-duotone text-3xl" />
         </button>
       </div>

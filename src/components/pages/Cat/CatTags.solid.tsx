@@ -5,7 +5,7 @@ import {
   getCatAppearenceTags,
   getCatGeneralTags,
 } from "../../../utils/catUtils";
-import { Tag } from "../../ui/Tag";
+import { Tag } from "../../ui/Tag.solid";
 
 export type CatTagsProps = JSX.HTMLAttributes<HTMLDivElement> & {
   cat?: Cat;

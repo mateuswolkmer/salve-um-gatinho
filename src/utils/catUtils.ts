@@ -4,7 +4,7 @@ import {
   differenceInYears,
 } from "date-fns";
 import type { Cat } from "../../tina/__generated__/types";
-import type { TagProps } from "../components/ui/Tag";
+import type { TagProps } from "../components/ui/Tag.solid";
 
 const today = new Date();
 

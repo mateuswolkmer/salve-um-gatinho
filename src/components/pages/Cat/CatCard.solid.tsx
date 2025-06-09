@@ -3,7 +3,7 @@ import type { Component, JSX } from "solid-js";
 import { Show, createSignal } from "solid-js";
 import { twMerge } from "tailwind-merge";
 import type { Cat } from "../../../../tina/__generated__/types";
-import { CatTags } from "../Cat/CatTags";
+import { CatTags } from "../Cat/CatTags.solid";
 
 const catCardVariants = cva(
   "transition-all hover:scale-[102%] hover:shadow-lg hover:rotate-1 active:scale-[98%] active:shadow-none active:bg-gray-200 bg-white border-2 border-b-4 active:border-b-2 border-black rounded-xl flex focus:outline-2 focus:outline-offset-2 focus:outline-dashed focus:outline-pink active:outline-none overflow-hidden font-body",

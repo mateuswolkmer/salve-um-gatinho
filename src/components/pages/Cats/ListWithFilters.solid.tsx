@@ -5,9 +5,9 @@ import {
   getCatAgeGroup,
   getCatStringTags,
 } from "../../../utils/catUtils";
-import { CatCard } from "../../pages/Cat/CatCard";
-import { InputField } from "../../ui/InputField";
-import { SelectInput } from "../../ui/SelectInput";
+import { CatCard } from "../../pages/Cat/CatCard.solid';
+import { InputField } from "../../ui/InputField.solid";
+import { SelectInput } from "../../ui/SelectInput.solid";
 
 // query params
 const GENERAL_QP = "filtro";
