@@ -1,9 +1,9 @@
 ---
 slug: guida
 createdDate: 2025-02-05T20:42:46.286Z
-updatedDate: 2025-06-07T20:01:31.231Z
+updatedDate: 2025-06-16T18:44:59.889Z
 name: Guida
-image: /src/assets/WhatsApp Image 2025-02-05 at 00.24.33.jpeg
+image: /src/assets/WhatsApp Image 2025-06-10 at 17.33.19.jpeg
 gender: female
 color: Tigrado
 birthDate: 2024-09-11T03:00:00.000Z
@@ -14,6 +14,7 @@ social: '3'
 playful: '3'
 loving: '2'
 ---
+
 
 
 Eu, minha mãe e meus irmãos fomos resgatados de dentro de um tonel no galpão de uma empresa. Pensa na sorte que tivemos! Mas ainda falta ser adotada para a minha felicidade estar completa! 
