@@ -1,8 +1,9 @@
 ---
 slug: alisso
 createdDate: 2025-02-13T22:47:51.552Z
-updatedDate: 2025-06-16T18:43:27.601Z
+updatedDate: 2025-06-20T01:07:45.359Z
 name: Álisso
+adopted: true
 image: /src/assets/6ba0df83-fb6a-47ee-97c7-b87a68361219.jpg
 gender: male
 color: Tigrado
@@ -15,6 +16,7 @@ social: '2'
 playful: '2'
 loving: '2'
 ---
+
 
 
 
