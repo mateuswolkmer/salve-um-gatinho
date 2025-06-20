@@ -56,8 +56,6 @@ export const getAllCats = async (
   }
 };
 
-const AMOUNT_OF_NEW_CATS = 2;
-
 export const getNewCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
@@ -65,28 +63,7 @@ export const getNewCats = async (
 
   const newCats = allCats.filter(isCatNew);
 
-  const cats =
-    newCats.length <= AMOUNT_OF_NEW_CATS
-      ? [...newCats]
-      : [...newCats]
-          .sort(() => 0.5 - Math.random())
-          .slice(0, AMOUNT_OF_NEW_CATS);
-
-  // failsafe
-  let iterations = 0;
-  while (cats.length < AMOUNT_OF_NEW_CATS) {
-    const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
-    if (!cats.includes(randomCat)) {
-      cats.push(randomCat);
-    }
-
-    iterations++;
-    if (iterations > 20) {
-      break;
-    }
-  }
-
-  return cats;
+  return newCats;
 };
 
 // just the ones that are not new
@@ -94,7 +71,10 @@ export const getOldCats = async (
   connection?: Awaited<ReturnType<typeof loadCatConnection>>
 ): Promise<Cat[]> => {
   const allCats = await getAllCats(connection);
-  return [...allCats].splice(AMOUNT_OF_NEW_CATS, allCats.length);
+
+  const oldCats = allCats.filter((cat) => !isCatNew(cat));
+
+  return oldCats;
 };
 
 const AMOUNT_OF_RANDOM_CATS = 5;
