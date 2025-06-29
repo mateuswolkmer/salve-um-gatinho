@@ -23,7 +23,7 @@
     "@tailwindcss/vite": "^4.1.8",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
-    "@zuzu.blue/elo-chat": "^0.1.4",
+    "@zuzu.blue/elo-chat": "^0.1.5",
     "astro": "5.0.3",
     "astro-opengraph-images": "^1.11.7",
     "astro-seo": "^0.8.4",

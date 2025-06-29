@@ -80,7 +80,9 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
     ></script>
   </head>
   <body class="font-body bg-page-background">
-      <EloWidget googleApiKey={import.meta.env.GOOGLE_API_KEY} client:visible />
+      <div class="relative z-50">
+        <EloWidget googleApiKey={import.meta.env.CLIENT_GOOGLE_API_KEY} client:visible />
+      </div>
     <Header />
     <main
       class="min-h-[calc(100vh-theme('height.header')-theme('height.footer'))] overflow-x-hidden"
