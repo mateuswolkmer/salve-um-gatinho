@@ -12,6 +12,9 @@ import HeroImage from "../assets/Outras/hero.jpeg";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
+import { EloWidget } from '@zuzu.blue/elo-chat'
+import '@zuzu.blue/elo-chat/styles'
+
 interface Props {
   title?: string;
   og?: {
@@ -44,7 +47,7 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{pageTitle}</title>
-    
+
     <SEO
       openGraph={{
         basic: {
@@ -77,6 +80,7 @@ const pageTitle = `Salve ${title ? `- ${title}` : "um Gatinho"}`;
     ></script>
   </head>
   <body class="font-body bg-page-background">
+      <EloWidget googleApiKey={import.meta.env.GOOGLE_API_KEY} client:visible />
     <Header />
     <main
       class="min-h-[calc(100vh-theme('height.header')-theme('height.footer'))] overflow-x-hidden"
