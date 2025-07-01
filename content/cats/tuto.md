@@ -1,8 +1,9 @@
 ---
 slug: tuto
 createdDate: 2025-02-05T00:27:27.442Z
-updatedDate: 2025-06-16T18:46:56.616Z
+updatedDate: 2025-07-01T17:22:04.168Z
 name: Tuto
+adopted: true
 image: /src/assets/10d888db-708a-4772-8a77-fdedf7e95681.jpg
 gender: male
 color: Preto
@@ -15,6 +16,7 @@ social: '3'
 playful: '2'
 loving: '3'
 ---
+
 
 
 
