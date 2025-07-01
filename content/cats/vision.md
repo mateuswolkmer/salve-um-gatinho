@@ -1,8 +1,9 @@
 ---
 slug: vision
 createdDate: 2025-06-16T18:36:09.857Z
-updatedDate: 2025-06-19T20:40:06.109Z
+updatedDate: 2025-07-01T17:22:26.388Z
 name: Vision
+adopted: true
 image: /src/assets/WhatsApp Image 2025-06-10 at 15.49.13.jpeg
 gender: male
 color: Tigrado
@@ -15,6 +16,7 @@ social: '2'
 playful: '3'
 loving: '3'
 ---
+
 
 
 Sou o Vision!  
