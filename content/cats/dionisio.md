@@ -1,8 +1,9 @@
 ---
 slug: dionisio
 createdDate: 2025-02-06T19:09:23.043Z
-updatedDate: 2025-06-10T18:28:16.176Z
+updatedDate: 2025-07-04T20:02:36.874Z
 name: Dionísio
+adopted: true
 image: /src/assets/WhatsApp Image 2025-06-07 at 16.16.30.jpeg
 gender: male
 color: Frajola
@@ -13,6 +14,7 @@ social: '2'
 playful: '3'
 loving: '2'
 ---
+
 
 
 Minha história começou no bairro Várzea, onde nasci e fui crescendo até que me acolheram no Salve um Gatinho! 
