@@ -4,13 +4,30 @@ import PageSection from "../../layout/PageSection.astro";
 import Circle from "../../patterns/Circle.astro";
 import Paw from "../../patterns/Paw.astro";
 import Triangle from "../../patterns/Triangle.astro";
+import { getAllCats } from "../../../api/cats";
 
-// TODO pull from database
+// Load all cats data (without filtering unavailable ones)
+const allCats = await getAllCats(undefined, { filterUnavailable: false });
+
+// Calculate dynamic statistics
+const totalCats = allCats.length;
+const adoptedCats = allCats.filter(cat => cat.adopted === true).length;
+const passedCats = allCats.filter(cat => cat.passed === true).length;
+const availableCats = allCats.filter(cat => !cat.adopted && !cat.passed && (!cat.condition || cat.condition === '')).length;
+
+// Cats in treatment: not adopted, not passed, but have a condition that's not empty
+const catsInTreatment = allCats.filter(cat => 
+  !cat.adopted && 
+  !cat.passed && 
+  cat.condition && 
+  cat.condition !== ''
+).length;
+
 const data = {
-  helped: 1318,
-  adopted: 1200,
-  prepared: 64,
-  available: 34,
+  helped: 1300 + totalCats, // 1300 + all cats registered
+  adopted: 1200 + adoptedCats, // 1200 + cats marked as adopted
+  prepared: catsInTreatment, // cats in treatment/socialization
+  available: availableCats, // cats available for adoption
 };
 ---
 
