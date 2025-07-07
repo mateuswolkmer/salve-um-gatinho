@@ -134,6 +134,13 @@ export const ListWithFilters: Component<ListWithFiltersProps> = ({
           </SelectInput>
         </div>
       </div>
+      <div class="w-full max-w-5xl m-auto mb-4">
+        <p class="text-sm text-gray-600 font-medium">
+          {filteredCats().length === 1 
+            ? `Mostrando 1 gato` 
+            : `Mostrando ${filteredCats().length} gatos`}
+        </p>
+      </div>
       <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {filteredCats().map((cat) => (
           <CatCard cat={cat} />
