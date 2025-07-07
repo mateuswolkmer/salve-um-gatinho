@@ -99,7 +99,7 @@ export const ListWithFilters: Component<ListWithFiltersProps> = ({
   return (
     <>
       <div class="flex flex-col gap-2 w-full max-w-5xl m-auto">
-        <div class="mb-4 flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col sm:flex-row gap-4">
           <InputField
             type="text"
             placeholder="Procure (nome, tag, fiv, felv)..."
@@ -133,11 +133,9 @@ export const ListWithFilters: Component<ListWithFiltersProps> = ({
             ))}
           </SelectInput>
         </div>
-      </div>
-      <div class="w-full max-w-5xl m-auto mb-2">
-        <p class="text-sm text-gray-600 font-medium">
-          {filteredCats().length === 1 
-            ? `Mostrando 1 gato` 
+        <p class="text-dark/50 font-medium mb-4">
+          {filteredCats().length === 1
+            ? `Mostrando 1 gato`
             : `Mostrando ${filteredCats().length} gatos`}
         </p>
       </div>
