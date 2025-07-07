@@ -5,8 +5,8 @@ import { getNewCats } from "../../../api/cats";
 import HeroImage from "../../../assets/Outras/hero.jpeg";
 import HeroCutImage from "../../../assets/Outras/hero_cut.png";
 import PageSection from "../../layout/PageSection.astro";
-import { CatCard } from "../../pages/Cat/CatCard";
-import { ButtonLink } from "../../ui/Button";
+import { CatCard } from "../../pages/Cat/CatCard.solid";
+import { ButtonLink } from "../../ui/Button.solid";
 
 const newCats = await getNewCats();
 ---
@@ -40,7 +40,7 @@ const newCats = await getNewCats();
     >
       <h1
         data-og="title"
-        class="text-7xl sm:text-8xl xl:text-9xl max-w-160 xl:max-w-220"
+        class="text-7xl sm:text-8xl xl:text-9xl max-w-280 xl:max-w-280 text-shadow-[3px_3px_0_var(--color-pink)] uppercase"
       >
         Eles merecem uma chance de te fazer feliz
       </h1>

@@ -41,7 +41,7 @@
   }
 }
 
-@layer base {
+/* @layer base {
   h1,
   h2,
   h3,
@@ -55,6 +55,15 @@
   p,
   span {
     font-size: var(--font-size-xl);
+  }
+} */
+@layer base {
+  * {
+    @apply font-medium;
+  }
+  h1,
+  h2 {
+    @apply font-bold;
   }
 }
 

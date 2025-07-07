@@ -67,8 +67,8 @@ export const FormWithSteps: Component<FormWithStepsProps> = (props) => {
               : "text-5xl sm:text-6xl px-14 -mt-4 -ml-2 -rotate-1"
           )}
         >
-          <Show when={props.type === "adotar"}>Adotar</Show>
-          <Show when={props.type === "apadrinhar"}>Apadrinhar</Show>
+          <Show when={props.type === "adotar"}>ADOTAR</Show>
+          <Show when={props.type === "apadrinhar"}>APADRINHAR</Show>
         </h2>
         <button onClick={props.onClose} type="button">
           <i class="ph-x-circle ph-duotone text-3xl" />

@@ -17,7 +17,7 @@ import Layout from "../layouts/Layout.astro";
   og={{ description: "Conheça mais sobre o nosso trabalho" }}
 >
   <PageSection
-    class="prose prose-headings:font-normal prose-headings:text-center prose-a:font-body prose-a:font-bold prose-figcaption:text-center prose-figcaption:text-sm prose-p:text-pretty prose-xl m-auto overflow-visible"
+    class="prose prose-headings:font-bold prose-headings:text-center prose-a:font-body prose-a:font-bold prose-figcaption:text-center prose-figcaption:text-sm prose-p:text-pretty prose-xl m-auto overflow-visible"
   >
     <div class="relative">
       <Image
@@ -43,12 +43,12 @@ import Layout from "../layouts/Layout.astro";
           class="bg-pink flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
         >
           <span
-            class="absolute -top-20 -right-10 text-pink text-[420px] font-display leading-none rotate-12 pointer-events-none"
+            class="absolute -top-20 -right-10 text-light/50 text-[420px] font-display leading-none rotate-12 pointer-events-none"
           >
             ?
           </span>
           <dt class="m-0 p-0 flex gap-2 items-center">
-            <h3 class="m-0">O que fazemos</h3>
+            <h3 class="!m-0">O que fazemos</h3>
           </dt>
           <dd class="m-0 p-0 z-10">
             Resgatamos, acolhemos, encaminhamos para veterinário, tratamos,
@@ -61,12 +61,12 @@ import Layout from "../layouts/Layout.astro";
           class="bg-blue flex flex-col gap-6 items-center p-8 rounded-xl border-2 border-black relative overflow-hidden"
         >
           <span
-            class="absolute -top-20 right-3 text-blue text-[420px] font-display leading-none rotate-12 pointer-events-none"
+            class="absolute -top-20 right-3 text-light/50 text-[420px] font-display leading-none rotate-12 pointer-events-none"
           >
             !
           </span>
           <dt class="m-0 p-0 flex gap-2 items-center">
-            <h3 class="m-0">Como fazemos</h3>
+            <h3 class="!m-0">Como fazemos</h3>
           </dt>
           <dd class="m-0 p-0 z-10">
             Com a ajuda da comunidade, que é essencial nesse processo! Qualquer

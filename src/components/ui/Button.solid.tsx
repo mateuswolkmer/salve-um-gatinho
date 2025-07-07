@@ -3,13 +3,13 @@ import { type Component, type JSX, createSignal } from "solid-js";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "transition-all not-disabled:hover:scale-105 not-disabled:hover:shadow-lg not-disabled:hover:-rotate-1 not-disabled:active:scale-95 not-disabled:active:shadow-none border-2 not-disabled:border-b-4 not-disabled:active:border-b-2 disabled:hover:animate-no border-black rounded-xl flex gap-2 group focus:outline-2 focus:outline-offset-2 focus:outline-dashed focus:outline-pink not-disabled:active:outline-none disabled:bg-gray-300",
+  "transition-all not-disabled:hover:scale-105 not-disabled:hover:shadow-lg not-disabled:hover:-rotate-1 not-disabled:active:scale-95 not-disabled:active:shadow-none border-2 not-disabled:border-b-4 not-disabled:active:border-b-2 disabled:hover:animate-no border-black rounded-xl flex gap-2 group focus:outline-2 focus:outline-offset-2 focus:outline-dashed focus:outline-pink not-disabled:active:outline-none disabled:bg-gray-300 uppercase font-bold",
   {
     variants: {
       variant: {
         cta: "text-5xl sm:text-6xl bg-pink hover:bg-pink active:bg-pink py-4 sm:py-5 px-16 sm:px-20",
         nav: "text-3xl bg-blue hover:bg-blue active:bg-blue py-2 px-5",
-        form: "text-4xl bg-yellow hover:bg-yellow active:bg-yellow py-2 px-6",
+        form: "text-3xl bg-yellow hover:bg-yellow active:bg-yellow py-2 px-6",
         "form-mini":
           "text-lg bg-yellow hover:bg-yellow active:bg-yellow py-1 px-3 items-center justify-center",
         icon: "bg-yellow hover:bg-yellow active:bg-yellow items-center justify-center rounded-full size-12 p-2",
@@ -68,9 +68,7 @@ export const Button: Component<ButtonProps> = (props) => {
       class={twMerge(buttonVariants({ variant }), props.class)}
     >
       {variant === "nav" && navDirection === "backward" && (
-        <span class="text-3xl transition-transform group-hover:scale-125">
-          {"<"}
-        </span>
+        <i class="ph-duotone ph-caret-left text-3xl transition-transform group-hover:scale-125" />
       )}
       {props.children}
       {hasCopyiedToClipboard() ? (
@@ -79,9 +77,7 @@ export const Button: Component<ButtonProps> = (props) => {
         ""
       )}
       {variant === "nav" && navDirection === "forward" && (
-        <span class="text-3xl transition-transform group-hover:scale-125">
-          {">"}
-        </span>
+        <i class="ph-duotone ph-caret-right text-3xl transition-transform group-hover:scale-125" />
       )}
     </button>
   );

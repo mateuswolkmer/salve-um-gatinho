@@ -19,25 +19,25 @@ const PIX_CODE =
     class="p-8 bg-blue flex flex-col lg:flex-row items-start justify-between gap-2 rounded-xl min-h-footer border-black border-2"
     transition:name="footer"
   >
-    <div class="hidden lg:block w-full md:w-72">
-      <h1 class="text-4xl lg:text-7xl">
+    <div class="hidden lg:block w-full md:w-[400px]">
+      <h1 class="text-4xl lg:text-7xl uppercase">
         Salve-se com um gatinho
       </h1>
     </div>
-    <div class="flex-1 flex flex-wrap gap-12">
+    <div class="flex flex-wrap gap-12">
       <div class="flex flex-col items-start gap-1">
         <h4 class="mb-2 text-lg">Conheça</h4>
-        <Link class="font-body text-xl after:h-0.5" href="/sobre">Sobre</Link>
-        <Link class="font-body text-xl after:h-0.5" href="/faq">FAQ</Link>
-        <!-- <Link class="font-body text-xl after:h-0.5" href="/blog">Blog 🚧</Link> -->
+        <Link class="font-body text-xl" href="/sobre">Sobre</Link>
+        <Link class="font-body text-xl" href="/faq">FAQ</Link>
+        <!-- <Link class="font-body text-xl" href="/blog">Blog 🚧</Link> -->
       </div>
       <div class="flex flex-col items-start gap-1">
         <h4 class="mb-2 text-lg">Ajude</h4>
-        <Link class="font-body text-xl after:h-0.5" href="/adotar">Adote</Link>
-        <Link class="font-body text-xl after:h-0.5" href="/apadrinhar"
+        <Link class="font-body text-xl" href="/adotar">Adote</Link>
+        <Link class="font-body text-xl" href="/apadrinhar"
           >Apadrinhe</Link
         >
-        <Link class="font-body text-xl after:h-0.5 mt-2" href="/ajudar"
+        <Link class="font-body text-xl mt-2" href="/ajudar"
           >Ver mais</Link
         >
       </div>
@@ -47,6 +47,19 @@ const PIX_CODE =
         <p class="text-sm">Receba novidades por email</p>
         <SubscribeForm client:visible />
       </div> -->
+      <div class="flex flex-col items-start gap-1">
+        <h4 class="mb-2 text-lg">Me leva 🥺</h4>
+        {
+          randomCats?.map((cat) => (
+            <Link class="font-body text-xl" href={`/${cat.slug}`}>
+              {cat.name}
+            </Link>
+          ))
+        }
+        <Link class="mt-2 font-body text-xl" href="/adotar"
+          >Ver mais</Link
+        >
+      </div>
       <div class="flex flex-col items-start gap-1">
         <h4 class="mb-2 text-lg">Doe</h4>
         <Image
@@ -59,24 +72,11 @@ const PIX_CODE =
           variant="link"
           onClickToClipboard={PIX_CODE}
           client:only="solid-js"
-          class="self-center"
+          class="self-center font-bold font-body"
           data-umami-event="Pix code copy"
         >
           Copiar chave PIX
         </Button>
-      </div>
-      <div class="flex flex-col items-start gap-1">
-        <h4 class="mb-2 text-lg">Me leva 🥺</h4>
-        {
-          randomCats?.map((cat) => (
-            <Link class="font-body text-xl after:h-0.5" href={`/${cat.slug}`}>
-              {cat.name}
-            </Link>
-          ))
-        }
-        <Link class="mt-2 font-body text-xl after:h-0.5" href="/adotar"
-          >Ver mais</Link
-        >
       </div>
     </div>
   </div>
