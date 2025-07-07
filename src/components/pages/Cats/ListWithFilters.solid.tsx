@@ -134,7 +134,7 @@ export const ListWithFilters: Component<ListWithFiltersProps> = ({
           </SelectInput>
         </div>
       </div>
-      <div class="w-full max-w-5xl m-auto mb-4">
+      <div class="w-full max-w-5xl m-auto mb-2">
         <p class="text-sm text-gray-600 font-medium">
           {filteredCats().length === 1 
             ? `Mostrando 1 gato` 
