@@ -1,54 +1,96 @@
-# Astro Starter Kit: Basics 
+# Salve um Gatinho
 
-```sh
-npm create astro@latest -- --template basics
+Salve um Gatinho is a volunteer-driven web platform for the rescue, care, and responsible adoption of vulnerable cats in Santa Cruz do Sul, RS, Brazil. The project connects the community to adoption, sponsorship, and donation opportunities, and shares stories of rescued cats.
+
+## Features
+
+- Browse available cats for adoption, with detailed profiles and stories
+- Sponsor ("apadrinhar") a cat with monthly donations
+- Learn how to help through donations, volunteering, or spreading the word
+- Read testimonials from adopters
+- FAQ and educational content about rescue and adoption
+- Partner and supporter highlights
+- Contact and newsletter subscription forms
+
+## Tech Stack
+
+- [Astro](https://astro.build/) (main framework)
+- [SolidJS](https://www.solidjs.com/) and [React](https://react.dev/) for interactive components
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [TinaCMS](https://tina.io/) for content management
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vercel](https://vercel.com/) for deployment
+- [Resend](https://resend.com/) for email handling
+- [Bun](https://bun.sh/) for package management and scripts
+
+## Content Management
+
+Content is managed by [TinaCMS](https://tina.io/). You can access the content management interface at [`/admin`](http://localhost:4321/admin) when running the project locally.
+
+## Getting Started
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-org/salve-um-gatinho.git
+   cd salve-um-gatinho
+   ```
+2. **Install dependencies:**
+   ```sh
+   bun install
+   ```
+3. **Set up environment variables:**
+   Create a `.env` file in the root with the following (see below for details):
+   ```env
+   RESEND_API_KEY=your_resend_api_key
+   RESEND_AUDIENCE_ID=your_resend_audience_id
+   PUBLIC_TINA_CLIENT_ID=your_tina_client_id
+   TINA_TOKEN=your_tina_token
+   TINA_SEARCH_TOKEN=your_tina_search_token
+   ```
+4. **Run the development server:**
+
+   ```sh
+   bun run dev
+   ```
+
+   The site will be available at [http://localhost:4321](http://localhost:4321).
+
+   You can access the TinaCMS admin at [http://localhost:4321/admin](http://localhost:4321/admin).
+
+5. **Build for production:**
+   ```sh
+   bun run build
+   ```
+
+## Environment Variables
+
+- `RESEND_API_KEY`: API key for Resend (email sending)
+- `RESEND_AUDIENCE_ID`: Audience ID for Resend (newsletter)
+- `PUBLIC_TINA_CLIENT_ID`: TinaCMS client ID
+- `TINA_TOKEN`: TinaCMS token
+- `TINA_SEARCH_TOKEN`: TinaCMS search indexer token
+
+## Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
+├── public/           # Static assets (images, icons, etc.)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/   # UI and page components (Astro, Solid, React)
+│   ├── layouts/      # Layout components
+│   ├── pages/        # Astro pages and API routes
+│   ├── api/          # API endpoints (contact, subscribe)
+│   └── utils/        # Utility functions
+├── content/          # Markdown content (cats, partners, faq, etc.)
+├── tina/             # TinaCMS configuration
+├── package.json
+└── astro.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Contributing
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Pull requests and issues are welcome! Please open an issue to discuss major changes.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## License
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+(Add your license here, e.g., MIT, if applicable.)
