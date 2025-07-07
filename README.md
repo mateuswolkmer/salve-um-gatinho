@@ -1,5 +1,12 @@
 # Salve um Gatinho
 
+<div align="center">
+  <img src="https://img.shields.io/badge/Made%20with-Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white" alt="Made with Astro"/>
+  <img src="https://img.shields.io/badge/Content-TinaCMS-00A3E0?style=for-the-badge&logo=tina&logoColor=white" alt="TinaCMS"/>
+  <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
+  <img src="https://img.shields.io/badge/Package%20Manager-Bun-000000?style=for-the-badge&logo=bun&logoColor=white" alt="Bun"/>
+</div>
+
 Salve um Gatinho is a volunteer-driven web platform for the rescue, care, and responsible adoption of vulnerable cats in Santa Cruz do Sul, RS, Brazil. The project connects the community to adoption, sponsorship, and donation opportunities, and shares stories of rescued cats.
 
 ## Features
