@@ -1,16 +1,17 @@
 ---
+import Meowral from "../components/interactive/Meowral.react";
 import Actions from "../components/pages/Home/Actions.astro";
+// import AntiHero from "../components/pages/Home/AntiHero.astro";
+import Cats from "../components/pages/Home/Cats.astro";
+// import Team from "../components/pages/Home/Team.astro";
+import Contact from "../components/pages/Home/Contact.astro";
 import Data from "../components/pages/Home/Data.astro";
 import Emergency from "../components/pages/Home/Emergency.astro";
 import Hero from "../components/pages/Home/Hero.astro";
 import Location from "../components/pages/Home/Location.astro";
 import Partners from "../components/pages/Home/Partners.astro";
 import Story from "../components/pages/Home/Story.astro";
-import Testimonies from "../components/pages/Home/Testimonies.astro";
-// import Team from "../components/pages/Home/Team.astro";
-import Contact from "../components/pages/Home/Contact.astro";
-// import AntiHero from "../components/pages/Home/AntiHero.astro";
-import Cats from "../components/pages/Home/Cats.astro";
+// import Testimonies from "../components/pages/Home/Testimonies.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -18,14 +19,12 @@ import Layout from "../layouts/Layout.astro";
 	<Hero />
 	<div class="relative">
 		<div class="absolute top-0 w-full h-28 bg-linear-to-b from-page-background z-10" />
-		<!-- <TopDiagonal /> -->
 	</div>
 	<Actions class='bg-pattern-boxes-blue' />
 	<Location class='bg-pattern-boxes-blue' />
 	<Emergency class='bg-pattern-boxes-blue' />
 	<div class="relative -top-28">
-		<div class="absolute top-0 w-full h-28 bg-linear-to-t from-page-background z-10" />
-		<!-- <BottomDiagonal /> -->
+		<div class="absolute top-0 w-full h-28 bg-linear-to-t from-page-background z-10" />		
 	</div>
 	<Story />
 	<Cats />
@@ -33,7 +32,5 @@ import Layout from "../layouts/Layout.astro";
 	<!-- TODO solve Testimonies perf bottleneck -->
 	<!-- <Testimonies /> -->
 	<Partners />
-	<!-- <Team /> -->
 	<Contact />
-	<!-- <AntiHero /> -->
 </Layout>

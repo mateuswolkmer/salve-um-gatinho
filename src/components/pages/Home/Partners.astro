@@ -1,11 +1,11 @@
 ---
 import { getAllPartners } from '../../../api/partners';
-import PageSection from '../../PageSection.astro';
+import PageSection from '../../layout/PageSection.astro';
 
 const partners = await getAllPartners();
 ---
 <PageSection title="Parceiros">
-  <div class="relative max-w-5xl w-full overflow-hidden bg-yellow-300 border-2 border-black rounded-xl p-6">
+  <div class="relative max-w-5xl w-full overflow-hidden bg-yellow border-2 border-black rounded-xl p-6">
     <div class="flex whitespace-nowrap items-center justify-center">
       {Array.from({ length: 3 }).map((_, i) => (
         <div class="shrink-0 flex gap-24 whitespace-nowrap items-center animate-scroll-item px-12" style={`--duration: ${partners.length * 3}s`}>

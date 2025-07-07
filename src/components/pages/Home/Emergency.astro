@@ -1,13 +1,13 @@
 ---
-import { Highlight } from "../../Highlight";
-import PageSection from "../../PageSection.astro";
-import Paws from "../../../assets/Outras/background/paws.svg";
 import { Image } from "astro:assets";
+import Paws from "../../../assets/Outras/background/paws.svg";
+import PageSection from "../../layout/PageSection.astro";
+import { Highlight } from "../../ui/Highlight.solid";
 ---
 
 <PageSection class={Astro.props.class}>
   <div
-    class="relative flex flex-col gap-10 max-w-5xl w-full bg-pink-100 border-2 border-black rounded-xl p-8 md:p-20 text-center items-center z-10 overflow-hidden intersect:motion-preset-slide-up intersect-once"
+    class="relative flex flex-col gap-10 max-w-5xl w-full bg-pink border-2 border-black rounded-xl p-8 md:p-20 text-center items-center z-10 overflow-hidden intersect:motion-preset-slide-up intersect-once"
   >
     <Image
       src={Paws}

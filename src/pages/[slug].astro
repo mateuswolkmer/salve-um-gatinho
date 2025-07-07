@@ -5,12 +5,12 @@ import { formatDistanceToNow, formatRelative } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import type { Cat } from '../../tina/__generated__/types';
 import { filterUnavailableCats, getAllCats } from '../api/cats';
-import { CatTags } from '../components/CatTags';
-import { CatsList } from '../components/CatsList';
-import { Highlight } from '../components/Highlight';
-import PageSection from '../components/PageSection.astro';
-import ShareLinks from '../components/ShareLinks.astro';
-import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm';
+import PageSection from '../components/layout/PageSection.astro';
+import { AdoptPatronizeForm, type FormType } from '../components/pages/Cat/AdoptPatronizeForm.solid';
+import { CatTags } from '../components/pages/Cat/CatTags.solid';
+import { CatsList } from '../components/pages/Cats/CatsList.solid';
+import ShareLinks from '../components/social/ShareLinks.astro';
+import { Highlight } from '../components/ui/Highlight.solid';
 import Layout from '../layouts/Layout.astro';
 import { getCatStringTags } from '../utils/catUtils';
 

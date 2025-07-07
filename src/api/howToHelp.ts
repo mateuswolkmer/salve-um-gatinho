@@ -7,7 +7,7 @@ export const loadHowToHelpConnection = async () =>
 export const getAllHowToHelp = async (
   connection?: Awaited<ReturnType<typeof loadHowToHelpConnection>>
 ): Promise<HowToHelp[]> => {
-  let howToHelpConnection = connection ?? (await loadHowToHelpConnection());
+  const howToHelpConnection = connection ?? (await loadHowToHelpConnection());
 
   const allHowToHelp =
     howToHelpConnection.data.howToHelpConnection.edges?.map((response) => ({

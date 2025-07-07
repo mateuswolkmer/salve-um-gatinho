@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import { getRandomCats } from "../../api/cats";
+import FacebookIcon from "../../assets/Outras/icons/facebook.svg";
+import InstagramIcon from "../../assets/Outras/icons/instagram.svg";
+import QrImage from "../../assets/Outras/qr-pix.png";
+// import { SubscribeForm } from "../pages/Contact/SubscribeForm.solid";
+import { Button, ButtonLink } from "../ui/Button.solid";
+import Link from "../ui/Link.astro";
+
+const randomCats = await getRandomCats();
+
+const PIX_CODE =
+  "00020126330014BR.GOV.BCB.PIX0111625833950685204000053039865802BR5917Candice Meinhardt6015Santa Cruz do S62070503***6304D1D7";
+---
+
+<div class="w-full flex flex-col p-4 gap-4">
+  <div
+    class="p-8 bg-blue flex flex-col lg:flex-row items-start justify-between gap-2 rounded-xl min-h-footer border-black border-2"
+    transition:name="footer"
+  >
+    <div class="hidden lg:block w-full md:w-[400px]">
+      <h1 class="text-4xl lg:text-7xl uppercase">
+        Salve-se com um gatinho
+      </h1>
+    </div>
+    <div class="flex flex-wrap gap-12">
+      <div class="flex flex-col items-start gap-1">
+        <h4 class="mb-2 text-lg">Conheça</h4>
+        <Link class="font-body text-xl" href="/sobre">Sobre</Link>
+        <Link class="font-body text-xl" href="/faq">FAQ</Link>
+        <!-- <Link class="font-body text-xl" href="/blog">Blog 🚧</Link> -->
+      </div>
+      <div class="flex flex-col items-start gap-1">
+        <h4 class="mb-2 text-lg">Ajude</h4>
+        <Link class="font-body text-xl" href="/adotar">Adote</Link>
+        <Link class="font-body text-xl" href="/apadrinhar"
+          >Apadrinhe</Link
+        >
+        <Link class="font-body text-xl mt-2" href="/ajudar"
+          >Ver mais</Link
+        >
+      </div>
+      <!-- TODO solve SubscribeForm perf bottleneck -->
+      <!-- <div class="flex flex-col items-start gap-1">
+        <h4 class="mb-2 text-lg">Inscreva-se</h4>
+        <p class="text-sm">Receba novidades por email</p>
+        <SubscribeForm client:visible />
+      </div> -->
+      <div class="flex flex-col items-start gap-1">
+        <h4 class="mb-2 text-lg">Me leva 🥺</h4>
+        {
+          randomCats?.map((cat) => (
+            <Link class="font-body text-xl" href={`/${cat.slug}`}>
+              {cat.name}
+            </Link>
+          ))
+        }
+        <Link class="mt-2 font-body text-xl" href="/adotar"
+          >Ver mais</Link
+        >
+      </div>
+      <div class="flex flex-col items-start gap-1">
+        <h4 class="mb-2 text-lg">Doe</h4>
+        <Image
+          src={QrImage}
+          alt="Qr code de doação"
+          aria-hidden
+          class="h-32 w-auto"
+        />
+        <Button
+          variant="link"
+          onClickToClipboard={PIX_CODE}
+          client:only="solid-js"
+          class="self-center font-bold font-body"
+          data-umami-event="Pix code copy"
+        >
+          Copiar chave PIX
+        </Button>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-between items-center w-full">
+    <div class="flex gap-2">
+      <ButtonLink
+        variant="icon"
+        href="https://www.facebook.com/salveumgatinho.rs"
+        target="_blank"
+      >
+        <Image
+          src={FacebookIcon}
+          alt="Ícone do Facebook"
+          aria-hidden
+          class="h-full w-auto"
+        />
+      </ButtonLink>
+      <ButtonLink
+        variant="icon"
+        href="https://www.instagram.com/salve1gatinho/"
+        target="_blank"
+      >
+        <Image
+          src={InstagramIcon}
+          alt="Ícone do Instagram"
+          aria-hidden
+          class="h-full w-auto"
+        />
+      </ButtonLink>
+    </div>
+    <span class="text-base">© Salve um Gatinho, 2025</span>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 ---
 import { getAllCats } from "../api/cats";
-import { ListWithFilters } from "../components/pages/Cats/ListWithFilters";
-import PageSection from "../components/PageSection.astro";
+import PageSection from "../components/layout/PageSection.astro";
+import { ListWithFilters } from "../components/pages/Cats/ListWithFilters.solid";
 import Layout from "../layouts/Layout.astro";
 
 const allCats = await getAllCats();
@@ -10,7 +10,7 @@ const allCats = await getAllCats();
 <Layout title="Apadrinhe">
   <PageSection class="pt-4 sm:pt-8">
     <div
-      class="prose border-2 border-black w-full max-w-5xl m-auto p-4 rounded-xl bg-yellow-100"
+      class="prose border-2 border-black w-full max-w-5xl m-auto p-4 rounded-xl bg-blue"
     >
       <h2 class="inline font-body">Apadrinhar</h2>
       <p class="inline">
