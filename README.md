@@ -100,4 +100,4 @@ Pull requests and issues are welcome! Please open an issue to discuss major chan
 
 ## License
 
-(Add your license here, e.g., MIT, if applicable.)
+MIT
