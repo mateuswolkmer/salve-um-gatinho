@@ -1,8 +1,9 @@
 ---
 slug: bob
 createdDate: 2025-06-07T18:09:48.940Z
-updatedDate: 2025-06-10T18:36:56.664Z
+updatedDate: 2025-07-17T21:25:20.223Z
 name: Bob
+adopted: true
 image: /src/assets/WhatsApp Image 2025-06-07 at 16.27.28.jpeg
 gender: male
 color: Preto
@@ -18,6 +19,7 @@ social: '3'
 playful: '3'
 loving: '3'
 ---
+
 
 
 
